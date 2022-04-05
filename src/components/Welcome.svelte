@@ -19,4 +19,12 @@
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
   }
+  button {
+    padding: 1rem;
+    background-color: transparent;
+    color: white;
+    font-family: inherit;
+    font-size: 1.5rem;
+    margin: 3px;
+  }
 </style>
