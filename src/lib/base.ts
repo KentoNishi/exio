@@ -1,6 +1,6 @@
 import recursiveAssign from 'recursive-object-assign';
 
-function destroyer(node: HTMLElement): ExioNode {
+export function destroyer(node: HTMLElement): ExioNode {
   return {
     destroy() {
       node.remove();
@@ -8,7 +8,15 @@ function destroyer(node: HTMLElement): ExioNode {
   };
 }
 
-function getMouseInfo(node: HTMLElement, event: MouseEvent) {
+export function getMouseInfo(
+  node: HTMLElement,
+  event: MouseEvent
+): {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+} {
   const { left, top, width, height } = node.getBoundingClientRect();
   const { clientX, clientY } = event;
   const [x, y] = [clientX - left, clientY - top];
@@ -20,18 +28,18 @@ function getMouseInfo(node: HTMLElement, event: MouseEvent) {
   };
 }
 
-function applyStyle(
+export function applyStyle(
   node: HTMLElement,
   style: Partial<CSSStyleDeclaration>,
   skipIfSet = false
-) {
+): void {
   for (const key in style) {
     if (node.style[key] && skipIfSet) continue;
     node.style[key] = style[key];
   }
 }
 
-const defaultGlassOptions = {
+export const defaultGlassOptions = {
   clickable: true,
   disabled: false,
   borderWidth: 2,
@@ -57,10 +65,10 @@ const defaultGlassOptions = {
 
 export type GlassOptions = typeof defaultGlassOptions;
 
-function applyGlassEffect(
+export function applyGlassEffect(
   node: HTMLElement,
   customOptions: Partial<GlassOptions>
-) {
+): void {
   const options = { ...defaultGlassOptions };
   recursiveAssign(options, customOptions);
   applyStyle(node, options.exioStyles, true);
@@ -142,19 +150,4 @@ function applyGlassEffect(
       window.addEventListener('mouseup', callback);
     });
   }
-}
-
-export function CustomExioButton(options: Partial<GlassOptions> = {}) {
-  return (node: HTMLElement): ExioNode => {
-    applyGlassEffect(node, {
-      clickable: true,
-      disabled: false,
-      ...options,
-    });
-    return destroyer(node);
-  };
-}
-
-export function ExioButton(node: HTMLElement): ExioNode {
-  return CustomExioButton()(node);
 }
