@@ -36,10 +36,12 @@ const defaultGlassOptions = {
   disabled: false,
   borderWidth: 2,
   hoverRadius: 100,
-  clickDepth: 5,
+  clickDepth: 2,
+  hoverOpacity: 0.3,
+  hoverBorderOpacity: 0.7,
   clickDegrees: 10,
   transitionDuration: 0.6,
-  shade: '255, 255, 255',
+  hoverRGB: '255, 255, 255',
   exioStyles: {
     padding: '0.3rem 0.6rem',
     backgroundColor: '#444',
@@ -62,7 +64,7 @@ function applyGlassEffect(
   const options = { ...defaultGlassOptions };
   recursiveAssign(options, customOptions);
   applyStyle(node, options.exioStyles, true);
-  const defaultShade = `rgba(${options.shade}, 0.3)`;
+  const defaultShade = `rgba(${options.hoverRGB}, 0.3)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
     outline: 'none',
     border: `${options.borderWidth}px solid transparent`,
@@ -87,7 +89,7 @@ function applyGlassEffect(
       borderImage = `
         radial-gradient(
           ${r}px ${r}px at ${x}px ${y}px,
-          rgba(${options.shade}, 0.7),
+          rgba(${options.hoverRGB}, ${options.hoverBorderOpacity}),
           ${defaultShade}
         ) 9 / ${options.borderWidth}px / 0px stretch
       `;
@@ -95,8 +97,8 @@ function applyGlassEffect(
         backgroundImage: `
           radial-gradient(
             ${r}px ${r}px at ${x}px ${y}px,
-            rgba(${options.shade}, 0.25) 0%,
-            rgba(${options.shade}, 0.0) 100%
+            rgba(${options.hoverRGB}, ${options.hoverOpacity}) 0%,
+            rgba(${options.hoverRGB}, 0.0) 100%
           )
         `,
         borderImage,
@@ -119,7 +121,7 @@ function applyGlassEffect(
         xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
         yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
       }
-      const scale = options.clickDepth / 100;
+      const scale = options.clickDepth / Math.min(width, height);
       const transformOrigin = 'center center';
       applyStyle(node, {
         transform: `rotate3d(${yFactor}, ${-xFactor}, 0, ${
