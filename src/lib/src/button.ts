@@ -5,7 +5,6 @@ export function CustomExioButton(options: Partial<GlassOptions> = {}) {
   return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
       clickable: true,
-      disabled: false,
       ...options,
     });
     return destroyer(node);

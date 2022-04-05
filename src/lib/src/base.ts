@@ -41,7 +41,6 @@ export function applyStyle(
 
 export const defaultGlassOptions = {
   clickable: true,
-  disabled: false,
   borderWidth: 2,
   hoverRadius: 100,
   clickDepth: 2,
@@ -52,7 +51,7 @@ export const defaultGlassOptions = {
   hoverRGB: '255, 255, 255',
   exioStyles: {
     padding: '0.3rem 0.6rem',
-    backgroundColor: '#444',
+    backgroundColor: 'transparent',
     color: 'white',
     fontFamily: 'inherit',
     fontSize: '1.1rem',
