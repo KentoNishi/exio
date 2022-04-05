@@ -19,10 +19,14 @@ jobs:
       - name: Install
         run: |
           yarn
+          cd src/lib
+          yarn link
+          cd ../..
+          yarn link exio
 
       - name: Build
         run: |
-          yarn build --base="/svelte-ts-template"
+          yarn build --base="/exio"
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v3
