@@ -17,7 +17,6 @@
     "checkJs": true,
     // "strict": true,
     "typeRoots": [
-      "src/.d.ts"
     ]
   },
   "include": [
