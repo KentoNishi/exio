@@ -49,7 +49,8 @@ export function applyStyle(
 export const defaultGlassOptions = {
   clickable: true,
   borderWidth: 2,
-  hoverRadius: 100,
+  innerHoverRadius: 100,
+  outerHoverRadius: 100,
   clickDepth: 2,
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
@@ -89,10 +90,11 @@ export function applyGlassEffect(
         inspired by:
         https://dev.to/jashgopani/windows-10-button-hover-effect-using-css-and-vanilla-js-1io4
       */
-      const r = (Math.max(width, height) * options.hoverRadius) / 100;
+      const rInner = (Math.max(width, height) * options.innerHoverRadius) / 100;
+      const rOuter = (Math.max(width, height) * options.outerHoverRadius) / 100;
       borderImage = `
         radial-gradient(
-          ${r}px ${r}px at ${x}px ${y}px,
+          ${rOuter}px ${rOuter}px at ${x}px ${y}px,
           rgba(${options.hoverRGB}, ${options.hoverBorderOpacity}),
           ${defaultShade}
         ) 9 / ${options.borderWidth}px / 0px stretch
@@ -100,7 +102,7 @@ export function applyGlassEffect(
       applyStyle(node, {
         backgroundImage: `
           radial-gradient(
-            ${r}px ${r}px at ${x}px ${y}px,
+            ${rInner}px ${rInner}px at ${x}px ${y}px,
             rgba(${options.hoverRGB}, ${options.hoverOpacity}) 0%,
             rgba(${options.hoverRGB}, 0.0) 100%
           )

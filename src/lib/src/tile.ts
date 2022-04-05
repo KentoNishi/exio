@@ -17,7 +17,7 @@ export function customExioTile(options: Partial<GlassOptions> = {}) {
   return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
       clickable: false,
-      hoverRadius: 0,
+      innerHoverRadius: 0,
       exioStyles: clonedOptions,
     });
     return destroyer(node);
