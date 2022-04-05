@@ -1,5 +1,5 @@
 import type { GlassOptions } from './base';
-import { destroyer, applyGlassEffect, getMergedStyles } from './base';
+import { destroyer, applyGlassEffect, getMergedObject } from './base';
 import { tileDefaultOptions } from './tile';
 
 export const buttonDefaultOptions = {
@@ -9,7 +9,7 @@ export const buttonDefaultOptions = {
 } as Partial<CSSStyleDeclaration>;
 
 export function customExioButton(options: Partial<GlassOptions> = {}) {
-  const clonedOptions = getMergedStyles(
+  const clonedOptions = getMergedObject(
     buttonDefaultOptions,
     options.exioStyles
   );

@@ -1,14 +1,11 @@
-export function getMergedStyles(
-  a: Partial<CSSStyleDeclaration>,
-  b: Partial<CSSStyleDeclaration>
-) {
-  const aCloned = JSON.parse(JSON.stringify(a)) as CSSStyleDeclaration;
+export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
+  const aCloned = JSON.parse(JSON.stringify(a)) as T;
   if (b) Object.assign(aCloned, b);
   return aCloned;
 }
 
-export function getRandomString(l = 10) {
-  return (Math.random() + 1).toString(36).substring(l);
+export function getRandomString() {
+  return (Math.random() + 1).toString(36).substring(7);
 }
 
 export function destroyer(node: HTMLElement): ExioNode {

@@ -1,27 +1,26 @@
-import {
-  getMergedStyles,
-  applyGlassEffect,
-  destroyer,
-  getRandomString,
-} from '..';
+import { getMergedObject, destroyer, getRandomString, applyStyle } from '..';
 import { defaultToggleOptions } from './toggle';
-import type { ToggleOptions } from './toggle';
 
-export function customExioSwitch(options: Partial<ToggleOptions> = {}) {
-  const clonedOptions = getMergedStyles(
-    defaultToggleOptions,
-    options.exioStyles
-  );
+const defaultSwitchOptions = {
+  ...defaultToggleOptions,
+  exioStyles: getMergedObject(defaultToggleOptions.exioStyles, {
+    outline: 'none',
+    border: 'none',
+    webkitAppearance: 'none',
+    width: '2.5rem',
+    height: '1.5rem',
+  } as Partial<CSSStyleDeclaration>),
+};
+
+type SwitchOptions = typeof defaultSwitchOptions;
+
+export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
+  const clonedOptions = getMergedObject(defaultSwitchOptions, options);
   return (node: HTMLInputElement): ExioNode => {
     node.type = 'checkbox';
-    node.style.webkitAppearance = 'none';
-    applyGlassEffect(node, {
-      clickable: false,
-      innerHoverRadius: 0,
-      exioStyles: clonedOptions,
-    });
+    applyStyle(node, defaultSwitchOptions.exioStyles);
     const id = getRandomString();
-    console.log(getRandomString);
+    console.log(clonedOptions);
     const style =
       document.getElementById(id) || document.createElement('style');
     style.id = id;
@@ -30,8 +29,8 @@ export function customExioSwitch(options: Partial<ToggleOptions> = {}) {
       .${id}::after {
         content: '';
         position: absolute;
-        width: 10px;
-        height: 10px;
+        width: ${clonedOptions.exioStyles.height};
+        height: ${clonedOptions.exioStyles.height};
         background-color: white;
       }
     `;
