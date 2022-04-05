@@ -1,4 +1,4 @@
-import type { GlassOptions } from '.';
+import type { GlassOptions } from './base';
 import { destroyer, applyGlassEffect } from './base';
 
 export function CustomExioButton(options: Partial<GlassOptions> = {}) {

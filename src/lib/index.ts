@@ -1,3 +1,3 @@
-export * from './base';
-export * from './button';
-export * from './icon';
+export * from './src/base';
+export * from './src/button';
+export * from './src/icon';
