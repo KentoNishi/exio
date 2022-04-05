@@ -1,6 +1,6 @@
 <script lang="ts">
   import { _ } from 'svelte-i18n';
-  import { SvaltiButton } from '../lib';
+  import { SvaltiButton } from 'svalti';
 </script>
 
 <div>{$_('hello_world')}</div>

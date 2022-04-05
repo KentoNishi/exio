@@ -24,7 +24,6 @@ function applyGlassEffect(
   const shade = '200, 200, 200';
   const defaultShade = `rgba(${shade}, 0.25)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
-    backgroundColor: 'transparent',
     outline: 'none',
     cursor: 'default',
     border: `${b}px solid ${defaultShade}`,
