@@ -76,7 +76,6 @@ function applyGlassEffect(
   };
   applyStyle(node, defaultState);
   let borderImage = 'none';
-  let holding = false;
   node.addEventListener('mouseenter', () => {
     const callback = (event: MouseEvent) => {
       const { x, y, width, height } = getMouseInfo(node, event);
@@ -100,7 +99,7 @@ function applyGlassEffect(
             rgba(${options.shade}, 0.0) 100%
           )
         `,
-        borderImage: holding ? 'none' : borderImage,
+        borderImage,
       });
     };
     window.addEventListener('mousemove', callback);
@@ -114,7 +113,6 @@ function applyGlassEffect(
   });
   if (options.clickable) {
     node.addEventListener('mousedown', (event) => {
-      holding = true;
       const { x, y, width, height } = getMouseInfo(node, event);
       let [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
       if (Math.abs(xFactor) + Math.abs(yFactor) !== 0) {
@@ -132,7 +130,6 @@ function applyGlassEffect(
         borderImage: 'none',
       });
       const callback = () => {
-        holding = false;
         applyStyle(node, {
           transform: '',
           transition: `transform ${options.transitionDuration}s`,
