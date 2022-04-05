@@ -1,11 +1,15 @@
 <script lang="ts">
-  import { SvaltiButton } from 'svalti';
+  import { ExioButton } from 'exio';
 </script>
 
-<button use:SvaltiButton>Clickable Button</button>
-<button style="background-color: dodgerblue;" use:SvaltiButton>
+<button use:ExioButton>Clickable Button</button>
+<button style="background-color: dodgerblue;" use:ExioButton>
   Clickable Button
 </button>
+<button class="material-icons" use:ExioButton>send</button>
 
 <style>
+  .material-icons {
+    font-family: 'Material Icons' !important;
+  }
 </style>

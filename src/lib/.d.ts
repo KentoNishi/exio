@@ -1,3 +1,3 @@
-interface SvaltiNode{
+interface ExioNode{
   destroy(): void;
 }

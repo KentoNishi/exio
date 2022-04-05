@@ -1,6 +1,6 @@
 import recursiveAssign from 'recursive-object-assign';
 
-function destroyer(node: HTMLElement): SvaltiNode {
+function destroyer(node: HTMLElement): ExioNode {
   return {
     destroy() {
       node.remove();
@@ -36,11 +36,11 @@ const defaultGlassOptions = {
   disabled: false,
   borderWidth: 2,
   hoverRadius: 100,
-  clickDepth: 8,
+  clickDepth: 5,
   clickDegrees: 10,
   transitionDuration: 0.6,
   shade: '255, 255, 255',
-  svaltiStyles: {
+  exioStyles: {
     padding: '0.3rem 0.6rem',
     backgroundColor: '#444',
     color: 'white',
@@ -61,7 +61,7 @@ function applyGlassEffect(
 ) {
   const options = { ...defaultGlassOptions };
   recursiveAssign(options, customOptions);
-  applyStyle(node, options.svaltiStyles, true);
+  applyStyle(node, options.exioStyles, true);
   const defaultShade = `rgba(${options.shade}, 0.3)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
     outline: 'none',
@@ -119,7 +119,7 @@ function applyGlassEffect(
         xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
         yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
       }
-      const scale = options.clickDepth / Math.max(width, height);
+      const scale = options.clickDepth / 100;
       const transformOrigin = 'center center';
       applyStyle(node, {
         transform: `rotate3d(${yFactor}, ${-xFactor}, 0, ${
@@ -142,8 +142,8 @@ function applyGlassEffect(
   }
 }
 
-export function CustomSvaltiButton(options: Partial<GlassOptions> = {}) {
-  return (node: HTMLElement): SvaltiNode => {
+export function CustomExioButton(options: Partial<GlassOptions> = {}) {
+  return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
       clickable: true,
       disabled: false,
@@ -153,6 +153,6 @@ export function CustomSvaltiButton(options: Partial<GlassOptions> = {}) {
   };
 }
 
-export function SvaltiButton(node: HTMLElement): SvaltiNode {
-  return CustomSvaltiButton()(node);
+export function ExioButton(node: HTMLElement): ExioNode {
+  return CustomExioButton()(node);
 }
