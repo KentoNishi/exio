@@ -2,20 +2,76 @@
   import { ExioButton, ExioIcon, ExioTile } from 'exio/svelte';
 </script>
 
-<button style="background-color: var(--theme-color);" use:ExioButton>
-  Clickable Button
-</button>
-<button style="background-color: dodgerblue;" use:ExioButton>
-  Clickable Button
-</button>
-<button class="material-icons" use:ExioButton use:ExioIcon>send</button>
-<button style="width: 150px; height: 150px;" use:ExioButton>
-  Tile Button
-</button>
-<button style="width: 150px; height: 150px;" use:ExioTile>Tile Item</button>
+<div class="block">
+  <button style="background-color: var(--gray-fill);" use:ExioButton>
+    Clickable Button
+  </button>
+  <button style="background-color: var(--blue-accent);" use:ExioButton>
+    Clickable Button
+  </button>
+  <button use:ExioButton>Clickable Button</button>
+</div>
+<div class="block">
+  <button
+    style="background-color: var(--gray-fill);"
+    use:ExioButton
+    use:ExioIcon
+  >
+    send
+  </button>
+  <button
+    style="background-color: var(--blue-accent);"
+    use:ExioButton
+    use:ExioIcon
+  >
+    send
+  </button>
+  <button use:ExioButton use:ExioIcon>send</button>
+</div>
+<div class="block">
+  <button
+    style="width: 150px; height: 150px; background-color: var(--gray-fill);"
+    use:ExioButton
+  >
+    Tile Button
+  </button>
+  <button
+    style="width: 150px; height: 150px; background-color: var(--blue-accent);"
+    use:ExioButton
+  >
+    Tile Button
+  </button>
+  <button style="width: 150px; height: 150px;" use:ExioButton>
+    Tile Button
+  </button>
+</div>
+<div class="block">
+  <div
+    style="width: 200px; height: 200px; background-color: var(--gray-fill);"
+    use:ExioTile
+  >
+    Tile Item
+  </div>
+  <div
+    style="width: 200px; height: 200px; background-color: var(--blue-accent);"
+    use:ExioTile
+  >
+    Tile Item
+  </div>
+  <div style="width: 200px; height: 200px;" use:ExioTile>Tile Item</div>
+</div>
 
 <style>
   :root {
-    --theme-color: #444;
+    --gray-fill: #444;
+    --blue-accent: dodgerblue;
+  }
+  .block > * {
+    display: inline-flex !important;
+  }
+
+  .block {
+    display: block;
+    margin: 1rem;
   }
 </style>

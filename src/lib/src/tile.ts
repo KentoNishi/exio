@@ -1,13 +1,24 @@
 import type { GlassOptions } from './base';
-import { destroyer, applyGlassEffect } from './base';
+import { destroyer, applyGlassEffect, getMergedStyles } from './base';
+
+export const tileDefaultOptions = {
+  color: 'white',
+  fontFamily: 'inherit',
+  fontSize: '1.1rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: 'transparent',
+  padding: undefined,
+} as Partial<CSSStyleDeclaration>;
 
 export function CustomExioTile(options: Partial<GlassOptions> = {}) {
-  if (!options.exioStyles) options.exioStyles = {};
+  const clonedOptions = getMergedStyles(tileDefaultOptions, options.exioStyles);
   return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
       clickable: false,
       hoverRadius: 0,
-      ...options,
+      exioStyles: clonedOptions,
     });
     return destroyer(node);
   };

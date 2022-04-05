@@ -1,5 +1,14 @@
 import recursiveAssign from 'recursive-object-assign';
 
+export function getMergedStyles(
+  a: Partial<CSSStyleDeclaration>,
+  b: Partial<CSSStyleDeclaration>
+) {
+  const aCloned = JSON.parse(JSON.stringify(a)) as CSSStyleDeclaration;
+  if (b) recursiveAssign(aCloned, b);
+  return aCloned;
+}
+
 export function destroyer(node: HTMLElement): ExioNode {
   return {
     destroy() {
@@ -49,17 +58,7 @@ export const defaultGlassOptions = {
   clickDegrees: 10,
   transitionDuration: 0.6,
   hoverRGB: '255, 255, 255',
-  exioStyles: {
-    padding: '0.3rem 0.6rem',
-    backgroundColor: 'transparent',
-    color: 'white',
-    fontFamily: 'inherit',
-    fontSize: '1.1rem',
-    margin: '3px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  } as Partial<CSSStyleDeclaration>,
+  exioStyles: {} as Partial<CSSStyleDeclaration>,
 };
 
 export type GlassOptions = typeof defaultGlassOptions;
@@ -69,7 +68,7 @@ export function applyGlassEffect(
   customOptions: Partial<GlassOptions>
 ): void {
   const options = { ...defaultGlassOptions };
-  recursiveAssign(options, customOptions);
+  Object.assign(options, customOptions);
   applyStyle(node, options.exioStyles, true);
   const defaultShade = `rgba(${options.hoverRGB}, 0.3)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
