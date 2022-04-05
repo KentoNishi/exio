@@ -31,17 +31,16 @@ function applyGlassEffect(
     disabled?: boolean;
   }
 ) {
-  const borderWidth = 1;
-  const hoverRadius = 200;
-  const clickDepth = 5;
+  const borderWidth = 2;
+  const hoverRadius = 100;
+  const clickDepth = 8;
   const clickDegrees = 15;
   const transitionDuration = 0.6;
   const shade = '255, 255, 255';
   const defaultShade = `rgba(${shade}, 0.3)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
     outline: 'none',
-    cursor: 'default',
-    border: `${borderWidth}px solid ${defaultShade}`,
+    border: `${borderWidth}px solid transparent`,
     backgroundPosition: `-${borderWidth}px -${borderWidth}px`,
     backgroundSize: `
       calc(100% + ${borderWidth * 2}px) calc(100% + ${borderWidth * 2}px)
@@ -50,28 +49,31 @@ function applyGlassEffect(
     transformOrigin: 'center center',
   };
   applyStyle(node, defaultState);
+  let borderImage = 'none';
   node.addEventListener('mouseenter', () => {
     const callback = (event: MouseEvent) => {
-      const { x, y } = getMouseInfo(node, event);
+      const { x, y, width, height } = getMouseInfo(node, event);
       /* 
         inspired by:
         https://dev.to/jashgopani/windows-10-button-hover-effect-using-css-and-vanilla-js-1io4
       */
+      const r = (Math.max(width, height) * hoverRadius) / 100;
+      borderImage = `
+        radial-gradient(
+          ${r}px ${r}px at ${x}px ${y}px,
+          rgba(${shade}, 0.7),
+          ${defaultShade}
+        ) 9 / ${borderWidth}px / 0px stretch
+      `;
       applyStyle(node, {
         backgroundImage: `
           radial-gradient(
-            ${hoverRadius}px ${hoverRadius}px at ${x}px ${y}px,
+            ${r}px ${r}px at ${x}px ${y}px,
             rgba(${shade}, 0.25) 0%,
             rgba(${shade}, 0.0) 100%
           )
         `,
-        borderImage: `
-        radial-gradient(
-          ${hoverRadius}px ${hoverRadius}px at ${x}px ${y}px,
-          rgba(${shade}, 0.7),
-          ${defaultShade}
-        ) 9 / ${borderWidth}px / 0px stretch
-      `,
+        borderImage,
       });
     };
     window.addEventListener('mousemove', callback);
@@ -96,11 +98,13 @@ function applyGlassEffect(
       })`,
       transition: '0s',
       transformOrigin,
+      borderImage: 'none',
     });
     const callback = () => {
       applyStyle(node, {
         transform: '',
         transition: `transform ${transitionDuration}s`,
+        borderImage,
       });
       window.removeEventListener('mouseup', callback);
     };
@@ -109,10 +113,12 @@ function applyGlassEffect(
   return;
 }
 
-export function SvaltiButton(node: HTMLElement): SvaltiNode {
-  applyGlassEffect(node, {
-    clickable: true,
-    disabled: false,
-  });
-  return destroyer(node);
+export function SvaltiButton() {
+  return (node: HTMLElement): SvaltiNode => {
+    applyGlassEffect(node, {
+      clickable: true,
+      disabled: false,
+    });
+    return destroyer(node);
+  };
 }

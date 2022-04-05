@@ -5,26 +5,30 @@
 
 <div>{$_('hello_world')}</div>
 
-<div class="grid">
+<!-- <div class="grid">
   {#each Array(100) as _, i}
     <button use:SvaltiButton>
       Button<br />#{i}
     </button>
   {/each}
-</div>
+</div> -->
+<button use:SvaltiButton()>Clickable Button</button>
 
 <style>
-  .grid {
+  /* .grid {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-  }
+  } */
   button {
-    padding: 1rem;
-    background-color: transparent;
+    padding: 0.3rem 0.6rem;
+    background-color: #444;
     color: white;
     font-family: inherit;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
