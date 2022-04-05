@@ -2,7 +2,3 @@
 # yarn lockfile v1
 
 
-recursive-object-assign@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/recursive-object-assign/-/recursive-object-assign-1.0.1.tgz#60c851ece42acc5718761b0b3a9be4fd7d41fe42"
-  integrity sha1-YMhR7OQqzFcYdhsLOpvk/X1B/kI=

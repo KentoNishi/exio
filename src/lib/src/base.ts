@@ -1,11 +1,9 @@
-import recursiveAssign from 'recursive-object-assign';
-
 export function getMergedStyles(
   a: Partial<CSSStyleDeclaration>,
   b: Partial<CSSStyleDeclaration>
 ) {
   const aCloned = JSON.parse(JSON.stringify(a)) as CSSStyleDeclaration;
-  if (b) recursiveAssign(aCloned, b);
+  if (b) Object.assign(aCloned, b);
   return aCloned;
 }
 
