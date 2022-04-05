@@ -1,6 +1,6 @@
 import { destroyer } from './base';
 
-export function CustomExioIcon(
+export function customExioIcon(
   options = {
     fontUrl:
       'https://fonts.gstatic.com/s/materialicons/v126/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2',
@@ -26,6 +26,6 @@ export function CustomExioIcon(
   };
 }
 
-export function ExioIcon(node: HTMLElement): ExioNode {
-  return CustomExioIcon()(node);
+export function exioIcon(node: HTMLElement): ExioNode {
+  return customExioIcon()(node);
 }

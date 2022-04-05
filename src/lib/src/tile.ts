@@ -12,7 +12,7 @@ export const tileDefaultOptions = {
   padding: undefined,
 } as Partial<CSSStyleDeclaration>;
 
-export function CustomExioTile(options: Partial<GlassOptions> = {}) {
+export function customExioTile(options: Partial<GlassOptions> = {}) {
   const clonedOptions = getMergedStyles(tileDefaultOptions, options.exioStyles);
   return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
@@ -24,6 +24,6 @@ export function CustomExioTile(options: Partial<GlassOptions> = {}) {
   };
 }
 
-export function ExioTile(node: HTMLElement): ExioNode {
-  return CustomExioTile()(node);
+export function exioTile(node: HTMLElement): ExioNode {
+  return customExioTile()(node);
 }

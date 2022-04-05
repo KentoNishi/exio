@@ -8,7 +8,7 @@ export const buttonDefaultOptions = {
   backgroundColor: 'transparent',
 } as Partial<CSSStyleDeclaration>;
 
-export function CustomExioButton(options: Partial<GlassOptions> = {}) {
+export function customExioButton(options: Partial<GlassOptions> = {}) {
   const clonedOptions = getMergedStyles(
     buttonDefaultOptions,
     options.exioStyles
@@ -22,6 +22,6 @@ export function CustomExioButton(options: Partial<GlassOptions> = {}) {
   };
 }
 
-export function ExioButton(node: HTMLElement): ExioNode {
-  return CustomExioButton()(node);
+export function exioButton(node: HTMLElement): ExioNode {
+  return customExioButton()(node);
 }
