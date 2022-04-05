@@ -7,6 +7,10 @@ export function getMergedStyles(
   return aCloned;
 }
 
+export function getRandomString(l = 10) {
+  return (Math.random() + 1).toString(36).substring(l);
+}
+
 export function destroyer(node: HTMLElement): ExioNode {
   return {
     destroy() {

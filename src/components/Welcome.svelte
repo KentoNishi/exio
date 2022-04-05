@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { exioSwitch } from 'exio/src/switch';
   import { exioButton, exioIcon, exioTile } from 'exio/svelte';
 </script>
 
@@ -59,6 +60,9 @@
     Tile Item
   </div>
   <div style="width: 200px; height: 100px;" use:exioTile>Tile Item</div>
+</div>
+<div class="block">
+  <input use:exioSwitch />
 </div>
 
 <style>
