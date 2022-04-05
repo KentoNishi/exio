@@ -47,18 +47,18 @@
 </div>
 <div class="block">
   <div
-    style="width: 200px; height: 200px; background-color: var(--gray-fill);"
+    style="width: 200px; height: 100px; background-color: var(--gray-fill);"
     use:ExioTile
   >
     Tile Item
   </div>
   <div
-    style="width: 200px; height: 200px; background-color: var(--blue-accent);"
+    style="width: 200px; height: 100px; background-color: var(--blue-accent);"
     use:ExioTile
   >
     Tile Item
   </div>
-  <div style="width: 200px; height: 200px;" use:ExioTile>Tile Item</div>
+  <div style="width: 200px; height: 100px;" use:ExioTile>Tile Item</div>
 </div>
 
 <style>
