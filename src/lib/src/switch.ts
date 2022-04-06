@@ -3,7 +3,7 @@ import { defaultToggleOptions } from './toggle';
 
 const defaultSwitchOptions = {
   ...defaultToggleOptions,
-  exioStyles: getMergedObject(defaultToggleOptions.exioStyles, {
+  additionalStyles: getMergedObject(defaultToggleOptions.additionalStyles, {
     outline: 'none',
     border: 'none',
     webkitAppearance: 'none',
@@ -18,7 +18,7 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
   const clonedOptions = getMergedObject(defaultSwitchOptions, options);
   return (node: HTMLInputElement): ExioNode => {
     node.type = 'checkbox';
-    applyStyle(node, defaultSwitchOptions.exioStyles);
+    applyStyle(node, defaultSwitchOptions.additionalStyles);
     const id = getRandomString();
     console.log(clonedOptions);
     const style =
@@ -29,8 +29,8 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
       .${id}::after {
         content: '';
         position: absolute;
-        width: ${clonedOptions.exioStyles.height};
-        height: ${clonedOptions.exioStyles.height};
+        width: ${clonedOptions.additionalStyles.height};
+        height: ${clonedOptions.additionalStyles.height};
         background-color: white;
       }
     `;

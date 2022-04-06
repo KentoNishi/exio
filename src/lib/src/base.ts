@@ -1,7 +1,16 @@
 export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
-  const aCloned = JSON.parse(JSON.stringify(a)) as T;
-  if (b) Object.assign(aCloned, b);
-  return aCloned;
+  const c = {} as any;
+  for (const key in a) {
+    if (typeof a[key] === 'object') c[key] = getMergedObject(a[key], b[key]);
+    else c[key] = a[key];
+  }
+  if (!b) return c;
+  for (const key in b) {
+    if (!(key in c) || typeof c[key] !== 'object') {
+      c[key] = b[key];
+    }
+  }
+  return c;
 }
 
 export function getRandomString() {
@@ -60,7 +69,16 @@ export const defaultGlassOptions = {
   transitionDuration: 0.6,
   clickScale: 0.95,
   hoverRGB: '255, 255, 255',
-  exioStyles: {} as Partial<CSSStyleDeclaration>,
+  additionalStyles: {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    fontFamily: 'inherit',
+    fontSize: '1.1rem',
+    backgroundColor: 'transparent',
+    padding: undefined,
+  } as Partial<CSSStyleDeclaration>,
 };
 
 export type GlassOptions = typeof defaultGlassOptions;
@@ -69,9 +87,13 @@ export function applyGlassEffect(
   node: HTMLElement,
   customOptions: Partial<GlassOptions>
 ): void {
-  const options = { ...defaultGlassOptions };
-  Object.assign(options, customOptions);
-  applyStyle(node, options.exioStyles, true);
+  const options = getMergedObject(defaultGlassOptions, customOptions);
+  console.log(
+    JSON.stringify(options, null, 2),
+    JSON.stringify(customOptions, null, 2),
+    JSON.stringify(defaultGlassOptions, null, 2)
+  );
+  applyStyle(node, options.additionalStyles, true);
   const defaultShade = `rgba(${options.hoverRGB}, 0.3)`;
   const defaultState: Partial<CSSStyleDeclaration> = {
     outline: 'none',

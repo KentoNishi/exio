@@ -4,19 +4,21 @@ import { tileDefaultOptions } from './tile';
 
 export const buttonDefaultOptions = {
   ...tileDefaultOptions,
-  padding: '0.3rem 0.6rem',
-  backgroundColor: 'transparent',
-} as Partial<CSSStyleDeclaration>;
+  additionalStyles: {
+    padding: '0.3rem 0.6rem',
+    backgroundColor: 'transparent',
+  } as Partial<CSSStyleDeclaration>,
+};
 
 export function customExioButton(options: Partial<GlassOptions> = {}) {
   const clonedOptions = getMergedObject(
-    buttonDefaultOptions,
-    options.exioStyles
+    buttonDefaultOptions.additionalStyles,
+    options.additionalStyles
   );
   return (node: HTMLElement): ExioNode => {
     applyGlassEffect(node, {
       clickable: true,
-      exioStyles: clonedOptions,
+      additionalStyles: clonedOptions,
     });
     return destroyer(node);
   };
