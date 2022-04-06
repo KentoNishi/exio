@@ -52,11 +52,13 @@ export const defaultGlassOptions = {
   borderWidth: 2,
   innerHoverRadius: 100,
   outerHoverRadius: 100,
-  clickDepth: 2,
+  clickDepth: 5,
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
-  clickDegrees: 10,
+  clickDegrees: 6.9,
+  clickPerspective: 800,
   transitionDuration: 0.6,
+  clickScale: 0.95,
   hoverRGB: '255, 255, 255',
   exioStyles: {} as Partial<CSSStyleDeclaration>,
 };
@@ -123,17 +125,19 @@ export function applyGlassEffect(
   if (options.clickable) {
     node.addEventListener('mousedown', (event) => {
       const { x, y, width, height } = getMouseInfo(node, event);
-      let [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
-      if (Math.abs(xFactor) + Math.abs(yFactor) !== 0) {
-        xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
-        yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
-      }
-      const scale = options.clickDepth / Math.min(width, height);
+      const [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
+      // if (Math.abs(xFactor) + Math.abs(yFactor) !== 0) {
+      //   xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
+      //   yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
+      // }
       const transformOrigin = 'center center';
       applyStyle(node, {
-        transform: `rotate3d(${yFactor}, ${-xFactor}, 0, ${
-          options.clickDegrees
-        }deg) scale(${1 - scale})`,
+        transform: `
+          perspective(${options.clickPerspective}px)
+          rotateX(${-yFactor * options.clickDegrees}deg)
+          rotateY(${xFactor * options.clickDegrees}deg)
+          scale(${options.clickScale})
+        `,
         transition: '0s',
         transformOrigin,
         borderImage: 'none',
