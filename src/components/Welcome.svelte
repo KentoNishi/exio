@@ -37,7 +37,7 @@
     Tile Button
   </button>
   <button
-    style="width: 150px; height: 150px; background-color: var(--blue-accent);"
+    style="width: 300px; height: 150px; background-color: var(--blue-accent);"
     use:exioButton
   >
     Tile Button

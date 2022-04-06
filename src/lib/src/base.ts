@@ -50,13 +50,13 @@ export function applyStyle(
 export const defaultGlassOptions = {
   clickable: true,
   borderWidth: 2,
-  innerHoverRadius: 100,
-  outerHoverRadius: 100,
+  innerHoverRadius: 200,
+  outerHoverRadius: 200,
   clickDepth: 5,
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
-  clickDegrees: 6.9,
-  clickPerspective: 800,
+  clickDegrees: 5,
+  clickPerspective: 5,
   transitionDuration: 0.6,
   clickScale: 0.95,
   hoverRGB: '255, 255, 255',
@@ -86,7 +86,10 @@ export function applyGlassEffect(
   };
   applyStyle(node, defaultState);
   let borderImage = 'none';
+  let clicking = false;
+  let hovering = false;
   node.addEventListener('mouseenter', () => {
+    hovering = true;
     const callback = (event: MouseEvent) => {
       const { x, y, width, height } = getMouseInfo(node, event);
       /* 
@@ -102,6 +105,7 @@ export function applyGlassEffect(
           ${defaultShade}
         ) 9 / ${options.borderWidth}px / 0px stretch
       `;
+      if (clicking) return;
       applyStyle(node, {
         backgroundImage: `
           radial-gradient(
@@ -115,17 +119,22 @@ export function applyGlassEffect(
     };
     window.addEventListener('mousemove', callback);
     node.addEventListener('mouseleave', () => {
+      hovering = false;
       window.removeEventListener('mousemove', callback);
-      applyStyle(node, {
-        borderImage: 'none',
-        backgroundImage: 'none',
-      });
+      if (!clicking) {
+        applyStyle(node, {
+          borderImage: 'none',
+          backgroundImage: 'none',
+        });
+      }
     });
   });
   if (options.clickable) {
     node.addEventListener('mousedown', (event) => {
+      clicking = true;
       const { x, y, width, height } = getMouseInfo(node, event);
       const [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
+      const p = options.clickPerspective * Math.min(width, height);
       // if (Math.abs(xFactor) + Math.abs(yFactor) !== 0) {
       //   xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
       //   yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
@@ -133,7 +142,7 @@ export function applyGlassEffect(
       const transformOrigin = 'center center';
       applyStyle(node, {
         transform: `
-          perspective(${options.clickPerspective}px)
+          perspective(${p}px)
           rotateX(${-yFactor * options.clickDegrees}deg)
           rotateY(${xFactor * options.clickDegrees}deg)
           scale(${options.clickScale})
@@ -143,11 +152,18 @@ export function applyGlassEffect(
         borderImage: 'none',
       });
       const callback = () => {
+        clicking = false;
         applyStyle(node, {
           transform: '',
           transition: `transform ${options.transitionDuration}s`,
           borderImage,
         });
+        if (!hovering) {
+          applyStyle(node, {
+            borderImage: 'none',
+            backgroundImage: 'none',
+          });
+        }
         window.removeEventListener('mouseup', callback);
       };
       window.addEventListener('mouseup', callback);
