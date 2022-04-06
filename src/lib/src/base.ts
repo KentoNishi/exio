@@ -61,13 +61,12 @@ export const defaultGlassOptions = {
   borderWidth: 2,
   innerHoverRadius: 200,
   outerHoverRadius: 200,
-  clickDepth: 5,
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
   clickDegrees: 5,
   clickPerspective: 5,
   transitionDuration: 0.6,
-  clickScale: 0.95,
+  clickScale: 5,
   hoverRGB: '255, 255, 255',
   additionalStyles: {
     display: 'inline-flex',
@@ -162,12 +161,13 @@ export function applyGlassEffect(
       //   yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
       // }
       const transformOrigin = 'center center';
+      const scaling = 1 - options.clickScale / Math.max(width, height);
       applyStyle(node, {
         transform: `
           perspective(${p}px)
           rotateX(${-yFactor * options.clickDegrees}deg)
           rotateY(${xFactor * options.clickDegrees}deg)
-          scale(${options.clickScale})
+          scale(${scaling})
         `,
         transition: '0s',
         transformOrigin,
@@ -176,7 +176,7 @@ export function applyGlassEffect(
       const callback = () => {
         clicking = false;
         applyStyle(node, {
-          transform: '',
+          transform: `perspective(${p}px)`,
           transition: `transform ${options.transitionDuration}s`,
           borderImage,
         });

@@ -28,6 +28,33 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
         width: '100%',
         height: '100%',
       });
+      const id = 'exio-body';
+      const style =
+        document.getElementById(id) || document.createElement('style');
+      style.id = id;
+      style.innerHTML = `
+        ::-webkit-scrollbar {
+          width: 4px;
+          height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+        ::-webkit-scrollbar-corner {
+          background: transparent;
+        }
+        * {
+          scrollbar-width: thin;
+          overflow: overlay;
+        }
+      `;
+      document.head.appendChild(style);
     }
     return destroyer(node);
   };
