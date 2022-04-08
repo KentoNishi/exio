@@ -10,6 +10,8 @@ export const buttonDefaultOptions = {
   } as Partial<CSSStyleDeclaration>,
 };
 
+export type ButtonOptions = typeof buttonDefaultOptions;
+
 export function customExioButton(options: Partial<GlassOptions> = {}) {
   const clonedOptions = getMergedObject(
     buttonDefaultOptions.additionalStyles,

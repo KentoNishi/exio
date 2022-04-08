@@ -1,5 +1,10 @@
-export * from './src/base';
-export * from './src/button';
-export * from './src/icon';
-export * from './src/tile';
-export * from './src/app';
+export { applyGlassEffect } from './src/base';
+export type { GlassOptions } from './src/base';
+export { exioButton, customExioButton } from './src/button';
+export type { ButtonOptions } from './src/button';
+export { exioIcon, customExioIcon } from './src/icon';
+export type { IconOptions } from './src/icon';
+export { exioTile, customExioTile } from './src/tile';
+export type { TileOptions } from './src/tile';
+export { exioApp, customExioApp } from './src/app';
+export type { AppOptions } from './src/app';
