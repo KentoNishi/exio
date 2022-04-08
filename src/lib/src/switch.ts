@@ -1,4 +1,9 @@
-import { getMergedObject, destroyer, getRandomString, applyStyle } from '..';
+import {
+  getMergedObject,
+  destroyer,
+  getRandomString,
+  applyStyle,
+} from './base';
 import { defaultToggleOptions } from './toggle';
 
 const defaultSwitchOptions = {
