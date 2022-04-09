@@ -37,11 +37,6 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
     applyGlassEffect(node, {
       borderWidth: 0,
     });
-    applyStyle(node, {
-      ...clonedOptions.additionalStyles,
-      borderRadius: clonedOptions.additionalStyles.height,
-      border: `${clonedOptions.additionalStyles.borderWidth} solid ${clonedOptions.thumbColor}`,
-    });
     const id = getRandomString();
     const style =
       document.getElementById(id) || document.createElement('style');
@@ -83,6 +78,11 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
       }
     `;
     document.head.appendChild(style);
+    applyStyle(node, {
+      ...clonedOptions.additionalStyles,
+      borderRadius: clonedOptions.additionalStyles.height,
+      border: `${clonedOptions.additionalStyles.borderWidth} solid ${clonedOptions.thumbColor}`,
+    });
     return destroyer(node);
   };
 }

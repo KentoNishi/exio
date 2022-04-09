@@ -13,8 +13,15 @@ export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
   return c;
 }
 
-export function getRandomString() {
-  return (Math.random() + 1).toString(36).substring(7);
+export function getRandomString(len = 10) {
+  const charSet =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomString = '';
+  for (let i = 0; i < len; i++) {
+    const pos = Math.floor(Math.random() * charSet.length);
+    randomString += charSet.substring(pos, pos + 1);
+  }
+  return randomString;
 }
 
 export function destroyer(node: HTMLElement): ExioNode {
