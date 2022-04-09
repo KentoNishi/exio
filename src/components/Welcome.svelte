@@ -1,6 +1,13 @@
 <script lang="ts">
   import { exioSwitch } from 'exio/src/switch';
-  import { exioApp, exioButton, exioIcon, exioTile } from 'exio/svelte';
+  import {
+    exioApp,
+    exioButton,
+    exioIcon,
+    exioTile,
+    exioFadeInAnimation,
+    exioFlyInAnimation,
+  } from 'exio/svelte';
 </script>
 
 <div use:exioApp>
@@ -70,6 +77,46 @@
     />
     <input use:exioSwitch checked />
   </div>
+  <div class="block">
+    <div
+      style="width: 200px; height: 100px; background-color: var(--gray-fill);"
+      use:exioTile
+      use:exioFadeInAnimation
+    >
+      Tile Item
+    </div>
+    <div
+      style="width: 200px; height: 100px; background-color: var(--blue-accent);"
+      use:exioTile
+      use:exioFlyInAnimation
+    >
+      Tile Item
+    </div>
+    <div
+      style="
+        width: 200px;
+        height: 100px;
+        background-color: var(--gray-fill);
+        animation-delay: 0.5s;
+      "
+      use:exioTile
+      use:exioFadeInAnimation
+    >
+      Tile Item
+    </div>
+    <div
+      style="
+        width: 200px;
+        height: 100px;
+        background-color: var(--blue-accent);
+        animation-delay: 0.5s;
+      "
+      use:exioTile
+      use:exioFlyInAnimation
+    >
+      Tile Item
+    </div>
+  </div>
 </div>
 
 <style>
@@ -81,5 +128,6 @@
   .block {
     display: block;
     margin: 1rem;
+    overflow: hidden;
   }
 </style>

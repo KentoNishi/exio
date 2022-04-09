@@ -8,3 +8,10 @@ export { exioTile, customExioTile } from './src/tile';
 export type { TileOptions } from './src/tile';
 export { exioApp, customExioApp } from './src/app';
 export type { AppOptions } from './src/app';
+export {
+  exioFlyInAnimation,
+  customExioFlyInAnimation,
+  exioFadeInAnimation,
+  customExioFadeInAnimation,
+} from './src/animation';
+export type { TransitionOptions } from './src/animation';

@@ -33,7 +33,7 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
       const style =
         document.getElementById(id) || document.createElement('style');
       style.id = id;
-      style.innerHTML = `
+      style.innerHTML += `
         ::-webkit-scrollbar {
           width: 4px;
           height: 4px;
@@ -55,7 +55,7 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
           overflow: overlay;
         }
       `;
-      document.head.appendChild(style);
+      document.body.appendChild(style);
     }
     return destroyer(node);
   };

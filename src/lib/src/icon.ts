@@ -14,7 +14,7 @@ export function customExioIcon(options = defaultIconOptions) {
     const existing = document.getElementById(id) as HTMLStyleElement;
     const style = existing || document.createElement('style');
     style.id = id;
-    style.innerHTML = `
+    style.innerHTML += `
       @font-face {
         font-family: 'Material Icons';
         font-style: normal;
@@ -23,7 +23,7 @@ export function customExioIcon(options = defaultIconOptions) {
         src: url('${options.fontUrl}') format('woff2');
       }
     `;
-    if (!existing) document.head.appendChild(style);
+    if (!existing) document.body.appendChild(style);
     node.style.setProperty('font-family', 'Material Icons', 'important');
     return destroyer(node);
   };

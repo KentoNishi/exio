@@ -43,7 +43,7 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
       document.getElementById(id) || document.createElement('style');
     style.id = id;
     node.classList.add(id);
-    style.innerHTML = `
+    style.innerHTML += `
       .${id}::after {
         content: '';
         width: calc(${clonedOptions.additionalStyles.height} / 2);
@@ -78,7 +78,7 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
         z-index: 100;
       }
     `;
-    document.head.appendChild(style);
+    document.body.appendChild(style);
     applyStyle(node, {
       ...clonedOptions.additionalStyles,
       borderRadius: clonedOptions.additionalStyles.height,
