@@ -63,7 +63,7 @@
     <div style="width: 200px; height: 100px;" use:exioTile>Tile Item</div>
   </div>
   <div class="block">
-    <input use:exioSwitch />
+    <input use:exioSwitch style="background-color: var(--blue-accent);" />
   </div>
 </div>
 
