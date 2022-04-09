@@ -1,3 +1,0 @@
-interface ExioNode{
-  destroy(): void;
-}

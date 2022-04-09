@@ -1,4 +1,4 @@
-import type { GlassOptions } from './base';
+import type { GlassOptions, ExioNode } from './base';
 import { destroyer, applyGlassEffect, getMergedObject } from './base';
 import { tileDefaultOptions } from './tile';
 

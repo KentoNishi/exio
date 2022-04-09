@@ -1,8 +1,13 @@
 {
   "name": "exio",
   "version": "0.0.1",
-  "main": "index.ts",
+  "description": "UI library",
+  "main": "index.js",
+  "repository": "https://github.com/KentoNishi/exio",
+  "author": "Kento Nishi",
+  "type": "module",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
+    "build": "node build.js"
   }
 }

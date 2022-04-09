@@ -1,4 +1,5 @@
 import { destroyer, applyStyle, getMergedObject } from './base';
+import type { ExioNode } from './base';
 
 export const defaultAppOptions = {
   fillBody: true,

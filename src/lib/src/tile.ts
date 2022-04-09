@@ -1,5 +1,6 @@
 import type { GlassOptions } from './base';
 import { destroyer, applyGlassEffect, getMergedObject } from './base';
+import type { ExioNode } from './base';
 
 export const tileDefaultOptions = {
   innerHoverRadius: 0,

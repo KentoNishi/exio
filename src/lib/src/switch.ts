@@ -1,10 +1,11 @@
-import { applyGlassEffect } from '..';
+import { applyGlassEffect } from './base';
 import {
   getMergedObject,
   destroyer,
   getRandomString,
   applyStyle,
 } from './base';
+import type { ExioNode } from './base';
 import { defaultToggleOptions } from './toggle';
 
 const defaultSwitchOptions = {

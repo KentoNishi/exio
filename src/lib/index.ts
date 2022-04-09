@@ -1,5 +1,5 @@
 export { applyGlassEffect } from './src/base';
-export type { GlassOptions } from './src/base';
+export type { GlassOptions, ExioNode } from './src/base';
 export { exioButton, customExioButton } from './src/button';
 export type { ButtonOptions } from './src/button';
 export { exioIcon, customExioIcon } from './src/icon';

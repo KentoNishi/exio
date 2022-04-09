@@ -1,3 +1,7 @@
+export interface ExioNode {
+  destroy(): void;
+}
+
 export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
   const c = {} as any;
   for (const key in a) {

@@ -1,4 +1,5 @@
 import { destroyer } from './base';
+import type { ExioNode } from './base';
 
 const defaultIconOptions = {
   fontUrl:
