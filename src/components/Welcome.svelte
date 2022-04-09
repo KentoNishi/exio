@@ -63,7 +63,12 @@
     <div style="width: 200px; height: 100px;" use:exioTile>Tile Item</div>
   </div>
   <div class="block">
-    <input use:exioSwitch style="background-color: var(--blue-accent);" />
+    <input
+      use:exioSwitch
+      style="background-color: var(--blue-accent);"
+      checked
+    />
+    <input use:exioSwitch checked />
   </div>
 </div>
 

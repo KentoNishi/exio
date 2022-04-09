@@ -1,3 +1,4 @@
+import { applyGlassEffect } from '..';
 import {
   getMergedObject,
   destroyer,
@@ -20,6 +21,7 @@ const defaultSwitchOptions = {
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: '2px',
+    overflow: 'visible',
   } as Partial<CSSStyleDeclaration>),
 };
 
@@ -32,6 +34,9 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
   ) as Partial<SwitchOptions>;
   return (node: HTMLInputElement): ExioNode => {
     node.type = 'checkbox';
+    applyGlassEffect(node, {
+      borderWidth: 0,
+    });
     applyStyle(node, {
       ...clonedOptions.additionalStyles,
       borderRadius: clonedOptions.additionalStyles.height,
@@ -61,14 +66,20 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
           ${clonedOptions.additionalStyles.width} / 2 - 100%
         ));
       }
-      .${id}:hover {
-        filter: ${clonedOptions.hoverFilter};
-      }
       .${id}:active {
         filter: ${clonedOptions.activeFilter};
       }
       .${id}:not(:checked):not(:active) {
         background-color: ${clonedOptions.uncheckedColor} !important;
+      }
+      .${id}::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: ${clonedOptions.additionalStyles.borderWidth} solid ${clonedOptions.thumbColor};
+        border-radius: inherit;
+        z-index: 100;
       }
     `;
     document.head.appendChild(style);
