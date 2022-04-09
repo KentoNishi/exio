@@ -18,8 +18,7 @@ export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
 }
 
 export function getRandomString(len = 10) {
-  const charSet =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   let randomString = '';
   for (let i = 0; i < len; i++) {
     const pos = Math.floor(Math.random() * charSet.length);
