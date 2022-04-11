@@ -162,6 +162,7 @@ export function applyGlassEffect(
   });
   if (options.clickable) {
     node.addEventListener('mousedown', (event) => {
+      event.preventDefault();
       clicking = true;
       const { x, y, width, height } = getMouseInfo(node, event);
       const [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
