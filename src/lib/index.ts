@@ -13,5 +13,7 @@ export {
   customExioFlyInAnimation,
   exioFadeInAnimation,
   customExioFadeInAnimation,
+  exioOpenAnimation,
+  customExioOpenAnimation,
 } from './src/animation';
-export type { TransitionOptions } from './src/animation';
+export type { AnimationOptions, OpenAnimationOptions } from './src/animation';
