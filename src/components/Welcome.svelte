@@ -36,6 +36,9 @@
         <button style="background-color: var(--gray-fill);" use:exioButton>
           Clickable Button
         </button>
+        <button style="background-color: var(--gray-fill);" use:exioButton>
+          Horizontally Long Button with More Text
+        </button>
         <button style="background-color: var(--blue-accent);" use:exioButton>
           Clickable Button
         </button>

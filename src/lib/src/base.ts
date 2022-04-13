@@ -69,8 +69,8 @@ export function applyStyle(
 export const defaultGlassOptions = {
   clickable: true,
   borderWidth: 2,
-  innerHoverRadius: 200,
-  outerHoverRadius: 200,
+  innerHoverRadius: 500,
+  outerHoverRadius: 250,
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
   clickDegrees: 5,
@@ -114,51 +114,67 @@ export function applyGlassEffect(
   let borderImage = 'none';
   let clicking = false;
   let hovering = false;
-  node.addEventListener('mouseenter', () => {
-    hovering = true;
-    const callback = (event: MouseEvent) => {
-      const { x, y, width, height } = getMouseInfo(node, event);
-      /* 
-        inspired by:
-        https://dev.to/jashgopani/windows-10-button-hover-effect-using-css-and-vanilla-js-1io4
-      */
-      const rInner = (Math.max(width, height) * options.innerHoverRadius) / 100;
-      const rOuter = (Math.max(width, height) * options.outerHoverRadius) / 100;
-      borderImage = `
-        radial-gradient(
-          ${rOuter}px ${rOuter}px at ${x}px ${y}px,
-          rgba(${options.hoverRGB}, ${options.hoverBorderOpacity}),
-          ${defaultShade}
-        ) 9 / ${options.borderWidth}px / 0px stretch
-      `;
-      if (clicking) return;
-      applyStyle(node, {
-        backgroundImage: `
+  const registerHover = (touch = false) => {
+    const start = touch ? 'touchstart' : 'mouseenter';
+    const end = touch ? 'touchend' : 'mouseleave';
+    const blur = touch ? 'blur' : 'mousemove';
+    node.addEventListener(start, (rootEvent: MouseEvent | TouchEvent) => {
+      hovering = true;
+      const callback = (event: MouseEvent | TouchEvent) => {
+        const { x, y, width, height } = getMouseInfo(
+          node,
+          'touches' in event ? event.touches[0] : event
+        );
+        /* 
+          inspired by:
+          https://dev.to/jashgopani/windows-10-button-hover-effect-using-css-and-vanilla-js-1io4
+        */
+        const rInner =
+          (Math.max(width, height) * options.innerHoverRadius) / 100;
+        const rOuter =
+          (Math.max(width, height) * options.outerHoverRadius) / 100;
+        borderImage = `
           radial-gradient(
-            ${rInner}px ${rInner}px at ${x}px ${y}px,
-            rgba(${options.hoverRGB}, ${options.hoverOpacity}) 0%,
-            rgba(${options.hoverRGB}, 0.0) 100%
-          )
-        `,
-        borderImage,
-      });
-    };
-    window.addEventListener('mousemove', callback);
-    node.addEventListener('mouseleave', () => {
-      hovering = false;
-      window.removeEventListener('mousemove', callback);
-      if (!clicking) {
+            ${rOuter}px ${rOuter}px at ${x}px ${y}px,
+            rgba(${options.hoverRGB}, ${options.hoverBorderOpacity}),
+            ${defaultShade}
+          ) 9 / ${options.borderWidth}px / 0px stretch
+        `;
+        if (clicking) return;
         applyStyle(node, {
-          borderImage: 'none',
-          backgroundImage: 'none',
+          backgroundImage: `
+            radial-gradient(
+              ${rInner}px ${rInner}px at ${x}px ${y}px,
+              rgba(${options.hoverRGB}, ${options.hoverOpacity}) 0%,
+              rgba(${options.hoverRGB}, 0.0) 100%
+            )
+          `,
+          borderImage,
         });
-      }
+      };
+      if ('touches' in rootEvent) callback(rootEvent);
+
+      window.addEventListener(blur, callback);
+      node.addEventListener(end, () => {
+        hovering = false;
+        window.removeEventListener(blur, callback);
+        if (!clicking) {
+          applyStyle(node, {
+            borderImage: 'none',
+            backgroundImage: 'none',
+          });
+        }
+      });
     });
-  });
+  };
+  registerHover(false);
+  registerHover(true);
   if (options.clickable) {
-    const registerActive = (start = 'mousedown', end = 'mouseup') => {
+    const registerActive = (touch = false) => {
+      const start = touch ? 'touchstart' : 'mousedown';
+      const end = touch ? 'touchend' : 'mouseup';
       node.addEventListener(start, (event: MouseEvent | TouchEvent) => {
-        event.preventDefault();
+        if (!touch) event.preventDefault();
         clicking = true;
         const { x, y, width, height } = getMouseInfo(
           node,
@@ -201,7 +217,7 @@ export function applyGlassEffect(
         window.addEventListener(end, callback);
       });
     };
-    registerActive('mousedown', 'mouseup');
-    registerActive('touchstart', 'touchend');
+    registerActive(false);
+    registerActive(true);
   }
 }
