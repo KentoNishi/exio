@@ -74,9 +74,9 @@ export const defaultGlassOptions = {
   hoverOpacity: 0.3,
   hoverBorderOpacity: 0.7,
   clickDegrees: 5,
-  clickPerspective: 5,
+  clickPerspective: 2.5,
   transitionDuration: 0.6,
-  clickScale: 5,
+  clickScale: 0.975,
   hoverRGB: '255, 255, 255',
   additionalStyles: {
     display: 'inline-flex',
@@ -181,13 +181,13 @@ export function applyGlassEffect(
           'touches' in event ? event.touches[0] : event
         );
         const [xFactor, yFactor] = [2 * (x / width) - 1, 2 * (y / height) - 1];
-        const p = options.clickPerspective * Math.min(width, height);
+        const p = options.clickPerspective * Math.max(width, height);
         // if (Math.abs(xFactor) + Math.abs(yFactor) !== 0) {
         //   xFactor /= Math.abs(xFactor) + Math.abs(yFactor);
         //   yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
         // }
         const transformOrigin = 'center center';
-        const scaling = 1 - options.clickScale / Math.max(width, height);
+        const scaling = options.clickScale;
         applyStyle(node, {
           transform: `
           perspective(${p}px)

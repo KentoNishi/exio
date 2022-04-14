@@ -26,6 +26,7 @@
             render = false;
             await tick();
             render = true;
+            window.scrollTo(0, 0);
           }}
           use:exioIcon
         >
