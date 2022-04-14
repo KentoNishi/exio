@@ -76,7 +76,7 @@ export const defaultGlassOptions = {
   clickDegrees: 5,
   clickPerspective: 2.5,
   transitionDuration: 0.6,
-  clickScale: 0.975,
+  clickScalePixels: 5,
   hoverRGB: '255, 255, 255',
   additionalStyles: {
     display: 'inline-flex',
@@ -187,7 +187,7 @@ export function applyGlassEffect(
         //   yFactor /= Math.abs(xFactor) + Math.abs(yFactor);
         // }
         const transformOrigin = 'center center';
-        const scaling = options.clickScale;
+        const scaling = 1 - options.clickScalePixels / Math.max(width, height);
         applyStyle(node, {
           transform: `
           perspective(${p}px)
