@@ -27,12 +27,25 @@ export function getRandomString(len = 10) {
   return randomString;
 }
 
-export function destroyer(node: HTMLElement): ExioNode {
+export function destroyer(
+  node: HTMLElement,
+  callback?: CallableFunction
+): ExioNode {
   return {
     destroy() {
       node.remove();
+      if (callback) callback();
     },
   };
+}
+
+export function styler(node: HTMLElement) {
+  const id = getRandomString();
+  const style = document.getElementById(id) || document.createElement('style');
+  style.id = id;
+  node.classList.add(id);
+  document.body.appendChild(style);
+  return style as HTMLStyleElement;
 }
 
 export function getMouseInfo(
@@ -175,6 +188,7 @@ export function applyGlassEffect(
       const end = touch ? 'touchend' : 'mouseup';
       node.addEventListener(start, (event: MouseEvent | TouchEvent) => {
         if (!touch) event.preventDefault();
+        if (clicking) return;
         clicking = true;
         const { x, y, width, height } = getMouseInfo(
           node,
@@ -190,23 +204,25 @@ export function applyGlassEffect(
         const scaling = 1 - options.clickScalePixels / Math.max(width, height);
         applyStyle(node, {
           transform: `
-          perspective(${p}px)
-          rotateX(${-yFactor * options.clickDegrees}deg)
-          rotateY(${xFactor * options.clickDegrees}deg)
-          scale(${scaling})
-        `,
+            perspective(${p}px)
+            rotateX(${-yFactor * options.clickDegrees}deg)
+            rotateY(${xFactor * options.clickDegrees}deg)
+            scale(${scaling})
+          `,
           transition: '0s',
           transformOrigin,
           borderImage: 'none',
         });
         const callback = () => {
-          clicking = false;
           applyStyle(node, {
             transform: `perspective(${p}px)`,
             transition: `transform ${options.transitionDuration}s`,
             borderImage,
           });
-          if (!hovering) {
+          setTimeout(() => {
+            clicking = false;
+          }, 0);
+          if (!hovering && !touch) {
             applyStyle(node, {
               borderImage: 'none',
               backgroundImage: 'none',

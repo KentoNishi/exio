@@ -1,4 +1,4 @@
-import { destroyer, getMergedObject, getRandomString } from './base';
+import { destroyer, getMergedObject, styler } from './base';
 import type { ExioNode } from './base';
 
 export const defaultAnimationOptions = {
@@ -15,13 +15,9 @@ export function customExioFlyInAnimation(
     options
   ) as Partial<AnimationOptions>;
   return (node: HTMLElement): ExioNode => {
-    const id = getRandomString();
-    const style =
-      document.getElementById(id) || document.createElement('style');
-    style.id = id;
-    node.classList.add(id);
+    const style = styler(node);
     style.innerHTML += `
-      .${id} {
+      .${style.id} {
         opacity: 0;
         animation: exio-fly-transition ${clonedOptions.duration}s;
         animation-fill-mode: forwards;
@@ -37,8 +33,7 @@ export function customExioFlyInAnimation(
         }
       }
     `;
-    document.body.appendChild(style);
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 
@@ -54,13 +49,9 @@ export function customExioFadeInAnimation(
     options
   ) as Partial<AnimationOptions>;
   return (node: HTMLElement): ExioNode => {
-    const id = getRandomString();
-    const style =
-      document.getElementById(id) || document.createElement('style');
-    style.id = id;
-    node.classList.add(id);
+    const style = styler(node);
     style.innerHTML += `
-      .${id} {
+      .${style.id} {
         opacity: 0;
         animation: exio-fade-transition ${clonedOptions.duration}s;
         animation-fill-mode: forwards;
@@ -74,8 +65,7 @@ export function customExioFadeInAnimation(
         }
       }
     `;
-    document.body.appendChild(style);
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 
@@ -99,13 +89,9 @@ export function customExioOpenAnimation(
     options
   ) as Partial<OpenAnimationOptions>;
   return (node: HTMLElement): ExioNode => {
-    const id = getRandomString();
-    const style =
-      document.getElementById(id) || document.createElement('style');
-    style.id = id;
-    node.classList.add(id);
+    const style = styler(node);
     style.innerHTML += `
-      .${id} {
+      .${style.id} {
         opacity: 0;
         animation: exio-open-transition ${clonedOptions.duration}s;
         animation-fill-mode: forwards;
@@ -121,8 +107,7 @@ export function customExioOpenAnimation(
         }
       }
     `;
-    document.body.appendChild(style);
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 

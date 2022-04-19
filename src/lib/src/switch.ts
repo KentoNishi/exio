@@ -1,10 +1,5 @@
-import { applyGlassEffect } from './base';
-import {
-  getMergedObject,
-  destroyer,
-  getRandomString,
-  applyStyle,
-} from './base';
+import { applyGlassEffect, styler } from './base';
+import { getMergedObject, destroyer, applyStyle } from './base';
 import type { ExioNode } from './base';
 import { defaultToggleOptions } from './toggle';
 
@@ -38,13 +33,9 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
     applyGlassEffect(node, {
       borderWidth: 0,
     });
-    const id = getRandomString();
-    const style =
-      document.getElementById(id) || document.createElement('style');
-    style.id = id;
-    node.classList.add(id);
+    const style = styler(node);
     style.innerHTML += `
-      .${id}::after {
+      .${style.id}::after {
         content: '';
         width: calc(${clonedOptions.additionalStyles.height} / 2);
         height: calc(${clonedOptions.additionalStyles.height} / 2);
@@ -57,18 +48,18 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
         border-radius: 50%;
         transition: transform ${clonedOptions.transitionDuration}s;
       }
-      .${id}:checked::after {
+      .${style.id}:checked::after {
         transform: translateX(calc(
           ${clonedOptions.additionalStyles.width} / 2 - 100%
         ));
       }
-      .${id}:active {
+      .${style.id}:active {
         filter: ${clonedOptions.activeFilter};
       }
-      .${id}:not(:checked):not(:active) {
+      .${style.id}:not(:checked):not(:active) {
         background-color: ${clonedOptions.uncheckedColor} !important;
       }
-      .${id}::before {
+      .${style.id}::before {
         content: '';
         position: absolute;
         width: 100%;
@@ -78,13 +69,12 @@ export function customExioSwitch(options: Partial<SwitchOptions> = {}) {
         z-index: 100;
       }
     `;
-    document.body.appendChild(style);
     applyStyle(node, {
       ...clonedOptions.additionalStyles,
       borderRadius: clonedOptions.additionalStyles.height,
       border: `${clonedOptions.additionalStyles.borderWidth} solid ${clonedOptions.thumbColor}`,
     });
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 

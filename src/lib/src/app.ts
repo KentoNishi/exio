@@ -1,4 +1,4 @@
-import { destroyer, applyStyle, getMergedObject } from './base';
+import { destroyer, applyStyle, getMergedObject, styler } from './base';
 import type { ExioNode } from './base';
 
 export const defaultAppOptions = {
@@ -22,6 +22,7 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
   ) as Partial<AppOptions>;
   return (node: HTMLElement): ExioNode => {
     applyStyle(node, clonedOptions.additionalStyles);
+    let style: HTMLStyleElement | null = null;
     if (clonedOptions.fillBody) {
       applyStyle(document.body, {
         padding: '0',
@@ -29,10 +30,7 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
         width: '100%',
         height: '100%',
       });
-      const id = 'exio-body';
-      const style =
-        document.getElementById(id) || document.createElement('style');
-      style.id = id;
+      style = styler(node);
       style.innerHTML += `
         ::-webkit-scrollbar {
           width: 4px;
@@ -55,9 +53,8 @@ export function customExioApp(options: Partial<AppOptions> = {}) {
           overflow: overlay;
         }
       `;
-      document.body.appendChild(style);
     }
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 

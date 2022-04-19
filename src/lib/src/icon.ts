@@ -1,4 +1,4 @@
-import { destroyer } from './base';
+import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 
 const defaultIconOptions = {
@@ -10,10 +10,7 @@ export type IconOptions = typeof defaultIconOptions;
 
 export function customExioIcon(options = defaultIconOptions) {
   return (node: HTMLElement): ExioNode => {
-    const id = 'exio-icon-font';
-    const existing = document.getElementById(id) as HTMLStyleElement;
-    const style = existing || document.createElement('style');
-    style.id = id;
+    const style = styler(node);
     style.innerHTML += `
       @font-face {
         font-family: 'Material Icons';
@@ -23,9 +20,8 @@ export function customExioIcon(options = defaultIconOptions) {
         src: url('${options.fontUrl}') format('woff2');
       }
     `;
-    if (!existing) document.body.appendChild(style);
     node.style.setProperty('font-family', 'Material Icons', 'important');
-    return destroyer(node);
+    return destroyer(node, () => style.remove());
   };
 }
 
