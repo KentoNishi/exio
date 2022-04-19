@@ -130,7 +130,7 @@ export function applyGlassEffect(
   const registerHover = (touch = false) => {
     const start = touch ? 'touchstart' : 'mouseenter';
     const end = touch ? 'touchend' : 'mouseleave';
-    const blur = touch ? 'touchstart' : 'mousemove';
+    const blur = touch ? 'blur' : 'mousemove';
     node.addEventListener(start, (rootEvent: MouseEvent | TouchEvent) => {
       hovering = true;
       const callback = (event: MouseEvent | TouchEvent) => {
@@ -170,14 +170,11 @@ export function applyGlassEffect(
       window.addEventListener(blur, callback);
       node.addEventListener(end, () => {
         window.removeEventListener(blur, callback);
-        if (!clicking) {
-          setTimeout(() => {
-            if (hovering) return;
-            applyStyle(node, {
-              borderImage: 'none',
-              backgroundImage: 'none',
-            });
-          }, 0);
+        if ((!clicking && !touch) || !hovering) {
+          applyStyle(node, {
+            borderImage: 'none',
+            backgroundImage: 'none',
+          });
         }
       });
     });
