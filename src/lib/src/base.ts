@@ -2,7 +2,7 @@ export interface ExioNode {
   destroy(): void;
 }
 
-export function getMergedObject<T>(a: Partial<T>, b: Partial<T>) {
+export function getMergedObject<T>(a: Partial<T>, b: Partial<T>): Partial<T> {
   const c = {} as any;
   for (const key in a) {
     if (typeof a[key] === 'object') c[key] = getMergedObject(a[key], b[key]);
@@ -130,7 +130,7 @@ export function applyGlassEffect(
   const registerHover = (touch = false) => {
     const start = touch ? 'touchstart' : 'mouseenter';
     const end = touch ? 'touchend' : 'mouseleave';
-    const blur = touch ? 'blur' : 'mousemove';
+    const blur = touch ? 'touchstart' : 'mousemove';
     node.addEventListener(start, (rootEvent: MouseEvent | TouchEvent) => {
       hovering = true;
       const callback = (event: MouseEvent | TouchEvent) => {
@@ -169,13 +169,15 @@ export function applyGlassEffect(
 
       window.addEventListener(blur, callback);
       node.addEventListener(end, () => {
-        hovering = false;
         window.removeEventListener(blur, callback);
         if (!clicking) {
-          applyStyle(node, {
-            borderImage: 'none',
-            backgroundImage: 'none',
-          });
+          setTimeout(() => {
+            if (hovering) return;
+            applyStyle(node, {
+              borderImage: 'none',
+              backgroundImage: 'none',
+            });
+          }, 0);
         }
       });
     });
