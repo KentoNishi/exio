@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { exioApp } from 'exio/svelte';
+  import { exioApp, exioButton } from 'exio/svelte';
   let render = true;
 </script>
 
@@ -7,7 +7,7 @@
   {#if render}
     <div>
       <div class="block">
-        <button>Example Button</button>
+        <button use:exioButton>Example Button</button>
       </div>
     </div>
   {/if}
