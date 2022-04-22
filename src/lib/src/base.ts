@@ -12,10 +12,10 @@ export function getRandomString(len = 10) {
   return randomString;
 }
 
-export function destroyer(nodes: HTMLElement[]): ExioNode {
+export function destroyer(...destroyers: ExioNode['destroy'][]): ExioNode {
   return {
     destroy() {
-      nodes.forEach((node) => node.remove());
+      destroyers.forEach((destroyer) => destroyer());
     },
   };
 }

@@ -41,5 +41,5 @@ export function exioButton(node: HTMLButtonElement): ExioNode {
     node.addEventListener('mousemove', onHover);
   }
   node.addEventListener('mouseenter', onHover);
-  return destroyer([node, s]);
+  return destroyer(node.remove, s.remove);
 }

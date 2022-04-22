@@ -19,5 +19,5 @@ export function exioApp(node: HTMLElement): ExioNode {
       height: 50%;
     }
   `;
-  return destroyer([node, s]);
+  return destroyer(node.remove, s.remove);
 }
