@@ -7,7 +7,9 @@
   {#if render}
     <div>
       <div class="block">
-        <button use:exioButton>Example Button</button>
+        <button style="background-color: #333;" use:exioButton>
+          Example Button
+        </button>
       </div>
     </div>
   {/if}
@@ -15,7 +17,6 @@
 
 <style>
   :root {
-    --gray-fill: #444;
     --blue-accent: dodgerblue;
   }
 

@@ -5,12 +5,12 @@ export function exioApp(node: HTMLElement): ExioNode {
   const s = styler(node);
   s.innerHTML = `
     .${s.id} {
-      background-color: #222;
+      background-color: black;
       min-width: 100%;
       min-height: 100%;
       position: absolute;
       color: #fff;
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
     }
     body {

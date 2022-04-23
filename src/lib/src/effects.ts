@@ -12,11 +12,14 @@ export function exioPointerEffect(node: HTMLElement): ExioNode {
       .${s.id} {
         outline: none;
         border: var(--exio-border-width) solid var(--exio-unhover-color);
-        background-color: rgba(255, 255, 255, 0.15);
         color: inherit;
         font-size: inherit;
         font-family: inherit;
-        padding: 0.5rem 1rem;
+        padding: 0.25em 0.75em;
+        height: 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         --exio-mouse-x: ${mouseX}px;
         --exio-mouse-y: ${mouseY}px;
