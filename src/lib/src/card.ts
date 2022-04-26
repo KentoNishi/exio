@@ -3,7 +3,10 @@ import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 
 export function exioCard(node: HTMLElement): ExioNode {
-  const effect = exioPointerEffect(node);
+  const effect = exioPointerEffect(node, {
+    borderStyle: 'hover',
+    disableClicking: true,
+  });
   const s = styler(node);
   s.innerHTML = `
     .${s.id} {
