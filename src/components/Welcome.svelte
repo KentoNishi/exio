@@ -1,5 +1,12 @@
 <script lang="ts">
-  import { exioApp, exioButton, exioCard, exioSwitch } from 'exio/svelte';
+  import {
+    exioApp,
+    exioButton,
+    exioCard,
+    exioSwitch,
+    exioFlyInAnimation,
+    exioFadeInAnimation,
+  } from 'exio/svelte';
   let render = true;
 </script>
 
@@ -12,10 +19,18 @@
       </div>
       <div class="block">
         <div use:exioCard class="card gray">Example Card</div>
-        <div use:exioCard class="card gray">Example Card</div>
+        <div use:exioCard class="card blue">Example Card</div>
       </div>
       <div class="block">
         <input use:exioSwitch class="blue" type="checkbox" />
+      </div>
+      <div class="block">
+        <div use:exioCard use:exioFlyInAnimation class="card gray">
+          Example Card
+        </div>
+        <div use:exioCard use:exioFadeInAnimation class="card blue">
+          Example Card
+        </div>
       </div>
     </div>
   {/if}
