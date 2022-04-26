@@ -13,13 +13,14 @@ import{y as ee,$ as te,I as ne,S as X,i as Y,s as J,e as a,a as D,b as d,n as P,
       width: 50%;
       height: 50%;
     }
-  `,g(o.remove,e.remove)}function N(o,e={borderStyle:"reactive",disableClicking:!1}){const n=y(o),t=(u=0,f=0,h=0,m=0)=>{const k=`calc(${Math.max(h,m)}px * var(--exio-hover-radius))`,p=e.borderStyle==="static",x=e.borderStyle==="hover",q=p||x?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
+  `,g(o.remove,e.remove)}function N(o,e={borderStyle:"reactive",disableClicking:!1}){const n=y(o),t=(u=0,f=0,h=0,m=0)=>{const k=`calc(${Math.max(h,m)}px * var(--exio-hover-scale))`,p=e.borderStyle==="static",x=e.borderStyle==="hover",q=p||x?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
             ${k} ${k} at var(--exio-mouse-x) var(--exio-mouse-y),
             var(--exio-hover-border-color) 0%,
             transparent 100%
           ) 9 / var(--exio-border-width) / 0px stretch`,b=x?"":`
         background-image: radial-gradient(
-          ${Math.max(h,m)}px at ${u}px ${f}px,
+          calc(${Math.max(h,m)}px * var(--exio-hover-scale))
+            at ${u}px ${f}px,
           var(--exio-hover-body-color) 0%,
           transparent 100%
         )
@@ -40,12 +41,12 @@ import{y as ee,$ as te,I as ne,S as X,i as Y,s as J,e as a,a as D,b as d,n as P,
 
         --exio-mouse-x: ${u}px;
         --exio-mouse-y: ${f}px;
-        --exio-hover-radius: 2;
         --exio-hover-border-color: rgba(255, 255, 255, 1);
         --exio-hover-body-color: rgba(255, 255, 255, 0.2);
         --exio-border-width: 2px;
         --exio-scale-size: 0.95;
         --exio-transition-duration: 0.2s;
+        --exio-hover-scale: 1.5;
         transition: transform var(--exio-transition-duration);
       }
       .${n.id}:hover:not(.${n.id}-active) {
