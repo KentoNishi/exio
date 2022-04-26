@@ -32,7 +32,7 @@ export function exioPointerEffect(node: HTMLElement): ExioNode {
         box-shadow: 0px 0px 0.2em 0em transparent;
         transition: box-shadow 0.1s;
       }
-      .${s.id}:hover:not(${s.id}-active) {
+      .${s.id}:hover:not(.${s.id}-active) {
         border-image: radial-gradient(
           ${hoverRadius} ${hoverRadius} at var(--exio-mouse-x) var(--exio-mouse-y),
           var(--exio-hover-color),
@@ -54,5 +54,15 @@ export function exioPointerEffect(node: HTMLElement): ExioNode {
     node.addEventListener('mousemove', onHover);
   }
   node.addEventListener('mouseenter', onHover);
+  const onMouseDown = () => {
+    node.classList.add(`${s.id}-active`);
+  };
+  const onMouseUp = () => {
+    node.classList.remove(`${s.id}-active`);
+  };
+  node.addEventListener('touchstart', onMouseDown);
+  node.addEventListener('touchend', onMouseUp);
+  node.addEventListener('mousedown', onMouseDown);
+  node.addEventListener('mouseup', onMouseUp);
   return destroyer(node.remove, s.remove);
 }
