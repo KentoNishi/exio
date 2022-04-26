@@ -7,24 +7,27 @@
   {#if render}
     <div>
       <div class="block">
-        <button id="example-button" use:exioButton> Example Button </button>
+        <button class="gray" use:exioButton>Example Button</button>
+        <button class="blue" use:exioButton>Example Button</button>
       </div>
     </div>
   {/if}
 </div>
 
 <style>
-  #example-button {
+  .gray {
     background-color: #333;
   }
-  :root {
-    --blue-accent: dodgerblue;
+  .blue {
+    background-color: #0065c7;
   }
 
   .block {
-    display: block;
+    display: flex;
     margin: 1rem;
     overflow: visible;
+    flex-direction: row;
+    gap: 10px;
   }
   :global(#app) {
     min-height: 100%;
