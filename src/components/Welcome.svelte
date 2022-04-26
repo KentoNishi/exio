@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { exioApp, exioButton } from 'exio/svelte';
+  import { exioApp, exioButton, exioCard } from 'exio/svelte';
   let render = true;
 </script>
 
@@ -10,11 +10,18 @@
         <button class="gray" use:exioButton>Example Button</button>
         <button class="blue" use:exioButton>Example Button</button>
       </div>
+      <div class="block">
+        <div use:exioCard class="card gray">Example card</div>
+      </div>
     </div>
   {/if}
 </div>
 
 <style>
+  .card {
+    width: 150px;
+    height: 150px;
+  }
   .gray {
     background-color: #333;
   }
