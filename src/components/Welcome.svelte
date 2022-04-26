@@ -6,6 +6,7 @@
     exioSwitch,
     exioFlyInAnimation,
     exioFadeInAnimation,
+    exioIcon,
   } from 'exio/svelte';
   let render = true;
 </script>
@@ -14,22 +15,30 @@
   {#if render}
     <div>
       <div class="block">
-        <button class="gray" use:exioButton>Example Button</button>
-        <button class="blue" use:exioButton>Example Button</button>
+        <button class="gray" use:exioButton>Default Button</button>
+        <button class="blue" use:exioButton>Default Button</button>
       </div>
       <div class="block">
-        <div use:exioCard class="card gray">Example Card</div>
-        <div use:exioCard class="card blue">Example Card</div>
+        <button class="card gray" use:exioButton>Card Button</button>
+        <button class="card blue" use:exioButton>Card Button</button>
+      </div>
+      <div class="block">
+        <button use:exioButton use:exioIcon class="gray">send</button>
+        <button use:exioButton use:exioIcon class="blue">send</button>
+      </div>
+      <div class="block">
+        <div use:exioCard class="card gray">Default Card</div>
+        <div use:exioCard class="card blue">Default Card</div>
       </div>
       <div class="block">
         <input use:exioSwitch class="blue" type="checkbox" />
       </div>
       <div class="block">
         <div use:exioCard use:exioFlyInAnimation class="card gray">
-          Example Card
+          Animated Card
         </div>
         <div use:exioCard use:exioFadeInAnimation class="card blue">
-          Example Card
+          Animated Card
         </div>
       </div>
     </div>
