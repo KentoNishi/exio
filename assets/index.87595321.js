@@ -43,7 +43,7 @@ import{y as ee,$ as te,I as ne,S as X,i as Y,s as J,e as a,a as D,b as d,n as P,
         --exio-hover-radius: 2;
         --exio-hover-border-color: rgba(255, 255, 255, 1);
         --exio-hover-body-color: rgba(255, 255, 255, 0.2);
-        --exio-border-width: 1px;
+        --exio-border-width: 2px;
         --exio-scale-size: 0.95;
         --exio-transition-duration: 0.2s;
         transition: transform var(--exio-transition-duration);
