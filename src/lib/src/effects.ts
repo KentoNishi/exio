@@ -18,7 +18,7 @@ export function exioPointerEffect(
     const borderHoverRadius = `calc(${Math.max(
       width,
       height
-    )}px * var(--exio-hover-radius))`;
+    )}px * var(--exio-hover-scale))`;
     const useStaticBorder = additionalOptions.borderStyle === 'static';
     const useHoverBorder = additionalOptions.borderStyle === 'hover';
     const hoverBorder =
@@ -32,7 +32,8 @@ export function exioPointerEffect(
     const hoverBackground = !useHoverBorder
       ? `
         background-image: radial-gradient(
-          ${Math.max(width, height)}px at ${mouseX}px ${mouseY}px,
+          calc(${Math.max(width, height)}px * var(--exio-hover-scale))
+            at ${mouseX}px ${mouseY}px,
           var(--exio-hover-body-color) 0%,
           transparent 100%
         )
@@ -55,12 +56,12 @@ export function exioPointerEffect(
 
         --exio-mouse-x: ${mouseX}px;
         --exio-mouse-y: ${mouseY}px;
-        --exio-hover-radius: 2;
         --exio-hover-border-color: rgba(255, 255, 255, 1);
         --exio-hover-body-color: rgba(255, 255, 255, 0.2);
         --exio-border-width: 2px;
         --exio-scale-size: 0.95;
         --exio-transition-duration: 0.2s;
+        --exio-hover-scale: 1.5;
         transition: transform var(--exio-transition-duration);
       }
       .${s.id}:hover:not(.${s.id}-active) {
