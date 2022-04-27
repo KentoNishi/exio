@@ -1,6 +1,6 @@
 {
   "name": "exio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "UI library",
   "main": "index.js",
   "repository": "https://github.com/KentoNishi/exio",

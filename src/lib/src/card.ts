@@ -14,7 +14,6 @@ export function exioCard(node: HTMLElement): ExioNode {
       align-items: center;
       justify-content: center;
       padding: 0px;
-      user-select: none;
     }
   `;
   return destroyer(effect.destroy, s.remove);

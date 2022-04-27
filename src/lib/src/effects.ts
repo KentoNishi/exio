@@ -61,7 +61,7 @@ export function exioPointerEffect(
         --exio-border-width: 2px;
         --exio-scale-size: 0.95;
         --exio-transition-duration: 0.2s;
-        --exio-hover-scale: 1.5;
+        --exio-hover-scale: 2;
         transition: transform var(--exio-transition-duration);
       }
       .${s.id}:hover:not(.${s.id}-active) {
