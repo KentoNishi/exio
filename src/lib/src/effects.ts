@@ -48,9 +48,6 @@ export function exioPointerEffect(
         font-size: inherit;
         font-family: inherit;
         padding: 0.25em 0.75em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         overflow: hidden;
         border-radius: 1px;
         ${useStaticBorder ? hoverBorder : ''};
