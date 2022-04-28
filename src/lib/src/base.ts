@@ -29,7 +29,7 @@ export function styler(node: HTMLElement) {
   const style = document.getElementById(id) || document.createElement('style');
   style.id = id;
   node.classList.add(id);
-  document.body.appendChild(style);
+  document.head.appendChild(style);
   return style as HTMLStyleElement;
 }
 
