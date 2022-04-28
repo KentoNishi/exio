@@ -20,10 +20,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
     .${s1.id}:not(:checked) {
       background-color: transparent;
     }
-  `;
-  const s2 = styler(node);
-  s2.innerHTML = `
-    .${s2.id}::after {
+    .${s1.id}::after {
       content: '';
       position: absolute;
       width: ${node.clientHeight}px;
@@ -35,11 +32,11 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       background-color: white;
       transition: transform var(--exio-transition-duration);
     }
-    .${s2.id}:checked::after {
+    .${s1.id}:checked::after {
       transform: translateX(calc(
         ${node.clientWidth / 2}px - ${node.clientHeight / 2}px
       )) scale(0.7);
     }
   `;
-  return destroyer(effect.destroy, s1.remove, s2.remove);
+  return destroyer(effect.destroy, s1.remove);
 }
