@@ -19,7 +19,6 @@ export function exioFlyInAnimation(node: HTMLElement): ExioNode {
       animation-duration: 0.6s;
       animation-fill-mode: forwards;
       opacity: 0;
-      transform: translateY(50%);
     }
   `;
   return destroyer(node.remove);
@@ -39,6 +38,29 @@ export function exioFadeInAnimation(node: HTMLElement): ExioNode {
     .${s.id} {
       animation: exio-fade-in;
       animation-duration: 0.6s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+  `;
+  return destroyer(node.remove);
+}
+
+export function exioZoomInAnimation(node: HTMLElement): ExioNode {
+  const s = styler(node);
+  s.innerHTML = `
+    @keyframes exio-zoom-in {
+      from {
+        transform: scale(90%);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    .${s.id} {
+      animation: exio-zoom-in;
+      animation-duration: 0.5s;
       animation-fill-mode: forwards;
       opacity: 0;
     }

@@ -7,13 +7,14 @@
     exioFlyInAnimation,
     exioFadeInAnimation,
     exioIcon,
+    exioZoomInAnimation,
   } from 'exio/svelte';
   let render = true;
 </script>
 
 <div use:exioApp>
   {#if render}
-    <div>
+    <div use:exioZoomInAnimation style="transform-origin: center top;">
       <div class="block">
         <button class="gray" use:exioButton>Default Button</button>
         <button class="blue" use:exioButton>Default Button</button>
