@@ -8,3 +8,5 @@ export {
   exioZoomInAnimation,
 } from './src/animations';
 export { exioIcon } from './src/icon';
+export { exioLoadingBar } from './src/loading';
+export type { ExioNode } from './src/base';
