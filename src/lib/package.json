@@ -1,7 +1,7 @@
 {
   "name": "exio",
-  "version": "0.1.7",
-  "description": "UI library",
+  "version": "0.1.8",
+  "description": "A framework-independent UI component library that extends native HTML elements!",
   "main": "index.js",
   "repository": "https://github.com/KentoNishi/exio",
   "author": "Kento Nishi",
