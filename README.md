@@ -4,23 +4,50 @@ A framework-independent UI library that extends native HTML elements!
 
 ## What's Included
 
-### Components
-* `exioApp`
-* `exioButton`
-* `exioCard`
-* `exioSwitch`
-* `exioIcon`
-* `exioLoadingBar`
+<details>
+  <summary><strong>Components</strong></summary>
+  <ul>
+    <li><code>exioApp</code></li>
+    <li><code>exioButton</code></li>
+    <li><code>exioCard</code></li>
+    <li><code>exioSwitch</code></li>
+    <li><code>exioIcon</code></li>
+    <li><code>exioLoadingBar</code></li>
+    </ul>
+</details>
 
-### Animations
-* `exioFlyInAnimation`
-* `exioFadeInAnimation`
-* `exioZoomInAnimation`
+<details>
+  <summary><strong>Animations</strong></summary>
+  <ul>
+    <li><code>exioFlyInAnimation</code></li>
+    <li><code>exioFadeInAnimation</code></li>
+    <li><code>exioZoomInAnimation</code></li>
+    </ul>
+</details>
 
-### Typedefs
-* `ExioNode`
+<details>
+  <summary><strong>Typedefs</strong></summary>
+  <ul>
+    <li><code>ExioNode</code></li>
+    </ul>
+</details>
 
 ## Usage
+
+### Svelte Example
+
+```html
+<script lang="ts">
+  import {
+    exioApp,
+    exioZoomInAnimation,
+    exioButton
+  } from 'exio/svelte';
+</script>
+<div use:exioApp use:exioZoomInAnimation>
+  <button use:exioButton>Example Button</button>
+</div>
+```
 
 ### Vanilla JS/TS Example
 
@@ -37,13 +64,3 @@ const exioButton = exioButton(button);
 // destroy the exioButton
 exioButton.destroy();
 ```
-
-### Svelte Example
-
-```html
-<script lang="ts">
-  import { exioButton } from 'exio/svelte';
-</script>
-<button use:exioButton>Example Button</button>
-```
-
