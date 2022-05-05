@@ -38,29 +38,16 @@ A framework-independent UI library that extends native HTML elements!
 
 ```html
 <script lang="ts">
-  import {
-    exioApp,
-    exioZoomInAnimation,
-    exioButton
-  } from 'exio/svelte';
+  import { exioButton } from 'exio/svelte';
 </script>
-<div use:exioApp use:exioZoomInAnimation>
-  <button use:exioButton>Example Button</button>
-</div>
+<button use:exioButton>Example Button</button>
 ```
 
 ### Vanilla JS/TS Example
 
 ```ts
-// import
 import { exioButton } from 'exio';
-// create a standard button element
-const button = document.createElement('button');
-button.innerText = 'Example Button';
-document.body.appendChild(button);
-// initialize the exioButton
+const button = document.querySelector('#my-button');
 const exioButton = exioButton(button);
-// ...
-// destroy the exioButton
 exioButton.destroy();
 ```
