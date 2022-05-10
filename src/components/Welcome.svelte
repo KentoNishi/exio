@@ -8,7 +8,6 @@
     exioFadeInAnimation,
     exioIcon,
     exioZoomInAnimation,
-    exioLoadingBar,
   } from 'exio/svelte';
   let render = true;
 </script>
@@ -42,9 +41,6 @@
         <div use:exioCard use:exioFadeInAnimation class="card blue">
           Animated Card
         </div>
-      </div>
-      <div class="block">
-        <div use:exioLoadingBar style="width: 150px; height: 5px;" />
       </div>
     </div>
   {/if}

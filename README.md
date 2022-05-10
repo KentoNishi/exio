@@ -12,7 +12,6 @@ A framework-independent UI library that extends native HTML elements!
     <li><code>exioCard</code></li>
     <li><code>exioSwitch</code></li>
     <li><code>exioIcon</code></li>
-    <li><code>exioLoadingBar</code></li>
     </ul>
 </details>
 
