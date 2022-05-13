@@ -12,7 +12,7 @@ A framework-independent UI library that extends native HTML elements!
     <li><code>exioCard</code></li>
     <li><code>exioSwitch</code></li>
     <li><code>exioIcon</code></li>
-    </ul>
+  </ul>
 </details>
 
 <details>
@@ -21,14 +21,14 @@ A framework-independent UI library that extends native HTML elements!
     <li><code>exioFlyInAnimation</code></li>
     <li><code>exioFadeInAnimation</code></li>
     <li><code>exioZoomInAnimation</code></li>
-    </ul>
+  </ul>
 </details>
 
 <details>
   <summary><strong>Typedefs</strong></summary>
   <ul>
     <li><code>ExioNode</code></li>
-    </ul>
+  </ul>
 </details>
 
 ## Usage
