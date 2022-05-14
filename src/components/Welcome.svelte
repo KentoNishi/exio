@@ -8,6 +8,7 @@
     exioFadeInAnimation,
     exioIcon,
     exioZoomInAnimation,
+    exioDropdown,
   } from 'exio/svelte';
   let render = true;
 </script>
@@ -41,6 +42,13 @@
         <div use:exioCard use:exioFadeInAnimation class="card blue">
           Animated Card
         </div>
+      </div>
+      <div class="block">
+        <select use:exioDropdown class="gray">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
       </div>
     </div>
   {/if}
