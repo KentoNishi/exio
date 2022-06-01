@@ -14,11 +14,11 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   const ds = styler(dropdown);
   let rect = node.getBoundingClientRect();
   let before = '';
-  const onDown = (e: MouseEvent | TouchEvent) => {
+  const onDown = (e?: MouseEvent | TouchEvent) => {
     before = node.style.getPropertyValue('transform');
     node.style.setProperty('transform', 'none', 'important');
     rect = node.getBoundingClientRect();
-    e.preventDefault();
+    e?.preventDefault();
     return;
   };
   dropdown.tabIndex = 0;
@@ -78,6 +78,10 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   document.body.appendChild(dropdown);
   node.addEventListener('mousedown', onDown);
   node.addEventListener('touchstart', onDown);
+  window.addEventListener('resize', (e) => {
+    onDown();
+    updateStyle();
+  });
   node.addEventListener('mouseup', updateStyle);
   node.addEventListener('touchend', updateStyle);
   return destroyer(effect.destroy, s.remove, dropdown.remove, ds.remove, () => {

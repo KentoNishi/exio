@@ -43,8 +43,13 @@
           Animated Card
         </div>
       </div>
-      <div class="block">
+      <div class="block" style="margin-bottom: 150px;">
         <select use:exioDropdown class="gray">
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <select use:exioDropdown class="blue">
           <option value="1">Option 1</option>
           <option value="2">Option 2</option>
           <option value="3">Option 3</option>
