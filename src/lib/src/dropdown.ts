@@ -58,7 +58,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     `;
     dropdown.innerHTML = '';
     setTimeout(() => {
-      node.childNodes.forEach((child) => {
+      node.childNodes.forEach((child, index) => {
         const item = document.createElement('div');
         item.style.padding = padding;
         item.style.boxSizing = 'border-box';
@@ -66,6 +66,10 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         item.textContent = child.textContent;
         items.push(exioPointerEffect(item));
         dropdown.appendChild(item);
+        item.addEventListener('click', () => {
+          node.selectedIndex = index;
+          dropdown.blur();
+        });
       });
     }, 0);
     dropdown.focus();
