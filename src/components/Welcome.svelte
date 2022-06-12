@@ -9,6 +9,7 @@
     exioIcon,
     exioZoomInAnimation,
     exioDropdown,
+    exioRadio,
   } from 'exio/svelte';
   let render = true;
 </script>
@@ -55,6 +56,10 @@
           <option value="3">Option 3</option>
         </select>
       </div>
+    </div>
+    <div class="block">
+      <input type="radio" use:exioRadio id="radio-option-1" />
+      <label for="radio-option-1">Radio Option 1</label>
     </div>
   {/if}
 </div>

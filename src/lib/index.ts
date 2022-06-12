@@ -9,4 +9,5 @@ export {
 } from './src/animations';
 export { exioIcon } from './src/icon';
 export { exioDropdown } from './src/dropdown';
+export { exioRadio } from './src/radio';
 export type { ExioNode } from './src/base';
