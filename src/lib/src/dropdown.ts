@@ -50,10 +50,14 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         padding-right: 0px;
         box-size: border-box;
         opacity: 0;
+        pointer-events: none;
+        touch-action: none;
       }
       .${ds.id}:focus {
         opacity: 1;
         outline: none;
+        pointer-events: auto;
+        touch-action: auto;
       }
     `;
     dropdown.innerHTML = '';

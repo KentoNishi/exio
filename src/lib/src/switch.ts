@@ -19,6 +19,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
 
       --exio-border-width: 2px;
       --exio-transition-duration: 0.2s;
+      --exio-selected-indicator-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
@@ -35,7 +36,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       transform: translateX(calc(
         ${-node.clientWidth / 2}px + ${node.clientHeight / 2}px
       )) scale(0.7);
-      background-color: white;
+      background-color: var(--exio-selected-indicator-color);
       transition: transform var(--exio-transition-duration);
     }
     .${s2.id}:checked::after {

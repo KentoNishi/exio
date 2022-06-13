@@ -44,7 +44,15 @@
           Animated Card
         </div>
       </div>
-      <div class="block" style="margin-bottom: 150px;">
+      <div
+        class="block"
+        style="
+          width: min-content;
+          padding: 10px;
+          padding-bottom: 120px;
+          border: 2px solid white;
+        "
+      >
         <select use:exioDropdown class="gray">
           <option value="1">Option 1</option>
           <option value="2">Option 2</option>
@@ -58,8 +66,26 @@
       </div>
     </div>
     <div class="block">
-      <input type="radio" use:exioRadio id="radio-option-1" />
-      <label for="radio-option-1">Radio Option 1</label>
+      <div class="paired">
+        <input
+          type="radio"
+          use:exioRadio
+          id="radio-option-1"
+          name="radio-options"
+        />
+        <label for="radio-option-1">Radio Option 1</label>
+        <input
+          type="radio"
+          use:exioRadio
+          id="radio-option-2"
+          name="radio-options"
+          style="
+            --exio-hover-border-color: var(--accent);
+            --exio-selected-indicator-color: var(--accent);
+          "
+        />
+        <label for="radio-option-2">Radio Option 2</label>
+      </div>
     </div>
   {/if}
 </div>
@@ -73,7 +99,7 @@
     background-color: #333;
   }
   .blue {
-    background-color: #0065c7;
+    background-color: var(--accent);
   }
 
   .block {
@@ -86,5 +112,12 @@
   :global(#app) {
     min-height: 100%;
     min-width: 100%;
+    --accent: #0065c7;
+  }
+  .paired {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 </style>

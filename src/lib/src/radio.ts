@@ -10,15 +10,17 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
   s1.innerHTML = `
     .${s1.id} {
       -webkit-appearance: none;
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       border-radius: 100px;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0px;
 
       --exio-border-width: 2px;
       --exio-transition-duration: 0.2s;
+      --exio-selected-indicator-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
@@ -33,7 +35,7 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       height: ${node.clientHeight}px;
       border-radius: 100%;
       transform: scale(0);
-      background-color: white;
+      background-color: var(--exio-selected-indicator-color);
       transition: transform var(--exio-transition-duration);
     }
     .${s2.id}:checked::after {
