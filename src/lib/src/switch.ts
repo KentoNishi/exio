@@ -16,6 +16,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: visible;
 
       --exio-border-width: 2px;
       --exio-transition-duration: 0.2s;
