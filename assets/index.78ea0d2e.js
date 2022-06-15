@@ -83,6 +83,7 @@ import{y as wt,$ as Lt,I as Ct,S as bt,i as xt,s as ht,e as a,a as Z,b as u,n as
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: visible;
 
       --exio-border-width: 2px;
       --exio-transition-duration: 0.2s;
