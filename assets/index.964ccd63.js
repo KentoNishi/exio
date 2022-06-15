@@ -175,7 +175,7 @@ import{y as Tt,$ as qt,I as St,S as Et,i as kt,s as bt,e as a,a as Z,b as W,n as
     .${r.id} {
       user-select: none;
     }
-  `;const o=document.createElement("div"),n=m(o);let l=e.getBoundingClientRect(),c="";const d=u=>{c=e.style.getPropertyValue("transform"),e.style.setProperty("transform","none","important"),l=e.getBoundingClientRect(),u==null||u.preventDefault()};o.tabIndex=0;const h=[],p=()=>{e.style.setProperty("transform",c,"important");const u=getComputedStyle(e),b=u.getPropertyValue("--exio-transition-duration"),y=u.getPropertyValue("color"),U=u.getPropertyValue("background-color"),P=u.getPropertyValue("font-family"),D=u.getPropertyValue("font-size"),T=u.getPropertyValue("padding");n.innerHTML=`
+  `;const o=document.createElement("div"),n=m(o);let l=e.getBoundingClientRect(),c="";const d=u=>{c=e.style.getPropertyValue("transform"),e.style.setProperty("transform","none","important"),l=e.getBoundingClientRect(),e.style.setProperty("transform",c,"important"),u==null||u.preventDefault()};o.tabIndex=0;const h=[],p=()=>{o.blur(),e.style.setProperty("transform",c,"important");const u=getComputedStyle(e),b=u.getPropertyValue("--exio-transition-duration"),y=u.getPropertyValue("color"),U=u.getPropertyValue("background-color"),P=u.getPropertyValue("font-family"),D=u.getPropertyValue("font-size"),T=u.getPropertyValue("padding");n.innerHTML=`
       .${n.id} {
         position: fixed;
         top: ${l.bottom}px;
