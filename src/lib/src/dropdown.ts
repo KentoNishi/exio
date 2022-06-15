@@ -62,7 +62,8 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     `;
     dropdown.innerHTML = '';
     setTimeout(() => {
-      node.childNodes.forEach((child, index) => {
+      node.querySelectorAll('option').forEach((child, index) => {
+        if (child.disabled) return;
         const item = document.createElement('div');
         item.style.padding = padding;
         item.style.boxSizing = 'border-box';
@@ -88,7 +89,16 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   });
   node.addEventListener('mouseup', updateStyle);
   node.addEventListener('touchend', updateStyle);
-  return destroyer(effect.destroy, s.remove, dropdown.remove, ds.remove, () => {
-    items.forEach((item) => item.destroy());
-  });
+  const scroll = () => dropdown.blur();
+  window.addEventListener('scroll', scroll);
+  return destroyer(
+    effect.destroy,
+    s.remove,
+    dropdown.remove,
+    ds.remove,
+    () => {
+      items.forEach((item) => item.destroy());
+    },
+    () => window.removeEventListener('scroll', scroll)
+  );
 }
