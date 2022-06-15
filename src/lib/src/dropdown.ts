@@ -18,12 +18,14 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     before = node.style.getPropertyValue('transform');
     node.style.setProperty('transform', 'none', 'important');
     rect = node.getBoundingClientRect();
+    node.style.setProperty('transform', before, 'important');
     e?.preventDefault();
     return;
   };
   dropdown.tabIndex = 0;
   const items: ExioNode[] = [];
   const updateStyle = () => {
+    dropdown.blur();
     node.style.setProperty('transform', before, 'important');
     const computed = getComputedStyle(node);
     const transitionDuration = computed.getPropertyValue(
