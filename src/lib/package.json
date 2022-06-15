@@ -10,5 +10,7 @@
   "scripts": {
     "build": "node build.js"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dialog-polyfill": "^0.5.6"
+  }
 }

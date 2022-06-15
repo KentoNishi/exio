@@ -10,8 +10,10 @@
     exioZoomInAnimation,
     exioDropdown,
     exioRadio,
+    exioDialog,
   } from 'exio/svelte';
   let render = true;
+  let dialog: HTMLDialogElement;
 </script>
 
 <div use:exioApp>
@@ -87,6 +89,12 @@
         />
         <label for="radio-option-2">Radio Option 2</label>
       </div>
+    </div>
+    <div class="block">
+      <button class="gray" use:exioButton on:click={() => dialog.showModal()}>
+        Open Dialog
+      </button>
+      <dialog use:exioDialog bind:this={dialog}>Hello</dialog>
     </div>
   {/if}
 </div>
