@@ -49,7 +49,7 @@ export function exioPointerEffect(
         font-family: inherit;
         padding: 0.25em 0.75em;
         overflow: hidden;
-        border-radius: 1px;
+        border-radius: 0px;
         ${useStaticBorder ? hoverBorder : ''};
 
         --exio-mouse-x: ${mouseX}px;
