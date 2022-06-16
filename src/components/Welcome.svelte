@@ -13,7 +13,7 @@
     exioDialog,
   } from 'exio/svelte';
   let render = true;
-  let dialog: HTMLDialogElement;
+  let open = false;
 </script>
 
 <div use:exioApp>
@@ -91,28 +91,19 @@
       </div>
     </div>
     <div class="block">
-      <button class="gray" use:exioButton on:click={() => dialog.showModal()}>
+      <button class="gray" use:exioButton on:click={() => (open = true)}>
         Open Dialog
       </button>
       <dialog
         use:exioDialog
-        bind:this={dialog}
+        {open}
         class="black"
-        style="
-          width: min(300px, 100%);
-        "
+        style="width: min(300px, 100%);"
       >
         <div style="font-size: 1.5rem;">Hello World</div>
         <p>Exio uses the HTML dialog element.</p>
-        <div
-          style="
-          width: 100%;
-          display: flex;
-          align-items: flex-end;
-          flex-direction: column;
-        "
-        >
-          <button use:exioButton class="blue" on:click={() => dialog.close()}>
+        <div class="right-align">
+          <button use:exioButton class="blue" on:click={() => (open = false)}>
             Close
           </button>
         </div>
@@ -143,6 +134,12 @@
     overflow: visible;
     flex-direction: row;
     gap: 10px;
+  }
+  .right-align {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
   }
   :global(#app) {
     min-height: 100%;

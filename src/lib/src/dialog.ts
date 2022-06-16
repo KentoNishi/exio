@@ -3,7 +3,7 @@ import type { ExioNode } from './base';
 import dialogPolyfill from 'dialog-polyfill';
 
 export function exioDialog(node: HTMLDialogElement): ExioNode {
-  const isOpen = node.getAttribute('open') !== null;
+  let isOpen = Boolean(node.open);
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-dialog-fade-in {
@@ -67,7 +67,27 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     node.removeEventListener('animationstart', anistarted);
   };
   node.addEventListener('animationstart', anistarted);
-  return destroyer(s.remove, () => {
-    if (s2) s2.remove();
+  const observe = () =>
+    observer.observe(node, {
+      attributes: true,
+      attributeFilter: ['open'],
+    });
+  const observer = new MutationObserver(() => {
+    isOpen = Boolean(node.open);
+    observer.disconnect();
+    node.show();
+    node.close();
+    if (isOpen) {
+      node.showModal();
+    }
+    observe();
   });
+  observe();
+  return destroyer(
+    s.remove,
+    () => {
+      if (s2) s2.remove();
+    },
+    observer.disconnect
+  );
 }
