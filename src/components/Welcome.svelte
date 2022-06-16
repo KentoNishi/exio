@@ -94,7 +94,29 @@
       <button class="gray" use:exioButton on:click={() => dialog.showModal()}>
         Open Dialog
       </button>
-      <dialog use:exioDialog bind:this={dialog}>Hello</dialog>
+      <dialog
+        use:exioDialog
+        bind:this={dialog}
+        class="black"
+        style="
+          width: min(300px, 100%);
+        "
+      >
+        <div style="font-size: 1.5rem;">Hello World</div>
+        <p>Exio uses the HTML dialog element.</p>
+        <div
+          style="
+          width: 100%;
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column;
+        "
+        >
+          <button use:exioButton class="blue" on:click={() => dialog.close()}>
+            Close
+          </button>
+        </div>
+      </dialog>
     </div>
   {/if}
 </div>
@@ -106,6 +128,10 @@
   }
   .gray {
     background-color: #333;
+  }
+  .black {
+    background-color: black;
+    color: white;
   }
   .blue {
     background-color: var(--accent);
