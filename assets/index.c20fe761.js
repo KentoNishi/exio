@@ -256,7 +256,7 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as gt,i as qt,s as St,e as a,a as M,b a
     .${n.id} {
       --exio-transition-duration: 0.4s;
       --exio-backdrop-color: rgba(128, 128, 128, 0.1);
-      border-radius: 0px;
+      border-radius: 1px;
       border: 0px solid transparent;
     }
     .${n.id}::backdrop {
