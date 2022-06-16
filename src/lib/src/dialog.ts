@@ -3,6 +3,7 @@ import type { ExioNode } from './base';
 import dialogPolyfill from 'dialog-polyfill';
 
 export function exioDialog(node: HTMLDialogElement): ExioNode {
+  const isOpen = node.getAttribute('open') !== null;
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-dialog-fade-in {
@@ -26,7 +27,7 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
       }
     }
     .${s.id} {
-      --exio-transition-duration: 2s;
+      --exio-transition-duration: 0.5s;
       border-radius: 0px;
       border: 0px solid transparent;
     }
@@ -38,8 +39,6 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
       margin: auto auto;
       transform: translateY(-50%);
       transform-origin: top center;
-      animation: exio-dialog-fade-out var(--exio-transition-duration);
-      animation-fill-mode: forwards;
     }
     .${s.id}[open] {
       transform-origin: center center;
@@ -48,10 +47,27 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     }
   `;
   dialogPolyfill.registerDialog(node);
-  const isOpen = Boolean(node.getAttribute('open'));
   node.close();
   if (isOpen) {
     node.showModal();
   }
-  return destroyer(s.remove);
+  const s2 = styler(node);
+  s2.innerHTML = `
+    .${s2.id}:not([open]) {
+      display: none;
+    }
+  `;
+  const anistarted = () => {
+    s2.innerHTML = `
+      .${s2.id}:not([open]) {
+        animation: exio-dialog-fade-out var(--exio-transition-duration);
+        animation-fill-mode: forwards;
+      }
+    `;
+    node.removeEventListener('animationstart', anistarted);
+  };
+  node.addEventListener('animationstart', anistarted);
+  return destroyer(s.remove, () => {
+    if (s2) s2.remove();
+  });
 }
