@@ -18,31 +18,33 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     @keyframes exio-dialog-fade-out {
       0% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(-50%);
       }
       100% {
         opacity: 0;
-        transform: scale(0);
+        transform: scale(0) translateY(-50%);
       }
     }
     .${s.id} {
-      display: unset;
-      position: fixed;
-      margin: auto;
-      top: 0px;
-      left: 0px;
       --exio-transition-duration: 2s;
       border-radius: 0px;
       border: 0px solid transparent;
-      animation: exio-dialog-fade-out var(--exio-transition-duration);
-      top: 50vh;
+    }
+    .${s.id}:not([open]) {
+      display: block;
+      position: fixed;
+      left: 0px;
+      top: 50%;
+      margin: auto auto;
       transform: translateY(-50%);
+      transform-origin: top center;
+      animation: exio-dialog-fade-out var(--exio-transition-duration);
+      animation-fill-mode: forwards;
     }
     .${s.id}[open] {
+      transform-origin: center center;
       animation: exio-dialog-fade-in var(--exio-transition-duration);
       animation-fill-mode: forwards;
-      top: revert;
-      transform: revert;
     }
   `;
   dialogPolyfill.registerDialog(node);
