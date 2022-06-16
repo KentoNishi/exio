@@ -91,7 +91,10 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   });
   node.addEventListener('mouseup', updateStyle);
   node.addEventListener('touchend', updateStyle);
-  const scroll = () => dropdown.blur();
+  const scroll = () => {
+    dropdown.blur();
+    node.blur();
+  };
   window.addEventListener('scroll', scroll);
   return destroyer(
     effect.destroy,
