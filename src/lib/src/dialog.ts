@@ -28,7 +28,7 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     }
     .${s.id} {
       --exio-transition-duration: 0.4s;
-      --exio-backdrop-color: rgba(128, 128, 128, 0.1);
+      --exio-backdrop-color: rgba(128, 128, 128, 0.2);
       border-radius: 0px;
       border: 0px solid transparent;
     }
