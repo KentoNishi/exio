@@ -27,9 +27,13 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
       }
     }
     .${s.id} {
-      --exio-transition-duration: 0.5s;
+      --exio-transition-duration: 0.4s;
+      --exio-backdrop-color: rgba(0, 0, 0, 0.5);
       border-radius: 0px;
       border: 0px solid transparent;
+    }
+    .${s.id}::backdrop {
+      background-color: rgba(0, 0, 0, 0);
     }
     .${s.id}:not([open]) {
       display: block;
@@ -67,6 +71,31 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     node.removeEventListener('animationstart', anistarted);
   };
   node.addEventListener('animationstart', anistarted);
+  const backdrop = document.createElement('div');
+  const computed = getComputedStyle(node);
+  const s3 = styler(backdrop);
+  const transitionDuration = computed.getPropertyValue(
+    '--exio-transition-duration'
+  );
+  const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
+  s3.innerHTML = `
+    .${s3.id} {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: ${backdropColor};
+      transition: opacity ${transitionDuration};
+      pointer-events: none;
+      touch-action: none;
+    }
+  `;
+  const updateBackDrop = () => {
+    backdrop.style.opacity = isOpen ? '1' : '0';
+  };
+  updateBackDrop();
+  document.body.appendChild(backdrop);
   const observe = () =>
     observer.observe(node, {
       attributes: true,
@@ -77,6 +106,7 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     observer.disconnect();
     node.show();
     node.close();
+    updateBackDrop();
     if (isOpen) {
       node.showModal();
     }
@@ -87,6 +117,7 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     s.remove,
     () => {
       if (s2) s2.remove();
+      s3.remove();
     },
     observer.disconnect
   );
