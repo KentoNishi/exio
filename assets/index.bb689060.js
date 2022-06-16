@@ -1,4 +1,4 @@
-import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b as u,n as pe,c as M,f as h,g as s,h as x,j as r,l as Ue,r as Be,k as He,m as Le,o as we,t as se,p as me,q as Ae,u as Ke,v as ze,w as Fe,x as De,z as Ze}from"./vendor.d22cc087.js";const Oe=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))o(n);new MutationObserver(n=>{for(const a of n)if(a.type==="childList")for(const c of a.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&o(c)}).observe(document,{childList:!0,subtree:!0});function i(n){const a={};return n.integrity&&(a.integrity=n.integrity),n.referrerpolicy&&(a.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?a.credentials="include":n.crossorigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function o(n){if(n.ep)return;n.ep=!0;const a=i(n);fetch(n.href,a)}};Oe();const $e="modulepreload",Ye={},_e="/exio/",et=function(e,i){return!i||i.length===0?e():Promise.all(i.map(o=>{if(o=`${_e}${o}`,o in Ye)return;Ye[o]=!0;const n=o.endsWith(".css"),a=n?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${o}"]${a}`))return;const c=document.createElement("link");if(c.rel=n?"stylesheet":$e,n||(c.as="script",c.crossOrigin=""),c.href=o,document.head.appendChild(c),n)return new Promise((d,p)=>{c.addEventListener("load",d),c.addEventListener("error",p)})})).then(()=>e())};Ge("en",()=>et(()=>import("./en.9805afb4.js"),[]));Xe({fallbackLocale:"en",initialLocale:Me()});function tt(t=10){const e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";let i="";for(let o=0;o<t;o++){const n=Math.floor(Math.random()*e.length);i+=e.substring(n,n+1)}return i}function f(...t){return{destroy(){t.forEach(e=>{try{e()}catch{}})}}}function m(t){const e=tt(),i=document.getElementById(e)||document.createElement("style");return i.id=e,t.classList.add(e),document.head.appendChild(i),i}function ot(t,e){const{left:i,top:o,width:n,height:a}=t.getBoundingClientRect(),{clientX:c,clientY:d}=e,[p,v]=[c-i,d-o];return{x:p,y:v,width:n,height:a}}function it(t){const e=m(t);return e.innerHTML=`
+import{y as Gt,$ as Xt,I as Mt,d as jt,S as It,i as qt,s as Qt,e as l,a as X,b as u,n as pt,c as M,f as h,g as s,h as f,j as r,l as Ut,r as Bt,k as Ht,m as Lt,o as wt,t as st,p as mt,q as At,u as Kt,v as zt,w as Ft,x as Dt,z as Zt}from"./vendor.d22cc087.js";const Ot=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))o(n);new MutationObserver(n=>{for(const a of n)if(a.type==="childList")for(const c of a.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&o(c)}).observe(document,{childList:!0,subtree:!0});function i(n){const a={};return n.integrity&&(a.integrity=n.integrity),n.referrerpolicy&&(a.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?a.credentials="include":n.crossorigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function o(n){if(n.ep)return;n.ep=!0;const a=i(n);fetch(n.href,a)}};Ot();const $t="modulepreload",Yt={},_t="/exio/",te=function(e,i){return!i||i.length===0?e():Promise.all(i.map(o=>{if(o=`${_t}${o}`,o in Yt)return;Yt[o]=!0;const n=o.endsWith(".css"),a=n?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${o}"]${a}`))return;const c=document.createElement("link");if(c.rel=n?"stylesheet":$t,n||(c.as="script",c.crossOrigin=""),c.href=o,document.head.appendChild(c),n)return new Promise((d,p)=>{c.addEventListener("load",d),c.addEventListener("error",p)})})).then(()=>e())};Gt("en",()=>te(()=>import("./en.9805afb4.js"),[]));Xt({fallbackLocale:"en",initialLocale:Mt()});function ee(t=10){const e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";let i="";for(let o=0;o<t;o++){const n=Math.floor(Math.random()*e.length);i+=e.substring(n,n+1)}return i}function x(...t){return{destroy(){t.forEach(e=>{try{e()}catch{}})}}}function m(t){const e=ee(),i=document.getElementById(e)||document.createElement("style");return i.id=e,t.classList.add(e),document.head.appendChild(i),i}function oe(t,e){const{left:i,top:o,width:n,height:a}=t.getBoundingClientRect(),{clientX:c,clientY:d}=e,[p,v]=[c-i,d-o];return{x:p,y:v,width:n,height:a}}function ie(t){const e=m(t);return e.innerHTML=`
     .${e.id} {
       background-color: black;
       min-width: 100%;
@@ -13,7 +13,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
       width: 50%;
       height: 50%;
     }
-  `,f(t.remove,e.remove)}function $(t,e={borderStyle:"reactive",disableClicking:!1}){const i=m(t),o=(d=0,p=0,v=0,E=0)=>{const W=`calc(
+  `,x(t.remove,e.remove)}function $(t,e={borderStyle:"reactive",disableClicking:!1}){const i=m(t),o=(d=0,p=0,v=0,E=0)=>{const W=`calc(
       ${Math.max(v,E)}px * var(--exio-hover-border-scale)
     )`,y=e.borderStyle==="static",b=e.borderStyle==="hover",R=y||b?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
             ${W} ${W} at var(--exio-mouse-x) var(--exio-mouse-y),
@@ -63,18 +63,18 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
         transition: none;
         transform: scale(var(--exio-scale-size));
       }
-    `};o();function n(d){const{x:p,y:v,width:E,height:W}=ot(t,d);o(p,v,E,W),t.addEventListener("mousemove",n)}t.addEventListener("mouseenter",n);const a=()=>{t.classList.add(`${i.id}-active`)},c=()=>{t.classList.remove(`${i.id}-active`)};return e.disableClicking||(t.addEventListener("touchstart",a),window.addEventListener("touchend",c),t.addEventListener("mousedown",a),window.addEventListener("mouseup",c)),f(t.remove,i.remove)}function V(t){const e=$(t),i=m(t);return i.innerHTML=`
+    `};o();function n(d){const{x:p,y:v,width:E,height:W}=oe(t,d);o(p,v,E,W),t.addEventListener("mousemove",n)}t.addEventListener("mouseenter",n);const a=()=>{t.classList.add(`${i.id}-active`)},c=()=>{t.classList.remove(`${i.id}-active`)};return e.disableClicking||(t.addEventListener("touchstart",a),window.addEventListener("touchend",c),t.addEventListener("mousedown",a),window.addEventListener("mouseup",c)),x(t.remove,i.remove)}function V(t){const e=$(t),i=m(t);return i.innerHTML=`
     .${i.id} {
       user-select: none;
     }
-  `,f(e.destroy,i.remove)}function ce(t){const e=$(t,{borderStyle:"hover",disableClicking:!0}),i=m(t);return i.innerHTML=`
+  `,x(e.destroy,i.remove)}function ct(t){const e=$(t,{borderStyle:"hover",disableClicking:!0}),i=m(t);return i.innerHTML=`
     .${i.id} {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0px;
     }
-  `,f(e.destroy,i.remove)}function nt(t){const e=$(t,{borderStyle:"static"}),i=m(t);i.innerHTML=`
+  `,x(e.destroy,i.remove)}function ne(t){const e=$(t,{borderStyle:"static"}),i=m(t);i.innerHTML=`
     .${i.id} {
       -webkit-appearance: none;
       width: 50px;
@@ -110,7 +110,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
         ${t.clientWidth/2}px - ${t.clientHeight/2}px
       )) scale(0.7);
     }
-  `,f(e.destroy,i.remove,o.remove)}function rt(t){const e=m(t);return e.innerHTML=`
+  `,x(e.destroy,i.remove,o.remove)}function re(t){const e=m(t);return e.innerHTML=`
     @keyframes exio-fly-in {
       from {
         transform: translateY(50%);
@@ -127,7 +127,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,f(t.remove)}function lt(t){const e=m(t);return e.innerHTML=`
+  `,x(t.remove)}function le(t){const e=m(t);return e.innerHTML=`
     @keyframes exio-fade-in {
       from {
         opacity: 0;
@@ -142,7 +142,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,f(t.remove)}function at(t){const e=m(t);return e.innerHTML=`
+  `,x(t.remove)}function ae(t){const e=m(t);return e.innerHTML=`
     @keyframes exio-zoom-in {
       from {
         transform: scale(97.5%);
@@ -159,7 +159,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,f(t.remove)}const Ve=t=>{const e=m(t);return e.innerHTML=`
+  `,x(t.remove)}const Vt=t=>{const e=m(t);return e.innerHTML=`
     @font-face {
       font-family: 'Exio Icons';
       font-style: normal;
@@ -171,11 +171,11 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
     .${e.id} {
       font-family: 'Exio Icons';
     }
-  `,f(t.remove,e.remove)};function Re(t){const e=$(t),i=m(t);i.innerHTML=`
+  `,x(t.remove,e.remove)};function Rt(t){const e=$(t),i=m(t);i.innerHTML=`
     .${i.id} {
       user-select: none;
     }
-  `;const o=document.createElement("div"),n=m(o);let a=t.getBoundingClientRect(),c="";const d=W=>{c=t.style.getPropertyValue("transform"),t.style.setProperty("transform","none","important"),a=t.getBoundingClientRect(),t.style.setProperty("transform",c,"important"),W==null||W.preventDefault()};o.tabIndex=0;const p=[],v=()=>{o.blur(),t.style.setProperty("transform",c,"important");const W=getComputedStyle(t),y=W.getPropertyValue("--exio-transition-duration"),b=W.getPropertyValue("color"),R=W.getPropertyValue("background-color"),J=W.getPropertyValue("font-family"),oe=W.getPropertyValue("font-size"),I=W.getPropertyValue("padding");n.innerHTML=`
+  `;const o=document.createElement("div"),n=m(o);let a=t.getBoundingClientRect(),c="";const d=W=>{c=t.style.getPropertyValue("transform"),t.style.setProperty("transform","none","important"),a=t.getBoundingClientRect(),t.style.setProperty("transform",c,"important"),W==null||W.preventDefault()};o.tabIndex=0;const p=[],v=()=>{o.blur(),t.style.setProperty("transform",c,"important");const W=getComputedStyle(t),y=W.getPropertyValue("--exio-transition-duration"),b=W.getPropertyValue("color"),R=W.getPropertyValue("background-color"),J=W.getPropertyValue("font-family"),ot=W.getPropertyValue("font-size"),I=W.getPropertyValue("padding");n.innerHTML=`
       .${n.id} {
         position: fixed;
         top: ${a.bottom}px;
@@ -185,7 +185,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
         transition: opacity ${y};
         color: ${b};
         font-family: ${J};
-        font-size: ${oe};
+        font-size: ${ot};
         padding: ${I};
         padding-left: 0px;
         padding-right: 0px;
@@ -200,7 +200,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
         pointer-events: auto;
         touch-action: auto;
       }
-    `,o.innerHTML="",setTimeout(()=>{t.querySelectorAll("option").forEach((q,ie)=>{if(q.disabled)return;const k=document.createElement("div");k.style.padding=I,k.style.boxSizing="border-box",k.style.cursor="default",k.textContent=q.textContent,p.push($(k)),o.appendChild(k),k.addEventListener("click",()=>{t.selectedIndex=ie,o.blur()})})},0),o.focus()};v(),document.body.appendChild(o),t.addEventListener("mousedown",d),t.addEventListener("touchstart",d),window.addEventListener("resize",W=>{d(),v()}),t.addEventListener("mouseup",v),t.addEventListener("touchend",v);const E=()=>o.blur();return window.addEventListener("scroll",E),f(e.destroy,i.remove,o.remove,n.remove,()=>{p.forEach(W=>W.destroy())},()=>window.removeEventListener("scroll",E))}const Ne=t=>{const e=$(t,{borderStyle:"static"}),i=m(t);i.innerHTML=`
+    `,o.innerHTML="",setTimeout(()=>{t.querySelectorAll("option").forEach((q,it)=>{if(q.disabled)return;const k=document.createElement("div");k.style.padding=I,k.style.boxSizing="border-box",k.style.cursor="default",k.textContent=q.textContent,p.push($(k)),o.appendChild(k),k.addEventListener("click",()=>{t.selectedIndex=it,o.blur()})})},0),o.focus()};v(),document.body.appendChild(o),t.addEventListener("mousedown",d),t.addEventListener("touchstart",d),window.addEventListener("resize",W=>{d(),v()}),t.addEventListener("mouseup",v),t.addEventListener("touchend",v);const E=()=>o.blur();return window.addEventListener("scroll",E),x(e.destroy,i.remove,o.remove,n.remove,()=>{p.forEach(W=>W.destroy())},()=>window.removeEventListener("scroll",E))}const Nt=t=>{const e=$(t,{borderStyle:"static"}),i=m(t);i.innerHTML=`
     .${i.id} {
       -webkit-appearance: none;
       width: 20px;
@@ -232,7 +232,7 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
     .${o.id}:checked::after {
       transform: scale(0.7);
     }
-  `,f(e.destroy,i.remove,o.remove)};function st(t){const e=m(t);e.innerHTML=`
+  `,x(e.destroy,i.remove,o.remove)};function se(t){const e=t.getAttribute("open")!==null,i=m(t);i.innerHTML=`
     @keyframes exio-dialog-fade-in {
       0% {
         opacity: 0;
@@ -253,12 +253,12 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
         transform: scale(0) translateY(-50%);
       }
     }
-    .${e.id} {
-      --exio-transition-duration: 2s;
+    .${i.id} {
+      --exio-transition-duration: 0.5s;
       border-radius: 0px;
       border: 0px solid transparent;
     }
-    .${e.id}:not([open]) {
+    .${i.id}:not([open]) {
       display: block;
       position: fixed;
       left: 0px;
@@ -266,12 +266,19 @@ import{y as Ge,$ as Xe,I as Me,d as je,S as Ie,i as qe,s as Qe,e as l,a as X,b a
       margin: auto auto;
       transform: translateY(-50%);
       transform-origin: top center;
-      animation: exio-dialog-fade-out var(--exio-transition-duration);
-      animation-fill-mode: forwards;
     }
-    .${e.id}[open] {
+    .${i.id}[open] {
       transform-origin: center center;
       animation: exio-dialog-fade-in var(--exio-transition-duration);
       animation-fill-mode: forwards;
     }
-  `,je.registerDialog(t);const i=Boolean(t.getAttribute("open"));return t.close(),i&&t.showModal(),f(e.remove)}function ct(t){let e,i,o,n,a,c,d,p,v,E,W,y,b,R,J,oe,I,q,ie,k,ve,ne,_,Ee,j,B,ke,H,xe,g,N,L,w,A,fe,Q,U,K,z,F,ue,ee,S,D,ye,re,be,Y,Pe,le,de,C,Z,Te,P,ae,Je,We,ge,G,O,he,Se;return{c(){e=l("div"),i=l("div"),o=l("button"),o.textContent="Default Button",n=h(),a=l("button"),a.textContent="Default Button",c=h(),d=l("div"),p=l("button"),p.textContent="Card Button",v=h(),E=l("button"),E.textContent="Card Button",W=h(),y=l("div"),b=l("button"),b.textContent="send",R=h(),J=l("button"),J.textContent="send",oe=h(),I=l("div"),q=l("div"),q.textContent="Default Card",ie=h(),k=l("div"),k.textContent="Default Card",ve=h(),ne=l("div"),_=l("input"),Ee=h(),j=l("div"),B=l("div"),B.textContent="Animated Card",ke=h(),H=l("div"),H.textContent="Animated Card",xe=h(),g=l("div"),N=l("select"),L=l("option"),L.textContent="Option 1",w=l("option"),w.textContent="Option 2",A=l("option"),A.textContent="Option 3",fe=h(),Q=l("select"),U=l("option"),U.textContent="Placeholder",K=l("option"),K.textContent="Option 1",z=l("option"),z.textContent="Option 2",F=l("option"),F.textContent="Option 3",ue=h(),ee=l("div"),S=l("div"),D=l("input"),ye=h(),re=l("label"),re.textContent="Radio Option 1",be=h(),Y=l("input"),Pe=h(),le=l("label"),le.textContent="Radio Option 2",de=h(),C=l("div"),Z=l("button"),Z.textContent="Open Dialog",Te=h(),P=l("dialog"),ae=l("div"),ae.textContent="Hello World",Je=h(),We=l("p"),We.textContent="Exio uses the HTML dialog element.",ge=h(),G=l("div"),O=l("button"),O.textContent="Close",s(o,"class","gray svelte-6wslas"),s(a,"class","blue svelte-6wslas"),s(i,"class","block svelte-6wslas"),s(p,"class","card gray svelte-6wslas"),s(E,"class","card blue svelte-6wslas"),s(d,"class","block svelte-6wslas"),s(b,"class","gray svelte-6wslas"),s(J,"class","blue svelte-6wslas"),s(y,"class","block svelte-6wslas"),s(q,"class","card gray svelte-6wslas"),s(k,"class","card blue svelte-6wslas"),s(I,"class","block svelte-6wslas"),s(_,"class","blue svelte-6wslas"),s(_,"type","checkbox"),s(ne,"class","block svelte-6wslas"),s(B,"class","card gray svelte-6wslas"),s(H,"class","card blue svelte-6wslas"),s(j,"class","block svelte-6wslas"),L.__value="1",L.value=L.__value,w.__value="2",w.value=w.__value,A.__value="3",A.value=A.__value,s(N,"class","gray svelte-6wslas"),U.disabled=!0,U.selected=!0,U.__value="Placeholder",U.value=U.__value,K.__value="1",K.value=K.__value,z.__value="2",z.value=z.__value,F.__value="3",F.value=F.__value,s(Q,"class","blue svelte-6wslas"),s(g,"class","block svelte-6wslas"),x(g,"width","min-content"),x(g,"padding","10px"),x(g,"padding-bottom","120px"),x(g,"border","2px solid white"),x(e,"transform-origin","center top"),s(D,"type","radio"),s(D,"id","radio-option-1"),s(D,"name","radio-options"),s(re,"for","radio-option-1"),s(Y,"type","radio"),s(Y,"id","radio-option-2"),s(Y,"name","radio-options"),x(Y,"--exio-hover-border-color","var(--accent)"),x(Y,"--exio-selected-indicator-color","var(--accent)"),s(le,"for","radio-option-2"),s(S,"class","paired svelte-6wslas"),s(ee,"class","block svelte-6wslas"),s(Z,"class","gray svelte-6wslas"),x(ae,"font-size","1.5rem"),s(O,"class","blue svelte-6wslas"),x(G,"width","100%"),x(G,"display","flex"),x(G,"align-items","flex-end"),x(G,"flex-direction","column"),s(P,"class","black svelte-6wslas"),x(P,"width","min(300px, 100%)"),s(C,"class","block svelte-6wslas")},m(T,te){X(T,e,te),r(e,i),r(i,o),r(i,n),r(i,a),r(e,c),r(e,d),r(d,p),r(d,v),r(d,E),r(e,W),r(e,y),r(y,b),r(y,R),r(y,J),r(e,oe),r(e,I),r(I,q),r(I,ie),r(I,k),r(e,ve),r(e,ne),r(ne,_),r(e,Ee),r(e,j),r(j,B),r(j,ke),r(j,H),r(e,xe),r(e,g),r(g,N),r(N,L),r(N,w),r(N,A),r(g,fe),r(g,Q),r(Q,U),r(Q,K),r(Q,z),r(Q,F),X(T,ue,te),X(T,ee,te),r(ee,S),r(S,D),r(S,ye),r(S,re),r(S,be),r(S,Y),r(S,Pe),r(S,le),X(T,de,te),X(T,C,te),r(C,Z),r(C,Te),r(C,P),r(P,ae),r(P,Je),r(P,We),r(P,ge),r(P,G),r(G,O),t[3](P),he||(Se=[u(V.call(null,o)),u(V.call(null,a)),u(V.call(null,p)),u(V.call(null,E)),u(V.call(null,b)),u(Ve.call(null,b)),u(V.call(null,J)),u(Ve.call(null,J)),u(ce.call(null,q)),u(ce.call(null,k)),u(nt.call(null,_)),u(ce.call(null,B)),u(rt.call(null,B)),u(ce.call(null,H)),u(lt.call(null,H)),u(Re.call(null,N)),u(Re.call(null,Q)),u(at.call(null,e)),u(Ne.call(null,D)),u(Ne.call(null,Y)),u(V.call(null,Z)),Ue(Z,"click",t[1]),u(V.call(null,O)),Ue(O,"click",t[2]),u(st.call(null,P))],he=!0)},p:pe,d(T){T&&M(e),T&&M(ue),T&&M(ee),T&&M(de),T&&M(C),t[3](null),he=!1,Be(Se)}}}function ut(t){let e,i,o,n=ct(t);return{c(){e=l("div"),n&&n.c()},m(a,c){X(a,e,c),n&&n.m(e,null),i||(o=u(it.call(null,e)),i=!0)},p(a,[c]){},i:pe,o:pe,d(a){a&&M(e),n&&n.d(),i=!1,o()}}}function dt(t,e,i){let o;const n=()=>o.showModal(),a=()=>o.close();function c(d){He[d?"unshift":"push"](()=>{o=d,i(0,o)})}return[o,n,a,c]}class Wt extends Ie{constructor(e){super();qe(this,e,dt,ut,Qe,{})}}function Ce(t){let e,i;return e=new Wt({}),{c(){Le(e.$$.fragment)},m(o,n){we(e,o,n),i=!0},i(o){i||(se(e.$$.fragment,o),i=!0)},o(o){me(e.$$.fragment,o),i=!1},d(o){Ae(e,o)}}}function ht(t){let e,i,o=!t[0]&&Ce();return{c(){o&&o.c(),e=Ke()},m(n,a){o&&o.m(n,a),X(n,e,a),i=!0},p(n,[a]){n[0]?o&&(De(),me(o,1,1,()=>{o=null}),ze()):o?a&1&&se(o,1):(o=Ce(),o.c(),se(o,1),o.m(e.parentNode,e))},i(n){i||(se(o),i=!0)},o(n){me(o),i=!1},d(n){o&&o.d(n),n&&M(e)}}}function pt(t,e,i){let o;return Fe(t,Ze,n=>i(0,o=n)),[o]}class mt extends Ie{constructor(e){super();qe(this,e,pt,ht,Qe,{})}}new mt({target:document.getElementById("app")});
+  `,jt.registerDialog(t),t.close(),e&&t.showModal();const o=m(t);o.innerHTML=`
+    .${o.id}:not([open]) {
+      display: none;
+    }
+  `;const n=()=>{o.innerHTML=`
+      .${o.id}:not([open]) {
+        animation: exio-dialog-fade-out var(--exio-transition-duration);
+        animation-fill-mode: forwards;
+      }
+    `,t.removeEventListener("animationstart",n)};return t.addEventListener("animationstart",n),x(i.remove,()=>{o&&o.remove()})}function ce(t){let e,i,o,n,a,c,d,p,v,E,W,y,b,R,J,ot,I,q,it,k,vt,nt,_,Et,j,B,kt,H,ft,g,N,L,w,A,xt,Q,U,K,z,F,ut,tt,S,D,yt,rt,bt,Y,Pt,lt,dt,C,Z,Tt,P,at,Jt,Wt,gt,G,O,ht,St;return{c(){e=l("div"),i=l("div"),o=l("button"),o.textContent="Default Button",n=h(),a=l("button"),a.textContent="Default Button",c=h(),d=l("div"),p=l("button"),p.textContent="Card Button",v=h(),E=l("button"),E.textContent="Card Button",W=h(),y=l("div"),b=l("button"),b.textContent="send",R=h(),J=l("button"),J.textContent="send",ot=h(),I=l("div"),q=l("div"),q.textContent="Default Card",it=h(),k=l("div"),k.textContent="Default Card",vt=h(),nt=l("div"),_=l("input"),Et=h(),j=l("div"),B=l("div"),B.textContent="Animated Card",kt=h(),H=l("div"),H.textContent="Animated Card",ft=h(),g=l("div"),N=l("select"),L=l("option"),L.textContent="Option 1",w=l("option"),w.textContent="Option 2",A=l("option"),A.textContent="Option 3",xt=h(),Q=l("select"),U=l("option"),U.textContent="Placeholder",K=l("option"),K.textContent="Option 1",z=l("option"),z.textContent="Option 2",F=l("option"),F.textContent="Option 3",ut=h(),tt=l("div"),S=l("div"),D=l("input"),yt=h(),rt=l("label"),rt.textContent="Radio Option 1",bt=h(),Y=l("input"),Pt=h(),lt=l("label"),lt.textContent="Radio Option 2",dt=h(),C=l("div"),Z=l("button"),Z.textContent="Open Dialog",Tt=h(),P=l("dialog"),at=l("div"),at.textContent="Hello World",Jt=h(),Wt=l("p"),Wt.textContent="Exio uses the HTML dialog element.",gt=h(),G=l("div"),O=l("button"),O.textContent="Close",s(o,"class","gray svelte-6wslas"),s(a,"class","blue svelte-6wslas"),s(i,"class","block svelte-6wslas"),s(p,"class","card gray svelte-6wslas"),s(E,"class","card blue svelte-6wslas"),s(d,"class","block svelte-6wslas"),s(b,"class","gray svelte-6wslas"),s(J,"class","blue svelte-6wslas"),s(y,"class","block svelte-6wslas"),s(q,"class","card gray svelte-6wslas"),s(k,"class","card blue svelte-6wslas"),s(I,"class","block svelte-6wslas"),s(_,"class","blue svelte-6wslas"),s(_,"type","checkbox"),s(nt,"class","block svelte-6wslas"),s(B,"class","card gray svelte-6wslas"),s(H,"class","card blue svelte-6wslas"),s(j,"class","block svelte-6wslas"),L.__value="1",L.value=L.__value,w.__value="2",w.value=w.__value,A.__value="3",A.value=A.__value,s(N,"class","gray svelte-6wslas"),U.disabled=!0,U.selected=!0,U.__value="Placeholder",U.value=U.__value,K.__value="1",K.value=K.__value,z.__value="2",z.value=z.__value,F.__value="3",F.value=F.__value,s(Q,"class","blue svelte-6wslas"),s(g,"class","block svelte-6wslas"),f(g,"width","min-content"),f(g,"padding","10px"),f(g,"padding-bottom","120px"),f(g,"border","2px solid white"),f(e,"transform-origin","center top"),s(D,"type","radio"),s(D,"id","radio-option-1"),s(D,"name","radio-options"),s(rt,"for","radio-option-1"),s(Y,"type","radio"),s(Y,"id","radio-option-2"),s(Y,"name","radio-options"),f(Y,"--exio-hover-border-color","var(--accent)"),f(Y,"--exio-selected-indicator-color","var(--accent)"),s(lt,"for","radio-option-2"),s(S,"class","paired svelte-6wslas"),s(tt,"class","block svelte-6wslas"),s(Z,"class","gray svelte-6wslas"),f(at,"font-size","1.5rem"),s(O,"class","blue svelte-6wslas"),f(G,"width","100%"),f(G,"display","flex"),f(G,"align-items","flex-end"),f(G,"flex-direction","column"),s(P,"class","black svelte-6wslas"),f(P,"width","min(300px, 100%)"),s(C,"class","block svelte-6wslas")},m(T,et){X(T,e,et),r(e,i),r(i,o),r(i,n),r(i,a),r(e,c),r(e,d),r(d,p),r(d,v),r(d,E),r(e,W),r(e,y),r(y,b),r(y,R),r(y,J),r(e,ot),r(e,I),r(I,q),r(I,it),r(I,k),r(e,vt),r(e,nt),r(nt,_),r(e,Et),r(e,j),r(j,B),r(j,kt),r(j,H),r(e,ft),r(e,g),r(g,N),r(N,L),r(N,w),r(N,A),r(g,xt),r(g,Q),r(Q,U),r(Q,K),r(Q,z),r(Q,F),X(T,ut,et),X(T,tt,et),r(tt,S),r(S,D),r(S,yt),r(S,rt),r(S,bt),r(S,Y),r(S,Pt),r(S,lt),X(T,dt,et),X(T,C,et),r(C,Z),r(C,Tt),r(C,P),r(P,at),r(P,Jt),r(P,Wt),r(P,gt),r(P,G),r(G,O),t[3](P),ht||(St=[u(V.call(null,o)),u(V.call(null,a)),u(V.call(null,p)),u(V.call(null,E)),u(V.call(null,b)),u(Vt.call(null,b)),u(V.call(null,J)),u(Vt.call(null,J)),u(ct.call(null,q)),u(ct.call(null,k)),u(ne.call(null,_)),u(ct.call(null,B)),u(re.call(null,B)),u(ct.call(null,H)),u(le.call(null,H)),u(Rt.call(null,N)),u(Rt.call(null,Q)),u(ae.call(null,e)),u(Nt.call(null,D)),u(Nt.call(null,Y)),u(V.call(null,Z)),Ut(Z,"click",t[1]),u(V.call(null,O)),Ut(O,"click",t[2]),u(se.call(null,P))],ht=!0)},p:pt,d(T){T&&M(e),T&&M(ut),T&&M(tt),T&&M(dt),T&&M(C),t[3](null),ht=!1,Bt(St)}}}function ue(t){let e,i,o,n=ce(t);return{c(){e=l("div"),n&&n.c()},m(a,c){X(a,e,c),n&&n.m(e,null),i||(o=u(ie.call(null,e)),i=!0)},p(a,[c]){},i:pt,o:pt,d(a){a&&M(e),n&&n.d(),i=!1,o()}}}function de(t,e,i){let o;const n=()=>o.showModal(),a=()=>o.close();function c(d){Ht[d?"unshift":"push"](()=>{o=d,i(0,o)})}return[o,n,a,c]}class We extends It{constructor(e){super();qt(this,e,de,ue,Qt,{})}}function Ct(t){let e,i;return e=new We({}),{c(){Lt(e.$$.fragment)},m(o,n){wt(e,o,n),i=!0},i(o){i||(st(e.$$.fragment,o),i=!0)},o(o){mt(e.$$.fragment,o),i=!1},d(o){At(e,o)}}}function he(t){let e,i,o=!t[0]&&Ct();return{c(){o&&o.c(),e=Kt()},m(n,a){o&&o.m(n,a),X(n,e,a),i=!0},p(n,[a]){n[0]?o&&(Dt(),mt(o,1,1,()=>{o=null}),zt()):o?a&1&&st(o,1):(o=Ct(),o.c(),st(o,1),o.m(e.parentNode,e))},i(n){i||(st(o),i=!0)},o(n){mt(o),i=!1},d(n){o&&o.d(n),n&&M(e)}}}function pe(t,e,i){let o;return Ft(t,Zt,n=>i(0,o=n)),[o]}class me extends It{constructor(e){super();qt(this,e,pe,he,Qt,{})}}new me({target:document.getElementById("app")});
