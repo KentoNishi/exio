@@ -100,13 +100,16 @@
         class="black"
         style="width: min(300px, 100%);"
       >
-        <div style="font-size: 1.5rem;">Hello World</div>
+        <h2>Hello World!</h2>
         <p>Exio uses the HTML dialog element.</p>
-        <div class="right-align">
-          <button use:exioButton class="blue" on:click={() => (open = false)}>
-            Close
-          </button>
-        </div>
+        <button
+          use:exioButton
+          class="blue"
+          style="float: right;"
+          on:click={() => (open = false)}
+        >
+          Close
+        </button>
       </dialog>
     </div>
   {/if}
@@ -119,6 +122,9 @@
   }
   .gray {
     background-color: #333;
+  }
+  h2 {
+    margin: 0;
   }
   .black {
     background-color: black;
@@ -134,12 +140,6 @@
     overflow: visible;
     flex-direction: row;
     gap: 10px;
-  }
-  .right-align {
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
   }
   :global(#app) {
     min-height: 100%;

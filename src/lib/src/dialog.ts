@@ -28,12 +28,12 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     }
     .${s.id} {
       --exio-transition-duration: 0.4s;
-      --exio-backdrop-color: rgba(0, 0, 0, 0.5);
+      --exio-backdrop-color: rgba(128, 128, 128, 0.1);
       border-radius: 0px;
       border: 0px solid transparent;
     }
     .${s.id}::backdrop {
-      background-color: rgba(0, 0, 0, 0);
+      background-color: transparent;
     }
     .${s.id}:not([open]) {
       display: block;
