@@ -77,7 +77,7 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as gt,i as St,s as It,e as a,a as j,b a
   `,f(e.destroy,n.remove)}function oe(t){const e=_(t,{borderStyle:"static"}),n=v(t);n.innerHTML=`
     .${n.id} {
       -webkit-appearance: none;
-      width: 50px;
+      width: 48px;
       height: 20px;
       border-radius: 100px;
       display: flex;
