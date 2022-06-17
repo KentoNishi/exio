@@ -18,7 +18,7 @@
 
 <div use:exioApp>
   {#if render}
-    <div use:exioZoomInAnimation style="transform-origin: center top;">
+    <div use:exioZoomInAnimation class="wrapper">
       <div class="block">
         <button class="gray" use:exioButton>Default Button</button>
         <button class="blue" use:exioButton>Default Button</button>
@@ -151,5 +151,8 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
+  }
+  .wrapper {
+    transform-origin: center top;
   }
 </style>

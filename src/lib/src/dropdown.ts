@@ -25,7 +25,6 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   dropdown.tabIndex = 0;
   const items: ExioNode[] = [];
   const updateStyle = () => {
-    dropdown.blur();
     node.style.setProperty('transform', before, 'important');
     const computed = getComputedStyle(node);
     const transitionDuration = computed.getPropertyValue(
@@ -79,31 +78,25 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         });
       });
     }, 0);
-    dropdown.focus();
   };
   updateStyle();
   document.body.appendChild(dropdown);
   node.addEventListener('mousedown', onDown);
   node.addEventListener('touchstart', onDown);
-  window.addEventListener('resize', (e) => {
-    onDown();
+  const forceFocus = () => {
     updateStyle();
-  });
-  node.addEventListener('mouseup', updateStyle);
-  node.addEventListener('touchend', updateStyle);
+    dropdown.focus();
+  };
+  node.addEventListener('mouseup', forceFocus);
+  node.addEventListener('touchend', forceFocus);
   const scroll = () => {
     dropdown.blur();
-    node.blur();
   };
   window.addEventListener('scroll', scroll);
-  return destroyer(
-    effect.destroy,
-    s.remove,
-    dropdown.remove,
-    ds.remove,
-    () => {
-      items.forEach((item) => item.destroy());
-    },
-    () => window.removeEventListener('scroll', scroll)
-  );
+  window.addEventListener('resize', scroll);
+  return destroyer(effect.destroy, s.remove, dropdown.remove, ds.remove, () => {
+    items.forEach((item) => item.destroy());
+    window.removeEventListener('scroll', scroll);
+    window.removeEventListener('resize', scroll);
+  });
 }
