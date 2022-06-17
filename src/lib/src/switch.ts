@@ -10,7 +10,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
   s1.innerHTML = `
     .${s1.id} {
       -webkit-appearance: none;
-      width: 50px;
+      width: 48px;
       height: 20px;
       border-radius: 100px;
       display: flex;
