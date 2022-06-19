@@ -9,14 +9,35 @@ export function exioApp(node: HTMLElement): ExioNode {
       min-width: 100%;
       min-height: 100%;
       position: absolute;
-      color: #fff;
+      color: white;
       font-size: 1rem;
       font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
     }
+
     body {
       margin: 0;
-      width: 50%;
-      height: 50%;
+    }
+
+    * ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    
+    * ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    * ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+    
+    * ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #888 transparent;
     }
   `;
   return destroyer(node.remove, s.remove);
