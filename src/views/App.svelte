@@ -1,8 +1,8 @@
 <script lang="ts">
   import { isLoading } from 'svelte-i18n';
-  import Welcome from '../components/Welcome.svelte';
+  import Showcase from '../components/Showcase.svelte';
 </script>
 
 {#if !$isLoading}
-  <Welcome />
+  <Showcase />
 {/if}
