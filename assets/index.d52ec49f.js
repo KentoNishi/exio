@@ -236,6 +236,7 @@ import{y as rt,$ as it,I as lt,d as at,S as Ke,i as Fe,s as Oe,e as c,a as p,b a
         opacity: 0;
         pointer-events: none;
         touch-action: none;
+        user-select: none;
       }
       .${r.id}:focus {
         opacity: 1;
