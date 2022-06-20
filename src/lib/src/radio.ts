@@ -17,6 +17,7 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       align-items: center;
       justify-content: center;
       padding: 0px;
+      border-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;

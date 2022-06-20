@@ -31,7 +31,52 @@
         <div use:exioCard class="card blue">Default Card</div>
       </div>
       <div class="block">
-        <input use:exioSwitch class="blue" type="checkbox" />
+        <div class="paired">
+          <input
+            use:exioSwitch
+            type="checkbox"
+            id="switch-option-1"
+            style="
+              border-color: white;
+              --exio-selected-background-color: var(--accent);
+              --exio-selected-indicator-color: white;
+            "
+          />
+          <label for="switch-option-1">Switch Option 1</label>
+          <input
+            use:exioSwitch
+            type="checkbox"
+            id="switch-option-2"
+            style="
+              border-color: var(--accent);
+              --exio-selected-background-color: white;
+              --exio-selected-indicator-color: var(--accent);
+            "
+          />
+          <label for="switch-option-2">Switch Option 2</label>
+        </div>
+      </div>
+      <div class="block">
+        <div class="paired">
+          <input
+            type="radio"
+            use:exioRadio
+            id="radio-option-1"
+            name="radio-options"
+          />
+          <label for="radio-option-1">Radio Option 1</label>
+          <input
+            type="radio"
+            use:exioRadio
+            id="radio-option-2"
+            name="radio-options"
+            style="
+              border-color: var(--accent);
+              --exio-selected-indicator-color: var(--accent);
+            "
+          />
+          <label for="radio-option-2">Radio Option 2</label>
+        </div>
       </div>
       <div class="block">
         <div use:exioCard use:exioFlyInAnimation class="card gray">
@@ -67,28 +112,6 @@
           <option value="2">Option 2</option>
           <option value="3">Option 3</option>
         </select>
-      </div>
-    </div>
-    <div class="block">
-      <div class="paired">
-        <input
-          type="radio"
-          use:exioRadio
-          id="radio-option-1"
-          name="radio-options"
-        />
-        <label for="radio-option-1">Radio Option 1</label>
-        <input
-          type="radio"
-          use:exioRadio
-          id="radio-option-2"
-          name="radio-options"
-          style="
-            --exio-hover-border-color: var(--accent);
-            --exio-selected-indicator-color: var(--accent);
-          "
-        />
-        <label for="radio-option-2">Radio Option 2</label>
       </div>
     </div>
     <div class="block">

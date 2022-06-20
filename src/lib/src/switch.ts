@@ -17,6 +17,8 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       align-items: center;
       justify-content: center;
       overflow: visible;
+      border-color: white;
+      background-color: var(--exio-selected-background-color);
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
@@ -39,7 +41,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
     .${s2.id}:checked::after {
       transform: translateX(calc(
         ${node.clientWidth / 2}px - ${node.clientHeight / 2}px
-      )) scale(0.55);
+      )) scale(0.5);
     }
   `;
   return destroyer(effect.destroy, s1.remove, s2.remove);

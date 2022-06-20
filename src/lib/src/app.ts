@@ -27,7 +27,9 @@ export function exioApp(node: HTMLElement): ExioNode {
       --exio-hover-border-scale: 2;
       /* scaling factor for elements while being clicked */
       --exio-clicking-scale: 0.95;
-      /* color radio/switch indicators when selected */
+      /* color of radio/switch backgrounds when selected */
+      --exio-selected-background-color: black;
+      /* color of radio/switch indicators when selected */
       --exio-selected-indicator-color: white;
       /* slow transition duration */
       --exio-slow-transition-duration: 0.4s;
