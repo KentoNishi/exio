@@ -1,4 +1,39 @@
-import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b as d,n as qt,c as B,f as p,g as s,h as Y,j as i,l as Qt,r as jt,k as Bt,m as wt,t as st,o as Wt,p as Ht,q as zt,u as Lt,v as Kt,w as At,x as Ft}from"./vendor.f1574569.js";const Dt=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const n of document.querySelectorAll('link[rel="modulepreload"]'))o(n);new MutationObserver(n=>{for(const l of n)if(l.type==="childList")for(const c of l.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&o(c)}).observe(document,{childList:!0,subtree:!0});function r(n){const l={};return n.integrity&&(l.integrity=n.integrity),n.referrerpolicy&&(l.referrerPolicy=n.referrerpolicy),n.crossorigin==="use-credentials"?l.credentials="include":n.crossorigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function o(n){if(n.ep)return;n.ep=!0;const l=r(n);fetch(n.href,l)}};Dt();const Zt="modulepreload",Ut={},Ot="/exio/",$t=function(e,r){return!r||r.length===0?e():Promise.all(r.map(o=>{if(o=`${Ot}${o}`,o in Ut)return;Ut[o]=!0;const n=o.endsWith(".css"),l=n?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${o}"]${l}`))return;const c=document.createElement("link");if(c.rel=n?"stylesheet":Zt,n||(c.as="script",c.crossOrigin=""),c.href=o,document.head.appendChild(c),n)return new Promise((h,W)=>{c.addEventListener("load",h),c.addEventListener("error",W)})})).then(()=>e())};Ct("en",()=>$t(()=>import("./en.9805afb4.js"),[]));Gt({fallbackLocale:"en",initialLocale:Xt()});function _t(t=10){const e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";let r="";for(let o=0;o<t;o++){const n=Math.floor(Math.random()*e.length);r+=e.substring(n,n+1)}return r}function x(...t){return{destroy(){t.forEach(e=>{try{e()}catch{}})}}}function v(t){const e=_t(),r=document.getElementById(e)||document.createElement("style");return r.id=e,t.classList.add(e),document.head.appendChild(r),r}function te(t,e){const{left:r,top:o,width:n,height:l}=t.getBoundingClientRect(),{clientX:c,clientY:h}=e,[W,E]=[c-r,h-o];return{x:W,y:E,width:n,height:l}}function ee(t){const e=v(t);return e.innerHTML=`
+import{y as rt,$ as it,I as lt,d as at,S as Ke,i as Fe,s as Oe,e as c,a as p,b as s,c as E,f as Q,g as i,h,l as Ie,j as U,r as De,k as Se,n as he,t as le,m as ct,o as st,p as ut,q as be,u as Qe,v as dt,w as ht,x as pt,z as ft,A as mt,B as vt}from"./vendor.a4094a8a.js";const Wt=function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const l of r)if(l.type==="childList")for(const a of l.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function o(r){const l={};return r.integrity&&(l.integrity=r.integrity),r.referrerpolicy&&(l.referrerPolicy=r.referrerpolicy),r.crossorigin==="use-credentials"?l.credentials="include":r.crossorigin==="anonymous"?l.credentials="omit":l.credentials="same-origin",l}function n(r){if(r.ep)return;r.ep=!0;const l=o(r);fetch(r.href,l)}};Wt();const kt="modulepreload",Ze={},Et="/exio/",bt=function(e,o){return!o||o.length===0?e():Promise.all(o.map(n=>{if(n=`${Et}${n}`,n in Ze)return;Ze[n]=!0;const r=n.endsWith(".css"),l=r?'[rel="stylesheet"]':"";if(document.querySelector(`link[href="${n}"]${l}`))return;const a=document.createElement("link");if(a.rel=r?"stylesheet":kt,r||(a.as="script",a.crossOrigin=""),a.href=n,document.head.appendChild(a),r)return new Promise((d,v)=>{a.addEventListener("load",d),a.addEventListener("error",v)})})).then(()=>e())};rt("en",()=>bt(()=>import("./en.9805afb4.js"),[]));it({fallbackLocale:"en",initialLocale:lt()});function xt(t=10){const e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";let o="";for(let n=0;n<t;n++){const r=Math.floor(Math.random()*e.length);o+=e.substring(r,r+1)}return o}function g(...t){return{destroy(){t.forEach(e=>{try{e()}catch{}})}}}function k(t){const e=xt(),o=document.getElementById(e)||document.createElement("style");return o.id=e,t.classList.add(e),document.head.appendChild(o),o}function yt(t,e){const{left:o,top:n,width:r,height:l}=t.getBoundingClientRect(),{clientX:a,clientY:d}=e,[v,f]=[a-o,d-n];return{x:v,y:f,width:r,height:l}}function gt(t){const e=k(t);return e.innerHTML=`
+    :root {
+      /* --------------------------- */
+      /* CUSTOMIZABLE EXIO VARIABLES */
+      /* --------------------------- */
+
+      /* backdrop color for dialogs and other popups */
+      --exio-backdrop-color: rgba(128, 128, 128, 0.2);
+      /* border width for various effects */
+      --exio-border-width: 2px;
+      /* background color for textboxes when focused */
+      --exio-focused-background-color: white;
+      /* text color for textboxes when focused */
+      --exio-focused-text-color: black;
+      /* scaling factor for the acrylic hover highlight effect */
+      --exio-hover-background-scale: 4;
+      /* body color for the acrylic hover highlight effect */
+      --exio-hover-body-color: rgba(255, 255, 255, 0.2);
+      /* border color for the acrylic hover highlight effect */
+      --exio-hover-border-color: rgba(255, 255, 255, 1);
+      /* scaling factor for the acrylic hover highlight effect */
+      --exio-hover-border-scale: 2;
+      /* scaling factor for elements while being clicked */
+      --exio-clicking-scale: 0.95;
+      /* color of radio/switch backgrounds when selected */
+      --exio-selected-background-color: black;
+      /* color of radio/switch indicators when selected */
+      --exio-selected-indicator-color: white;
+      /* slow transition duration */
+      --exio-slow-transition-duration: 0.4s;
+      /* standard transition duration */
+      --exio-standard-transition-duration: 0.2s;
+      /* scaling factor for the zoom in animation */
+      --exio-zoom-in-animation-scale: 97.5%;
+    }
+
     .${e.id} {
       background-color: black;
       min-width: 100%;
@@ -34,23 +69,23 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       scrollbar-width: thin;
       scrollbar-color: #888 transparent;
     }
-  `,x(t.remove,e.remove)}function _(t,e={borderStyle:"reactive",disableClicking:!1}){const r=v(t),o=(h=0,W=0,E=0,m=0)=>{const k=`calc(
-      ${Math.max(E,m)}px * var(--exio-hover-border-scale)
-    )`,u=e.borderStyle==="static",f=e.borderStyle==="hover",R=u||f?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
-            ${k} ${k} at var(--exio-mouse-x) var(--exio-mouse-y),
+  `,g(t.remove,e.remove)}function L(t,e={borderStyle:"reactive",disableClicking:!1}){const o=k(t),n=(d=0,v=0,f=0,b=0)=>{const W=`calc(
+      ${Math.max(f,b)}px * var(--exio-hover-border-scale)
+    )`,m=e.borderStyle==="static",w=e.borderStyle==="hover",Y=m||w?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
+            ${W} ${W} at var(--exio-mouse-x) var(--exio-mouse-y),
             var(--exio-hover-border-color) 0%,
             transparent calc(100% * var(--exio-hover-border-scale))
-          ) 9 / var(--exio-border-width) / 0px stretch`,P=f?"":`
+          ) 9 / var(--exio-border-width) / 0px stretch`,K=w?"":`
         background-image: radial-gradient(
           calc(
-            ${Math.max(E,m)}px *
+            ${Math.max(f,b)}px *
             var(--exio-hover-background-scale)
-          ) at ${h}px ${W}px,
+          ) at ${d}px ${v}px,
           var(--exio-hover-body-color) 0%,
           transparent 100%
         )
-      `;r.innerHTML=`
-      .${r.id} {
+      `;o.innerHTML=`
+      .${o.id} {
         outline: none;
         border: var(--exio-border-width) solid transparent;
         color: inherit;
@@ -59,44 +94,37 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
         padding: 0.25em 0.75em;
         overflow: hidden;
         border-radius: 0px;
-        ${u?R:""};
+        ${m?Y:""};
 
-        --exio-mouse-x: ${h}px;
-        --exio-mouse-y: ${W}px;
-        --exio-hover-border-color: rgba(255, 255, 255, 1);
-        --exio-hover-body-color: rgba(255, 255, 255, 0.2);
-        --exio-border-width: 2px;
-        --exio-scale-size: 0.95;
-        --exio-transition-duration: 0.2s;
-        --exio-hover-background-scale: 4;
-        --exio-hover-border-scale: 2;
-        transition: transform var(--exio-transition-duration);
+        --exio-mouse-x: ${d}px;
+        --exio-mouse-y: ${v}px;
+        transition: transform var(--exio-standard-transition-duration);
       }
-      .${r.id}:hover:not(.${r.id}-active) {
-        ${R};
+      .${o.id}:hover:not(.${o.id}-active) {
+        ${Y};
         background-size: calc(100% + 2 * var(--exio-border-width));
         background-position: center;
-        ${P};
-        transition: transform var(--exio-transition-duration);
+        ${K};
+        transition: transform var(--exio-standard-transition-duration);
       }
-      .${r.id}.${r.id}-active {
+      .${o.id}.${o.id}-active {
         filter: brightness(0.8);
         transition: none;
-        transform: scale(var(--exio-scale-size));
+        transform: scale(var(--exio-clicking-scale));
       }
-    `};o();function n(h){const{x:W,y:E,width:m,height:k}=te(t,h);o(W,E,m,k),t.addEventListener("mousemove",n)}t.addEventListener("mouseenter",n);const l=()=>{t.classList.add(`${r.id}-active`)},c=()=>{t.classList.remove(`${r.id}-active`)};return e.disableClicking||(t.addEventListener("touchstart",l),window.addEventListener("touchend",c),t.addEventListener("mousedown",l),window.addEventListener("mouseup",c)),x(t.remove,r.remove)}function V(t){const e=_(t),r=v(t);return r.innerHTML=`
-    .${r.id} {
+    `};n();function r(d){const{x:v,y:f,width:b,height:W}=yt(t,d);n(v,f,b,W),t.addEventListener("mousemove",r)}t.addEventListener("mouseenter",r);const l=()=>{t.classList.add(`${o.id}-active`)},a=()=>{t.classList.remove(`${o.id}-active`)};return e.disableClicking||(t.addEventListener("touchstart",l),window.addEventListener("touchend",a),t.addEventListener("mousedown",l),window.addEventListener("mouseup",a)),g(t.remove,o.remove)}function A(t){const e=L(t),o=k(t);return o.innerHTML=`
+    .${o.id} {
       user-select: none;
     }
-  `,x(e.destroy,r.remove)}function ct(t){const e=_(t,{borderStyle:"hover",disableClicking:!0}),r=v(t);return r.innerHTML=`
-    .${r.id} {
+  `,g(e.destroy,o.remove)}function pe(t){const e=L(t,{borderStyle:"hover",disableClicking:!0}),o=k(t);return o.innerHTML=`
+    .${o.id} {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0px;
     }
-  `,x(e.destroy,r.remove)}function oe(t){const e=_(t,{borderStyle:"static"}),r=v(t);r.innerHTML=`
-    .${r.id} {
+  `,g(e.destroy,o.remove)}function _e(t){const e=L(t,{borderStyle:"static"}),o=k(t);o.innerHTML=`
+    .${o.id} {
       -webkit-appearance: none;
       width: 48px;
       height: 20px;
@@ -105,16 +133,14 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       align-items: center;
       justify-content: center;
       overflow: visible;
-
-      --exio-border-width: 2px;
-      --exio-transition-duration: 0.2s;
-      --exio-selected-indicator-color: white;
+      border-color: white;
+      background-color: var(--exio-selected-background-color);
     }
-    .${r.id}:not(:checked) {
+    .${o.id}:not(:checked) {
       background-color: transparent;
     }
-  `;const o=v(t);return o.innerHTML=`
-    .${o.id}::after {
+  `;const n=k(t);return n.innerHTML=`
+    .${n.id}::after {
       content: '';
       position: absolute;
       width: ${t.clientHeight}px;
@@ -122,16 +148,16 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       border-radius: 100%;
       transform: translateX(calc(
         ${-t.clientWidth/2}px + ${t.clientHeight/2}px
-      )) scale(0.7);
+      )) scale(0.55);
       background-color: var(--exio-selected-indicator-color);
-      transition: transform var(--exio-transition-duration);
+      transition: transform var(--exio-standard-transition-duration);
     }
-    .${o.id}:checked::after {
+    .${n.id}:checked::after {
       transform: translateX(calc(
         ${t.clientWidth/2}px - ${t.clientHeight/2}px
-      )) scale(0.7);
+      )) scale(0.5);
     }
-  `,x(e.destroy,r.remove,o.remove)}function re(t){const e=v(t);return e.innerHTML=`
+  `,g(e.destroy,o.remove,n.remove)}function Pt(t){const e=k(t);return e.innerHTML=`
     @keyframes exio-fly-in {
       from {
         transform: translateY(50%);
@@ -148,7 +174,7 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,x(t.remove)}function ne(t){const e=v(t);return e.innerHTML=`
+  `,g(t.remove)}function Tt(t){const e=k(t);return e.innerHTML=`
     @keyframes exio-fade-in {
       from {
         opacity: 0;
@@ -163,10 +189,10 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,x(t.remove)}function ie(t){const e=v(t);return e.innerHTML=`
+  `,g(t.remove)}function $e(t){const e=k(t);return e.innerHTML=`
     @keyframes exio-zoom-in {
       from {
-        transform: scale(97.5%);
+        transform: scale(var(--exio-zoom-in-animation-scale));
         opacity: 0;
       }
       to {
@@ -180,7 +206,7 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,x(t.remove)}const Yt=t=>{const e=v(t);return e.innerHTML=`
+  `,g(t.remove)}const Ue=t=>{const e=k(t);return e.innerHTML=`
     @font-face {
       font-family: 'Exio Icons';
       font-style: normal;
@@ -192,37 +218,41 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
     .${e.id} {
       font-family: 'Exio Icons';
     }
-  `,x(t.remove,e.remove)};function Vt(t){const e=_(t),r=v(t);r.innerHTML=`
-    .${r.id} {
+  `,g(t.remove,e.remove)};function Ye(t){const e=L(t),o=k(t);o.innerHTML=`
+    .${o.id} {
       user-select: none;
     }
-  `;const o=document.createElement("div"),n=v(o);let l=t.getBoundingClientRect(),c="";const h=u=>{c=t.style.getPropertyValue("transform"),t.style.setProperty("transform","none","important"),l=t.getBoundingClientRect(),t.style.setProperty("transform",c,"important"),u==null||u.preventDefault()};o.tabIndex=0;const W=[],E=()=>{t.style.setProperty("transform",c,"important");const u=getComputedStyle(t),f=u.getPropertyValue("--exio-transition-duration"),R=u.getPropertyValue("color"),P=u.getPropertyValue("background-color"),rt=u.getPropertyValue("font-family"),S=u.getPropertyValue("font-size"),I=u.getPropertyValue("padding");n.innerHTML=`
-      .${n.id} {
+  `;const n=document.createElement("div"),r=k(n);let l=t.getBoundingClientRect(),a="";const d=m=>{a=t.style.getPropertyValue("transform"),t.style.setProperty("transform","none","important"),l=t.getBoundingClientRect(),t.style.setProperty("transform",a,"important"),m==null||m.preventDefault()};n.tabIndex=0;const v=[],f=()=>{t.style.setProperty("transform",a,"important");const m=getComputedStyle(t),w=m.getPropertyValue("--exio-standard-transition-duration"),Y=m.getPropertyValue("color"),K=m.getPropertyValue("background-color"),F=m.getPropertyValue("font-family"),P=m.getPropertyValue("font-size"),V=m.getPropertyValue("padding"),fe=m.getPropertyValue("padding-top"),O=m.getPropertyValue("padding-bottom");r.innerHTML=`
+      .${r.id} {
         position: fixed;
         top: ${l.bottom}px;
         left: ${l.left}px;
         width: ${l.width}px;
-        background-color: ${P};
-        transition: opacity ${f};
-        color: ${R};
-        font-family: ${rt};
-        font-size: ${S};
-        padding: ${I};
-        padding-left: 0px;
-        padding-right: 0px;
-        box-size: border-box;
+        background-color: ${K};
+        transition: opacity ${w};
+        color: ${Y};
+        font-family: ${F};
+        font-size: ${P};
         opacity: 0;
         pointer-events: none;
         touch-action: none;
       }
-      .${n.id}:focus {
+      .${r.id}:focus {
         opacity: 1;
         outline: none;
         pointer-events: auto;
         touch-action: auto;
       }
-    `,o.innerHTML="",setTimeout(()=>{t.querySelectorAll("option").forEach((tt,N)=>{if(tt.disabled)return;const T=document.createElement("div");T.style.padding=I,T.style.boxSizing="border-box",T.style.cursor="default",T.textContent=tt.textContent,W.push(_(T)),o.appendChild(T),T.addEventListener("click",()=>{t.selectedIndex=N,o.blur()})})},0)};E(),document.body.appendChild(o),t.addEventListener("mousedown",h),t.addEventListener("touchstart",h);const m=()=>{E(),o.focus()};t.addEventListener("mouseup",m),t.addEventListener("touchend",m);const k=()=>{o.blur()};return window.addEventListener("scroll",k),window.addEventListener("resize",k),x(e.destroy,r.remove,o.remove,n.remove,()=>{W.forEach(u=>u.destroy()),window.removeEventListener("scroll",k),window.removeEventListener("resize",k)})}const Rt=t=>{const e=_(t,{borderStyle:"static"}),r=v(t);r.innerHTML=`
-    .${r.id} {
+    `,n.innerHTML="",setTimeout(()=>{const me=t.querySelectorAll("option");let x,D;me.forEach((ce,R)=>{if(ce.disabled)return;const T=document.createElement("div");x||(x=T),D=T,T.style.padding=V,T.style.boxSizing="border-box",T.style.cursor="default",T.textContent=ce.textContent,v.push(L(T)),n.appendChild(T),T.addEventListener("click",()=>{t.selectedIndex=R,n.blur()})}),x&&(x.style.marginTop=fe),D&&(D.style.marginBottom=O);const{height:j,width:ae,left:Z}=n.getBoundingClientRect(),X=j+l.bottom>=window.innerHeight?Math.max(0,window.innerHeight-j):l.bottom,_=ae+l.left>=window.innerWidth?Math.max(0,window.innerWidth-ae):Z;r.innerHTML+=`
+        .${r.id} {
+          top: ${X}px;
+          left: ${_}px;
+          overflow: auto;
+          max-width: ${window.innerWidth}px;
+          max-height: ${window.innerHeight}px;
+        }
+      `},0)};f(),document.body.appendChild(n),t.addEventListener("mousedown",d),t.addEventListener("touchstart",d);const b=()=>{f(),n.focus()};t.addEventListener("mouseup",b),t.addEventListener("touchend",b);const W=()=>{n.blur()};return window.addEventListener("scroll",W),window.addEventListener("resize",W),g(e.destroy,o.remove,n.remove,r.remove,()=>{v.forEach(m=>m.destroy()),window.removeEventListener("scroll",W),window.removeEventListener("resize",W)})}const et=t=>{const e=L(t,{borderStyle:"static"}),o=k(t);o.innerHTML=`
+    .${o.id} {
       -webkit-appearance: none;
       width: 20px;
       height: 20px;
@@ -231,16 +261,13 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       align-items: center;
       justify-content: center;
       padding: 0px;
-
-      --exio-border-width: 2px;
-      --exio-transition-duration: 0.2s;
-      --exio-selected-indicator-color: white;
+      border-color: white;
     }
-    .${r.id}:not(:checked) {
+    .${o.id}:not(:checked) {
       background-color: transparent;
     }
-  `;const o=v(t);return o.innerHTML=`
-    .${o.id}::after {
+  `;const n=k(t);return n.innerHTML=`
+    .${n.id}::after {
       content: '';
       position: absolute;
       width: ${t.clientHeight}px;
@@ -248,12 +275,12 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       border-radius: 100%;
       transform: scale(0);
       background-color: var(--exio-selected-indicator-color);
-      transition: transform var(--exio-transition-duration);
+      transition: transform var(--exio-standard-transition-duration);
     }
-    .${o.id}:checked::after {
-      transform: scale(0.7);
+    .${n.id}:checked::after {
+      transform: scale(0.5);
     }
-  `,x(e.destroy,r.remove,o.remove)};function le(t){let e=Boolean(t.open);const r=v(t);r.innerHTML=`
+  `,g(e.destroy,o.remove,n.remove)};function Jt(t){let e=Boolean(t.open);const o=k(t);o.innerHTML=`
     @keyframes exio-dialog-fade-in {
       0% {
         opacity: 0;
@@ -274,16 +301,14 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
         transform: scale(0) translateY(-50%);
       }
     }
-    .${r.id} {
-      --exio-transition-duration: 0.4s;
-      --exio-backdrop-color: rgba(128, 128, 128, 0.2);
+    .${o.id} {
       border-radius: 0px;
       border: 0px solid transparent;
     }
-    .${r.id}::backdrop {
+    .${o.id}::backdrop {
       background-color: transparent;
     }
-    .${r.id}:not([open]) {
+    .${o.id}:not([open]) {
       display: block;
       position: fixed;
       left: 0px;
@@ -292,30 +317,40 @@ import{y as Ct,$ as Gt,I as Xt,d as Mt,S as Jt,i as St,s as It,e as a,a as j,b a
       transform: translateY(-50%);
       transform-origin: top center;
     }
-    .${r.id}[open] {
+    .${o.id}[open] {
       transform-origin: center center;
-      animation: exio-dialog-fade-in var(--exio-transition-duration);
+      animation-name: exio-dialog-fade-in;
+      animation-duration: var(--exio-slow-transition-duration);
       animation-fill-mode: forwards;
     }
-  `,Mt.registerDialog(t),t.close(),e&&t.showModal();const o=v(t);o.innerHTML=`
-    .${o.id}:not([open]) {
+  `,at.registerDialog(t),t.close(),e&&t.showModal();const n=k(t);n.innerHTML=`
+    .${n.id}:not([open]) {
       display: none;
     }
-  `;const n=()=>{o.innerHTML=`
-      .${o.id}:not([open]) {
-        animation: exio-dialog-fade-out var(--exio-transition-duration);
+  `;const r=()=>{n.innerHTML=`
+      .${n.id}:not([open]) {
+        animation-name: exio-dialog-fade-out;
+        animation-duration: var(--exio-slow-transition-duration);
         animation-fill-mode: forwards;
       }
-    `,t.removeEventListener("animationstart",n)};t.addEventListener("animationstart",n);const l=document.createElement("div"),c=getComputedStyle(t),h=v(l),W=c.getPropertyValue("--exio-transition-duration"),E=c.getPropertyValue("--exio-backdrop-color");h.innerHTML=`
-    .${h.id} {
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: ${E};
-      transition: opacity ${W};
-      pointer-events: none;
-      touch-action: none;
+    `,t.removeEventListener("animationstart",r)};t.addEventListener("animationstart",r);const l=document.createElement("div"),a=k(l),d=()=>{const b=getComputedStyle(t),W=b.getPropertyValue("--exio-slow-transition-duration"),m=b.getPropertyValue("--exio-backdrop-color");a.innerHTML=`
+      .${a.id} {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: ${m};
+        transition: opacity ${W};
+        pointer-events: none;
+        touch-action: none;
+      }
+    `,l.style.opacity=e?"1":"0"};d(),document.body.appendChild(l);const v=()=>f.observe(t,{attributes:!0,attributeFilter:["open"]}),f=new MutationObserver(()=>{e=Boolean(t.open),f.disconnect(),t.show(),t.close(),d(),e&&t.showModal(),v()});return v(),g(o.remove,()=>{n&&n.remove(),a.remove()},f.disconnect)}function tt(t){const e=L(t,{disableClicking:!0}),o=k(t);return o.innerHTML=`
+    .${o.id} {
+      padding: 0.25em 0.25em;
     }
-  `;const m=()=>{l.style.opacity=e?"1":"0"};m(),document.body.appendChild(l);const k=()=>u.observe(t,{attributes:!0,attributeFilter:["open"]}),u=new MutationObserver(()=>{e=Boolean(t.open),u.disconnect(),t.show(),t.close(),m(),e&&t.showModal(),k()});return k(),x(r.remove,()=>{o&&o.remove(),h.remove()},u.disconnect)}function ae(t){let e,r,o,n,l,c,h,W,E,m,k,u,f,R,P,rt,S,I,tt,N,T,nt,et,vt,w,H,mt,z,kt,g,C,L,K,A,Et,q,Q,F,D,Z,ut,ot,J,O,yt,it,bt,U,xt,lt,dt,G,$,ft,b,at,Pt,ht,Tt,X,pt,gt;return{c(){e=a("div"),r=a("div"),o=a("button"),o.textContent="Default Button",n=p(),l=a("button"),l.textContent="Default Button",c=p(),h=a("div"),W=a("button"),W.textContent="Card Button",E=p(),m=a("button"),m.textContent="Card Button",k=p(),u=a("div"),f=a("button"),f.textContent="send",R=p(),P=a("button"),P.textContent="send",rt=p(),S=a("div"),I=a("div"),I.textContent="Default Card",tt=p(),N=a("div"),N.textContent="Default Card",T=p(),nt=a("div"),et=a("input"),vt=p(),w=a("div"),H=a("div"),H.textContent="Animated Card",mt=p(),z=a("div"),z.textContent="Animated Card",kt=p(),g=a("div"),C=a("select"),L=a("option"),L.textContent="Option 1",K=a("option"),K.textContent="Option 2",A=a("option"),A.textContent="Option 3",Et=p(),q=a("select"),Q=a("option"),Q.textContent="Placeholder",F=a("option"),F.textContent="Option 1",D=a("option"),D.textContent="Option 2",Z=a("option"),Z.textContent="Option 3",ut=p(),ot=a("div"),J=a("div"),O=a("input"),yt=p(),it=a("label"),it.textContent="Radio Option 1",bt=p(),U=a("input"),xt=p(),lt=a("label"),lt.textContent="Radio Option 2",dt=p(),G=a("div"),$=a("button"),$.textContent="Open Dialog",ft=p(),b=a("dialog"),at=a("h2"),at.textContent="Hello World!",Pt=p(),ht=a("p"),ht.textContent="Exio uses the HTML dialog element.",Tt=p(),X=a("button"),X.textContent="Close",s(o,"class","gray svelte-1y4zwtg"),s(l,"class","blue svelte-1y4zwtg"),s(r,"class","block svelte-1y4zwtg"),s(W,"class","card gray svelte-1y4zwtg"),s(m,"class","card blue svelte-1y4zwtg"),s(h,"class","block svelte-1y4zwtg"),s(f,"class","gray svelte-1y4zwtg"),s(P,"class","blue svelte-1y4zwtg"),s(u,"class","block svelte-1y4zwtg"),s(I,"class","card gray svelte-1y4zwtg"),s(N,"class","card blue svelte-1y4zwtg"),s(S,"class","block svelte-1y4zwtg"),s(et,"class","blue svelte-1y4zwtg"),s(et,"type","checkbox"),s(nt,"class","block svelte-1y4zwtg"),s(H,"class","card gray svelte-1y4zwtg"),s(z,"class","card blue svelte-1y4zwtg"),s(w,"class","block svelte-1y4zwtg"),L.__value="1",L.value=L.__value,K.__value="2",K.value=K.__value,A.__value="3",A.value=A.__value,s(C,"class","gray svelte-1y4zwtg"),Q.disabled=!0,Q.selected=!0,Q.__value="Placeholder",Q.value=Q.__value,F.__value="1",F.value=F.__value,D.__value="2",D.value=D.__value,Z.__value="3",Z.value=Z.__value,s(q,"class","blue svelte-1y4zwtg"),s(g,"class","block svelte-1y4zwtg"),Y(g,"width","min-content"),Y(g,"padding","10px"),Y(g,"padding-bottom","120px"),Y(g,"border","2px solid white"),s(e,"class","wrapper svelte-1y4zwtg"),s(O,"type","radio"),s(O,"id","radio-option-1"),s(O,"name","radio-options"),s(it,"for","radio-option-1"),s(U,"type","radio"),s(U,"id","radio-option-2"),s(U,"name","radio-options"),Y(U,"--exio-hover-border-color","var(--accent)"),Y(U,"--exio-selected-indicator-color","var(--accent)"),s(lt,"for","radio-option-2"),s(J,"class","paired svelte-1y4zwtg"),s(ot,"class","block svelte-1y4zwtg"),s($,"class","gray svelte-1y4zwtg"),s(at,"class","svelte-1y4zwtg"),s(X,"class","blue svelte-1y4zwtg"),Y(X,"float","right"),b.open=t[0],s(b,"class","black svelte-1y4zwtg"),Y(b,"width","min(300px, 100%)"),s(G,"class","block svelte-1y4zwtg")},m(y,M){j(y,e,M),i(e,r),i(r,o),i(r,n),i(r,l),i(e,c),i(e,h),i(h,W),i(h,E),i(h,m),i(e,k),i(e,u),i(u,f),i(u,R),i(u,P),i(e,rt),i(e,S),i(S,I),i(S,tt),i(S,N),i(e,T),i(e,nt),i(nt,et),i(e,vt),i(e,w),i(w,H),i(w,mt),i(w,z),i(e,kt),i(e,g),i(g,C),i(C,L),i(C,K),i(C,A),i(g,Et),i(g,q),i(q,Q),i(q,F),i(q,D),i(q,Z),j(y,ut,M),j(y,ot,M),i(ot,J),i(J,O),i(J,yt),i(J,it),i(J,bt),i(J,U),i(J,xt),i(J,lt),j(y,dt,M),j(y,G,M),i(G,$),i(G,ft),i(G,b),i(b,at),i(b,Pt),i(b,ht),i(b,Tt),i(b,X),pt||(gt=[d(V.call(null,o)),d(V.call(null,l)),d(V.call(null,W)),d(V.call(null,m)),d(V.call(null,f)),d(Yt.call(null,f)),d(V.call(null,P)),d(Yt.call(null,P)),d(ct.call(null,I)),d(ct.call(null,N)),d(oe.call(null,et)),d(ct.call(null,H)),d(re.call(null,H)),d(ct.call(null,z)),d(ne.call(null,z)),d(Vt.call(null,C)),d(Vt.call(null,q)),d(ie.call(null,e)),d(Rt.call(null,O)),d(Rt.call(null,U)),d(V.call(null,$)),Qt($,"click",t[1]),d(V.call(null,X)),Qt(X,"click",t[2]),d(le.call(null,b))],pt=!0)},p(y,M){M&1&&(b.open=y[0])},d(y){y&&B(e),y&&B(ut),y&&B(ot),y&&B(dt),y&&B(G),pt=!1,jt(gt)}}}function se(t){let e,r,o,n=ae(t);return{c(){e=a("div"),n&&n.c()},m(l,c){j(l,e,c),n&&n.m(e,null),r||(o=d(ee.call(null,e)),r=!0)},p(l,[c]){n.p(l,c)},i:qt,o:qt,d(l){l&&B(e),n&&n.d(),r=!1,o()}}}function ce(t,e,r){let o=!1;return[o,()=>r(0,o=!0),()=>r(0,o=!1)]}class ue extends Jt{constructor(e){super();St(this,e,ce,se,It,{})}}function Nt(t){let e,r;return e=new ue({}),{c(){Bt(e.$$.fragment)},m(o,n){wt(e,o,n),r=!0},i(o){r||(st(e.$$.fragment,o),r=!0)},o(o){Wt(e.$$.fragment,o),r=!1},d(o){Ht(e,o)}}}function de(t){let e,r,o=!t[0]&&Nt();return{c(){o&&o.c(),e=zt()},m(n,l){o&&o.m(n,l),j(n,e,l),r=!0},p(n,[l]){n[0]?o&&(At(),Wt(o,1,1,()=>{o=null}),Lt()):o?l&1&&st(o,1):(o=Nt(),o.c(),st(o,1),o.m(e.parentNode,e))},i(n){r||(st(o),r=!0)},o(n){Wt(o),r=!1},d(n){o&&o.d(n),n&&B(e)}}}function he(t,e,r){let o;return Kt(t,Ft,n=>r(0,o=n)),[o]}class pe extends Jt{constructor(e){super();St(this,e,he,de,It,{})}}new pe({target:document.getElementById("app")});
+    .${o.id}:focus {
+      background-color: var(--exio-focused-background-color);
+      color: var(--exio-focused-text-color);
+    }
+  `,g(e.destroy,o.remove)}function qt(t,e,o){const n=t.slice();return n[6]=e[o],n[8]=o,n}function It(t,e,o){const n=t.slice();return n[6]=e[o],n[8]=o,n}function St(t,e,o){const n=t.slice();return n[6]=e[o],n[8]=o,n}function Qt(t){let e,o,n,r,l,a,d,v,f,b,W,m,w,Y,K,F,P,V,fe,O,me,x,D,j,ae,Z,q,X,xe,_,ce,R,T,ve,Ve,We,$,se,Re,ue,Ne,C,de,Xe,ee,G,Ce,te,M,ye,B,oe,Ge,J,ke,Me,ge,we,H,Pe,N,Te,I,Ee,je,Je,Be,qe,He,ze=t[2](3),ne=[];for(let u=0;u<ze.length;u+=1)ne[u]=Ut(St(t,ze,u));let Le=t[2](3),re=[];for(let u=0;u<Le.length;u+=1)re[u]=Yt(It(t,Le,u));let Ae=t[2](69),ie=[];for(let u=0;u<Ae.length;u+=1)ie[u]=Vt(qt(t,Ae,u));let y=t[1]&&ot();return{c(){e=c("div"),o=c("div"),n=c("button"),n.textContent="Default Button",r=p(),l=c("button"),l.textContent="Default Button",a=p(),d=c("button"),d.textContent="send",v=p(),f=c("button"),f.textContent="send",b=p(),W=c("div"),m=c("div"),m.textContent="Default Card",w=p(),Y=c("div"),Y.textContent="Default Card",K=p(),F=c("div"),P=c("div"),V=c("input"),fe=p(),O=c("label"),O.textContent="Switch Option 1",me=p(),x=c("input"),D=p(),j=c("label"),j.textContent="Switch Option 2",ae=p(),Z=c("div"),q=c("div"),X=c("input"),xe=p(),_=c("label"),_.textContent="Radio Option 1",ce=p(),R=c("input"),T=p(),ve=c("label"),ve.textContent="Radio Option 2",Ve=p(),We=c("div"),$=c("div"),se=c("input"),Re=p(),ue=c("textarea"),Ne=p(),C=c("div"),de=c("select");for(let u=0;u<ne.length;u+=1)ne[u].c();Xe=p(),ee=c("select"),G=c("option"),G.textContent="Placeholder";for(let u=0;u<re.length;u+=1)re[u].c();Ce=p(),te=c("select"),M=c("option"),M.textContent="Overflow";for(let u=0;u<ie.length;u+=1)ie[u].c();ye=p(),B=c("div"),oe=c("button"),oe.textContent="Open Dialog",Ge=p(),J=c("dialog"),ke=c("h2"),ke.textContent="Hello World!",Me=p(),ge=c("p"),ge.textContent="Exio uses the HTML dialog element.",we=p(),H=c("button"),H.textContent="Close",Pe=p(),N=c("div"),Te=c("div"),I=c("button"),Ee=c("span"),Ee.textContent="refresh",je=p(),Je=c("span"),Je.textContent="Reload Animations",Be=p(),y&&y.c(),s(n,"class","gray svelte-188f5qz"),s(l,"class","blue svelte-188f5qz"),s(d,"class","gray svelte-188f5qz"),s(f,"class","cyan svelte-188f5qz"),s(o,"class","block svelte-188f5qz"),s(m,"class","card gray svelte-188f5qz"),s(Y,"class","card cyan svelte-188f5qz"),s(W,"class","block svelte-188f5qz"),s(V,"type","checkbox"),s(V,"id","switch-option-1"),E(V,"border-color","white"),E(V,"--exio-selected-background-color","var(--accent)"),E(V,"--exio-selected-indicator-color","white"),s(O,"for","switch-option-1"),s(x,"type","checkbox"),s(x,"id","switch-option-2"),E(x,"border-color","var(--accent)"),E(x,"--exio-selected-background-color","white"),E(x,"--exio-selected-indicator-color","var(--accent)"),s(j,"for","switch-option-2"),s(P,"class","paired svelte-188f5qz"),s(F,"class","block svelte-188f5qz"),s(X,"type","radio"),s(X,"id","radio-option-1"),s(X,"name","radio-options"),s(_,"for","radio-option-1"),s(R,"type","radio"),s(R,"id","radio-option-2"),s(R,"name","radio-options"),E(R,"border-color","var(--accent)"),E(R,"--exio-selected-indicator-color","var(--accent)"),s(ve,"for","radio-option-2"),s(q,"class","paired svelte-188f5qz"),s(Z,"class","block svelte-188f5qz"),s(se,"class","gray svelte-188f5qz"),s(se,"placeholder","Textfield"),s(ue,"class","gray svelte-188f5qz"),s(ue,"placeholder","Textarea"),s($,"class","paired svelte-188f5qz"),s(We,"class","block svelte-188f5qz"),s(de,"class","gray svelte-188f5qz"),G.disabled=!0,G.selected=!0,G.__value="Placeholder",G.value=G.__value,s(ee,"class","blue svelte-188f5qz"),M.disabled=!0,M.selected=!0,M.__value="Overflow",M.value=M.__value,s(te,"class","gray svelte-188f5qz"),s(C,"class","block svelte-188f5qz"),s(e,"class","wrapper svelte-188f5qz"),s(oe,"class","gray svelte-188f5qz"),s(ke,"class","svelte-188f5qz"),s(H,"class","blue svelte-188f5qz"),E(H,"float","right"),J.open=t[0],s(J,"class","black svelte-188f5qz"),E(J,"width","min(300px, 100%)"),s(B,"class","block svelte-188f5qz"),s(I,"class","cyan svelte-188f5qz"),E(I,"display","flex"),E(I,"align-items","center"),E(I,"gap","0.25rem"),s(N,"class","block svelte-188f5qz"),E(N,"flex-direction","column"),E(N,"padding","10px 0px")},m(u,z){Q(u,e,z),i(e,o),i(o,n),i(o,r),i(o,l),i(o,a),i(o,d),i(o,v),i(o,f),i(e,b),i(e,W),i(W,m),i(W,w),i(W,Y),i(e,K),i(e,F),i(F,P),i(P,V),i(P,fe),i(P,O),i(P,me),i(P,x),i(P,D),i(P,j),i(e,ae),i(e,Z),i(Z,q),i(q,X),i(q,xe),i(q,_),i(q,ce),i(q,R),i(q,T),i(q,ve),i(e,Ve),i(e,We),i(We,$),i($,se),i($,Re),i($,ue),i(e,Ne),i(e,C),i(C,de);for(let S=0;S<ne.length;S+=1)ne[S].m(de,null);i(C,Xe),i(C,ee),i(ee,G);for(let S=0;S<re.length;S+=1)re[S].m(ee,null);i(C,Ce),i(C,te),i(te,M);for(let S=0;S<ie.length;S+=1)ie[S].m(te,null);Q(u,ye,z),Q(u,B,z),i(B,oe),i(B,Ge),i(B,J),i(J,ke),i(J,Me),i(J,ge),i(J,we),i(J,H),Q(u,Pe,z),Q(u,N,z),i(N,Te),i(Te,I),i(I,Ee),i(I,je),i(I,Je),i(N,Be),y&&y.m(N,null),qe||(He=[h(A.call(null,n)),h(A.call(null,l)),h(A.call(null,d)),h(Ue.call(null,d)),h(A.call(null,f)),h(Ue.call(null,f)),h(pe.call(null,m)),h(pe.call(null,Y)),h(_e.call(null,V)),h(_e.call(null,x)),h(et.call(null,X)),h(et.call(null,R)),h(tt.call(null,se)),h(tt.call(null,ue)),h(Ye.call(null,de)),h(Ye.call(null,ee)),h(Ye.call(null,te)),h($e.call(null,e)),h(A.call(null,oe)),Ie(oe,"click",t[3]),h(A.call(null,H)),Ie(H,"click",t[4]),h(Jt.call(null,J)),h(Ue.call(null,Ee)),h(A.call(null,I)),Ie(I,"click",t[5])],qe=!0)},p(u,z){z&1&&(J.open=u[0]),u[1]?y||(y=ot(),y.c(),y.m(N,null)):y&&(y.d(1),y=null)},d(u){u&&U(e),Se(ne,u),Se(re,u),Se(ie,u),u&&U(ye),u&&U(B),u&&U(Pe),u&&U(N),y&&y.d(),qe=!1,De(He)}}}function Ut(t){let e,o,n=t[8]+1+"",r,l;return{c(){e=c("option"),o=le("Option "),r=le(n),e.__value=l=t[8]+1,e.value=e.__value},m(a,d){Q(a,e,d),i(e,o),i(e,r)},p:he,d(a){a&&U(e)}}}function Yt(t){let e,o,n=t[8]+1+"",r,l;return{c(){e=c("option"),o=le("Option "),r=le(n),e.__value=l=t[8]+1,e.value=e.__value},m(a,d){Q(a,e,d),i(e,o),i(e,r)},p:he,d(a){a&&U(e)}}}function Vt(t){let e,o,n=t[8]+1+"",r,l;return{c(){e=c("option"),o=le("Option "),r=le(n),e.__value=l=t[8]+1,e.value=e.__value},m(a,d){Q(a,e,d),i(e,o),i(e,r)},p:he,d(a){a&&U(e)}}}function ot(t){let e,o,n,r,l,a,d,v;return{c(){e=c("div"),o=c("div"),o.textContent="Fly In Animation",n=p(),r=c("div"),r.textContent="Zoom In Animation",l=p(),a=c("div"),a.textContent="Fade In Animation",s(o,"class","card gray svelte-188f5qz"),s(r,"class","card blue svelte-188f5qz"),E(r,"--exio-zoom-in-animation-scale","80%"),s(a,"class","card cyan svelte-188f5qz"),s(e,"class","paired svelte-188f5qz")},m(f,b){Q(f,e,b),i(e,o),i(e,n),i(e,r),i(e,l),i(e,a),d||(v=[h(pe.call(null,o)),h(Pt.call(null,o)),h(pe.call(null,r)),h($e.call(null,r)),h(pe.call(null,a)),h(Tt.call(null,a))],d=!0)},d(f){f&&U(e),d=!1,De(v)}}}function Rt(t){let e,o,n,r=Qt(t);return{c(){e=c("div"),r&&r.c()},m(l,a){Q(l,e,a),r&&r.m(e,null),o||(n=h(gt.call(null,e)),o=!0)},p(l,[a]){r.p(l,a)},i:he,o:he,d(l){l&&U(e),r&&r.d(),o=!1,n()}}}function Nt(t,e,o){let n=!1,r=!0;return[n,r,f=>new Array(f),()=>o(0,n=!0),()=>o(0,n=!1),async()=>{o(1,r=!1),await ct(),o(1,r=!0)}]}class Xt extends Ke{constructor(e){super();Fe(this,e,Nt,Rt,Oe,{})}}function nt(t){let e,o;return e=new Xt({}),{c(){st(e.$$.fragment)},m(n,r){ut(e,n,r),o=!0},i(n){o||(be(e.$$.fragment,n),o=!0)},o(n){Qe(e.$$.fragment,n),o=!1},d(n){dt(e,n)}}}function Ct(t){let e,o,n=!t[0]&&nt();return{c(){n&&n.c(),e=ht()},m(r,l){n&&n.m(r,l),Q(r,e,l),o=!0},p(r,[l]){r[0]?n&&(mt(),Qe(n,1,1,()=>{n=null}),pt()):n?l&1&&be(n,1):(n=nt(),n.c(),be(n,1),n.m(e.parentNode,e))},i(r){o||(be(n),o=!0)},o(r){Qe(n),o=!1},d(r){n&&n.d(r),r&&U(e)}}}function Gt(t,e,o){let n;return ft(t,vt,r=>o(0,n=r)),[n]}class Mt extends Ke{constructor(e){super();Fe(this,e,Gt,Ct,Oe,{})}}new Mt({target:document.getElementById("app")});
