@@ -34,7 +34,7 @@
         <div use:exioCard class="card cyan">Default Card</div>
       </div>
       <div class="block">
-        <div class="paired">
+        <div class="items">
           <input
             use:exioSwitch
             type="checkbox"
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="block">
-        <div class="paired">
+        <div class="items">
           <input
             type="radio"
             use:exioRadio
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="block">
-        <div class="paired">
+        <div class="items">
           <input class="gray" use:exioTextbox placeholder="Textfield" />
           <textarea class="gray" use:exioTextbox placeholder="Textarea" />
         </div>
@@ -150,7 +150,7 @@
         </button>
       </div>
       {#if animate}
-        <div class="paired">
+        <div class="items">
           <div use:exioCard use:exioFlyInAnimation class="card gray">
             Fly In Animation
           </div>
@@ -199,17 +199,19 @@
     overflow: visible;
     flex-direction: row;
     gap: 10px;
+    flex-wrap: wrap;
   }
   :global(#app) {
     min-height: 100%;
     min-width: 100%;
     --accent: #0065c7;
   }
-  .paired {
+  .items {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
   .wrapper {
     transform-origin: center top;
