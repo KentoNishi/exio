@@ -7,6 +7,7 @@ export function exioTextbox(
 ): ExioNode {
   const effect = exioPointerEffect(node, {
     disableClicking: true,
+    borderStyle: 'hover',
   });
   const s = styler(node);
   s.innerHTML = `
