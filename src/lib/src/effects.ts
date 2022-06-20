@@ -54,26 +54,19 @@ export function exioPointerEffect(
 
         --exio-mouse-x: ${mouseX}px;
         --exio-mouse-y: ${mouseY}px;
-        --exio-hover-border-color: rgba(255, 255, 255, 1);
-        --exio-hover-body-color: rgba(255, 255, 255, 0.2);
-        --exio-border-width: 2px;
-        --exio-scale-size: 0.95;
-        --exio-transition-duration: 0.2s;
-        --exio-hover-background-scale: 4;
-        --exio-hover-border-scale: 2;
-        transition: transform var(--exio-transition-duration);
+        transition: transform var(--exio-standard-transition-duration);
       }
       .${s.id}:hover:not(.${s.id}-active) {
         ${hoverBorder};
         background-size: calc(100% + 2 * var(--exio-border-width));
         background-position: center;
         ${hoverBackground};
-        transition: transform var(--exio-transition-duration);
+        transition: transform var(--exio-standard-transition-duration);
       }
       .${s.id}.${s.id}-active {
         filter: brightness(0.8);
         transition: none;
-        transform: scale(var(--exio-scale-size));
+        transform: scale(var(--exio-clicking-scale));
       }
     `;
   };

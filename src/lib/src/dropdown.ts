@@ -28,7 +28,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     node.style.setProperty('transform', before, 'important');
     const computed = getComputedStyle(node);
     const transitionDuration = computed.getPropertyValue(
-      '--exio-transition-duration'
+      '--exio-standard-transition-duration'
     );
     const color = computed.getPropertyValue('color');
     const backgroundColor = computed.getPropertyValue('background-color');

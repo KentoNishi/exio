@@ -17,10 +17,6 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       align-items: center;
       justify-content: center;
       padding: 0px;
-
-      --exio-border-width: 2px;
-      --exio-transition-duration: 0.2s;
-      --exio-selected-indicator-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
@@ -36,10 +32,10 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       border-radius: 100%;
       transform: scale(0);
       background-color: var(--exio-selected-indicator-color);
-      transition: transform var(--exio-transition-duration);
+      transition: transform var(--exio-standard-transition-duration);
     }
     .${s2.id}:checked::after {
-      transform: scale(0.7);
+      transform: scale(0.6);
     }
   `;
   return destroyer(effect.destroy, s1.remove, s2.remove);

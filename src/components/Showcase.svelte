@@ -11,6 +11,7 @@
     exioDropdown,
     exioRadio,
     exioDialog,
+    exioTextbox,
   } from 'exio/svelte';
   let render = true;
   let open = false;
@@ -22,12 +23,6 @@
       <div class="block">
         <button class="gray" use:exioButton>Default Button</button>
         <button class="blue" use:exioButton>Default Button</button>
-      </div>
-      <div class="block">
-        <button class="card gray" use:exioButton>Card Button</button>
-        <button class="card blue" use:exioButton>Card Button</button>
-      </div>
-      <div class="block">
         <button use:exioButton use:exioIcon class="gray">send</button>
         <button use:exioButton use:exioIcon class="blue">send</button>
       </div>
@@ -44,6 +39,12 @@
         </div>
         <div use:exioCard use:exioFadeInAnimation class="card blue">
           Animated Card
+        </div>
+      </div>
+      <div class="block">
+        <div class="paired">
+          <input class="gray" use:exioTextbox placeholder="Textfield" />
+          <textarea class="gray" use:exioTextbox placeholder="Textarea" />
         </div>
       </div>
       <div

@@ -17,10 +17,6 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       align-items: center;
       justify-content: center;
       overflow: visible;
-
-      --exio-border-width: 2px;
-      --exio-transition-duration: 0.2s;
-      --exio-selected-indicator-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
@@ -36,14 +32,14 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       border-radius: 100%;
       transform: translateX(calc(
         ${-node.clientWidth / 2}px + ${node.clientHeight / 2}px
-      )) scale(0.7);
+      )) scale(0.55);
       background-color: var(--exio-selected-indicator-color);
-      transition: transform var(--exio-transition-duration);
+      transition: transform var(--exio-standard-transition-duration);
     }
     .${s2.id}:checked::after {
       transform: translateX(calc(
         ${node.clientWidth / 2}px - ${node.clientHeight / 2}px
-      )) scale(0.7);
+      )) scale(0.55);
     }
   `;
   return destroyer(effect.destroy, s1.remove, s2.remove);

@@ -27,8 +27,6 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
       }
     }
     .${s.id} {
-      --exio-transition-duration: 0.4s;
-      --exio-backdrop-color: rgba(128, 128, 128, 0.2);
       border-radius: 0px;
       border: 0px solid transparent;
     }
@@ -46,7 +44,8 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     }
     .${s.id}[open] {
       transform-origin: center center;
-      animation: exio-dialog-fade-in var(--exio-transition-duration);
+      animation-name: exio-dialog-fade-in;
+      animation-duration: var(--exio-slow-transition-duration);
       animation-fill-mode: forwards;
     }
   `;
@@ -64,7 +63,8 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
   const anistarted = () => {
     s2.innerHTML = `
       .${s2.id}:not([open]) {
-        animation: exio-dialog-fade-out var(--exio-transition-duration);
+        animation-name: exio-dialog-fade-out;
+        animation-duration: var(--exio-slow-transition-duration);
         animation-fill-mode: forwards;
       }
     `;
@@ -72,26 +72,26 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
   };
   node.addEventListener('animationstart', anistarted);
   const backdrop = document.createElement('div');
-  const computed = getComputedStyle(node);
   const s3 = styler(backdrop);
-  const transitionDuration = computed.getPropertyValue(
-    '--exio-transition-duration'
-  );
-  const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
-  s3.innerHTML = `
-    .${s3.id} {
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-      background-color: ${backdropColor};
-      transition: opacity ${transitionDuration};
-      pointer-events: none;
-      touch-action: none;
-    }
-  `;
   const updateBackDrop = () => {
+    const computed = getComputedStyle(node);
+    const transitionDuration = computed.getPropertyValue(
+      '--exio-slow-transition-duration'
+    );
+    const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
+    s3.innerHTML = `
+      .${s3.id} {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: ${backdropColor};
+        transition: opacity ${transitionDuration};
+        pointer-events: none;
+        touch-action: none;
+      }
+    `;
     backdrop.style.opacity = isOpen ? '1' : '0';
   };
   updateBackDrop();
