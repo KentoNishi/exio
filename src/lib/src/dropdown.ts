@@ -53,6 +53,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         opacity: 0;
         pointer-events: none;
         touch-action: none;
+        user-select: none;
       }
       .${ds.id}:focus {
         opacity: 1;
