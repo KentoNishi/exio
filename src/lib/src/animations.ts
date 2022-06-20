@@ -50,7 +50,7 @@ export function exioZoomInAnimation(node: HTMLElement): ExioNode {
   s.innerHTML = `
     @keyframes exio-zoom-in {
       from {
-        transform: scale(97.5%);
+        transform: scale(var(--exio-zoom-in-animation-scale));
         opacity: 0;
       }
       to {

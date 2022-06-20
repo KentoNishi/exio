@@ -13,8 +13,10 @@
     exioDialog,
     exioTextbox,
   } from 'exio/svelte';
+  import { tick } from 'svelte';
   let render = true;
   let open = false;
+  let animate = true;
 </script>
 
 <div use:exioApp>
@@ -24,11 +26,11 @@
         <button class="gray" use:exioButton>Default Button</button>
         <button class="blue" use:exioButton>Default Button</button>
         <button use:exioButton use:exioIcon class="gray">send</button>
-        <button use:exioButton use:exioIcon class="blue">send</button>
+        <button use:exioButton use:exioIcon class="cyan">send</button>
       </div>
       <div class="block">
         <div use:exioCard class="card gray">Default Card</div>
-        <div use:exioCard class="card blue">Default Card</div>
+        <div use:exioCard class="card cyan">Default Card</div>
       </div>
       <div class="block">
         <div class="paired">
@@ -79,28 +81,12 @@
         </div>
       </div>
       <div class="block">
-        <div use:exioCard use:exioFlyInAnimation class="card gray">
-          Animated Card
-        </div>
-        <div use:exioCard use:exioFadeInAnimation class="card blue">
-          Animated Card
-        </div>
-      </div>
-      <div class="block">
         <div class="paired">
           <input class="gray" use:exioTextbox placeholder="Textfield" />
           <textarea class="gray" use:exioTextbox placeholder="Textarea" />
         </div>
       </div>
-      <div
-        class="block"
-        style="
-          width: min-content;
-          padding: 10px;
-          padding-bottom: 120px;
-          border: 2px solid white;
-        "
-      >
+      <div class="block">
         <select use:exioDropdown class="gray">
           <option value="1">Option 1</option>
           <option value="2">Option 2</option>
@@ -136,6 +122,45 @@
         </button>
       </dialog>
     </div>
+    <div class="block" style="flex-direction: column; padding: 10px 0px;">
+      <div>
+        <button
+          use:exioButton
+          class="cyan"
+          on:click={async () => {
+            animate = false;
+            await tick();
+            animate = true;
+          }}
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+          "
+        >
+          <span use:exioIcon>refresh</span>
+          <span>Reload Animations</span>
+        </button>
+      </div>
+      {#if animate}
+        <div class="paired">
+          <div use:exioCard use:exioFlyInAnimation class="card gray">
+            Fly In Animation
+          </div>
+          <div
+            use:exioCard
+            use:exioZoomInAnimation
+            class="card blue"
+            style="--exio-zoom-in-animation-scale: 80%;"
+          >
+            Zoom In Animation
+          </div>
+          <div use:exioCard use:exioFadeInAnimation class="card cyan">
+            Fade In Animation
+          </div>
+        </div>
+      {/if}
+    </div>
   {/if}
 </div>
 
@@ -153,6 +178,9 @@
   .black {
     background-color: black;
     color: white;
+  }
+  .cyan {
+    background-color: darkcyan;
   }
   .blue {
     background-color: var(--accent);

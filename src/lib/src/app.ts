@@ -35,6 +35,8 @@ export function exioApp(node: HTMLElement): ExioNode {
       --exio-slow-transition-duration: 0.4s;
       /* standard transition duration */
       --exio-standard-transition-duration: 0.2s;
+      /* scaling factor for the zoom in animation */
+      --exio-zoom-in-animation-scale: 97.5%;
     }
 
     .${s.id} {
