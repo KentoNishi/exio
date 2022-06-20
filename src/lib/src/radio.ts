@@ -36,7 +36,7 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       transition: transform var(--exio-standard-transition-duration);
     }
     .${s2.id}:checked::after {
-      transform: scale(0.6);
+      transform: scale(0.5);
     }
   `;
   return destroyer(effect.destroy, s1.remove, s2.remove);

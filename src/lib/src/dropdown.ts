@@ -35,6 +35,8 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     const fontFamily = computed.getPropertyValue('font-family');
     const fontSize = computed.getPropertyValue('font-size');
     const padding = computed.getPropertyValue('padding');
+    const topPadding = computed.getPropertyValue('padding-top');
+    const bottomPadding = computed.getPropertyValue('padding-bottom');
     ds.innerHTML = `
       .${ds.id} {
         position: fixed;
@@ -46,10 +48,6 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         color: ${color};
         font-family: ${fontFamily};
         font-size: ${fontSize};
-        padding: ${padding};
-        padding-left: 0px;
-        padding-right: 0px;
-        box-size: border-box;
         opacity: 0;
         pointer-events: none;
         touch-action: none;
@@ -63,9 +61,14 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     `;
     dropdown.innerHTML = '';
     setTimeout(() => {
-      node.querySelectorAll('option').forEach((child, index) => {
+      const options = node.querySelectorAll('option');
+      let firstItem: HTMLDivElement | undefined;
+      let lastItem: HTMLDivElement | undefined;
+      options.forEach((child, index) => {
         if (child.disabled) return;
         const item = document.createElement('div');
+        if (!firstItem) firstItem = item;
+        lastItem = item;
         item.style.padding = padding;
         item.style.boxSizing = 'border-box';
         item.style.cursor = 'default';
@@ -77,6 +80,26 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
           dropdown.blur();
         });
       });
+      if (firstItem) firstItem.style.marginTop = topPadding;
+      if (lastItem) lastItem.style.marginBottom = bottomPadding;
+      const { height, width, left } = dropdown.getBoundingClientRect();
+      const isOverflowingY = height + rect.bottom >= window.innerHeight;
+      const topVal = isOverflowingY
+        ? Math.max(0, window.innerHeight - height)
+        : rect.bottom;
+      const isOverflowingX = width + rect.left >= window.innerWidth;
+      const leftVal = isOverflowingX
+        ? Math.max(0, window.innerWidth - width)
+        : left;
+      ds.innerHTML += `
+        .${ds.id} {
+          top: ${topVal}px;
+          left: ${leftVal}px;
+          overflow: auto;
+          max-width: ${window.innerWidth}px;
+          max-height: ${window.innerHeight}px;
+        }
+      `;
     }, 0);
   };
   updateStyle();

@@ -17,6 +17,7 @@
   let render = true;
   let open = false;
   let animate = true;
+  const range = (len: number) => new Array(len);
 </script>
 
 <div use:exioApp>
@@ -88,15 +89,21 @@
       </div>
       <div class="block">
         <select use:exioDropdown class="gray">
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          {#each range(3) as _, index}
+            <option value={index + 1}>Option {index + 1}</option>
+          {/each}
         </select>
         <select use:exioDropdown class="blue">
           <option disabled selected>Placeholder</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          {#each range(3) as _, index}
+            <option value={index + 1}>Option {index + 1}</option>
+          {/each}
+        </select>
+        <select use:exioDropdown class="gray">
+          <option disabled selected>Overflow</option>
+          {#each range(69) as _, index}
+            <option value={index + 1}>Option {index + 1}</option>
+          {/each}
         </select>
       </div>
     </div>
