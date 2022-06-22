@@ -10,7 +10,9 @@ if (!existsSync('dist')) {
 
 copyFileSync('../../tsconfig.json', './tsconfig.json');
 
-execSync('tsc --target es6 --declaration --outDir ./dist index.ts ./svelte/**');
+execSync(
+  'tsc --target es6 --declaration --moduleResolution node --outDir ./dist index.ts ./svelte/**'
+);
 
 [
   ['package.json', 'package.json'],
