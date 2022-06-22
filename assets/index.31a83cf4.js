@@ -46,6 +46,7 @@ import{y as nt,$ as it,I as lt,d as at,S as ze,i as Fe,s as Oe,e as c,a as v,b a
 
     body {
       margin: 0;
+      padding: 0;
     }
 
     * ::-webkit-scrollbar {
