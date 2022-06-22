@@ -51,6 +51,7 @@ export function exioApp(node: HTMLElement): ExioNode {
 
     body {
       margin: 0;
+      padding: 0;
     }
 
     * ::-webkit-scrollbar {
