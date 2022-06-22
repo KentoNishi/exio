@@ -8,10 +8,9 @@ if (!existsSync('dist')) {
   mkdirSync('dist');
 }
 
-copyFileSync('../../tsconfig.json', './tsconfig.json');
-
 execSync(
-  'tsc --target es6 --declaration --moduleResolution node --outDir ./dist index.ts ./svelte/**'
+  'tsc --target es6 --declaration --moduleResolution node --outDir ./dist index.ts ./svelte/**',
+  { stdio: 'inherit' }
 );
 
 [

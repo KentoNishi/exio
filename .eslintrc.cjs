@@ -40,6 +40,7 @@ module.exports = {
         ignoreTemplateLiterals: true,
         ignoreStrings: true,
         ignoreUrls: true,
+        ignoreComments: true,
       },
     ],
     'no-param-reassign': ['error', { props: false }],
