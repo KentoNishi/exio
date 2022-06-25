@@ -106,67 +106,67 @@
           {/each}
         </select>
       </div>
-    </div>
-    <div class="block">
-      <button class="gray" use:exioButton on:click={() => (open = true)}>
-        Open Dialog
-      </button>
-      <dialog
-        use:exioDialog
-        {open}
-        class="black"
-        style="width: min(300px, 100%);"
-      >
-        <h2>Hello World!</h2>
-        <p>Exio uses the HTML dialog element.</p>
-        <button
-          use:exioButton
-          class="blue"
-          style="float: right;"
-          on:click={() => (open = false)}
-        >
-          Close
+      <div class="block">
+        <button class="gray" use:exioButton on:click={() => (open = true)}>
+          Open Dialog
         </button>
-      </dialog>
-    </div>
-    <div class="block" style="flex-direction: column; padding: 10px 0px;">
-      <div>
-        <button
-          use:exioButton
-          class="cyan"
-          on:click={async () => {
-            animate = false;
-            await tick();
-            animate = true;
-          }}
-          style="
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-          "
+        <dialog
+          use:exioDialog
+          {open}
+          class="black"
+          style="width: min(300px, 100%);"
         >
-          <span use:exioIcon>refresh</span>
-          <span>Reload Animations</span>
-        </button>
-      </div>
-      {#if animate}
-        <div class="items">
-          <div use:exioCard use:exioFlyInAnimation class="card gray">
-            Fly In Animation
-          </div>
-          <div
-            use:exioCard
-            use:exioZoomInAnimation
-            class="card blue"
-            style="--exio-zoom-in-animation-scale: 80%;"
+          <h2>Hello World!</h2>
+          <p>Exio uses the HTML dialog element.</p>
+          <button
+            use:exioButton
+            class="blue"
+            style="float: right;"
+            on:click={() => (open = false)}
           >
-            Zoom In Animation
-          </div>
-          <div use:exioCard use:exioFadeInAnimation class="card cyan">
-            Fade In Animation
-          </div>
+            Close
+          </button>
+        </dialog>
+      </div>
+      <div class="block" style="flex-direction: column; padding: 10px 0px;">
+        <div>
+          <button
+            use:exioButton
+            class="cyan"
+            on:click={async () => {
+              animate = false;
+              await tick();
+              animate = true;
+            }}
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+            "
+          >
+            <span use:exioIcon>refresh</span>
+            <span>Reload Animations</span>
+          </button>
         </div>
-      {/if}
+        {#if animate}
+          <div class="items">
+            <div use:exioCard use:exioFlyInAnimation class="card gray">
+              Fly In Animation
+            </div>
+            <div
+              use:exioCard
+              use:exioZoomInAnimation
+              class="card blue"
+              style="--exio-zoom-in-animation-scale: 80%;"
+            >
+              Zoom In Animation
+            </div>
+            <div use:exioCard use:exioFadeInAnimation class="card cyan">
+              Fade In Animation
+            </div>
+          </div>
+        {/if}
+      </div>
     </div>
   {/if}
 </div>
