@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import { copyFileSync, mkdirSync, existsSync } from 'fs';
 import { execSync } from 'child_process';
 

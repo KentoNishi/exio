@@ -2,11 +2,11 @@
   "name": "exio",
   "version": "0.2.2",
   "description": "A framework-independent UI component library that extends native HTML elements!",
-  "main": "index.js",
   "repository": "https://github.com/KentoNishi/exio",
+  "license": "MIT",
   "author": "Kento Nishi",
   "type": "module",
-  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "build": "node build.js"
   },
