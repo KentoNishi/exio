@@ -12,6 +12,7 @@
     exioRadio,
     exioDialog,
     exioTextbox,
+    exioLoadingBarAnimation,
   } from 'exio/svelte';
   import { tick } from 'svelte';
   let render = true;
@@ -129,6 +130,25 @@
         </dialog>
       </div>
       <div class="block" style="flex-direction: column; padding: 10px 0px;">
+        <div class="items">
+          <div
+            use:exioLoadingBarAnimation
+            style="
+              width: 200px;
+              height: 5px;
+              --exio-loader-fill-color: cyan;
+            "
+          />
+          <div
+            use:exioLoadingBarAnimation
+            style="
+              width: 200px;
+              height: 5px;
+              --exio-loader-fill-color: var(--accent);
+              background-color: white;
+            "
+          />
+        </div>
         <div>
           <button
             use:exioButton

@@ -67,3 +67,33 @@ export function exioZoomInAnimation(node: HTMLElement): ExioNode {
   `;
   return destroyer(node.remove);
 }
+
+export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
+  const s = styler(node);
+  s.innerHTML = `
+    @keyframes exio-loading-bar {
+      from {
+        background-position: 100% 0;
+      }
+      to {
+        background-position: 0 0;
+      }
+    }
+    .${s.id} {
+      background-image: linear-gradient(
+        to right,
+        var(--exio-loader-fill-color) 0%,
+        var(--exio-loader-fill-color) 25%,
+        transparent 25%,
+        transparent 50%,
+        var(--exio-loader-fill-color) 50%,
+        var(--exio-loader-fill-color) 75%,
+        transparent 75%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: exio-loading-bar var(--exio-loader-duration) linear infinite;
+    }
+  `;
+  return destroyer(node.remove);
+}

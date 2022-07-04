@@ -6,6 +6,7 @@ export {
   exioFlyInAnimation,
   exioFadeInAnimation,
   exioZoomInAnimation,
+  exioLoadingBarAnimation,
 } from './src/animations';
 export { exioIcon } from './src/icon';
 export { exioDropdown } from './src/dropdown';

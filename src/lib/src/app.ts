@@ -13,6 +13,8 @@ export function exioApp(node: HTMLElement): ExioNode {
       --exio-backdrop-color: rgba(128, 128, 128, 0.2);
       /* border width for various effects */
       --exio-border-width: 2px;
+      /* scaling factor for elements while being clicked */
+      --exio-clicking-scale: 0.95;
       /* background color for textboxes when focused */
       --exio-focused-background-color: white;
       /* text color for textboxes when focused */
@@ -25,8 +27,10 @@ export function exioApp(node: HTMLElement): ExioNode {
       --exio-hover-border-color: rgba(255, 255, 255, 1);
       /* scaling factor for the acrylic hover highlight effect */
       --exio-hover-border-scale: 2;
-      /* scaling factor for elements while being clicked */
-      --exio-clicking-scale: 0.95;
+      /* fill color for progress bars and loaders */
+      --exio-loader-fill-color: white;
+      /* animation duration for progress bars and loaders */
+      --exio-loader-duration: 1s;
       /* color of radio/switch backgrounds when selected */
       --exio-selected-background-color: black;
       /* color of radio/switch indicators when selected */
