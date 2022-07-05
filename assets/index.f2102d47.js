@@ -188,7 +188,7 @@ import{y as dt,$ as ut,I as ht,d as vt,S as _e,i as $e,s as et,e as a,a as v,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,g(t.remove)}function Ut(t){const e=b(t);return e.innerHTML=`
+  `,g(e.remove,t.remove)}function Ut(t){const e=b(t);return e.innerHTML=`
     @keyframes exio-fade-in {
       from {
         opacity: 0;
@@ -203,7 +203,7 @@ import{y as dt,$ as ut,I as ht,d as vt,S as _e,i as $e,s as et,e as a,a as v,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,g(t.remove)}function nt(t){const e=b(t);return e.innerHTML=`
+  `,g(e.remove,t.remove)}function nt(t){const e=b(t);return e.innerHTML=`
     @keyframes exio-zoom-in {
       from {
         transform: scale(var(--exio-zoom-in-animation-scale));
@@ -220,7 +220,7 @@ import{y as dt,$ as ut,I as ht,d as vt,S as _e,i as $e,s as et,e as a,a as v,b a
       animation-fill-mode: forwards;
       opacity: 0;
     }
-  `,g(t.remove)}function it(t){const e=b(t);return e.innerHTML=`
+  `,g(e.remove,t.remove)}function it(t){const e=b(t);return e.innerHTML=`
     @keyframes exio-loading-bar {
       from {
         background-position: 100% 0;
@@ -244,7 +244,7 @@ import{y as dt,$ as ut,I as ht,d as vt,S as _e,i as $e,s as et,e as a,a as v,b a
       background-size: 200% 100%;
       animation: exio-loading-bar var(--exio-loader-duration) linear infinite;
     }
-  `,g(t.remove)}const Ye=t=>{const e=b(t);return e.innerHTML=`
+  `,g(e.remove,t.remove)}const Ye=t=>{const e=b(t);return e.innerHTML=`
     .${e.id} {
       font-family: 'Exio Icons';
     }
