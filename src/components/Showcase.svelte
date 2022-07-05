@@ -22,6 +22,18 @@
 </script>
 
 <div use:exioApp>
+  <dialog use:exioDialog {open} class="black" style="width: min(300px, 100%);">
+    <h2>Hello World!</h2>
+    <p>Exio uses the HTML dialog element.</p>
+    <button
+      use:exioButton
+      class="blue"
+      style="float: right;"
+      on:click={() => (open = false)}
+    >
+      Close
+    </button>
+  </dialog>
   {#if render}
     <div use:exioZoomInAnimation class="wrapper">
       <div class="block">
@@ -111,23 +123,6 @@
         <button class="gray" use:exioButton on:click={() => (open = true)}>
           Open Dialog
         </button>
-        <dialog
-          use:exioDialog
-          {open}
-          class="black"
-          style="width: min(300px, 100%);"
-        >
-          <h2>Hello World!</h2>
-          <p>Exio uses the HTML dialog element.</p>
-          <button
-            use:exioButton
-            class="blue"
-            style="float: right;"
-            on:click={() => (open = false)}
-          >
-            Close
-          </button>
-        </dialog>
       </div>
       <div class="block" style="flex-direction: column; padding: 10px 0px;">
         <div class="items">

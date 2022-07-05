@@ -62,6 +62,7 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     .${s.id} {
       border-radius: 0px;
       border: 0px solid transparent;
+      z-index: 69420;
     }
     .${s.id}::backdrop {
       background-color: transparent;
@@ -123,12 +124,13 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
         transition: opacity ${transitionDuration};
         pointer-events: none;
         touch-action: none;
+        z-index: 42069;
       }
     `;
     backdrop.style.opacity = isOpen ? '1' : '0';
   };
   updateBackDrop();
-  document.body.appendChild(backdrop);
+  node.parentElement.appendChild(backdrop);
   const observe = () =>
     observer.observe(node, {
       attributes: true,
