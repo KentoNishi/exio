@@ -13,6 +13,7 @@
     exioDialog,
     exioTextbox,
     exioLoadingBarAnimation,
+    exioCheckbox,
   } from 'exio/svelte';
   import { tick } from 'svelte';
   let render = true;
@@ -70,6 +71,32 @@
             "
           />
           <label for="switch-option-2">Switch Option 2</label>
+        </div>
+      </div>
+      <div class="block">
+        <div class="items">
+          <input
+            use:exioCheckbox
+            type="checkbox"
+            id="checkbox-option-1"
+            style="
+              border-color: white;
+              --exio-selected-background-color: white;
+              --exio-selected-indicator-color: black;
+            "
+          />
+          <label for="checkbox-option-1">Checkbox Option 1</label>
+          <input
+            use:exioCheckbox
+            type="checkbox"
+            id="checkbox-option-2"
+            style="
+              border-color: var(--accent);
+              --exio-selected-background-color: var(--accent);
+              --exio-selected-indicator-color: white;
+            "
+          />
+          <label for="checkbox-option-2">Checkbox Option 2</label>
         </div>
       </div>
       <div class="block">

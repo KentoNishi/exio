@@ -11,6 +11,7 @@ export {
 export { exioIcon } from './src/icon';
 export { exioDropdown } from './src/dropdown';
 export { exioRadio } from './src/radio';
+export { exioCheckbox } from './src/checkbox';
 export { exioDialog } from './src/dialog';
 export { exioTextbox } from './src/textbox';
 export type { ExioNode } from './src/base';
