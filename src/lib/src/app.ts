@@ -74,6 +74,10 @@ export function exioApp(node: HTMLElement): ExioNode {
     * ::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
+
+    * ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
     
     * {
       scrollbar-width: thin;
