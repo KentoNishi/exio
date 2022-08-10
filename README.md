@@ -25,6 +25,7 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioFlyInAnimation</code></li>
     <li><code>exioFadeInAnimation</code></li>
     <li><code>exioZoomInAnimation</code></li>
+    <li><code>exioLoadingBarAnimation</code></li>
   </ul>
 </details>
 
