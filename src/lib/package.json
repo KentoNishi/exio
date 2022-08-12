@@ -1,6 +1,6 @@
 {
   "name": "exio",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A framework-independent UI component library that extends native HTML elements!",
   "repository": "https://github.com/KentoNishi/exio",
   "license": "MIT",
@@ -12,5 +12,9 @@
   },
   "dependencies": {
     "dialog-polyfill": "^0.5.6"
+  },
+  "devDependencies": {
+    "glob": "^8.0.3",
+    "uglify-js": "^3.16.3"
   }
 }
