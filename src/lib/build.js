@@ -29,6 +29,8 @@ execSync(
 glob.sync('./dist/**/*.js').forEach((f) => {
   writeFileSync(
     f,
-    UglifyJS.minify(readFileSync(f).toString()).code.replace(/\s{2,}/g, ' ')
+    UglifyJS.minify(readFileSync(f).toString())
+      .code.replace(/\/\*(.|[\r\n])*?\*\//g, '')
+      .replace(/\s{2,}/g, ' ')
   );
 });
