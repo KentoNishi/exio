@@ -17,8 +17,11 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       align-items: center;
       justify-content: center;
       overflow: visible;
-      border-color: white;
+      border-color: black;
       background-color: var(--exio-selected-background-color);
+    }
+    .exio-dark ${s1.id} {
+      border-color: white;
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;

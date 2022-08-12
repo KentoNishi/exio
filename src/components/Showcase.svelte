@@ -21,6 +21,8 @@
   let animate = true;
   const range = (len: number) => new Array(len);
   let dark = true;
+  $: colorDefault = dark ? 'black' : 'white';
+  $: colorInverted = dark ? 'white' : 'black';
 </script>
 
 <div use:exioApp data-theme={dark ? 'dark' : 'light'} class:dark-theme={dark}>
@@ -46,9 +48,9 @@
             id="dark-mode"
             bind:checked={dark}
             style="
-              border-color: white;
+              border-color: {colorInverted};
               --exio-selected-background-color: var(--accent);
-              --exio-selected-indicator-color: white;
+              --exio-selected-indicator-color: {colorInverted};
             "
           />
           <label for="dark-mode">Dark Mode</label>
@@ -71,9 +73,9 @@
             type="checkbox"
             id="switch-option-1"
             style="
-              border-color: white;
+              border-color: {colorInverted};
               --exio-selected-background-color: var(--accent);
-              --exio-selected-indicator-color: white;
+              --exio-selected-indicator-color: {colorInverted};
             "
           />
           <label for="switch-option-1">Switch Option 1</label>
@@ -83,7 +85,7 @@
             id="switch-option-2"
             style="
               border-color: var(--accent);
-              --exio-selected-background-color: white;
+              --exio-selected-background-color: {colorInverted};
               --exio-selected-indicator-color: var(--accent);
             "
           />
@@ -97,9 +99,9 @@
             type="checkbox"
             id="checkbox-option-1"
             style="
-              border-color: white;
-              --exio-selected-background-color: white;
-              --exio-selected-indicator-color: black;
+              border-color: {colorInverted};
+              --exio-selected-background-color: {colorInverted};
+              --exio-selected-indicator-color: {colorDefault};
             "
           />
           <label for="checkbox-option-1">Checkbox Option 1</label>
@@ -110,7 +112,7 @@
             style="
               border-color: var(--accent);
               --exio-selected-background-color: var(--accent);
-              --exio-selected-indicator-color: white;
+              --exio-selected-indicator-color: {colorInverted};
             "
           />
           <label for="checkbox-option-2">Checkbox Option 2</label>
@@ -123,6 +125,9 @@
             use:exioRadio
             id="radio-option-1"
             name="radio-options"
+            style="
+              border-color: {colorInverted};
+            "
           />
           <label for="radio-option-1">Radio Option 1</label>
           <input
@@ -175,7 +180,7 @@
             style="
               width: 200px;
               height: 5px;
-              --exio-loader-fill-color: dark-themecyan;
+              --exio-loader-fill-color: {dark ? 'darkcyan' : 'turquoise'};
             "
           />
           <div
@@ -184,7 +189,7 @@
               width: 200px;
               height: 5px;
               --exio-loader-fill-color: var(--accent);
-              background-color: white;
+              background-color: {colorInverted};
             "
           />
         </div>
@@ -239,7 +244,7 @@
     background-color: #333;
   }
   .gray {
-    background-color: #b9b9b9;
+    background-color: #cacaca;
   }
   h2 {
     margin: 0;
@@ -253,7 +258,7 @@
     color: white;
   }
   .dark-theme .cyan {
-    background-color: dark-themecyan;
+    background-color: darkcyan;
   }
   .cyan {
     background-color: turquoise;
@@ -272,7 +277,7 @@
   :global(#app) {
     min-height: 100%;
     min-width: 100%;
-    --accent: #3dc2ff;
+    --accent: #5dceff;
   }
   :global(#app) .dark-theme {
     --accent: #0065c7;

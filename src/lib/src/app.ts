@@ -34,13 +34,13 @@ export function exioApp(node: HTMLElement): ExioNode {
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-border-scale: 2;
         /* fill color for progress bars and loaders */
-        --exio-loader-fill-color: white;
+        --exio-loader-fill-color: ${isDark ? 'white' : 'black'};
         /* animation duration for progress bars and loaders */
         --exio-loader-duration: 1s;
         /* color of radio/switch backgrounds when selected */
         --exio-selected-background-color: black;
         /* color of radio/switch indicators when selected */
-        --exio-selected-indicator-color: white;
+        --exio-selected-indicator-color: ${isDark ? 'white' : 'black'};
         /* slow transition duration */
         --exio-slow-transition-duration: 0.4s;
         /* standard transition duration */
@@ -90,6 +90,11 @@ export function exioApp(node: HTMLElement): ExioNode {
         scrollbar-color: #888 transparent;
       }
     `;
+    if (isDark) {
+      node.classList.add('exio-dark');
+    } else {
+      node.classList.remove('exio-dark');
+    }
   };
   const mutationObserver = new MutationObserver(updateStyle);
   mutationObserver.observe(node, {
