@@ -158,7 +158,7 @@
             style="
               width: 200px;
               height: 5px;
-              --exio-loader-fill-color: cyan;
+              --exio-loader-fill-color: darkcyan;
             "
           />
           <div
