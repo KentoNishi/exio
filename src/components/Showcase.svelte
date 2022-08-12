@@ -20,10 +20,11 @@
   let open = false;
   let animate = true;
   const range = (len: number) => new Array(len);
+  let dark = true;
 </script>
 
-<div use:exioApp>
-  <dialog use:exioDialog {open} class="black" style="width: min(300px, 100%);">
+<div use:exioApp data-theme={dark ? 'dark' : 'light'} class:dark-theme={dark}>
+  <dialog use:exioDialog {open} class="dialog" style="width: min(300px, 100%);">
     <h2>Hello World!</h2>
     <p>Exio uses the HTML dialog element.</p>
     <button
@@ -37,6 +38,22 @@
   </dialog>
   {#if render}
     <div use:exioZoomInAnimation class="wrapper">
+      <div class="block">
+        <div class="items">
+          <input
+            use:exioSwitch
+            type="checkbox"
+            id="dark-mode"
+            bind:checked={dark}
+            style="
+              border-color: white;
+              --exio-selected-background-color: var(--accent);
+              --exio-selected-indicator-color: white;
+            "
+          />
+          <label for="dark-mode">Dark Mode</label>
+        </div>
+      </div>
       <div class="block">
         <button class="gray" use:exioButton>Default Button</button>
         <button class="blue" use:exioButton>Default Button</button>
@@ -158,7 +175,7 @@
             style="
               width: 200px;
               height: 5px;
-              --exio-loader-fill-color: darkcyan;
+              --exio-loader-fill-color: dark-themecyan;
             "
           />
           <div
@@ -218,23 +235,32 @@
     width: 150px;
     height: 150px;
   }
-  .gray {
+  .dark-theme .gray {
     background-color: #333;
+  }
+  .gray {
+    background-color: #b9b9b9;
   }
   h2 {
     margin: 0;
   }
-  .black {
+  .dialog {
+    background-color: white;
+    color: black;
+  }
+  .dark-theme .dialog {
     background-color: black;
     color: white;
   }
+  .dark-theme .cyan {
+    background-color: dark-themecyan;
+  }
   .cyan {
-    background-color: darkcyan;
+    background-color: turquoise;
   }
   .blue {
     background-color: var(--accent);
   }
-
   .block {
     display: flex;
     margin: 1rem;
@@ -246,6 +272,9 @@
   :global(#app) {
     min-height: 100%;
     min-width: 100%;
+    --accent: #3dc2ff;
+  }
+  :global(#app) .dark-theme {
     --accent: #0065c7;
   }
   .items {

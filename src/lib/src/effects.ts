@@ -4,6 +4,7 @@ import type { ExioNode } from './base';
 export type PointerEffectOptions = {
   borderStyle?: 'reactive' | 'static' | 'hover';
   disableClicking?: boolean;
+  focusable?: boolean;
 };
 
 export function exioPointerEffect(
@@ -11,6 +12,7 @@ export function exioPointerEffect(
   additionalOptions: PointerEffectOptions = {
     borderStyle: 'reactive',
     disableClicking: false,
+    focusable: false,
   }
 ): ExioNode {
   const s = styler(node);
@@ -40,6 +42,9 @@ export function exioPointerEffect(
         )
       `
       : '';
+    const focusedBorder = additionalOptions.focusable
+      ? 'border: var(--exio-border-width) solid var(--exio-focused-border-color)'
+      : '';
     s.innerHTML = `
       .${s.id} {
         outline: none;
@@ -62,6 +67,9 @@ export function exioPointerEffect(
         background-position: center;
         ${hoverBackground};
         transition: transform var(--exio-standard-transition-duration);
+      }
+      .${s.id}:focus {
+        ${focusedBorder};
       }
       .${s.id}.${s.id}-active {
         filter: brightness(0.8);

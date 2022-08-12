@@ -8,6 +8,7 @@ export function exioTextbox(
   const effect = exioPointerEffect(node, {
     disableClicking: true,
     borderStyle: 'hover',
+    focusable: true,
   });
   const s = styler(node);
   s.innerHTML = `
@@ -15,7 +16,6 @@ export function exioTextbox(
       padding: 0.25em 0.25em;
     }
     .${s.id}:focus {
-      background-color: var(--exio-focused-background-color);
       color: var(--exio-focused-text-color);
     }
   `;
