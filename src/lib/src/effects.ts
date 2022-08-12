@@ -45,6 +45,7 @@ export function exioPointerEffect(
     const focusedBorder = additionalOptions.focusable
       ? 'border: var(--exio-border-width) solid var(--exio-focused-border-color)'
       : '';
+    const focusableActive = focusedBorder ? ':not(:focus)' : '';
     s.innerHTML = `
       .${s.id} {
         outline: none;
@@ -61,7 +62,7 @@ export function exioPointerEffect(
         --exio-mouse-y: ${mouseY}px;
         transition: transform var(--exio-standard-transition-duration);
       }
-      .${s.id}:hover:not(.${s.id}-active) {
+      .${s.id}:hover:not(.${s.id}-active)${focusableActive} {
         ${hoverBorder};
         background-size: calc(100% + 2 * var(--exio-border-width));
         background-position: center;

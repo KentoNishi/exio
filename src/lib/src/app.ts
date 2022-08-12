@@ -21,7 +21,7 @@ export function exioApp(node: HTMLElement): ExioNode {
         /* text color for textboxes when focused */
         /* border color for focused elements */
         --exio-focused-border-color:
-          ${isDark ? 'rgba(255, 255, 255, 0.75)' : 'rgba(0, 0, 0, 0.25)'};
+          ${isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.5)'};
         --exio-focused-text-color: ${isDark ? 'white' : 'black'};
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-background-scale: 4;
@@ -30,7 +30,7 @@ export function exioApp(node: HTMLElement): ExioNode {
           ${isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)'};
         /* border color for the acrylic hover highlight effect */
         --exio-hover-border-color:
-          ${isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.5)'};
+          ${isDark ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.25)'};
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-border-scale: 2;
         /* fill color for progress bars and loaders */
