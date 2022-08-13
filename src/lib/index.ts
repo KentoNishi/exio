@@ -14,4 +14,5 @@ export { exioRadio } from './src/radio';
 export { exioCheckbox } from './src/checkbox';
 export { exioDialog } from './src/dialog';
 export { exioTextbox } from './src/textbox';
+export { exioAccordion } from './src/accordion';
 export type { ExioNode } from './src/base';

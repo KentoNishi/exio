@@ -90,11 +90,6 @@ export function exioApp(node: HTMLElement): ExioNode {
         scrollbar-color: #888 transparent;
       }
     `;
-    if (isDark) {
-      node.classList.add('exio-dark');
-    } else {
-      node.classList.remove('exio-dark');
-    }
   };
   const mutationObserver = new MutationObserver(updateStyle);
   mutationObserver.observe(node, {

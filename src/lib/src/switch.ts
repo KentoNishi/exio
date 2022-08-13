@@ -20,7 +20,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       border-color: black;
       background-color: var(--exio-selected-background-color);
     }
-    .exio-dark ${s1.id} {
+    [data-theme=dark] .${s1.id} {
       border-color: white;
     }
     .${s1.id}:not(:checked) {

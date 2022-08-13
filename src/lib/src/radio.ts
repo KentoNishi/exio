@@ -19,7 +19,7 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       padding: 0px;
       border-color: black;
     }
-    .exio-dark ${s1.id} {
+    [data-theme=dark] .${s1.id} {
       border-color: white;
     }
     .${s1.id}:not(:checked) {
