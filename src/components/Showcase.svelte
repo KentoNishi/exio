@@ -23,6 +23,11 @@
   let dark = true;
   $: colorDefault = dark ? 'black' : 'white';
   $: colorInverted = dark ? 'white' : 'black';
+  $: if (dark) {
+    document.body.classList.add('dark');
+  } else {
+    document.body.classList.remove('dark');
+  }
 </script>
 
 <div use:exioApp data-theme={dark ? 'dark' : 'light'} class:dark-theme={dark}>

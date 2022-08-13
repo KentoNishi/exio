@@ -15,16 +15,18 @@
   <title>svelte-ts-template</title>
 </head>
 
-<body>
+<body class="dark">
   <div id="app"></div>
   <script type="module" src="/src/main.ts"></script>
-</body>
+  <style>
+    body {
+      background-color: white;
+    }
 
-<style>
-  html,
-  body {
-    background-color: black;  
-  }
-</style>
+    body.dark {
+      background-color: black;
+    }
+  </style>
+</body>
 
 </html>
