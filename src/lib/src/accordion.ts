@@ -43,11 +43,12 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
     const computed = getComputedStyle(summary);
     const getT = () =>
       toMillis(computed.getPropertyValue('--exio-slow-transition-duration'));
+    const fullHeight = summary.offsetHeight + child.offsetHeight;
     if (node.open) {
       e.preventDefault();
       s3.innerHTML = `
         .${s3.id} {
-          max-height: ${summary.offsetHeight + child.offsetHeight}px;
+          max-height: ${fullHeight}px;
         }
       `;
       setTimeout(() => {
@@ -79,7 +80,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
       setTimeout(() => {
         s3.innerHTML = `
           .${s3.id} {
-            max-height: ${summary.offsetHeight + child.offsetHeight}px;
+            max-height: ${fullHeight}px;
           }
         `;
         timeout = setTimeout(() => {
