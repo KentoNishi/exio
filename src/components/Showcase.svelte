@@ -14,6 +14,7 @@
     exioTextbox,
     exioLoadingBarAnimation,
     exioCheckbox,
+    exioAccordion,
   } from 'exio/svelte';
   import { tick } from 'svelte';
   let render = true;
@@ -177,6 +178,19 @@
         <button class="gray" use:exioButton on:click={() => (open = true)}>
           Open Dialog
         </button>
+      </div>
+      <div class="block">
+        <details use:exioAccordion style="width: 320px;">
+          <summary class="blue">Expandable Card</summary>
+          <div style="padding: 1rem;" class="gray">
+            Never gonna give you up <br />
+            Never gonna let you down <br />
+            Never gonna run around and desert you <br />
+            Never gonna make you cry <br />
+            Never gonna say goodbye <br />
+            Never gonna tell a lie and hurt you <br />
+          </div>
+        </details>
       </div>
       <div class="block" style="flex-direction: column; padding: 10px 0px;">
         <div class="items">
