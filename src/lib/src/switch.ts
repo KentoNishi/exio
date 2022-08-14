@@ -47,5 +47,9 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       )) scale(0.5);
     }
   `;
-  return destroyer(effect.destroy, s1.remove, s2.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s1.remove();
+    s2.remove();
+  });
 }

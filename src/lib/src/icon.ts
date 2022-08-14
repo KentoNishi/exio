@@ -24,5 +24,5 @@ export const exioIcon = (node: HTMLElement): ExioNode => {
       font-family: 'Exio Icons';
     }
   `;
-  return destroyer(node.remove, s.remove);
+  return destroyer(() => s.remove());
 };

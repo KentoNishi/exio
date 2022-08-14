@@ -122,9 +122,17 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   };
   window.addEventListener('scroll', scroll);
   window.addEventListener('resize', scroll);
-  return destroyer(effect.destroy, s.remove, dropdown.remove, ds.remove, () => {
+  return destroyer(() => {
     items.forEach((item) => item.destroy());
     window.removeEventListener('scroll', scroll);
     window.removeEventListener('resize', scroll);
+    node.removeEventListener('mousedown', onDown);
+    node.removeEventListener('touchstart', onDown);
+    node.removeEventListener('click', forceFocus);
+    node.removeEventListener('touchend', forceFocus);
+    effect.destroy();
+    s.remove();
+    dropdown.remove();
+    ds.remove();
   });
 }

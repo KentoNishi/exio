@@ -16,5 +16,8 @@ export function exioCard(node: HTMLElement): ExioNode {
       padding: 0px;
     }
   `;
-  return destroyer(effect.destroy, s.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s.remove();
+  });
 }

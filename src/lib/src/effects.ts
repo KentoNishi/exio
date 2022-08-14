@@ -82,8 +82,11 @@ export function exioPointerEffect(
   updateStyle();
   function onHover(e: MouseEvent) {
     const { x, y, width, height } = getMouseInfo(node, e);
-    updateStyle(x, y, width, height);
-    node.addEventListener('mousemove', onHover);
+    node.removeEventListener('mousemove', onHover);
+    if (node.matches(':hover')) {
+      updateStyle(x, y, width, height);
+      node.addEventListener('mousemove', onHover);
+    }
   }
   node.addEventListener('mouseenter', onHover);
   const onMouseDown = () => {
@@ -98,5 +101,16 @@ export function exioPointerEffect(
     node.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
   }
-  return destroyer(node.remove, s.remove);
+  return destroyer(() => {
+    node.removeEventListener('mouseenter', onHover);
+    node.removeEventListener('mousemove', onHover);
+    if (!additionalOptions.disableClicking) {
+      node.removeEventListener('touchstart', onMouseDown);
+      window.removeEventListener('touchend', onMouseUp);
+      node.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mouseup', onMouseUp);
+      node.remove();
+      s.remove();
+    }
+  });
 }

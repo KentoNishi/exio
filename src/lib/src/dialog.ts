@@ -148,12 +148,11 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     observe();
   });
   observe();
-  return destroyer(
-    s.remove,
-    () => {
-      if (s2) s2.remove();
-      s3.remove();
-    },
-    observer.disconnect
-  );
+  return destroyer(() => {
+    s.remove();
+    node.removeEventListener('animationstart', anistarted);
+    if (s2) s2.remove();
+    s3.remove();
+    observer.disconnect();
+  });
 }

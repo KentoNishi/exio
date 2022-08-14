@@ -42,5 +42,9 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       transform: scale(0.5);
     }
   `;
-  return destroyer(effect.destroy, s1.remove, s2.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s1.remove();
+    s2.remove();
+  });
 };

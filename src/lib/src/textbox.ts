@@ -19,5 +19,8 @@ export function exioTextbox(
       color: var(--exio-focused-text-color);
     }
   `;
-  return destroyer(effect.destroy, s.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s.remove();
+  });
 }

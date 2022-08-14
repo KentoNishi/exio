@@ -40,5 +40,9 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
       transform: scale(1.1);
     }
   `;
-  return destroyer(effect.destroy, s1.remove, s2.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s1.remove();
+    s2.remove();
+  });
 };

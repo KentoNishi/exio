@@ -21,7 +21,7 @@ export function exioFlyInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(s.remove, node.remove);
+  return destroyer(() => s.remove());
 }
 
 export function exioFadeInAnimation(node: HTMLElement): ExioNode {
@@ -42,7 +42,7 @@ export function exioFadeInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(s.remove, node.remove);
+  return destroyer(() => s.remove());
 }
 
 export function exioZoomInAnimation(node: HTMLElement): ExioNode {
@@ -65,7 +65,7 @@ export function exioZoomInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(s.remove, node.remove);
+  return destroyer(() => s.remove());
 }
 
 export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
@@ -95,5 +95,5 @@ export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
       animation: exio-loading-bar var(--exio-loader-duration) linear infinite;
     }
   `;
-  return destroyer(s.remove, node.remove);
+  return destroyer(() => s.remove());
 }

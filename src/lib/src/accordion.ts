@@ -38,7 +38,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
   const s3 = styler(node);
   const s4 = styler(summary);
   let timeout: number | undefined;
-  summary.addEventListener('click', (e) => {
+  const summaryClickListener = (e) => {
     if (timeout) clearTimeout(timeout);
     const computed = getComputedStyle(summary);
     const getT = () =>
@@ -88,6 +88,13 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
         }, getT());
       }, 0);
     }
+  };
+  summary.addEventListener('click', summaryClickListener);
+  return destroyer(() => {
+    effect.destroy();
+    s1.remove();
+    s2.remove();
+    s3.remove();
+    summary.removeEventListener('click', summaryClickListener);
   });
-  return destroyer(effect.destroy, s1.remove, s2.remove, s3.remove);
 }

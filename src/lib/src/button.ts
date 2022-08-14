@@ -10,5 +10,8 @@ export function exioButton(node: HTMLButtonElement): ExioNode {
       user-select: none;
     }
   `;
-  return destroyer(effect.destroy, s.remove);
+  return destroyer(() => {
+    effect.destroy();
+    s.remove();
+  });
 }

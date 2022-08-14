@@ -97,7 +97,8 @@ export function exioApp(node: HTMLElement): ExioNode {
     attributeFilter: ['data-theme'],
   });
   updateStyle();
-  return destroyer(node.remove, s.remove, () => {
+  return destroyer(() => {
+    s.remove();
     mutationObserver.disconnect();
   });
 }

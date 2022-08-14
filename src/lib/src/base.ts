@@ -15,10 +15,8 @@ export function getRandomString(len = 10) {
 export function destroyer(...destroyers: ExioNode['destroy'][]): ExioNode {
   return {
     destroy() {
-      destroyers.forEach((destroyer) => {
-        try {
-          destroyer();
-        } catch (e) {}
+      destroyers.forEach((d) => {
+        d();
       });
     },
   };
