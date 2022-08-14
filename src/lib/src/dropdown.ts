@@ -24,7 +24,6 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     down = true;
     return;
   };
-  dropdown.tabIndex = 0;
   const items: ExioNode[] = [];
   const updateStyle = () => {
     node.style.setProperty('transform', before, 'important');
@@ -113,6 +112,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     if (!down) return;
     down = false;
     updateStyle();
+    dropdown.tabIndex = 0;
     dropdown.focus();
   };
   node.addEventListener('click', forceFocus);
@@ -120,6 +120,10 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   const scroll = () => {
     dropdown.blur();
   };
+  const onBlur = () => {
+    dropdown.tabIndex = -1;
+  };
+  dropdown.addEventListener('blur', onBlur);
   window.addEventListener('scroll', scroll);
   window.addEventListener('resize', scroll);
   return destroyer(() => {
@@ -130,6 +134,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     node.removeEventListener('touchstart', onDown);
     node.removeEventListener('click', forceFocus);
     node.removeEventListener('touchend', forceFocus);
+    dropdown.removeEventListener('blur', onBlur);
     effect.destroy();
     s.remove();
     dropdown.remove();
