@@ -50,5 +50,5 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
       }, 0);
     }
   });
-  return destroyer(effect.destroy, s1.remove, s3.remove);
+  return destroyer(effect.destroy, s1.remove, s2.remove, s3.remove);
 }
