@@ -37,23 +37,34 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
   const child = node.querySelector('*:not(summary)') as HTMLElement;
   const s3 = styler(node);
   const s4 = styler(summary);
+  let timeout: number | undefined;
   summary.addEventListener('click', (e) => {
+    if (timeout) clearTimeout(timeout);
     const computed = getComputedStyle(summary);
+    const getT = () =>
+      toMillis(computed.getPropertyValue('--exio-slow-transition-duration'));
     if (node.open) {
       e.preventDefault();
       s3.innerHTML = `
         .${s3.id} {
+          max-height: ${summary.offsetHeight + child.offsetHeight}px;
+        }
+      `;
+      setTimeout(() => {
+        s3.innerHTML = `
+        .${s3.id} {
           max-height: ${summary.offsetHeight}px;
         }
       `;
-      s4.innerHTML = `
+        s4.innerHTML = `
         .${s4.id}:after {
           transform: rotate(0deg);
         }
       `;
-      setTimeout(() => {
-        node.open = false;
-      }, toMillis(computed.getPropertyValue('--exio-slow-transition-duration')));
+        timeout = setTimeout(() => {
+          node.open = false;
+        }, getT());
+      }, 0);
     } else {
       s3.innerHTML = `
         .${s3.id} {
@@ -71,6 +82,9 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
             max-height: ${summary.offsetHeight + child.offsetHeight}px;
           }
         `;
+        timeout = setTimeout(() => {
+          s3.innerHTML = '';
+        }, getT());
       }, 0);
     }
   });
