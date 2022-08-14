@@ -23,7 +23,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
   `;
   const child = node.querySelector('*:not(summary)') as HTMLElement;
   const s3 = styler(node);
-  node.addEventListener('click', (e) => {
+  summary.addEventListener('click', (e) => {
     const computed = getComputedStyle(summary);
     if (node.open) {
       e.preventDefault();
@@ -44,7 +44,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
       setTimeout(() => {
         s3.innerHTML = `
           .${s3.id} {
-            max-height: 100px;
+            max-height: ${summary.offsetHeight + child.offsetHeight}px;
           }
         `;
       }, 0);

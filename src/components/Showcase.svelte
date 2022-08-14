@@ -181,7 +181,7 @@
       </div>
       <div class="block">
         <details use:exioAccordion style="width: 320px;">
-          <summary class="blue">Expandable Card</summary>
+          <summary class="cyan">Expandable Card</summary>
           <div style="padding: 1rem;" class="gray">
             Never gonna give you up <br />
             Never gonna let you down <br />
