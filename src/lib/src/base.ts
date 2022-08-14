@@ -52,3 +52,7 @@ export function getMouseInfo(
     height,
   };
 }
+
+export function toMillis(s: string) {
+  return parseFloat(s) * (/\ds$/.test(s) ? 1000 : 1);
+}
