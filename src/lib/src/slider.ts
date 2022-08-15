@@ -13,6 +13,7 @@ export function exioSlider(node: HTMLInputElement): ExioNode {
     border-radius: 1000px;
     outline: 0px solid var(--exio-hover-body-color);
     cursor: grab;
+    transform: translateZ(0);
   `;
   const outline1 =
     'outline: var(--exio-slider-thumb-hover-outline-size) solid var(--exio-hover-body-color);';
