@@ -15,6 +15,7 @@
     exioLoadingBarAnimation,
     exioCheckbox,
     exioAccordion,
+    exioSlider,
   } from 'exio/svelte';
   import { tick } from 'svelte';
   let render = true;
@@ -151,6 +152,46 @@
       </div>
       <div class="block">
         <div class="items">
+          <input
+            type="range"
+            min="0"
+            max="69"
+            use:exioSlider
+            style="width: 150px; margin: 20px;"
+            step="0.01"
+            class="gray"
+          />
+          <input
+            type="range"
+            min="0"
+            max="69"
+            use:exioSlider
+            style="
+              width: 150px;
+              --exio-slider-thumb-color: var(--cyan);
+              margin: 20px;
+            "
+            step="0.01"
+            class="gray"
+          />
+          <input
+            type="range"
+            min="0"
+            max="69"
+            use:exioSlider
+            style="
+              width: 150px;
+              background-color: gray;
+              --exio-slider-thumb-color: var(--accent);
+              margin: 20px;
+            "
+            step="0.01"
+            class="gray"
+          />
+        </div>
+      </div>
+      <div class="block">
+        <div class="items">
           <input class="gray" use:exioTextbox placeholder="Textfield" />
           <textarea class="gray" use:exioTextbox placeholder="Textarea" />
         </div>
@@ -197,15 +238,15 @@
           <div
             use:exioLoadingBarAnimation
             style="
-              width: 200px;
+              width: 300px;
               height: 5px;
-              --exio-loader-fill-color: {dark ? 'darkcyan' : 'turquoise'};
+              --exio-loader-fill-color: var(--cyan);
             "
           />
           <div
             use:exioLoadingBarAnimation
             style="
-              width: 200px;
+              width: 300px;
               height: 5px;
               --exio-loader-fill-color: var(--accent);
               background-color: {colorInverted};
@@ -297,9 +338,11 @@
     min-height: 100%;
     min-width: 100%;
     --accent: #5dceff;
+    --cyan: turquoise;
   }
   :global(#app) .dark-theme {
     --accent: #0065c7;
+    --cyan: darkcyan;
   }
   .items {
     display: flex;

@@ -41,6 +41,18 @@ export function exioApp(node: HTMLElement): ExioNode {
         --exio-selected-background-color: black;
         /* color of radio/switch indicators when selected */
         --exio-selected-indicator-color: ${isDark ? 'white' : 'black'};
+        /* color of slider thumbs */
+        --exio-slider-thumb-color: ${isDark ? 'white' : 'black'};
+        /* size of slider thumbs */
+        --exio-slider-thumb-size: 12px;
+        /* size of slider thumbs outlines when hovered */
+        --exio-slider-thumb-hover-outline-size: 18px;
+        /* size of slider thumb outlines when grabbing */
+        --exio-slider-thumb-grab-outline-size: 25px;
+        /* size of slider tracks */
+        --exio-slider-track-size: 4px;
+        /* fast transition duration */
+        --exio-fast-transition-duration: 0.1s;
         /* slow transition duration */
         --exio-slow-transition-duration: 0.4s;
         /* standard transition duration */

@@ -15,6 +15,7 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioDropdown</code></li>
     <li><code>exioIcon</code></li>
     <li><code>exioRadio</code></li>
+    <li><code>exioSlider</code></li>
     <li><code>exioSwitch</code></li>
     <li><code>exioTextbox</code></li>
   </ul>

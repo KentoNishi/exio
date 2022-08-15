@@ -15,4 +15,5 @@ export { exioCheckbox } from './src/checkbox';
 export { exioDialog } from './src/dialog';
 export { exioTextbox } from './src/textbox';
 export { exioAccordion } from './src/accordion';
+export { exioSlider } from './src/slider';
 export type { ExioNode } from './src/base';
