@@ -100,6 +100,7 @@ export function exioPointerEffect(
     window.addEventListener('touchend', onMouseUp);
     node.addEventListener('mousedown', onMouseDown);
     window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('dragend', onMouseUp);
   }
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);
@@ -109,6 +110,7 @@ export function exioPointerEffect(
       window.removeEventListener('touchend', onMouseUp);
       node.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('dragend', onMouseUp);
       node.remove();
       s.remove();
     }

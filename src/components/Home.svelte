@@ -23,6 +23,22 @@
     },
   ];
   let dark = true;
+  $: cyan = dark ? 'darkcyan' : 'cyan';
+  const format = (code: string, depth = 0) => {
+    let lines = code.split('\n');
+    const lenTabs = lines[1].search(/\S|$/);
+    lines = lines
+      .splice(depth ? 0 : 1)
+      .map(
+        (line) =>
+          (line.replace(/ /g, '') !== '' ? ' '.repeat(depth) : '') +
+          line.substr(lenTabs)
+      );
+    return lines.join('\n');
+  };
+  const c = (code: string, styles: string) => {
+    return format(code) + `\n<${'style'}>${format(styles, 2)}</${'style'}>`;
+  };
 </script>
 
 <div use:exioApp data-theme={dark ? 'dark' : 'light'} use:exioZoomInAnimation>
@@ -59,13 +75,31 @@
   <div class="section">
     <div class="content">
       <div class="title">{$_('demo.title')}</div>
+      <pre>
+        {c(`
+          <button class="cyan" use:exioButton>
+            Button 1
+          </button>
+          <button class="cyan" style="width: 120px;" use:exioButton>
+            Button 2
+          </button>
+        `, `
+          .cyan-bg {
+            background-color: ${cyan};
+          }
+        `)}
+      </pre>
+      <button style="background-color: {cyan};" use:exioButton> Button </button>
+      <button style="background-color: {cyan}; width: 120px;" use:exioButton>
+        Button 2
+      </button>
     </div>
   </div>
 </div>
 
 <style>
   .gradient-banner {
-    width: 100vw;
+    width: 100%;
     height: max(50vh, 400px);
     display: flex;
     justify-content: center;
@@ -79,6 +113,12 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+  }
+  [data-theme='dark'] {
+    --accent: #0065c7;
+  }
+  [data-theme='light'] {
+    --accent: #5dceff;
   }
   [data-theme='dark'] .gradient-banner {
     background-color: #090a1b;
@@ -143,5 +183,11 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
+  }
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  pre {
+    white-space: pre-wrap;
   }
 </style>
