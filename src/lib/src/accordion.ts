@@ -37,7 +37,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
   const child = node.querySelector('*:not(summary)') as HTMLElement;
   const s3 = styler(node);
   const s4 = styler(summary);
-  let timeout: number | undefined;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
   const summaryClickListener = (e) => {
     if (timeout) clearTimeout(timeout);
     const computed = getComputedStyle(summary);
