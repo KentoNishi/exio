@@ -1,5 +1,6 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
+import { isSafari } from './consts';
 
 export function exioSlider(node: HTMLInputElement): ExioNode {
   const s = styler(node);
@@ -7,18 +8,25 @@ export function exioSlider(node: HTMLInputElement): ExioNode {
     width: var(--exio-slider-thumb-size);
     height: var(--exio-slider-thumb-size);
     background-color: var(--exio-slider-thumb-color);
-    transition: outline var(--exio-standard-transition-duration);
+    transition:
+      ${isSafari ? 'box-shadow' : 'outline'}
+      var(--exio-standard-transition-duration);
     border: 0px solid transparent;
     box-sizing: border-box;
     border-radius: 1000px;
     outline: 0px solid var(--exio-hover-body-color);
+    box-shadow: 0px 0px 0px 0px var(--exio-hover-body-color);
     cursor: grab;
     transform: translateZ(0);
   `;
-  const outline1 =
-    'outline: var(--exio-slider-thumb-hover-outline-size) solid var(--exio-hover-body-color);';
+  const outline1 = isSafari
+    ? 'box-shadow: 0px 0px 0px var(--exio-slider-thumb-hover-outline-size) var(--exio-hover-body-color);'
+    : 'outline: var(--exio-slider-thumb-hover-outline-size) solid var(--exio-hover-body-color);';
+  const box2 = isSafari
+    ? 'box-shadow: 0px 0px 0px var(--exio-slider-thumb-grab-outline-size) var(--exio-hover-body-color);'
+    : 'outline: var(--exio-slider-thumb-grab-outline-size) solid var(--exio-hover-body-color);';
   const outline2 = `
-    outline: var(--exio-slider-thumb-grab-outline-size) solid var(--exio-hover-body-color);
+    ${box2}
     cursor: grabbing;
   `;
   s.innerHTML = `
