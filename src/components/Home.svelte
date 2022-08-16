@@ -84,7 +84,7 @@
     background-color: #090a1b;
   }
   [data-theme='light'] .gradient-banner {
-    background-color: #bee7ff;
+    background-color: #d1f4ff;
   }
   [data-theme='dark'] .bg-gray {
     background-color: #2f2f2f;
