@@ -1,8 +1,16 @@
 <script lang="ts">
-  import { isLoading } from 'svelte-i18n';
-  import Showcase from '../components/Showcase.svelte';
+  import Router from 'svelte-spa-router';
+  import { wrap } from 'svelte-spa-router/wrap';
+  let routes: {
+    [key: string]: any;
+  } = {
+    '/': wrap({
+      asyncComponent: () => import('../components/Home.svelte'),
+    }),
+    '/showcase': wrap({
+      asyncComponent: () => import('../components/Showcase.svelte'),
+    }),
+  };
 </script>
 
-{#if !$isLoading}
-  <Showcase />
-{/if}
+<Router {routes} />
