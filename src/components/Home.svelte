@@ -8,6 +8,7 @@
     exioSwitch,
   } from 'exio/svelte';
   import { _ } from 'svelte-i18n';
+  import Demo from './Demo.svelte';
   const links = [
     {
       title: $_('banner.buttons.npm'),
@@ -75,24 +76,7 @@
   <div class="section">
     <div class="content">
       <div class="title">{$_('demo.title')}</div>
-      <pre>
-        {c(`
-          <button class="cyan" use:exioButton>
-            Button 1
-          </button>
-          <button class="cyan" style="width: 120px;" use:exioButton>
-            Button 2
-          </button>
-        `, `
-          .cyan-bg {
-            background-color: ${cyan};
-          }
-        `)}
-      </pre>
-      <button style="background-color: {cyan};" use:exioButton> Button </button>
-      <button style="background-color: {cyan}; width: 120px;" use:exioButton>
-        Button 2
-      </button>
+      <Demo bind:dark />
     </div>
   </div>
 </div>
@@ -157,7 +141,7 @@
   }
   .section > .content {
     max-width: 1200px;
-    font-size: 1.25rem;
+    font-size: 1rem;
     margin-top: 1rem;
     width: 100%;
   }
@@ -186,8 +170,5 @@
   }
   * {
     -webkit-tap-highlight-color: transparent;
-  }
-  pre {
-    white-space: pre-wrap;
   }
 </style>
