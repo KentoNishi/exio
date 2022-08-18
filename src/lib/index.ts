@@ -16,4 +16,5 @@ export { exioDialog } from './src/dialog';
 export { exioTextbox } from './src/textbox';
 export { exioAccordion } from './src/accordion';
 export { exioSlider } from './src/slider';
+export { exioComponent } from './src/component';
 export type { ExioNode } from './src/base';

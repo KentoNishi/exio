@@ -5,9 +5,13 @@ A framework-independent UI library that extends native HTML elements! Compatible
 ## What's Included
 
 <details open>
-  <summary><strong>Components</strong></summary>
+  <summary><strong>Wrappers</strong></summary>
   <ul>
     <li><code>exioApp</code></li>
+    <li><code>exioComponent</code></li>
+  </ul>
+  <summary><strong>Components</strong></summary>
+  <ul>
     <li><code>exioAccordion</code></li>
     <li><code>exioButton</code></li>
     <li><code>exioCard</code></li>
