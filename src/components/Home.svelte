@@ -51,7 +51,12 @@
     <span use:exioIcon>dark_mode</span>
   </div>
 </div>
-<div use:exioApp data-theme={dataTheme} use:exioZoomInAnimation>
+<div
+  use:exioApp
+  data-theme={dataTheme}
+  use:exioZoomInAnimation
+  style="margin-top: 50px;"
+>
   <div class="gradient-banner" use:exioFadeInAnimation>
     <span class="title">{$_('title')}</span>
     <span class="description">{$_('description')}</span>
