@@ -63,43 +63,17 @@ export function exioApp(node: HTMLElement): ExioNode {
 
       .${s.id} {
         background-color: ${isDark ? 'black' : 'white'};
-        min-width: 100%;
-        min-height: 100%;
-        position: absolute;
         color: ${isDark ? 'white' : 'black'};
         font-size: 1rem;
         font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
       }
 
-      body {
-        margin: 0;
-        padding: 0;
-      }
-
-      * ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-      }
-      
-      * ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      
-      * ::-webkit-scrollbar-thumb {
-        background: #888;
-      }
-      
-      * ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-
-      * ::-webkit-scrollbar-corner {
-        background: transparent;
-      }
-      
       * {
-        scrollbar-width: thin;
-        scrollbar-color: #888 transparent;
+        color-scheme: ${isDark ? 'dark' : 'light'};
+      }
+
+      body {
+        margin: 0px;
       }
     `;
   };
