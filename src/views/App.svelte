@@ -1,6 +1,7 @@
 <script lang="ts">
   import Router from 'svelte-spa-router';
   import { wrap } from 'svelte-spa-router/wrap';
+  import Navbar from '../components/Navbar.svelte';
   let routes: {
     [key: string]: any;
   } = {
@@ -13,4 +14,5 @@
   };
 </script>
 
+<Navbar />
 <Router {routes} />
