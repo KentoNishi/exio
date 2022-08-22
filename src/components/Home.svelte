@@ -10,6 +10,7 @@
   } from 'exio/svelte';
   import { _ } from 'svelte-i18n';
   import Demo from './Demo.svelte';
+  import { dark, dataTheme } from '../ts/stores';
   const links = [
     {
       title: $_('banner.buttons.npm'),
@@ -24,8 +25,6 @@
       href: '#/docs',
     },
   ];
-  let dark = true;
-  $: cyan = dark ? 'darkcyan' : 'cyan';
   const format = (code: string, depth = 0) => {
     let lines = code.split('\n');
     const lenTabs = lines[1].search(/\S|$/);
@@ -41,19 +40,18 @@
   const c = (code: string, styles: string) => {
     return format(code) + `\n<${'style'}>${format(styles, 2)}</${'style'}>`;
   };
-  $: dataTheme = dark ? 'dark' : 'light';
 </script>
 
-<div class="navbar" data-theme={dataTheme} use:exioComponent>
+<div class="navbar" data-theme={$dataTheme} use:exioComponent>
   <div class="toggler">
     <span use:exioIcon>light_mode</span>
-    <input type="checkbox" use:exioSwitch id="dark-mode" bind:checked={dark} />
+    <input type="checkbox" use:exioSwitch id="dark-mode" bind:checked={$dark} />
     <span use:exioIcon>dark_mode</span>
   </div>
 </div>
 <div
   use:exioApp
-  data-theme={dataTheme}
+  data-theme={$dataTheme}
   use:exioZoomInAnimation
   style="margin-top: 50px;"
 >
@@ -80,7 +78,7 @@
   <div class="section">
     <div class="content">
       <div class="title">{$_('demo.title')}</div>
-      <Demo bind:dark />
+      <Demo />
     </div>
   </div>
 </div>

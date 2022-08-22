@@ -1,10 +1,9 @@
 <script lang="ts">
   import { exioApp } from 'exio/svelte';
   import Demo from './Demo.svelte';
-
-  let dark = true;
+  import { dark, dataTheme } from '../ts/stores';
 </script>
 
-<div use:exioApp data-theme={dark ? 'dark' : 'light'} class:dark-theme={dark}>
-  <Demo bind:dark />
+<div use:exioApp data-theme={$dataTheme} class:dark-theme={$dark}>
+  <Demo />
 </div>

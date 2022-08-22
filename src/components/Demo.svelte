@@ -17,14 +17,14 @@
     exioSlider,
   } from 'exio/svelte';
   import { tick } from 'svelte';
+  import { dark } from '../ts/stores';
   let render = true;
   let open = false;
   let animate = true;
   const range = (len: number) => new Array(len);
-  export let dark = true;
-  $: colorDefault = dark ? 'black' : 'white';
-  $: colorInverted = dark ? 'white' : 'black';
-  $: if (dark) {
+  $: colorDefault = $dark ? 'black' : 'white';
+  $: colorInverted = $dark ? 'white' : 'black';
+  $: if ($dark) {
     document.body.classList.add('dark');
   } else {
     document.body.classList.remove('dark');
@@ -51,7 +51,7 @@
           use:exioSwitch
           type="checkbox"
           id="dark-mode"
-          bind:checked={dark}
+          checked={$dark}
           style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: var(--accent);
