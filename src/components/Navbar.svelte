@@ -5,6 +5,7 @@
     exioIcon,
     exioSwitch,
     exioZoomInAnimation,
+    exioButton,
   } from 'exio/svelte';
 </script>
 
@@ -14,6 +15,13 @@
   use:exioComponent
   use:exioZoomInAnimation
 >
+  <div class="home">
+    <a href="#/">
+      <button use:exioButton class="home-button">
+        <span use:exioIcon>home</span>
+      </button>
+    </a>
+  </div>
   <div class="toggler">
     <span use:exioIcon>light_mode</span>
     <input type="checkbox" use:exioSwitch id="dark-mode" bind:checked={$dark} />
@@ -39,6 +47,14 @@
     cursor: default;
     user-select: none;
   }
+  .home {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    color: black;
+    cursor: default;
+    user-select: none;
+  }
   [data-theme='dark'] .toggler {
     color: white;
   }
@@ -50,9 +66,25 @@
     width: 100%;
     height: 50px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     background-color: #85ccff;
     border-bottom: 2px solid gray;
+  }
+  .home-button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  [data-theme='dark'] .home-button {
+    color: white;
+  }
+  [data-theme='light'] .home-button {
+    color: black;
   }
   .toggler > input {
     --exio-selected-background-color: transparent;
