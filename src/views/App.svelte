@@ -11,6 +11,9 @@
     '/showcase': wrap({
       asyncComponent: () => import('../components/Showcase.svelte'),
     }),
+    '/docs': wrap({
+      asyncComponent: () => import('../components/docs/Docs.svelte'),
+    }),
   };
 </script>
 
