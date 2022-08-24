@@ -1,0 +1,1 @@
+import{S as o,i as r,s as c,u as i,c as f,n as s,h as u}from"./vendor.78a60faf.js";function l(a){let t;return{c(){t=i("TODO")},m(e,n){f(e,t,n)},p:s,i:s,o:s,d(e){e&&u(t)}}}class d extends o{constructor(t){super();r(this,t,null,l,c,{})}}export{d as default};
