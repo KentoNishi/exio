@@ -51,7 +51,7 @@
           use:exioSwitch
           type="checkbox"
           id="dark-mode"
-          checked={$dark}
+          bind:checked={$dark}
           style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: var(--accent);
