@@ -79,6 +79,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
         dropdown.appendChild(item);
         item.addEventListener('click', () => {
           node.selectedIndex = index;
+          node.dispatchEvent(new Event('change'));
           dropdown.blur();
         });
       });
