@@ -15,6 +15,7 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioAccordion</code></li>
     <li><code>exioButton</code></li>
     <li><code>exioCard</code></li>
+    <li><code>exioCheckbox</code></li>
     <li><code>exioDialog</code></li>
     <li><code>exioDropdown</code></li>
     <li><code>exioIcon</code></li>
@@ -41,16 +42,34 @@ A framework-independent UI library that extends native HTML elements! Compatible
 
 ```html
 <script lang="ts">
-  import { exioButton } from 'exio/svelte';
+  import { exioApp, exioButton, exioComponent } from 'exio/svelte';
 </script>
-<button use:exioButton>Example Button</button>
+
+<!-- exioApp overrides some global body styles -->
+<div use:exioApp>
+  <button use:exioButton>Example Button 1</button>
+</div>
+
+<!-- exioComponent styles are scoped -->
+<div use:exioComponent>
+  <button use:exioButton>Example Button 2</button>
+</div>
+
+<!-- Use exioComponent for standalone elements -->
+<button use:exioComponent use:exioButton>Example Button 3</button>
 ```
 
 ### Vanilla JS/TS Example
 
 ```ts
-import { exioButton } from 'exio';
+import { exioApp, exioButton } from 'exio';
+const app = document.querySelector('#app');
+const exioApp = exioButton(app);
 const button = document.querySelector('#my-button');
 const exioButton = exioButton(button);
+app.appendChild(button);
+
+// to destroy exio instances
+exioApp.destroy();
 exioButton.destroy();
 ```
