@@ -18,6 +18,11 @@ export function exioTextbox(
     .${s.id}:focus {
       color: var(--exio-focused-text-color);
     }
+    .${s.id}:disabled {
+      pointer-events: none;
+      touch-action: none;
+      filter: var(--exio-disabled-filter);
+    }
   `;
   return destroyer(() => {
     effect.destroy();

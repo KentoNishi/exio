@@ -21,7 +21,8 @@
   let render = true;
   let open = false;
   let animate = true;
-  let disabled = true;
+  let buttonDisabled = true;
+  let textDisabled = true;
   const range = (len: number) => new Array(len);
   $: colorDefault = $dark ? 'black' : 'white';
   $: colorInverted = $dark ? 'white' : 'black';
@@ -69,7 +70,9 @@
       <button use:exioButton use:exioIcon class="cyan">send</button>
     </div>
     <div class="block" style="align-items: center;">
-      <button use:exioButton class="gray" {disabled}>Example Button</button>
+      <button use:exioButton class="gray" disabled={buttonDisabled}>
+        Example Button
+      </button>
       <input
         use:exioSwitch
         type="checkbox"
@@ -78,9 +81,9 @@
           border-color: {colorInverted};
           --exio-selected-background-color: var(--accent);
         "
-        bind:checked={disabled}
+        bind:checked={buttonDisabled}
       />
-      <label for="disable-button">Disabled Attribute</label>
+      <label for="disable-button"><code>disabled</code> Attribute</label>
     </div>
     <div class="block">
       <div use:exioCard class="card gray">Default Card</div>
@@ -208,6 +211,25 @@
         <input class="gray" use:exioTextbox placeholder="Textfield" />
         <textarea class="gray" use:exioTextbox placeholder="Textarea" />
       </div>
+    </div>
+    <div class="block" style="align-items: center;">
+      <input
+        class="gray"
+        use:exioTextbox
+        placeholder="Textfield"
+        disabled={textDisabled}
+      />
+      <input
+        use:exioSwitch
+        type="checkbox"
+        id="disable-text"
+        style="
+          border-color: {colorInverted};
+          --exio-selected-background-color: var(--accent);
+        "
+        bind:checked={textDisabled}
+      />
+      <label for="disable-text"><code>disabled</code> Attribute</label>
     </div>
     <div class="block">
       <select use:exioDropdown class="gray">
