@@ -21,6 +21,7 @@
   let render = true;
   let open = false;
   let animate = true;
+  let disabled = true;
   const range = (len: number) => new Array(len);
   $: colorDefault = $dark ? 'black' : 'white';
   $: colorInverted = $dark ? 'white' : 'black';
@@ -66,6 +67,20 @@
       <button class="blue" use:exioButton>Default Button</button>
       <button use:exioButton use:exioIcon class="gray">send</button>
       <button use:exioButton use:exioIcon class="cyan">send</button>
+    </div>
+    <div class="block" style="align-items: center;">
+      <button use:exioButton class="gray" {disabled}>Example Button</button>
+      <input
+        use:exioSwitch
+        type="checkbox"
+        id="disable-button"
+        style="
+          border-color: {colorInverted};
+          --exio-selected-background-color: var(--accent);
+        "
+        bind:checked={disabled}
+      />
+      <label for="disable-button">Disabled Attribute</label>
     </div>
     <div class="block">
       <div use:exioCard class="card gray">Default Card</div>

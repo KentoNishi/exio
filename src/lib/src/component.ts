@@ -17,7 +17,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
         --exio-border-width: 2px;
         /* scaling factor for elements while being clicked */
         --exio-clicking-scale: 0.95;
-        /* text color for textboxes when focused */
+        /* filter for disabled fields */
+        --exio-disabled-filter: brightness(0.8) grayscale(0.5);
         /* border color for focused elements */
         --exio-focused-border-color:
           ${isDark ? 'rgba(255, 255, 255, 1)' : 'rgba(0, 0, 0, 0.5)'};

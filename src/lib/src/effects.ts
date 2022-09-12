@@ -77,6 +77,11 @@ export function exioPointerEffect(
         transition: none;
         transform: scale(var(--exio-clicking-scale));
       }
+      .${s.id}:disabled {
+        pointer-events: none;
+        touch-action: none;
+        filter: var(--exio-disabled-filter);
+      }
     `;
   };
   updateStyle();
