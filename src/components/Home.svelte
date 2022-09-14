@@ -130,7 +130,7 @@
     flex-wrap: wrap;
   }
   .section {
-    margin: 1rem;
+    padding: 1rem;
     display: flex;
     justify-content: center;
   }
