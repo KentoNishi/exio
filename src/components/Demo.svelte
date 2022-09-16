@@ -59,7 +59,7 @@
       <button use:exioButton class="gray" disabled={buttonDisabled}>
         Example Button
       </button>
-      <div style="display: flex; gap: 0.25rem;">
+      <div class="pair">
         <input
           use:exioSwitch
           type="checkbox"
@@ -79,79 +79,91 @@
     </div>
     <div class="block">
       <div class="items">
-        <input
-          use:exioSwitch
-          type="checkbox"
-          id="switch-option-1"
-          style="
+        <div class="pair">
+          <input
+            use:exioSwitch
+            type="checkbox"
+            id="switch-option-1"
+            style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: var(--accent);
                 --exio-selected-indicator-color: {colorInverted};
               "
-        />
-        <label for="switch-option-1">Switch Option 1</label>
-        <input
-          use:exioSwitch
-          type="checkbox"
-          id="switch-option-2"
-          style="
+          />
+          <label for="switch-option-1">Switch Option 1</label>
+        </div>
+        <div class="pair">
+          <input
+            use:exioSwitch
+            type="checkbox"
+            id="switch-option-2"
+            style="
                 border-color: var(--accent);
                 --exio-selected-background-color: {colorInverted};
                 --exio-selected-indicator-color: var(--accent);
               "
-        />
-        <label for="switch-option-2">Switch Option 2</label>
+          />
+          <label for="switch-option-2">Switch Option 2</label>
+        </div>
       </div>
     </div>
     <div class="block">
       <div class="items">
-        <input
-          use:exioCheckbox
-          type="checkbox"
-          id="checkbox-option-1"
-          style="
+        <div class="pair">
+          <input
+            use:exioCheckbox
+            type="checkbox"
+            id="checkbox-option-1"
+            style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: {colorInverted};
                 --exio-selected-indicator-color: {colorDefault};
               "
-        />
-        <label for="checkbox-option-1">Checkbox Option 1</label>
-        <input
-          use:exioCheckbox
-          type="checkbox"
-          id="checkbox-option-2"
-          style="
+          />
+          <label for="checkbox-option-1">Checkbox Option 1</label>
+        </div>
+        <div class="pair">
+          <input
+            use:exioCheckbox
+            type="checkbox"
+            id="checkbox-option-2"
+            style="
                 border-color: var(--accent);
                 --exio-selected-background-color: var(--accent);
                 --exio-selected-indicator-color: {colorInverted};
               "
-        />
-        <label for="checkbox-option-2">Checkbox Option 2</label>
+          />
+          <label for="checkbox-option-2">Checkbox Option 2</label>
+        </div>
       </div>
     </div>
     <div class="block">
       <div class="items">
-        <input
-          type="radio"
-          use:exioRadio
-          id="radio-option-1"
-          name="radio-options"
-          style="
+        <div class="pair">
+          <input
+            type="radio"
+            use:exioRadio
+            id="radio-option-1"
+            name="radio-options"
+            style="
                 border-color: {colorInverted};
               "
-        />
-        <label for="radio-option-1">Radio Option 1</label>
-        <input
-          type="radio"
-          use:exioRadio
-          id="radio-option-2"
-          name="radio-options"
-          style="
+          />
+          <label for="radio-option-1">Radio Option 1</label>
+        </div>
+        <div class="pair">
+          <input
+            type="radio"
+            use:exioRadio
+            id="radio-option-2"
+            name="radio-options"
+            style="
                 border-color: var(--accent);
                 --exio-selected-indicator-color: var(--accent);
               "
-        />
-        <label for="radio-option-2">Radio Option 2</label>
+          />
+          <label for="radio-option-2">Radio Option 2</label>
+        </div>
       </div>
     </div>
     <div class="block">
@@ -207,7 +219,7 @@
         placeholder="Textfield"
         disabled={textDisabled}
       />
-      <div style="display: flex; gap: 0.25rem;">
+      <div class="pair">
         <input
           use:exioSwitch
           type="checkbox"
@@ -345,5 +357,9 @@
   }
   .wrapper {
     transform-origin: center top;
+  }
+  .pair {
+    display: flex;
+    gap: 0.25rem;
   }
 </style>
