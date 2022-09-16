@@ -9,7 +9,6 @@
     exioZoomInAnimation,
     exioDropdown,
     exioRadio,
-    exioDialog,
     exioTextbox,
     exioLoadingBarAnimation,
     exioCheckbox,
@@ -17,9 +16,8 @@
     exioSlider,
   } from 'exio/svelte';
   import { tick } from 'svelte';
-  import { dark } from '../ts/stores';
+  import { dark, demoDialogOpen } from '../ts/stores';
   let render = true;
-  let open = false;
   let animate = true;
   let buttonDisabled = true;
   let textDisabled = true;
@@ -33,18 +31,6 @@
   }
 </script>
 
-<dialog use:exioDialog {open} class="dialog" style="width: min(300px, 100%);">
-  <h2>Hello World!</h2>
-  <p>Exio uses the HTML dialog element.</p>
-  <button
-    use:exioButton
-    class="blue"
-    style="float: right;"
-    on:click={() => (open = false)}
-  >
-    Close
-  </button>
-</dialog>
 {#if render}
   <div use:exioZoomInAnimation class="wrapper">
     <div class="block">
@@ -251,7 +237,11 @@
       </select>
     </div>
     <div class="block">
-      <button class="gray" use:exioButton on:click={() => (open = true)}>
+      <button
+        class="gray"
+        use:exioButton
+        on:click={() => ($demoDialogOpen = true)}
+      >
         Open Dialog
       </button>
     </div>
@@ -334,32 +324,6 @@
     width: 150px;
     height: 150px;
   }
-  :global([data-theme='dark']) .gray {
-    background-color: #333;
-  }
-  .gray {
-    background-color: #cacaca;
-  }
-  h2 {
-    margin: 0;
-  }
-  .dialog {
-    background-color: white;
-    color: black;
-  }
-  :global([data-theme='dark']) .dialog {
-    background-color: black;
-    color: white;
-  }
-  :global([data-theme='dark']) .cyan {
-    background-color: darkcyan;
-  }
-  .cyan {
-    background-color: turquoise;
-  }
-  .blue {
-    background-color: var(--accent);
-  }
   .block {
     display: flex;
     margin: 1rem;
@@ -367,16 +331,6 @@
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
-  }
-  :global(#app) {
-    min-height: 100%;
-    min-width: 100%;
-    --accent: #5dceff;
-    --cyan: turquoise;
-  }
-  :global(#app [data-theme='dark']) {
-    --accent: #0065c7;
-    --cyan: darkcyan;
   }
   .items {
     display: flex;

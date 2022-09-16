@@ -70,7 +70,9 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     .${s.id}:not([open]) {
       display: block;
       position: fixed;
+      top: 50%;
       transform-origin: top center;
+      transform: translateY(-50%);
     }
     .${s.id}[open] {
       transform-origin: center center;

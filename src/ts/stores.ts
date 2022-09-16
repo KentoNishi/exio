@@ -4,3 +4,4 @@ export const dark = writable(true);
 export const dataTheme = derived(dark, ($dark) => {
   return $dark ? 'dark' : 'light';
 });
+export const demoDialogOpen = writable(false);
