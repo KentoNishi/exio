@@ -60,6 +60,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
     }
     .${s.id} {
       --is-exio-component: true;
+      --exio-theme: light;
       color: black;
       font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
     }
@@ -77,6 +78,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-selected-background-color: black;
       --exio-selected-indicator-color: white;
       --exio-slider-thumb-color: white;
+      --exio-theme: dark;
     }
   `;
   return destroyer(() => {

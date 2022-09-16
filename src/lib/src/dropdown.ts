@@ -30,6 +30,7 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   const updateStyle = () => {
     node.style.setProperty('transform', before, 'important');
     const computed = getComputedStyle(node);
+    dropdown.dataset.theme = computed.getPropertyValue('--exio-theme').trim();
     const transitionDuration = computed.getPropertyValue(
       '--exio-standard-transition-duration'
     );
