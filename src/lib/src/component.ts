@@ -65,7 +65,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       color: black;
       ${font}
     }
-    [data-theme="dark"] .${s.id}, .${s.id}[data-theme="dark"] {
+    .${s.id}[data-theme="dark"] {
       color: white;
       --exio-disabled-filter: brightness(0.6) grayscale(0.5);
       --exio-focused-border-color: rgba(255, 255, 255, 1);
