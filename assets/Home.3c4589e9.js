@@ -1,4 +1,4 @@
-import{S as Rt,i as Ft,s as qt,e as i,b as u,z as O,c as o,f as s,g as pe,h as e,j as v,l as Ae,k as fe,r as et,A as tt,B as el,n as ze,m as at,o as tl,C as ll,p as ol,q as nl,D as Ve,t as il,u as al,v as rl,X as sl}from"./vendor.f5c7ec00.js";import{e as xe,a as ke,s as j,d as _e,t as cl,i as rt,b as Be,c as be,f as lt,g as Wt,h as st,j as dl,k as Xt,l as Zt,m as Yt}from"./index.8d237171.js";function je(t){const l=xe(t),n=ke(t,{borderStyle:"hover",disableClicking:!0}),a=j(t);return a.innerHTML=`
+import{S as Rt,i as Ft,s as qt,e as i,b as u,z as O,c as o,f as s,g as pe,h as e,j as v,l as Ae,k as fe,r as et,A as tt,B as el,n as ze,m as at,o as tl,C as ll,p as ol,q as nl,D as Ve,t as il,u as al,v as rl,X as sl}from"./vendor.f5c7ec00.js";import{e as xe,a as ke,s as j,d as _e,t as cl,i as rt,b as Be,c as be,f as lt,g as Wt,h as st,j as dl,k as Xt,l as Zt,m as Yt}from"./index.0705557c.js";function je(t){const l=xe(t),n=ke(t,{borderStyle:"hover",disableClicking:!0}),a=j(t);return a.innerHTML=`
     .${a.id} {
       display: flex;
       align-items: center;
@@ -24,6 +24,7 @@ import{S as Rt,i as Ft,s as qt,e as i,b as u,z as O,c as o,f as s,g as pe,h as e
         pointer-events: none;
         touch-action: none;
         user-select: none;
+        z-index: 69420;
       }
       .${p.id}:focus {
         opacity: 1;
