@@ -5,10 +5,13 @@ A framework-independent UI library that extends native HTML elements! Compatible
 ## What's Included
 
 <details open>
-  <summary><strong>Wrappers</strong></summary>
+  <summary><strong>Initializers</strong></summary>
   <ul>
     <li><code>exioComponent</code></li>
+    <li><code>exioGlobalStyler</code></li>
   </ul>
+</details>
+<details open>
   <summary><strong>Components</strong></summary>
   <ul>
     <li><code>exioAccordion</code></li>
@@ -24,7 +27,6 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioTextbox</code></li>
   </ul>
 </details>
-
 <details open>
   <summary><strong>Animations</strong></summary>
   <ul>
@@ -35,9 +37,9 @@ A framework-independent UI library that extends native HTML elements! Compatible
   </ul>
 </details>
 
-## Usage
+## Quick Examples
 
-### Svelte Example
+### Svelte
 
 ```html
 <script lang="ts">
@@ -47,7 +49,7 @@ A framework-independent UI library that extends native HTML elements! Compatible
 <button use:exioButton>Example Button 1</button>
 ```
 
-### Vanilla JS/TS Example
+### Vanilla JS/TS
 
 ```ts
 const button = document.querySelector('#my-button');

@@ -16,4 +16,5 @@ export { exioTextbox } from './src/textbox';
 export { exioAccordion } from './src/accordion';
 export { exioSlider } from './src/slider';
 export { exioComponent } from './src/component';
+export { exioGlobalStyler } from './src/globals';
 export type { ExioNode } from './src/base';

@@ -1,5 +1,6 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
+import { font } from './consts';
 
 export function exioComponent(node: HTMLElement): ExioNode {
   const style = getComputedStyle(node);
@@ -62,7 +63,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --is-exio-component: true;
       --exio-theme: light;
       color: black;
-      font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+      ${font}
     }
     [data-theme="dark"] .${s.id}, .${s.id}[data-theme="dark"] {
       color: white;

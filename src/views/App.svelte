@@ -4,6 +4,7 @@
   import Dialog from '../components/Dialog.svelte';
   import Navbar from '../components/Navbar.svelte';
   import { dataTheme } from '../ts/stores';
+  import { exioGlobalStyler } from 'exio/svelte';
   let routes: {
     [key: string]: any;
   } = {
@@ -17,7 +18,7 @@
   $: document.body.parentElement.style.setProperty('color-scheme', $dataTheme);
 </script>
 
-<div data-theme={$dataTheme}>
+<div data-theme={$dataTheme} use:exioGlobalStyler>
   <Navbar />
   <Dialog />
   <Router {routes} />
