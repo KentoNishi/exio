@@ -2,9 +2,11 @@ import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
+import { exioIcon } from './icon';
 
 export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
   const component = exioComponent(node);
+  const icon = exioIcon(node);
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
   });
@@ -47,5 +49,6 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
     s1.remove();
     s2.remove();
     component.destroy();
+    icon.destroy();
   });
 };

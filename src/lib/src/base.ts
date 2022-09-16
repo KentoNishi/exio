@@ -4,7 +4,7 @@ export interface ExioNode {
 
 export function getRandomString(len = 10) {
   const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let randomString = '';
+  let randomString = 'exio-';
   for (let i = 0; i < len; i++) {
     const pos = Math.floor(Math.random() * charSet.length);
     randomString += charSet.substring(pos, pos + 1);
