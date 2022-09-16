@@ -39,7 +39,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       /* color of radio/switch backgrounds when selected */
       --exio-selected-background-color: black;
       /* color of radio/switch indicators when selected */
-      --exio-selected-indicator-color: black;
+      --exio-selected-indicator-color: white;
       /* color of slider thumbs */
       --exio-slider-thumb-color: black;
       /* size of slider thumbs */
@@ -76,8 +76,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-hover-border-scale: 2;
       --exio-loader-fill-color: white;
       --exio-loader-duration: 1s;
-      --exio-selected-background-color: black;
-      --exio-selected-indicator-color: white;
+      --exio-selected-background-color: white;
+      --exio-selected-indicator-color: black;
       --exio-slider-thumb-color: white;
       --exio-theme: dark;
     }
