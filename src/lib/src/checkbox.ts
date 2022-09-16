@@ -2,11 +2,11 @@ import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
-import { exioIcon } from './icon';
+import { createExioFont } from './icon';
 
 export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
   const component = exioComponent(node);
-  const icon = exioIcon(node);
+  createExioFont();
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
   });
@@ -38,7 +38,7 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--exio-selected-indicator-color);
+      color: var(--exio-checkbox-checkmark-color);
     }
     .${s2.id}:checked::after {
       transform: scale(1.1);
@@ -49,6 +49,5 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
     s1.remove();
     s2.remove();
     component.destroy();
-    icon.destroy();
   });
 };

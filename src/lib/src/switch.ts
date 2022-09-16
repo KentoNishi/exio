@@ -40,7 +40,7 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       transform: translateX(calc(
         ${-node.clientWidth / 2}px + ${node.clientHeight / 2}px
       )) scale(0.55);
-      background-color: var(--exio-selected-indicator-color);
+      background-color: var(--exio-switch-thumb-color);
       transition: transform var(--exio-standard-transition-duration);
     }
     .${s2.id}:checked::after {

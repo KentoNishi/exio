@@ -43,7 +43,6 @@
           style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: var(--accent);
-                --exio-selected-indicator-color: {colorInverted};
               "
         />
         <label for="dark-mode">Dark Mode</label>
@@ -87,7 +86,6 @@
             style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: var(--accent);
-                --exio-selected-indicator-color: {colorInverted};
               "
           />
           <label for="switch-option-1">Switch Option 1</label>
@@ -100,7 +98,7 @@
             style="
                 border-color: var(--accent);
                 --exio-selected-background-color: {colorInverted};
-                --exio-selected-indicator-color: var(--accent);
+                --exio-switch-thumb-color: var(--accent);
               "
           />
           <label for="switch-option-2">Switch Option 2</label>
@@ -117,7 +115,7 @@
             style="
                 border-color: {colorInverted};
                 --exio-selected-background-color: {colorInverted};
-                --exio-selected-indicator-color: {colorDefault};
+                --exio-checkbox-checkmark-color: {colorDefault};
               "
           />
           <label for="checkbox-option-1">Checkbox Option 1</label>
@@ -130,7 +128,7 @@
             style="
                 border-color: var(--accent);
                 --exio-selected-background-color: var(--accent);
-                --exio-selected-indicator-color: {colorInverted};
+                --exio-checkbox-checkmark-color: {colorInverted};
               "
           />
           <label for="checkbox-option-2">Checkbox Option 2</label>

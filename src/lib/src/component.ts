@@ -19,6 +19,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-border-width: 2px;
       /* scaling factor for elements while being clicked */
       --exio-clicking-scale: 0.95;
+      /* color of checkbox indicators when selected */
+      --exio-checkbox-checkmark-color: white;
       /* filter for disabled fields */
       --exio-disabled-filter: brightness(1.2) grayscale(0.5);
       /* border color for focused elements */
@@ -38,8 +40,6 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-loader-duration: 1s;
       /* color of radio/switch backgrounds when selected */
       --exio-selected-background-color: black;
-      /* color of radio/switch indicators when selected */
-      --exio-selected-indicator-color: white;
       /* color of slider thumbs */
       --exio-slider-thumb-color: black;
       /* size of slider thumbs */
@@ -56,6 +56,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-slow-transition-duration: 0.4s;
       /* standard transition duration */
       --exio-standard-transition-duration: 0.2s;
+      /* switch thumb color */
+      --exio-switch-thumb-color: black;
       /* scaling factor for the zoom in animation */
       --exio-zoom-in-animation-scale: 97.5%;
     }
@@ -65,7 +67,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       color: black;
       ${font}
     }
-    .${s.id}[data-theme="dark"] {
+    [data-theme="dark"] * {
       color: white;
       --exio-disabled-filter: brightness(0.6) grayscale(0.5);
       --exio-focused-border-color: rgba(255, 255, 255, 1);
@@ -77,8 +79,9 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-loader-fill-color: white;
       --exio-loader-duration: 1s;
       --exio-selected-background-color: white;
-      --exio-selected-indicator-color: black;
+      --exio-checkbox-checkmark-color: black;
       --exio-slider-thumb-color: white;
+      --exio-switch-thumb-color: white;
       --exio-theme: dark;
     }
   `;

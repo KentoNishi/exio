@@ -26,11 +26,11 @@
 <style>
   :global([data-theme='dark']) input[type='checkbox'] {
     border-color: white;
-    --exio-selected-indicator-color: white;
+    --exio-switch-thumb-color: white;
   }
   :global([data-theme='light']) input[type='checkbox'] {
     border-color: black;
-    --exio-selected-indicator-color: black;
+    --exio-switch-thumb-color: black;
   }
   .toggler {
     display: flex;

@@ -2,8 +2,7 @@ import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
-export const exioIcon = (node: HTMLElement): ExioNode => {
-  const component = exioComponent(node);
+export function createExioFont(): void {
   let font = document.querySelector('#exio-font') as HTMLStyleElement | null;
   if (!font) {
     font = document.createElement('style');
@@ -20,6 +19,11 @@ export const exioIcon = (node: HTMLElement): ExioNode => {
     `;
     document.body.appendChild(font);
   }
+}
+
+export const exioIcon = (node: HTMLElement): ExioNode => {
+  const component = exioComponent(node);
+  createExioFont();
   const s = styler(node);
   s.innerHTML = `
     .${s.id} {
