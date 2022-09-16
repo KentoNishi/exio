@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { exioApp, exioZoomInAnimation } from 'exio/svelte';
-  import { dataTheme } from '../../../ts/stores';
+  import { exioZoomInAnimation } from 'exio/svelte';
 </script>
 
-<div use:exioApp data-theme={$dataTheme} use:exioZoomInAnimation />
+<div use:exioZoomInAnimation />

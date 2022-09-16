@@ -1,8 +1,10 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { isSafari } from './consts';
+import { exioComponent } from './component';
 
 export function exioSlider(node: HTMLInputElement): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   const thumb = `
     width: var(--exio-slider-thumb-size);
@@ -66,5 +68,6 @@ export function exioSlider(node: HTMLInputElement): ExioNode {
   `;
   return destroyer(() => {
     s.remove();
+    component.destroy();
   });
 }

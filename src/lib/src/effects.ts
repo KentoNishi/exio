@@ -1,5 +1,6 @@
 import { destroyer, getMouseInfo, styler } from './base';
 import type { ExioNode } from './base';
+import { exioComponent } from './component';
 
 export type PointerEffectOptions = {
   borderStyle?: 'reactive' | 'static' | 'hover';
@@ -15,6 +16,7 @@ export function exioPointerEffect(
     focusable: false,
   }
 ): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   const updateStyle = (mouseX = 0, mouseY = 0, width = 0, height = 0) => {
     const borderHoverRadius = `calc(
@@ -119,5 +121,6 @@ export function exioPointerEffect(
       node.remove();
       s.remove();
     }
+    component.destroy();
   });
 }

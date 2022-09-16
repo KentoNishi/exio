@@ -1,10 +1,12 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
+import { exioComponent } from './component';
 
 export function exioTextbox(
   node: HTMLInputElement | HTMLTextAreaElement
 ): ExioNode {
+  const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     disableClicking: true,
     borderStyle: 'hover',
@@ -27,5 +29,6 @@ export function exioTextbox(
   return destroyer(() => {
     effect.destroy();
     s.remove();
+    component.destroy();
   });
 }

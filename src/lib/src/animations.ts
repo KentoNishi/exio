@@ -1,7 +1,9 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
+import { exioComponent } from './component';
 
 export function exioFlyInAnimation(node: HTMLElement): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-fly-in {
@@ -21,10 +23,14 @@ export function exioFlyInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => s.remove());
+  return destroyer(() => {
+    s.remove();
+    component.destroy();
+  });
 }
 
 export function exioFadeInAnimation(node: HTMLElement): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-fade-in {
@@ -42,10 +48,14 @@ export function exioFadeInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => s.remove());
+  return destroyer(() => {
+    s.remove();
+    component.destroy();
+  });
 }
 
 export function exioZoomInAnimation(node: HTMLElement): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-zoom-in {
@@ -65,10 +75,14 @@ export function exioZoomInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => s.remove());
+  return destroyer(() => {
+    s.remove();
+    component.destroy();
+  });
 }
 
 export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
+  const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
     @keyframes exio-loading-bar {
@@ -95,5 +109,8 @@ export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
       animation: exio-loading-bar var(--exio-loader-duration) linear infinite;
     }
   `;
-  return destroyer(() => s.remove());
+  return destroyer(() => {
+    s.remove();
+    component.destroy();
+  });
 }

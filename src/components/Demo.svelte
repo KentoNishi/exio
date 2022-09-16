@@ -59,17 +59,19 @@
       <button use:exioButton class="gray" disabled={buttonDisabled}>
         Example Button
       </button>
-      <input
-        use:exioSwitch
-        type="checkbox"
-        id="disable-button"
-        style="
+      <div style="display: flex; gap: 0.25rem;">
+        <input
+          use:exioSwitch
+          type="checkbox"
+          id="disable-button"
+          style="
           border-color: {colorInverted};
           --exio-selected-background-color: var(--accent);
         "
-        bind:checked={buttonDisabled}
-      />
-      <label for="disable-button"><code>disabled</code> Attribute</label>
+          bind:checked={buttonDisabled}
+        />
+        <label for="disable-button"><code>disabled</code> Attribute</label>
+      </div>
     </div>
     <div class="block">
       <div use:exioCard class="card gray">Default Card</div>
@@ -205,17 +207,19 @@
         placeholder="Textfield"
         disabled={textDisabled}
       />
-      <input
-        use:exioSwitch
-        type="checkbox"
-        id="disable-text"
-        style="
+      <div style="display: flex; gap: 0.25rem;">
+        <input
+          use:exioSwitch
+          type="checkbox"
+          id="disable-text"
+          style="
           border-color: {colorInverted};
           --exio-selected-background-color: var(--accent);
         "
-        bind:checked={textDisabled}
-      />
-      <label for="disable-text"><code>disabled</code> Attribute</label>
+          bind:checked={textDisabled}
+        />
+        <label for="disable-text"><code>disabled</code> Attribute</label>
+      </div>
     </div>
     <div class="block">
       <select use:exioDropdown class="gray">

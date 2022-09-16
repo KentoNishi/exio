@@ -1,8 +1,10 @@
 import { destroyer, styler, toMillis } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
+import { exioComponent } from './component';
 
 export function exioAccordion(node: HTMLDetailsElement): ExioNode {
+  const component = exioComponent(node);
   const summary = node.querySelector('summary');
   const effect = exioPointerEffect(summary, {
     borderStyle: 'reactive',
@@ -95,6 +97,7 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
     s1.remove();
     s2.remove();
     s3.remove();
+    component.destroy();
     summary.removeEventListener('click', summaryClickListener);
   });
 }

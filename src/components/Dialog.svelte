@@ -1,15 +1,13 @@
 <script lang="ts">
-  import { exioButton, exioDialog, exioComponent } from 'exio/svelte';
-  import { demoDialogOpen, dataTheme } from '../ts/stores';
+  import { exioButton, exioDialog } from 'exio/svelte';
+  import { demoDialogOpen } from '../ts/stores';
 </script>
 
 <dialog
   use:exioDialog
-  use:exioComponent
   open={$demoDialogOpen}
   class="dialog"
   style="width: min(300px, 100%);"
-  data-theme={$dataTheme}
 >
   <h2>Hello World!</h2>
   <p>Exio uses the HTML dialog element.</p>
@@ -31,7 +29,7 @@
     background-color: white;
     color: black;
   }
-  :global([data-theme='dark']).dialog {
+  :global([data-theme='dark']) .dialog {
     background-color: black;
     color: white;
   }

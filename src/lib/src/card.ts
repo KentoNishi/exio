@@ -1,8 +1,10 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
+import { exioComponent } from './component';
 
 export function exioCard(node: HTMLElement): ExioNode {
+  const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     borderStyle: 'hover',
     disableClicking: true,
@@ -19,5 +21,6 @@ export function exioCard(node: HTMLElement): ExioNode {
   return destroyer(() => {
     effect.destroy();
     s.remove();
+    component.destroy();
   });
 }

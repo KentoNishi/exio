@@ -1,8 +1,10 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
+import { exioComponent } from './component';
 
 export function exioDropdown(node: HTMLSelectElement): ExioNode {
+  const component = exioComponent(node);
   const effect = exioPointerEffect(node);
   const s = styler(node);
   s.innerHTML = `
@@ -140,5 +142,6 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
     s.remove();
     dropdown.remove();
     ds.remove();
+    component.destroy();
   });
 }

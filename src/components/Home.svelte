@@ -1,6 +1,5 @@
 <script lang="ts">
   import {
-    exioApp,
     exioFadeInAnimation,
     exioZoomInAnimation,
     exioButton,
@@ -8,7 +7,6 @@
   } from 'exio/svelte';
   import { _ } from 'svelte-i18n';
   import Demo from './Demo.svelte';
-  import { dataTheme } from '../ts/stores';
   const links = [
     {
       title: $_('banner.buttons.npm'),
@@ -46,12 +44,7 @@
   };
 </script>
 
-<div
-  use:exioApp
-  data-theme={$dataTheme}
-  use:exioZoomInAnimation
-  style="margin-top: 50px;"
->
+<div use:exioZoomInAnimation style="margin-top: 50px;">
   <div class="gradient-banner" use:exioFadeInAnimation>
     <span class="title">{$_('title')}</span>
     <span class="description">{$_('description')}</span>
@@ -97,22 +90,22 @@
     -webkit-background-clip: text;
     color: transparent;
   }
-  [data-theme='dark'] {
+  :global([data-theme='dark']) {
     --accent: #0065c7;
   }
-  [data-theme='light'] {
+  :global([data-theme='light']) {
     --accent: #5dceff;
   }
-  [data-theme='dark'] .gradient-banner {
+  :global([data-theme='dark']) .gradient-banner {
     background-color: #090a1b;
   }
-  [data-theme='light'] .gradient-banner {
+  :global([data-theme='light']) .gradient-banner {
     background-color: #d1f4ff;
   }
-  [data-theme='dark'] .bg-gray {
+  :global([data-theme='dark']) .bg-gray {
     background-color: #2f2f2f;
   }
-  [data-theme='light'] .bg-gray {
+  :global([data-theme='light']) .bg-gray {
     background-color: #bebebe;
   }
   .gradient-banner > .description {

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { dark, dataTheme } from '../ts/stores';
+  import { dark } from '../ts/stores';
   import {
-    exioComponent,
     exioIcon,
     exioSwitch,
     exioZoomInAnimation,
@@ -9,12 +8,7 @@
   } from 'exio/svelte';
 </script>
 
-<div
-  class="navbar"
-  data-theme={$dataTheme}
-  use:exioComponent
-  use:exioZoomInAnimation
->
+<div class="navbar" use:exioZoomInAnimation>
   <div class="home">
     <a href="#/">
       <button use:exioButton class="home-button">
@@ -30,11 +24,11 @@
 </div>
 
 <style>
-  [data-theme='dark'] input[type='checkbox'] {
+  :global([data-theme='dark']) input[type='checkbox'] {
     border-color: white;
     --exio-selected-indicator-color: white;
   }
-  [data-theme='light'] input[type='checkbox'] {
+  :global([data-theme='light']) input[type='checkbox'] {
     border-color: black;
     --exio-selected-indicator-color: black;
   }
@@ -55,7 +49,7 @@
     cursor: default;
     user-select: none;
   }
-  [data-theme='dark'] .toggler {
+  :global([data-theme='dark']) .toggler {
     color: white;
   }
   .navbar {
@@ -80,16 +74,16 @@
     justify-content: center;
     font-size: 1.5rem;
   }
-  [data-theme='dark'] .home-button {
+  :global([data-theme='dark']) .home-button {
     color: white;
   }
-  [data-theme='light'] .home-button {
+  :global([data-theme='light']) .home-button {
     color: black;
   }
   .toggler > input {
     --exio-selected-background-color: transparent;
   }
-  [data-theme='dark'].navbar {
+  :global([data-theme='dark']) .navbar {
     background-color: #00325a;
   }
   * {

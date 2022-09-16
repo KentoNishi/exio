@@ -1,6 +1,7 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import dialogPolyfill from 'dialog-polyfill';
+import { exioComponent } from './component';
 
 /**
  * HTMLDialogELement
@@ -36,6 +37,7 @@ interface HTMLDialogElement extends globalThis.HTMLDialogElement {
 }
 
 export function exioDialog(node: HTMLDialogElement): ExioNode {
+  const component = exioComponent(node);
   let isOpen = Boolean(node.open);
   const s = styler(node);
   s.innerHTML = `
@@ -152,5 +154,6 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     if (s2) s2.remove();
     s3.remove();
     observer.disconnect();
+    component.destroy();
   });
 }

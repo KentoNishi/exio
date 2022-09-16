@@ -3,6 +3,7 @@
   import { wrap } from 'svelte-spa-router/wrap';
   import Dialog from '../components/Dialog.svelte';
   import Navbar from '../components/Navbar.svelte';
+  import { dataTheme } from '../ts/stores';
   let routes: {
     [key: string]: any;
   } = {
@@ -13,11 +14,14 @@
       asyncComponent: () => import('../components/docs/Docs.svelte'),
     }),
   };
+  $: document.body.parentElement.style.setProperty('color-scheme', $dataTheme);
 </script>
 
-<Navbar />
-<Dialog />
-<Router {routes} />
+<div data-theme={$dataTheme}>
+  <Navbar />
+  <Dialog />
+  <Router {routes} />
+</div>
 
 <style>
   :global([data-theme='dark'] .gray) {

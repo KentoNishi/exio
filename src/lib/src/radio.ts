@@ -1,8 +1,10 @@
 import { destroyer, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
+import { exioComponent } from './component';
 
 export const exioRadio = (node: HTMLInputElement): ExioNode => {
+  const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
   });
@@ -46,5 +48,6 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
     effect.destroy();
     s1.remove();
     s2.remove();
+    component.destroy();
   });
 };

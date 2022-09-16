@@ -7,7 +7,6 @@ A framework-independent UI library that extends native HTML elements! Compatible
 <details open>
   <summary><strong>Wrappers</strong></summary>
   <ul>
-    <li><code>exioApp</code></li>
     <li><code>exioComponent</code></li>
   </ul>
   <summary><strong>Components</strong></summary>
@@ -42,34 +41,18 @@ A framework-independent UI library that extends native HTML elements! Compatible
 
 ```html
 <script lang="ts">
-  import { exioApp, exioButton, exioComponent } from 'exio/svelte';
+  import { exioButton } from 'exio/svelte';
 </script>
 
-<!-- exioApp overrides some global body styles -->
-<div use:exioApp>
-  <button use:exioButton>Example Button 1</button>
-</div>
-
-<!-- exioComponent styles are scoped -->
-<div use:exioComponent>
-  <button use:exioButton>Example Button 2</button>
-</div>
-
-<!-- Use exioComponent for standalone elements -->
-<button use:exioComponent use:exioButton>Example Button 3</button>
+<button use:exioButton>Example Button 1</button>
 ```
 
 ### Vanilla JS/TS Example
 
 ```ts
-import { exioApp, exioButton } from 'exio';
-const app = document.querySelector('#app');
-const exioApp = exioButton(app);
 const button = document.querySelector('#my-button');
 const exioButton = exioButton(button);
-app.appendChild(button);
 
-// to destroy exio instances
-exioApp.destroy();
 exioButton.destroy();
+button.remove();
 ```
