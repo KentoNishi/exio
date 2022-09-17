@@ -4,7 +4,7 @@ import { font } from './consts';
 
 export function exioComponent(node: HTMLElement): ExioNode {
   const style = getComputedStyle(node);
-  if (style.getPropertyValue('--is-exio-component') === 'true') {
+  if (style.getPropertyValue('--is-exio-component').trim() === 'true') {
     return destroyer();
   }
   const s = styler(node);
