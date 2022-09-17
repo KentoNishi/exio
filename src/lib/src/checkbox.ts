@@ -20,7 +20,7 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
       align-items: center;
       justify-content: center;
       padding: 0px;
-      background-color: var(--exio-selected-background-color);
+      background-color: var(--exio-checkbox-selected-fill-color);
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;

@@ -81,7 +81,7 @@
     color: black;
   }
   .toggler > input {
-    --exio-selected-background-color: transparent;
+    --exio-switch-selected-fill-color: transparent;
   }
   :global([data-theme='dark']) .navbar {
     background-color: #00325a;

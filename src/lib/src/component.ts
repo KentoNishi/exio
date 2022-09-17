@@ -8,6 +8,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
     return destroyer();
   }
   const s = styler(node);
+  node.classList.add('exio-component');
   s.innerHTML = `
     :root {
       /* --------------------------- */
@@ -19,8 +20,10 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-border-width: 2px;
       /* scaling factor for elements while being clicked */
       --exio-clicking-scale: 0.95;
-      /* color of checkbox indicators when selected */
+      /* color of checkbox checkmarks when selected */
       --exio-checkbox-checkmark-color: white;
+      /* color of checkbox fill when selected */
+      --exio-checkbox-selected-fill-color: black;
       /* filter for disabled fields */
       --exio-disabled-filter: brightness(1.2) grayscale(0.5);
       /* border color for focused elements */
@@ -29,7 +32,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       /* scaling factor for the acrylic hover highlight effect */
       --exio-hover-background-scale: 4;
       /* body color for the acrylic hover highlight effect */
-      --exio-hover-body-color: rgba(0, 0, 0, 0.1);
+      --exio-hover-body-color: rgba(128, 128, 128, 0.3);
       /* border color for the acrylic hover highlight effect */
       --exio-hover-border-color: rgba(0, 0, 0, 0.25);
       /* scaling factor for the acrylic hover highlight effect */
@@ -38,8 +41,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-loader-fill-color: black;
       /* animation duration for progress bars and loaders */
       --exio-loader-duration: 1s;
-      /* color of radio/switch backgrounds when selected */
-      --exio-selected-background-color: black;
+      /* color of radio indicators */
+      --exio-radio-indicator-color: black;
       /* color of slider thumbs */
       --exio-slider-thumb-color: black;
       /* size of slider thumbs */
@@ -56,6 +59,8 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-slow-transition-duration: 0.4s;
       /* standard transition duration */
       --exio-standard-transition-duration: 0.2s;
+      /* color of switch background when selected */
+      --exio-switch-selected-fill-color: darkgray;
       /* switch thumb color */
       --exio-switch-thumb-color: black;
       /* scaling factor for the zoom in animation */
@@ -67,25 +72,28 @@ export function exioComponent(node: HTMLElement): ExioNode {
       color: black;
       ${font}
     }
-    [data-theme="dark"] * {
+    [data-theme="dark"] .exio-component, .exio-component[data-theme="dark"] {
       color: white;
       --exio-disabled-filter: brightness(0.6) grayscale(0.5);
       --exio-focused-border-color: rgba(255, 255, 255, 1);
       --exio-focused-text-color: white;
       --exio-hover-background-scale: 4;
-      --exio-hover-body-color: rgba(255, 255, 255, 0.2);
+      --exio-hover-body-color: rgba(128, 128, 128, 0.3);
       --exio-hover-border-color: rgba(255, 255, 255, 0.5);
       --exio-hover-border-scale: 2;
       --exio-loader-fill-color: white;
       --exio-loader-duration: 1s;
-      --exio-selected-background-color: white;
+      --exio-switch-selected-fill-color: white;
       --exio-checkbox-checkmark-color: black;
+      --exio-checkbox-selected-fill-color: white;
       --exio-slider-thumb-color: white;
       --exio-switch-thumb-color: white;
+      --exio-radio-indicator-color: white;
       --exio-theme: dark;
     }
   `;
   return destroyer(() => {
     s.remove();
+    node.classList.remove('exio-component');
   });
 }

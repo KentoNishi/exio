@@ -42,7 +42,7 @@
           bind:checked={$dark}
           style="
                 border-color: {colorInverted};
-                --exio-selected-background-color: var(--accent);
+                --exio-switch-selected-fill-color: var(--accent);
               "
         />
         <label for="dark-mode">Dark Mode</label>
@@ -65,7 +65,7 @@
           id="disable-button"
           style="
           border-color: {colorInverted};
-          --exio-selected-background-color: var(--accent);
+          --exio-switch-selected-fill-color: var(--accent);
         "
           bind:checked={buttonDisabled}
         />
@@ -85,7 +85,7 @@
             id="switch-option-1"
             style="
                 border-color: {colorInverted};
-                --exio-selected-background-color: var(--accent);
+                --exio-switch-selected-fill-color: var(--accent);
               "
           />
           <label for="switch-option-1">Switch Option 1</label>
@@ -97,7 +97,7 @@
             id="switch-option-2"
             style="
                 border-color: var(--accent);
-                --exio-selected-background-color: {colorInverted};
+                --exio-switch-selected-fill-color: {colorInverted};
                 --exio-switch-thumb-color: var(--accent);
               "
           />
@@ -114,7 +114,7 @@
             id="checkbox-option-1"
             style="
                 border-color: {colorInverted};
-                --exio-selected-background-color: {colorInverted};
+                --exio-checkbox-selected-fill-color: {colorInverted};
                 --exio-checkbox-checkmark-color: {colorDefault};
               "
           />
@@ -127,7 +127,7 @@
             id="checkbox-option-2"
             style="
                 border-color: var(--accent);
-                --exio-selected-background-color: var(--accent);
+                --exio-checkbox-selected-fill-color: var(--accent);
                 --exio-checkbox-checkmark-color: {colorInverted};
               "
           />
@@ -157,7 +157,7 @@
             name="radio-options"
             style="
                 border-color: var(--accent);
-                --exio-selected-indicator-color: var(--accent);
+                --exio-radio-indicator-color: var(--accent);
               "
           />
           <label for="radio-option-2">Radio Option 2</label>
@@ -224,7 +224,7 @@
           id="disable-text"
           style="
           border-color: {colorInverted};
-          --exio-selected-background-color: var(--accent);
+          --exio-switch-selected-fill-color: var(--accent);
         "
           bind:checked={textDisabled}
         />

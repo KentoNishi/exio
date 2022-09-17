@@ -37,8 +37,9 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       height: ${node.clientHeight}px;
       border-radius: 100%;
       transform: scale(0);
-      background-color: var(--exio-selected-indicator-color);
+      background-color: var(--exio-radio-indicator-color);
       transition: transform var(--exio-standard-transition-duration);
+      z-index: -1000;
     }
     .${s2.id}:checked::after {
       transform: scale(0.5);
