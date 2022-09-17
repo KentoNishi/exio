@@ -63,17 +63,18 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-switch-selected-fill-color: darkgray;
       /* switch thumb color */
       --exio-switch-thumb-color: black;
+      /* standard text color */
+      --exio-text-color: black;
       /* scaling factor for the zoom in animation */
       --exio-zoom-in-animation-scale: 97.5%;
     }
     .${s.id} {
       --is-exio-component: true;
       --exio-theme: light;
-      color: black;
+      color: var(--exio-text-color);
       ${font}
     }
     [data-theme="dark"] .exio-component, .exio-component[data-theme="dark"] {
-      color: white;
       --exio-disabled-filter: brightness(0.6) grayscale(0.5);
       --exio-focused-border-color: rgba(255, 255, 255, 1);
       --exio-focused-text-color: white;
@@ -90,6 +91,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
       --exio-switch-thumb-color: white;
       --exio-radio-indicator-color: white;
       --exio-theme: dark;
+      --exio-text-color: white;
     }
   `;
   return destroyer(() => {
