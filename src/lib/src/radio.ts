@@ -42,7 +42,7 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       z-index: -1000;
     }
     .${s2.id}:checked::after {
-      transform: scale(0.5);
+      transform: scale(0.55);
     }
   `;
   return destroyer(() => {
