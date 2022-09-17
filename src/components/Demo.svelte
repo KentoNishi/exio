@@ -359,5 +359,6 @@
   .pair {
     display: flex;
     gap: 0.25rem;
+    align-items: center;
   }
 </style>
