@@ -2,6 +2,8 @@
 
 A framework-independent UI library that extends native HTML elements! Compatible with React, Vue, Svelte, vanilla TS/JS, etc.
 
+[Homepage](https://kentonishi.github.io/exio/) / [Docs](https://kentonishi.github.io/exio#/docs)
+
 ## What's Included
 
 <details open>
@@ -36,25 +38,3 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioLoadingBarAnimation</code></li>
   </ul>
 </details>
-
-## Quick Examples
-
-### Svelte
-
-```html
-<script lang="ts">
-  import { exioButton } from 'exio/svelte';
-</script>
-
-<button use:exioButton>Example Button 1</button>
-```
-
-### Vanilla JS/TS
-
-```ts
-const button = document.querySelector('#my-button');
-const exioButton = exioButton(button);
-
-exioButton.destroy();
-button.remove();
-```
