@@ -28,13 +28,14 @@
   import { exioAccordion } from 'exio/svelte';
 
   import { getExample } from '../ts/example';
-  import { exampleFilenameKey } from '../ts/constants';
+  import { exampleSrcKey } from '../ts/constants';
 
   export let name = '';
 
-  const filename = getContext(exampleFilenameKey) as string;
+  const src = getContext(exampleSrcKey) as string;
 
-  $: exampleSource = getExample(filename, name);
+  $: exampleSource = getExample(src, name);
+  $: console.log(exampleSource);
 </script>
 
 <div class="example">
@@ -46,7 +47,7 @@
     <div class="example-src">
       <pre
         class="language-svelte">
-        {@html Prism.highlight($exampleSource, Prism.languages.svelte, 'svelte')}
+        {@html Prism.highlight(exampleSource, Prism.languages.svelte, 'svelte')}
       </pre>
     </div>
   </details>
