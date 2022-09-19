@@ -5,7 +5,7 @@
   import { dark } from '../ts/stores';
 
   const getStyleEl = (): HTMLElement => {
-    const styleEl = document.head.querySelector('.prism-styles');
+    const styleEl = document.head.querySelector('.prism-styles') as HTMLElement;
     if (styleEl !== null) return styleEl;
 
     const newStyle = document.createElement('style');
