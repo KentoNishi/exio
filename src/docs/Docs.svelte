@@ -17,6 +17,7 @@
     display: block;
     width: 100%;
     height: fit-content;
+    margin-top: 50px;
   }
   .center {
     display: flex;
@@ -24,7 +25,6 @@
     width: 100%;
     min-height: 100vh;
     background-color: white;
-    padding-top: 50px;
   }
   :global([data-theme='dark']) .center {
     background-color: black;
