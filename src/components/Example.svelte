@@ -1,19 +1,41 @@
+<script lang="ts" context="module">
+  import prismDark from 'prismjs/themes/prism-okaidia.css';
+  import prismLight from 'prismjs/themes/prism.css';
+
+  import { dark } from '../ts/stores';
+
+  const getStyleEl = (): HTMLElement => {
+    const styleEl = document.head.querySelector('.prism-styles');
+    if (styleEl !== null) return styleEl;
+
+    const newStyle = document.createElement('style');
+    newStyle.className = 'prism-styles';
+    document.head.appendChild(newStyle);
+    return newStyle;
+  };
+  const styleEl = getStyleEl();
+
+  dark.subscribe(($dark) => {
+    styleEl.innerHTML = $dark ? prismDark : prismLight;
+  });
+</script>
+
 <script lang="ts">
   import Prism from 'prismjs';
   import 'prism-svelte';
-  import 'prismjs/themes/prism.css';
 
   import { getContext } from 'svelte';
   import { exioAccordion } from 'exio/svelte';
 
   import { getExample } from '../ts/example';
-  import { exampleFilenameKey } from '../ts/constants';
+  import { exampleSrcKey } from '../ts/constants';
 
   export let name = '';
 
-  const filename = getContext(exampleFilenameKey) as string;
+  const src = getContext(exampleSrcKey) as string;
 
-  $: exampleSource = getExample(filename, name);
+  $: exampleSource = getExample(src, name);
+  $: console.log(exampleSource);
 </script>
 
 <div class="example">
@@ -25,7 +47,7 @@
     <div class="example-src">
       <pre
         class="language-svelte">
-        {@html Prism.highlight($exampleSource, Prism.languages.svelte, 'svelte')}
+        {@html Prism.highlight(exampleSource, Prism.languages.svelte, 'svelte')}
       </pre>
     </div>
   </details>
@@ -40,7 +62,7 @@
     padding-bottom: 1rem;
   }
   pre {
-    margin: 0px;
+    margin: 0px !important;
     max-width: 100%;
     width: 100%;
   }

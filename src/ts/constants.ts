@@ -1,1 +1,1 @@
-export const exampleFilenameKey = Symbol('filename');
+export const exampleSrcKey = Symbol('src');

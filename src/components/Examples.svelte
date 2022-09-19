@@ -1,10 +1,10 @@
 <script lang="ts">
   import { setContext } from 'svelte';
-  import { exampleFilenameKey } from '../ts/constants';
+  import { exampleSrcKey } from '../ts/constants';
 
-  export let filename = '';
+  export let src = '';
 
-  setContext(exampleFilenameKey, filename);
+  setContext(exampleSrcKey, src);
 </script>
 
 <slot />
