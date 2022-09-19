@@ -62,7 +62,7 @@
     padding-bottom: 1rem;
   }
   pre {
-    margin: 0px;
+    margin: 0px !important;
   }
 
   /* .example::before {
