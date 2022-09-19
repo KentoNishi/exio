@@ -12,18 +12,19 @@
 <style>
   .wrapper {
     transform-origin: center top;
-    padding: 20px;
     max-width: 900px;
     display: block;
-    width: 100%;
+    width: calc(100% - 40px);
+    margin-top: 20px;
+    margin-bottom: 20px;
     height: fit-content;
-    margin-top: 50px;
   }
   .center {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 100vh;
+    padding-top: 50px;
     background-color: white;
   }
   :global([data-theme='dark']) .center {
