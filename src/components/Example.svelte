@@ -1,7 +1,28 @@
+<script lang="ts" context="module">
+  import prismDark from 'prismjs/themes/prism-okaidia.css';
+  import prismLight from 'prismjs/themes/prism.css';
+
+  import { dark } from '../ts/stores';
+
+  const getStyleEl = (): HTMLElement => {
+    const styleEl = document.head.querySelector('.prism-styles');
+    if (styleEl !== null) return styleEl;
+
+    const newStyle = document.createElement('style');
+    newStyle.className = 'prism-styles';
+    document.head.appendChild(newStyle);
+    return newStyle;
+  };
+  const styleEl = getStyleEl();
+
+  dark.subscribe(($dark) => {
+    styleEl.innerHTML = $dark ? prismDark : prismLight;
+  });
+</script>
+
 <script lang="ts">
   import Prism from 'prismjs';
   import 'prism-svelte';
-  import 'prismjs/themes/prism.css';
 
   import { getContext } from 'svelte';
   import { exioAccordion } from 'exio/svelte';
