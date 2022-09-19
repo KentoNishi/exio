@@ -12,7 +12,7 @@
       asyncComponent: () => import('../components/Home.svelte'),
     }),
     '/docs': wrap({
-      asyncComponent: () => import('../components/docs/Docs.svelte'),
+      asyncComponent: () => import('../docs/Docs.svelte'),
     }),
   };
   $: document.body.parentElement.style.setProperty('color-scheme', $dataTheme);

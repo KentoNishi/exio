@@ -90,12 +90,6 @@
     -webkit-background-clip: text;
     color: transparent;
   }
-  :global([data-theme='dark']) {
-    --accent: #0065c7;
-  }
-  :global([data-theme='light']) {
-    --accent: #5dceff;
-  }
   :global([data-theme='dark']) .gradient-banner {
     background-color: #090a1b;
   }

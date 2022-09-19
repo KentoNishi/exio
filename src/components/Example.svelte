@@ -6,8 +6,8 @@
   import { getContext } from 'svelte';
   import { exioAccordion } from 'exio/svelte';
 
-  import { getExample } from '../ts/example.ts';
-  import { exampleFilenameKey } from '../ts/constants.ts';
+  import { getExample } from '../ts/example';
+  import { exampleFilenameKey } from '../ts/constants';
 
   export let name = '';
 
@@ -20,7 +20,7 @@
   <div class="example-content">
     <slot />
   </div>
-  <details use:exioAccordion>
+  <details use:exioAccordion style="width: 100%">
     <summary class="cyan">View Source</summary>
     <div class="example-src">
       <pre
@@ -39,15 +39,18 @@
     gap: 1rem;
     padding-bottom: 1rem;
   }
+  pre {
+    margin: 0px;
+  }
 
-  .example::before {
+  /* .example::before {
     content: '';
     position: absolute;
     bottom: 0;
     width: 70vw;
     height: 1px;
     background-color: white;
-  }
+  } */
 
   details {
     width: 100%;
