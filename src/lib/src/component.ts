@@ -27,6 +27,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
         --exio-disabled-filter: brightness(1.2) grayscale(0.5);
         /* border color for focused elements */
         --exio-focused-border-color: rgba(0, 0, 0, 0.5);
+        /* default focused text color */
         --exio-focused-text-color: black;
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-background-scale: 4;
