@@ -17,6 +17,7 @@ import{y as $,$ as _,I as ee,d as oe,a as te,w as B,S as J,i as q,s as I,e as W,
         --exio-disabled-filter: brightness(1.2) grayscale(0.5);
         /* border color for focused elements */
         --exio-focused-border-color: rgba(0, 0, 0, 0.5);
+        /* default focused text color */
         --exio-focused-text-color: black;
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-background-scale: 4;
@@ -84,7 +85,7 @@ import{y as $,$ as _,I as ee,d as oe,a as te,w as B,S as J,i as q,s as I,e as W,
       }
     `,document.head.appendChild(o)),E(()=>{e.classList.remove("exio-component")})}function F(e,o={borderStyle:"reactive",disableClicking:!1,focusable:!1}){const r=x(e),t=k(e),i=(c=0,h=0,l=0,m=0)=>{const p=`calc(
       ${Math.max(l,m)}px * var(--exio-hover-border-scale)
-    )`,b=o.borderStyle==="static",g=o.borderStyle==="hover",f=b||g?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
+    )`,f=o.borderStyle==="static",g=o.borderStyle==="hover",b=f||g?"border: var(--exio-border-width) solid var(--exio-hover-border-color)":`border-image: radial-gradient(
             ${p} ${p} at var(--exio-mouse-x) var(--exio-mouse-y),
             var(--exio-hover-border-color) 0%,
             transparent calc(100% * var(--exio-hover-border-scale))
@@ -107,14 +108,14 @@ import{y as $,$ as _,I as ee,d as oe,a as te,w as B,S as J,i as q,s as I,e as W,
         padding: 0.25em 0.75em;
         overflow: hidden;
         border-radius: 0px;
-        ${b?f:""};
+        ${f?b:""};
 
         --exio-mouse-x: ${c}px;
         --exio-mouse-y: ${h}px;
         transition: transform var(--exio-standard-transition-duration);
       }
       .${t.id}:hover:not(.${t.id}-active)${O} {
-        ${f};
+        ${b};
         background-size: calc(100% + 2 * var(--exio-border-width));
         background-position: center;
         ${T};
@@ -312,14 +313,14 @@ import{y as $,$ as _,I as ee,d as oe,a as te,w as B,S as J,i as q,s as I,e as W,
         animation-duration: var(--exio-slow-transition-duration);
         animation-fill-mode: forwards;
       }
-    `,e.removeEventListener("animationstart",n)};e.addEventListener("animationstart",n);const a=document.createElement("div"),s=k(a),c=()=>{const m=getComputedStyle(e),p=m.getPropertyValue("--exio-slow-transition-duration"),b=m.getPropertyValue("--exio-backdrop-color");s.innerHTML=`
+    `,e.removeEventListener("animationstart",n)};e.addEventListener("animationstart",n);const a=document.createElement("div"),s=k(a),c=()=>{const m=getComputedStyle(e),p=m.getPropertyValue("--exio-slow-transition-duration"),f=m.getPropertyValue("--exio-backdrop-color");s.innerHTML=`
       .${s.id} {
         position: fixed;
         top: 0px;
         left: 0px;
         width: 100%;
         height: 100%;
-        background-color: ${b};
+        background-color: ${f};
         transition: opacity ${p};
         pointer-events: none;
         touch-action: none;
@@ -360,5 +361,5 @@ import{y as $,$ as _,I as ee,d as oe,a as te,w as B,S as J,i as q,s as I,e as W,
       scrollbar-width: thin;
       scrollbar-color: #888 transparent;
     }
-  `,E(()=>{o.remove()})}const j=B(!0),ke=te(j,e=>e?"dark":"light"),D=B(!1);function pe(e){let o,r,t,i,n,a,s,c;return{c(){o=W("dialog"),r=W("h2"),r.textContent="Hello World!",t=y(),i=W("p"),i.textContent="Exio uses the HTML dialog element.",n=y(),a=W("button"),a.textContent="Close",u(r,"class","svelte-xxdtl1"),u(a,"class","blue"),L(a,"float","right"),o.open=e[0],u(o,"class","dialog svelte-xxdtl1"),L(o,"width","min(300px, 100%)")},m(h,l){S(h,o,l),d(o,r),d(o,t),d(o,i),d(o,n),d(o,a),s||(c=[v(Z.call(null,a)),H(a,"click",e[1]),v(me.call(null,o))],s=!0)},p(h,[l]){l&1&&(o.open=h[0])},i:P,o:P,d(h){h&&Q(o),s=!1,w(c)}}}function Ee(e,o,r){let t;return U(e,D,n=>r(0,t=n)),[t,()=>re(D,t=!1,t)]}class ve extends J{constructor(o){super();q(this,o,Ee,pe,I,{})}}function xe(e){let o,r,t,i,n,a,s,c,h,l,m,p,b,g;return{c(){o=W("div"),r=W("div"),t=W("a"),i=W("button"),n=W("span"),n.textContent="home",a=y(),s=W("div"),c=W("span"),c.textContent="light_mode",h=y(),l=W("input"),m=y(),p=W("span"),p.textContent="dark_mode",u(n,"class","svelte-1q9zzdu"),u(i,"class","home-button svelte-1q9zzdu"),u(t,"href","#/"),u(t,"class","svelte-1q9zzdu"),u(r,"class","home svelte-1q9zzdu"),u(c,"class","svelte-1q9zzdu"),u(l,"type","checkbox"),u(l,"id","dark-mode"),u(l,"class","svelte-1q9zzdu"),u(p,"class","svelte-1q9zzdu"),u(s,"class","toggler svelte-1q9zzdu"),u(o,"class","navbar svelte-1q9zzdu")},m(f,T){S(f,o,T),d(o,r),d(r,t),d(t,i),d(i,n),d(o,a),d(o,s),d(s,c),d(s,h),d(s,l),l.checked=e[0],d(s,m),d(s,p),b||(g=[v(M.call(null,n)),v(Z.call(null,i)),v(M.call(null,c)),v(he.call(null,l)),H(l,"change",e[1]),v(M.call(null,p)),v(de.call(null,o))],b=!0)},p(f,[T]){T&1&&(l.checked=f[0])},i:P,o:P,d(f){f&&Q(o),b=!1,w(g)}}}function be(e,o,r){let t;U(e,j,n=>r(0,t=n));function i(){t=this.checked,j.set(t)}return[t,i]}class fe extends J{constructor(o){super();q(this,o,be,xe,I,{})}}function ye(e){let o,r,t,i,n,a,s,c,h;return r=new fe({}),i=new ve({}),a=new ie({props:{routes:e[1]}}),{c(){o=W("div"),Y(r.$$.fragment),t=y(),Y(i.$$.fragment),n=y(),Y(a.$$.fragment),u(o,"data-theme",e[0])},m(l,m){S(l,o,m),V(r,o,null),d(o,t),V(i,o,null),d(o,n),V(a,o,null),s=!0,c||(h=v(We.call(null,o)),c=!0)},p(l,[m]){(!s||m&1)&&u(o,"data-theme",l[0])},i(l){s||(R(r.$$.fragment,l),R(i.$$.fragment,l),R(a.$$.fragment,l),s=!0)},o(l){N(r.$$.fragment,l),N(i.$$.fragment,l),N(a.$$.fragment,l),s=!1},d(l){l&&Q(o),G(r),G(i),G(a),c=!1,h()}}}function ge(e,o,r){let t;U(e,ke,n=>r(0,t=n));let i={"/":z({asyncComponent:()=>X(()=>import("./Home.5b641a9c.js"),["assets/Home.5b641a9c.js","assets/Home.54f9aa24.css","assets/vendor.087b2ff5.js","assets/accordion.40ea4c83.js"])}),"/docs":z({asyncComponent:()=>X(()=>import("./Docs.cd7c0bc0.js"),["assets/Docs.cd7c0bc0.js","assets/Docs.9fa78561.css","assets/vendor.087b2ff5.js","assets/accordion.40ea4c83.js"])})};return e.$$.update=()=>{e.$$.dirty&1&&document.body.parentElement.style.setProperty("color-scheme",t)},[t,i]}class Te extends J{constructor(o){super();q(this,o,ge,ye,I,{})}}new Te({target:document.getElementById("app")});export{F as a,he as b,ue as c,E as d,x as e,Z as f,M as g,Qe as h,qe as i,de as j,Ie as k,Se as l,j as m,D as n,k as s,Je as t};
-//# sourceMappingURL=index.9ad4bc8d.js.map
+  `,E(()=>{o.remove()})}const j=B(!0),ke=te(j,e=>e?"dark":"light"),D=B(!1);function pe(e){let o,r,t,i,n,a,s,c;return{c(){o=W("dialog"),r=W("h2"),r.textContent="Hello World!",t=y(),i=W("p"),i.textContent="Exio uses the HTML dialog element.",n=y(),a=W("button"),a.textContent="Close",u(r,"class","svelte-xxdtl1"),u(a,"class","blue"),L(a,"float","right"),o.open=e[0],u(o,"class","dialog svelte-xxdtl1"),L(o,"width","min(300px, 100%)")},m(h,l){S(h,o,l),d(o,r),d(o,t),d(o,i),d(o,n),d(o,a),s||(c=[v(Z.call(null,a)),H(a,"click",e[1]),v(me.call(null,o))],s=!0)},p(h,[l]){l&1&&(o.open=h[0])},i:P,o:P,d(h){h&&Q(o),s=!1,w(c)}}}function Ee(e,o,r){let t;return U(e,D,n=>r(0,t=n)),[t,()=>re(D,t=!1,t)]}class ve extends J{constructor(o){super();q(this,o,Ee,pe,I,{})}}function xe(e){let o,r,t,i,n,a,s,c,h,l,m,p,f,g;return{c(){o=W("div"),r=W("div"),t=W("a"),i=W("button"),n=W("span"),n.textContent="home",a=y(),s=W("div"),c=W("span"),c.textContent="light_mode",h=y(),l=W("input"),m=y(),p=W("span"),p.textContent="dark_mode",u(n,"class","svelte-1q9zzdu"),u(i,"class","home-button svelte-1q9zzdu"),u(t,"href","#/"),u(t,"class","svelte-1q9zzdu"),u(r,"class","home svelte-1q9zzdu"),u(c,"class","svelte-1q9zzdu"),u(l,"type","checkbox"),u(l,"id","dark-mode"),u(l,"class","svelte-1q9zzdu"),u(p,"class","svelte-1q9zzdu"),u(s,"class","toggler svelte-1q9zzdu"),u(o,"class","navbar svelte-1q9zzdu")},m(b,T){S(b,o,T),d(o,r),d(r,t),d(t,i),d(i,n),d(o,a),d(o,s),d(s,c),d(s,h),d(s,l),l.checked=e[0],d(s,m),d(s,p),f||(g=[v(M.call(null,n)),v(Z.call(null,i)),v(M.call(null,c)),v(he.call(null,l)),H(l,"change",e[1]),v(M.call(null,p)),v(de.call(null,o))],f=!0)},p(b,[T]){T&1&&(l.checked=b[0])},i:P,o:P,d(b){b&&Q(o),f=!1,w(g)}}}function fe(e,o,r){let t;U(e,j,n=>r(0,t=n));function i(){t=this.checked,j.set(t)}return[t,i]}class be extends J{constructor(o){super();q(this,o,fe,xe,I,{})}}function ye(e){let o,r,t,i,n,a,s,c,h;return r=new be({}),i=new ve({}),a=new ie({props:{routes:e[1]}}),{c(){o=W("div"),Y(r.$$.fragment),t=y(),Y(i.$$.fragment),n=y(),Y(a.$$.fragment),u(o,"data-theme",e[0])},m(l,m){S(l,o,m),V(r,o,null),d(o,t),V(i,o,null),d(o,n),V(a,o,null),s=!0,c||(h=v(We.call(null,o)),c=!0)},p(l,[m]){(!s||m&1)&&u(o,"data-theme",l[0])},i(l){s||(R(r.$$.fragment,l),R(i.$$.fragment,l),R(a.$$.fragment,l),s=!0)},o(l){N(r.$$.fragment,l),N(i.$$.fragment,l),N(a.$$.fragment,l),s=!1},d(l){l&&Q(o),G(r),G(i),G(a),c=!1,h()}}}function ge(e,o,r){let t;U(e,ke,n=>r(0,t=n));let i={"/":z({asyncComponent:()=>X(()=>import("./Home.63308030.js"),["assets/Home.63308030.js","assets/Home.54f9aa24.css","assets/vendor.087b2ff5.js","assets/accordion.6f62471d.js"])}),"/docs":z({asyncComponent:()=>X(()=>import("./Docs.ad468a8d.js"),["assets/Docs.ad468a8d.js","assets/Docs.9fa78561.css","assets/vendor.087b2ff5.js","assets/accordion.6f62471d.js"])})};return e.$$.update=()=>{e.$$.dirty&1&&document.body.parentElement.style.setProperty("color-scheme",t)},[t,i]}class Te extends J{constructor(o){super();q(this,o,ge,ye,I,{})}}new Te({target:document.getElementById("app")});export{F as a,he as b,ue as c,E as d,x as e,Z as f,M as g,Qe as h,qe as i,de as j,Ie as k,Se as l,j as m,D as n,k as s,Je as t};
+//# sourceMappingURL=index.f9dc5713.js.map
