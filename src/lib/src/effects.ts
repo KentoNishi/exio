@@ -3,19 +3,22 @@ import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
 export type PointerEffectOptions = {
-  borderStyle?: 'reactive' | 'static' | 'hover';
-  disableClicking?: boolean;
-  focusable?: boolean;
+  borderStyle: 'reactive' | 'static' | 'hover';
+  disableClicking: boolean;
+  focusable: boolean;
+};
+
+const defaultOptions: PointerEffectOptions = {
+  borderStyle: 'reactive',
+  disableClicking: false,
+  focusable: false,
 };
 
 export function exioPointerEffect(
   node: HTMLElement,
-  additionalOptions: PointerEffectOptions = {
-    borderStyle: 'reactive',
-    disableClicking: false,
-    focusable: false,
-  }
+  additionalOptions: Partial<PointerEffectOptions> = defaultOptions
 ): ExioNode {
+  const options = { ...defaultOptions, ...additionalOptions };
   const component = exioComponent(node);
   const s = styler(node);
   const updateStyle = (mouseX = 0, mouseY = 0, width = 0, height = 0) => {

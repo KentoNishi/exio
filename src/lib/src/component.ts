@@ -27,7 +27,6 @@ export function exioComponent(node: HTMLElement): ExioNode {
         --exio-disabled-filter: brightness(1.2) grayscale(0.5);
         /* border color for focused elements */
         --exio-focused-border-color: rgba(0, 0, 0, 0.5);
-        --exio-focused-text-color: black;
         /* scaling factor for the acrylic hover highlight effect */
         --exio-hover-background-scale: 4;
         /* body color for the acrylic hover highlight effect */
@@ -62,21 +61,20 @@ export function exioComponent(node: HTMLElement): ExioNode {
         --exio-switch-selected-fill-color: darkgray;
         /* switch thumb color */
         --exio-switch-thumb-color: black;
-        /* standard text color */
-        --exio-text-color: black;
+        /* default text color for components */
+        --exio-default-text-color: black;
         /* scaling factor for the zoom in animation */
         --exio-zoom-in-animation-scale: 97.5%;
       }
       .exio-component {
         --is-exio-component: true;
         --exio-theme: light;
-        color: var(--exio-text-color);
+        color: var(--exio-default-text-color);
         ${font}
       }
       [data-theme="dark"] .exio-component, .exio-component[data-theme="dark"] {
         --exio-disabled-filter: brightness(0.6) grayscale(0.5);
         --exio-focused-border-color: rgba(255, 255, 255, 1);
-        --exio-focused-text-color: white;
         --exio-hover-background-scale: 4;
         --exio-hover-body-color: rgba(128, 128, 128, 0.3);
         --exio-hover-border-color: rgba(255, 255, 255, 0.5);
@@ -90,7 +88,7 @@ export function exioComponent(node: HTMLElement): ExioNode {
         --exio-switch-thumb-color: white;
         --exio-radio-indicator-color: white;
         --exio-theme: dark;
-        --exio-text-color: white;
+        --exio-default-text-color: white;
       }
     `;
     document.head.appendChild(style);

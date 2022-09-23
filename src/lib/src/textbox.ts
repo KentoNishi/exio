@@ -17,9 +17,6 @@ export function exioTextbox(
     .${s.id} {
       padding: 0.25em 0.25em;
     }
-    .${s.id}:focus {
-      color: var(--exio-focused-text-color);
-    }
     .${s.id}:disabled {
       pointer-events: none;
       touch-action: none;
