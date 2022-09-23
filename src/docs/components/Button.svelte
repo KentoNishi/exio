@@ -8,5 +8,6 @@
 <Examples {src}>
   <Example name="various-buttons">
     <button class="gray" use:exioButton>Default Button</button>
+    <button use:exioButton={{ backgroundColor: 'var(--accent)' }}>lmao</button>
   </Example>
 </Examples>
