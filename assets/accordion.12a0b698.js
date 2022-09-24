@@ -1,4 +1,4 @@
-import{e as p,c as g,a as T,s,d as y,t as H}from"./index.c7b86487.js";function v(o){const l=p(o);g();const t=o.querySelector("summary"),d=T(t,{borderStyle:"reactive"}),i=s(t);i.innerHTML=`
+import{e as p,c as g,a as T,s,d as y,t as H}from"./index.cdd99c8e.js";function v(o){const d=p(o);g();const t=o.querySelector("summary"),l=T(t,{borderStyle:"reactive"}),i=s(t);i.innerHTML=`
     .${i.id} {
       cursor: default;
       user-select: none;
@@ -45,5 +45,5 @@ import{e as p,c as g,a as T,s,d as y,t as H}from"./index.c7b86487.js";function v
           .${e.id} {
             max-height: ${f()}px;
           }
-        `,n=setTimeout(()=>{e.innerHTML=""},c())},0))};return t.addEventListener("click",m),y(()=>{d.destroy(),i.remove(),a.remove(),e.remove(),l.destroy(),t.removeEventListener("click",m)})}export{v as e};
-//# sourceMappingURL=accordion.aeb444a5.js.map
+        `,n=setTimeout(()=>{e.innerHTML=""},c())},0))};return t.addEventListener("click",m),y(()=>{l.destroy(),i.remove(),a.remove(),e.remove(),d.destroy(),t.removeEventListener("click",m)})}export{v as e};
+//# sourceMappingURL=accordion.12a0b698.js.map
