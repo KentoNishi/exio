@@ -28,8 +28,8 @@
   <Example name="styled-buttons" title="Buttons with style tags">
     <!-- elements can be customized with style tags -->
     <button use:exioButton class="purple-btn">Example<br />Button</button>
-    <button class="square-btn" use:exioButton>Example<br />Button</button>
-    <button class="purple-btn square-btn" use:exioButton>
+    <button use:exioButton class="square-btn">Example<br />Button</button>
+    <button use:exioButton class="purple-btn square-btn">
       Example<br />Button
     </button>
     <style>
