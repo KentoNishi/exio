@@ -1,4 +1,4 @@
-import { destroyer, styler } from './base';
+import { destroyer, updater, styler } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
@@ -25,7 +25,7 @@ export type ExioButtonArgs = Partial<{
 export function exioButton(
   node: HTMLButtonElement,
   opts: ExioButtonArgs = {}
-): ExioNode {
+): ExioNode<ExioButtonArgs> {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node);
   const s = styler(node);
@@ -35,13 +35,12 @@ export function exioButton(
     }
   `;
 
-  Object.entries(opts).forEach(([prop, val]) => {
-    node.style.setProperty(buttonVars[prop].prop, `${val}`);
-  });
-
-  return destroyer(() => {
-    effect.destroy();
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, buttonVars),
+    ...destroyer(() => {
+      effect.destroy();
+      s.remove();
+      component.destroy();
+    }),
+  };
 }

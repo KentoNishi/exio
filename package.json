@@ -10,7 +10,7 @@
     "build": "vite build",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "dev": "vite",
-    "format": "eslint --cache --fix .",
+    "format": "eslint --cache --fix src *.js",
     "serve": "vite preview"
   },
   "devDependencies": {
