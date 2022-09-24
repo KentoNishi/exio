@@ -32,6 +32,7 @@
   import { exampleSrcKey } from '../ts/constants';
 
   export let name = '';
+  export let title = '';
 
   const src = getContext(exampleSrcKey) as string;
 
@@ -40,6 +41,7 @@
 </script>
 
 <div class="example">
+  <h2 style="margin: 0px;">{title}</h2>
   <div class="example-content">
     <slot />
   </div>
@@ -61,6 +63,7 @@
     flex-direction: column;
     gap: 1rem;
     padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
   pre {
     margin: 0px !important;

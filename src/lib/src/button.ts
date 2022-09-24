@@ -1,6 +1,6 @@
 import { destroyer, updater, styler } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect } from './effects';
+import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 
 export const buttonVars = {
@@ -12,10 +12,7 @@ export const buttonVars = {
     prop: 'color',
     val: '',
   },
-  hoverBorderColor: {
-    prop: '--exio-hover-border-color',
-    val: '',
-  },
+  ...pointerEffectVars,
 };
 
 export type ExioButtonArgs = Partial<{

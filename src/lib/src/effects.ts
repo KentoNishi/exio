@@ -14,11 +14,46 @@ const defaultOptions: PointerEffectOptions = {
   focusable: false,
 };
 
+export const pointerEffectVars = {
+  hoverBorderColor: {
+    prop: '--exio-hover-border-color',
+    val: '',
+  },
+  hoverBorderScale: {
+    prop: '--exio-hover-border-scale',
+    val: '',
+  },
+  hoverBackgroundScale: {
+    prop: '--exio-hover-background-scale',
+    val: '',
+  },
+  borderWidth: {
+    prop: '--exio-border-width',
+    val: '',
+  },
+  focusedBorderColor: {
+    prop: '--exio-focused-border-color',
+    val: '',
+  },
+  clickingScale: {
+    prop: '--exio-clicking-scale',
+    val: '',
+  },
+  disabledFilter: {
+    prop: '--exio-disabled-filter',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-standard-transition-duration',
+    val: '',
+  },
+};
+
 export function exioPointerEffect(
   node: HTMLElement,
   additionalOptions: Partial<PointerEffectOptions> = defaultOptions
 ): ExioNode {
-  const options = { ...defaultOptions, ...additionalOptions };
+  // const options = { ...defaultOptions, ...additionalOptions };
   const component = exioComponent(node);
   const s = styler(node);
   const updateStyle = (mouseX = 0, mouseY = 0, width = 0, height = 0) => {
