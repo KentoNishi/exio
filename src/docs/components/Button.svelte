@@ -33,14 +33,14 @@
       Example<br />Button
     </button>
     <style>
+      .purple-btn {
+        background-color: mediumpurple;
+        color: white;
+      }
       .square-btn {
         background-color: var(--accent);
         width: 100px;
         height: 100px;
-      }
-      .purple-btn {
-        background-color: mediumpurple;
-        color: white;
       }
     </style>
   </Example>
