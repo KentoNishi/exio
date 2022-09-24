@@ -79,4 +79,14 @@
   details {
     width: 100%;
   }
+
+  /**
+   * prismjs puts an annoying background on operators (like ? and :)
+   * prism-okaidia theme doesn't give tokens a nice color
+   *   so we yoink the color from prism default light theme
+   */
+  :global(.token.operator) {
+    color: #9a6e3a !important;
+    background-color: transparent !important;
+  }
 </style>
