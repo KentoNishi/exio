@@ -1,5 +1,5 @@
 export { exioButton, buttonVars } from './src/button';
-export type { exioButtonArgs } from './src/button';
+export type { ExioButtonArgs } from './src/button';
 export { exioCard } from './src/card';
 export { exioSwitch } from './src/switch';
 export {
