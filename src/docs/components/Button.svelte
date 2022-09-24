@@ -8,16 +8,19 @@
 
 <Examples {src}>
   <Example name="various-buttons">
+    <!-- "gray" is a user-defined css class -->
     <button class="gray" use:exioButton>Default Button</button>
 
+    <!-- exio elements can be customized with pure css -->
     <button use:exioButton style="background-color: var(--accent);">
       Styling with css
     </button>
 
+    <!-- some convenient reactive props are provided too! -->
     <button
       use:exioButton={{
         textColor: 'white',
-        backgroundColor: toggled ? 'blue' : 'green',
+        backgroundColor: toggled ? 'crimson' : 'darkgoldenrod',
       }}
       on:click={() => (toggled = !toggled)}
     >

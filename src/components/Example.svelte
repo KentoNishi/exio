@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
   import prismDark from 'prismjs/themes/prism-okaidia.min.css';
   import prismLight from 'prismjs/themes/prism.min.css';
+  import { _ } from 'svelte-i18n';
 
   import { dark } from '../ts/stores';
 
@@ -43,7 +44,7 @@
     <slot />
   </div>
   <details use:exioAccordion style="width: 100%">
-    <summary class="cyan">View Source</summary>
+    <summary class="cyan">{$_('docs.view-source')}</summary>
     <div class="example-src">
       <pre
         class="language-svelte">
@@ -65,6 +66,7 @@
     margin: 0px !important;
     max-width: 100%;
     width: 100%;
+    border-radius: 0px !important;
   }
 
   /* .example::before {

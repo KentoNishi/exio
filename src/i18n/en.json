@@ -14,5 +14,8 @@
   },
   "demo": {
     "title": "Demo"
+  },
+  "docs": {
+    "view-source": "View Source Code"
   }
 }
