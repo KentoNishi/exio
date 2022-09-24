@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
-  import prismDark from 'prismjs/themes/prism-okaidia.css';
-  import prismLight from 'prismjs/themes/prism.css';
+  import prismDark from 'prismjs/themes/prism-okaidia.min.css';
+  import prismLight from 'prismjs/themes/prism.min.css';
 
   import { dark } from '../ts/stores';
 
