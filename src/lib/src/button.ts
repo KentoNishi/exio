@@ -12,14 +12,14 @@ export const buttonVars = {
     prop: 'color',
     val: '',
   },
-  borderColor: {
+  hoverBorderColor: {
     prop: '--exio-hover-border-color',
     val: '',
   },
 };
 
 export type ExioButtonArgs = Partial<{
-  [Prop in keyof typeof buttonVars]: string;
+  [Prop in keyof typeof buttonVars]: typeof buttonVars[Prop]['val'] | string;
 }>;
 
 export function exioButton(

@@ -17,6 +17,7 @@
     width: calc(100% - 40px);
     margin-top: 20px;
     margin-bottom: 20px;
+    padding-top: 50px;
     height: fit-content;
   }
   .center {
@@ -24,7 +25,6 @@
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-    padding-top: 50px;
     background-color: white;
   }
   :global([data-theme='dark']) .center {

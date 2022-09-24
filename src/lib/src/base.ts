@@ -1,4 +1,4 @@
-export interface ExioNode<T> {
+export interface ExioNode<T = any> {
   update?: (opts: T) => void;
   destroy: () => void;
 }
