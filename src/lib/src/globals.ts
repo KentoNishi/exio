@@ -1,8 +1,19 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { font } from './consts';
 
-export function exioGlobalStyler(node: HTMLElement): ExioNode {
+export const globalStylerVars = {};
+
+export type ExioGlobalStylerArgs = Partial<{
+  [Prop in keyof typeof globalStylerVars]:
+    | typeof globalStylerVars[Prop]['val']
+    | string;
+}>;
+
+export function exioGlobalStyler(
+  node: HTMLElement,
+  opts: ExioGlobalStylerArgs = {}
+): ExioNode<ExioGlobalStylerArgs> {
   const s = styler(node);
   s.innerHTML = `
     body {
@@ -40,7 +51,10 @@ export function exioGlobalStyler(node: HTMLElement): ExioNode {
       scrollbar-color: #888 transparent;
     }
   `;
-  return destroyer(() => {
-    s.remove();
-  });
+  return {
+    ...updater(opts, node, globalStylerVars),
+    ...destroyer(() => {
+      s.remove();
+    }),
+  };
 }

@@ -1,4 +1,4 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
@@ -21,7 +21,16 @@ export function createExioFont(): void {
   }
 }
 
-export const exioIcon = (node: HTMLElement): ExioNode => {
+export const iconVars = {};
+
+export type ExioIconArgs = Partial<{
+  [Prop in keyof typeof iconVars]: typeof iconVars[Prop]['val'] | string;
+}>;
+
+export const exioIcon = (
+  node: HTMLElement,
+  opts: ExioIconArgs = {}
+): ExioNode<ExioIconArgs> => {
   const component = exioComponent(node);
   createExioFont();
   const s = styler(node);
@@ -30,8 +39,11 @@ export const exioIcon = (node: HTMLElement): ExioNode => {
       font-family: 'Exio Icons';
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, iconVars),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 };

@@ -1,9 +1,55 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
 
-export function exioSwitch(node: HTMLInputElement): ExioNode {
+export const switchVars = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  borderWidth: {
+    prop: '--exio-border-width',
+    val: '',
+  },
+  checkedFillColor: {
+    prop: '--exio-switch-selected-fill-color',
+    val: '',
+  },
+  switchThumbColor: {
+    prop: '--exio-switch-thumb-color',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-standard-transition-duration',
+    val: '',
+  },
+  hoverBackgroundScale: {
+    prop: '--exio-hover-background-scale',
+    val: '',
+  },
+  hoverBodyColor: {
+    prop: '--exio-hover-body-color',
+    val: '',
+  },
+  clickingScale: {
+    prop: '--exio-clicking-scale',
+    val: '',
+  },
+  disabledFilter: {
+    prop: '--exio-disabled-filter',
+    val: '',
+  },
+};
+
+export type ExioSwitchArgs = Partial<{
+  [Prop in keyof typeof switchVars]: typeof switchVars[Prop]['val'] | string;
+}>;
+
+export function exioSwitch(
+  node: HTMLInputElement,
+  opts: ExioSwitchArgs = {}
+): ExioNode<ExioSwitchArgs> {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
@@ -49,10 +95,13 @@ export function exioSwitch(node: HTMLInputElement): ExioNode {
       )) scale(0.5);
     }
   `;
-  return destroyer(() => {
-    effect.destroy();
-    s1.remove();
-    s2.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, switchVars),
+    ...destroyer(() => {
+      effect.destroy();
+      s1.remove();
+      s2.remove();
+      component.destroy();
+    }),
+  };
 }

@@ -57,15 +57,15 @@ export function exioPointerEffect(
   node: HTMLElement,
   additionalOptions: Partial<PointerEffectOptions> = defaultOptions
 ): ExioNode {
-  // const options = { ...defaultOptions, ...additionalOptions };
+  const options = { ...defaultOptions, ...additionalOptions };
   const component = exioComponent(node);
   const s = styler(node);
   const updateStyle = (mouseX = 0, mouseY = 0, width = 0, height = 0) => {
     const borderHoverRadius = `calc(
       ${Math.max(width, height)}px * var(--exio-hover-border-scale)
     )`;
-    const useStaticBorder = additionalOptions.borderStyle === 'static';
-    const useHoverBorder = additionalOptions.borderStyle === 'hover';
+    const useStaticBorder = options.borderStyle === 'static';
+    const useHoverBorder = options.borderStyle === 'hover';
     const hoverBorder =
       useStaticBorder || useHoverBorder
         ? 'border: var(--exio-border-width) solid var(--exio-hover-border-color)'
@@ -86,7 +86,7 @@ export function exioPointerEffect(
         )
       `
       : '';
-    const focusedBorder = additionalOptions.focusable
+    const focusedBorder = options.focusable
       ? 'border: var(--exio-border-width) solid var(--exio-focused-border-color)'
       : '';
     const focusableActive = focusedBorder ? ':not(:focus)' : '';
@@ -144,7 +144,7 @@ export function exioPointerEffect(
   const onMouseUp = () => {
     node.classList.remove(`${s.id}-active`);
   };
-  if (!additionalOptions.disableClicking) {
+  if (!options.disableClicking) {
     node.addEventListener('touchstart', onMouseDown);
     window.addEventListener('touchend', onMouseUp);
     node.addEventListener('mousedown', onMouseDown);
@@ -154,7 +154,7 @@ export function exioPointerEffect(
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);
     node.removeEventListener('mousemove', onHover);
-    if (!additionalOptions.disableClicking) {
+    if (!options.disableClicking) {
       node.removeEventListener('touchstart', onMouseDown);
       window.removeEventListener('touchend', onMouseUp);
       node.removeEventListener('mousedown', onMouseDown);

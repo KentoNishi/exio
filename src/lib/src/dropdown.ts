@@ -1,9 +1,30 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect } from './effects';
+import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 
-export function exioDropdown(node: HTMLSelectElement): ExioNode {
+export const dropdownVars = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-standard-transition-duration',
+    val: '',
+  },
+  ...pointerEffectVars,
+};
+
+export type ExioDropdownArgs = Partial<{
+  [Prop in keyof typeof dropdownVars]:
+    | typeof dropdownVars[Prop]['val']
+    | string;
+}>;
+
+export function exioDropdown(
+  node: HTMLSelectElement,
+  opts: ExioDropdownArgs
+): ExioNode<ExioDropdownArgs> {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node);
   const s = styler(node);
@@ -131,19 +152,22 @@ export function exioDropdown(node: HTMLSelectElement): ExioNode {
   dropdown.addEventListener('blur', onBlur);
   window.addEventListener('scroll', scroll);
   window.addEventListener('resize', scroll);
-  return destroyer(() => {
-    items.forEach((item) => item.destroy());
-    window.removeEventListener('scroll', scroll);
-    window.removeEventListener('resize', scroll);
-    node.removeEventListener('mousedown', onDown);
-    node.removeEventListener('touchstart', onDown);
-    node.removeEventListener('click', forceFocus);
-    node.removeEventListener('touchend', forceFocus);
-    dropdown.removeEventListener('blur', onBlur);
-    effect.destroy();
-    s.remove();
-    dropdown.remove();
-    ds.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, dropdownVars),
+    ...destroyer(() => {
+      items.forEach((item) => item.destroy());
+      window.removeEventListener('scroll', scroll);
+      window.removeEventListener('resize', scroll);
+      node.removeEventListener('mousedown', onDown);
+      node.removeEventListener('touchstart', onDown);
+      node.removeEventListener('click', forceFocus);
+      node.removeEventListener('touchend', forceFocus);
+      dropdown.removeEventListener('blur', onBlur);
+      effect.destroy();
+      s.remove();
+      dropdown.remove();
+      ds.remove();
+      component.destroy();
+    }),
+  };
 }

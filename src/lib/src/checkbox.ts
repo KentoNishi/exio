@@ -5,6 +5,10 @@ import { exioComponent } from './component';
 import { createExioFont } from './icon';
 
 export const checkboxVars = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
   selectedFillColor: {
     prop: '--exio-checkbox-selected-fill-color',
     val: '',

@@ -1,9 +1,43 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { isSafari } from './consts';
 import { exioComponent } from './component';
 
-export function exioSlider(node: HTMLInputElement): ExioNode {
+export const sliderArgs = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  thumbSize: {
+    prop: '--exio-slider-thumb-size',
+    val: '',
+  },
+  thumbColor: {
+    prop: '--exio-slider-thumb-color',
+    val: '',
+  },
+  thumbHoverOutlineSize: {
+    prop: '--exio-slider-thumb-hover-outline-size',
+    val: '',
+  },
+  thumbHoverOutlineColor: {
+    prop: '--exio-hover-body-color',
+    val: '',
+  },
+  trackSize: {
+    prop: '--exio-slider-track-size',
+    val: '',
+  },
+};
+
+export type SliderArgs = Partial<{
+  [Prop in keyof typeof sliderArgs]: typeof sliderArgs[Prop]['val'] | string;
+}>;
+
+export function exioSlider(
+  node: HTMLInputElement,
+  opts: SliderArgs = {}
+): ExioNode<SliderArgs> {
   const component = exioComponent(node);
   const s = styler(node);
   const thumb = `
@@ -66,8 +100,11 @@ export function exioSlider(node: HTMLInputElement): ExioNode {
       ${outline2}
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, sliderArgs),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 }

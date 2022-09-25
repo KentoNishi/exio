@@ -1,4 +1,4 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import dialogPolyfill from 'dialog-polyfill';
 import { exioComponent } from './component';
@@ -36,7 +36,29 @@ interface HTMLDialogElement extends globalThis.HTMLDialogElement {
   showModal(): void;
 }
 
-export function exioDialog(node: HTMLDialogElement): ExioNode {
+export const dialogVars = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-slow-transition-duration',
+    val: '',
+  },
+  backdopColor: {
+    prop: '--exio-backdrop-color',
+    val: '',
+  },
+};
+
+export type ExioDialogArgs = Partial<{
+  [Prop in keyof typeof dialogVars]: typeof dialogVars[Prop]['val'] | string;
+}>;
+
+export function exioDialog(
+  node: HTMLDialogElement,
+  opts: ExioDialogArgs = {}
+): ExioNode<ExioDialogArgs> {
   const component = exioComponent(node);
   let isOpen = Boolean(node.open);
   const s = styler(node);
@@ -148,12 +170,15 @@ export function exioDialog(node: HTMLDialogElement): ExioNode {
     observe();
   });
   observe();
-  return destroyer(() => {
-    s.remove();
-    node.removeEventListener('animationstart', anistarted);
-    if (s2) s2.remove();
-    s3.remove();
-    observer.disconnect();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, dialogVars),
+    ...destroyer(() => {
+      s.remove();
+      node.removeEventListener('animationstart', anistarted);
+      if (s2) s2.remove();
+      s3.remove();
+      observer.disconnect();
+      component.destroy();
+    }),
+  };
 }

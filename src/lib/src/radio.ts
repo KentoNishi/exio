@@ -1,9 +1,32 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect } from './effects';
+import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 
-export const exioRadio = (node: HTMLInputElement): ExioNode => {
+export const radioArgs = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  indicatorColor: {
+    prop: '--exio-radio-indicator-color',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-standard-transition-duration',
+    val: '',
+  },
+  ...pointerEffectVars,
+};
+
+export type ExioRadioArgs = Partial<{
+  [Prop in keyof typeof radioArgs]: typeof radioArgs[Prop]['val'] | string;
+}>;
+
+export const exioRadio = (
+  node: HTMLInputElement,
+  opts: ExioRadioArgs = {}
+): ExioNode<ExioRadioArgs> => {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
@@ -45,10 +68,13 @@ export const exioRadio = (node: HTMLInputElement): ExioNode => {
       transform: scale(0.55);
     }
   `;
-  return destroyer(() => {
-    effect.destroy();
-    s1.remove();
-    s2.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, radioArgs),
+    ...destroyer(() => {
+      effect.destroy();
+      s1.remove();
+      s2.remove();
+      component.destroy();
+    }),
+  };
 };

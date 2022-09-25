@@ -1,8 +1,19 @@
-import { destroyer } from './base';
+import { destroyer, updater } from './base';
 import type { ExioNode } from './base';
 import { font } from './consts';
 
-export function exioComponent(node: HTMLElement): ExioNode {
+export const componentVars = {};
+
+export type ExioComponentArgs = Partial<{
+  [Prop in keyof typeof componentVars]:
+    | typeof componentVars[Prop]['val']
+    | string;
+}>;
+
+export function exioComponent(
+  node: HTMLElement,
+  opts: ExioComponentArgs = {}
+): ExioNode<ExioComponentArgs> {
   node.classList.add('exio-component');
   let style = document.querySelector('#exio-styles') as HTMLStyleElement | null;
   if (!style) {
@@ -93,7 +104,10 @@ export function exioComponent(node: HTMLElement): ExioNode {
     `;
     document.head.appendChild(style);
   }
-  return destroyer(() => {
-    node.classList.remove('exio-component');
-  });
+  return {
+    ...updater(opts, node, componentVars),
+    ...destroyer(() => {
+      node.classList.remove('exio-component');
+    }),
+  };
 }

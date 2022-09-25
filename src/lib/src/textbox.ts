@@ -1,11 +1,39 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
 
+export const textboxVars = {
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+  borderWidth: {
+    prop: '--exio-border-width',
+    val: '',
+  },
+  disabledFilter: {
+    prop: '--exio-disabled-filter',
+    val: '',
+  },
+  focusedBorderColor: {
+    prop: '--exio-focused-border-color',
+    val: '',
+  },
+  hoverBorderColor: {
+    prop: '--exio-hover-border-color',
+    val: '',
+  },
+};
+
+export type ExioTextboxArgs = Partial<{
+  [Prop in keyof typeof textboxVars]: typeof textboxVars[Prop]['val'] | string;
+}>;
+
 export function exioTextbox(
-  node: HTMLInputElement | HTMLTextAreaElement
-): ExioNode {
+  node: HTMLInputElement | HTMLTextAreaElement,
+  opts: ExioTextboxArgs = {}
+): ExioNode<ExioTextboxArgs> {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
     disableClicking: true,
@@ -17,15 +45,13 @@ export function exioTextbox(
     .${s.id} {
       padding: 0.25em 0.25em;
     }
-    .${s.id}:disabled {
-      pointer-events: none;
-      touch-action: none;
-      filter: var(--exio-disabled-filter);
-    }
   `;
-  return destroyer(() => {
-    effect.destroy();
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, textboxVars),
+    ...destroyer(() => {
+      effect.destroy();
+      s.remove();
+      component.destroy();
+    }),
+  };
 }
