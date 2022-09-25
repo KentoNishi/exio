@@ -38,6 +38,9 @@ export function exioAccordion(
     .${s1.id}::marker{
       font-size: 0px;
     }
+    .${s1.id}::-webkit-details-marker {
+      display: none;
+    }
     .${s1.id}::after {
       content: 'expand_more';
       font-family: 'Exio Icons';
