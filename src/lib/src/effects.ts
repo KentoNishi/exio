@@ -15,24 +15,8 @@ const defaultOptions: PointerEffectOptions = {
 };
 
 export const pointerEffectVars = {
-  hoverBorderColor: {
-    prop: '--exio-hover-border-color',
-    val: '',
-  },
-  hoverBorderScale: {
-    prop: '--exio-hover-border-scale',
-    val: '',
-  },
-  hoverBackgroundScale: {
-    prop: '--exio-hover-background-scale',
-    val: '',
-  },
   borderWidth: {
     prop: '--exio-border-width',
-    val: '',
-  },
-  focusedBorderColor: {
-    prop: '--exio-focused-border-color',
     val: '',
   },
   clickingScale: {
@@ -41,6 +25,26 @@ export const pointerEffectVars = {
   },
   disabledFilter: {
     prop: '--exio-disabled-filter',
+    val: '',
+  },
+  focusedBorderColor: {
+    prop: '--exio-focused-border-color',
+    val: '',
+  },
+  hoverBackgroundScale: {
+    prop: '--exio-hover-background-scale',
+    val: '',
+  },
+  hoverBodyColor: {
+    prop: '--exio-hover-body-color',
+    val: '',
+  },
+  hoverBorderColor: {
+    prop: '--exio-hover-border-color',
+    val: '',
+  },
+  hoverBorderScale: {
+    prop: '--exio-hover-border-scale',
     val: '',
   },
   transitionDuration: {
