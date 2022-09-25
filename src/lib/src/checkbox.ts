@@ -1,10 +1,27 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect } from './effects';
+import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 import { createExioFont } from './icon';
 
-export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
+export const checkboxVars = {
+  transitionDuration: {
+    prop: '--exio-slow-transition-duration',
+    val: '',
+  },
+  ...pointerEffectVars,
+};
+
+export type ExioCheckboxArgs = Partial<{
+  [Prop in keyof typeof checkboxVars]:
+    | typeof checkboxVars[Prop]['val']
+    | string;
+}>;
+
+export const exioCheckbox = (
+  node: HTMLInputElement,
+  opts: ExioCheckboxArgs = {}
+): ExioNode<ExioCheckboxArgs> => {
   const component = exioComponent(node);
   createExioFont();
   const effect = exioPointerEffect(node, {
@@ -44,10 +61,13 @@ export const exioCheckbox = (node: HTMLInputElement): ExioNode => {
       transform: scale(1.1);
     }
   `;
-  return destroyer(() => {
-    effect.destroy();
-    s1.remove();
-    s2.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, checkboxVars),
+    ...destroyer(() => {
+      effect.destroy();
+      s1.remove();
+      s2.remove();
+      component.destroy();
+    }),
+  };
 };

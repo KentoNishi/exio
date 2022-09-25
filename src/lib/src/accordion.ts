@@ -38,7 +38,7 @@ export function exioAccordion(
     .${s1.id}::marker{
       font-size: 0px;
     }
-    .${s1.id}:after {
+    .${s1.id}::after {
       content: 'expand_more';
       font-family: 'Exio Icons';
       font-size: 1.5em;
@@ -79,7 +79,7 @@ export function exioAccordion(
         }
       `;
         s4.innerHTML = `
-        .${s4.id}:after {
+        .${s4.id}::after {
           transform: rotate(0deg);
         }
       `;
@@ -94,7 +94,7 @@ export function exioAccordion(
         }
       `;
       s4.innerHTML = `
-        .${s4.id}:after {
+        .${s4.id}::after {
           transform: rotate(180deg);
         }
       `;
