@@ -4,7 +4,7 @@ import { isSafari } from './consts';
 import { exioComponent } from './component';
 
 export const sliderArgs = {
-  backgroundColor: {
+  trackColor: {
     prop: 'background-color',
     val: '',
   },

@@ -33,7 +33,7 @@ export function exioComponent(
         /* color of checkbox checkmarks when selected */
         --exio-checkbox-checkmark-color: white;
         /* color of checkbox fill when selected */
-        --exio-checkbox-selected-fill-color: black;
+        --exio-checkbox-checked-fill-color: black;
         /* filter for disabled fields */
         --exio-disabled-filter: brightness(1.2) grayscale(0.5);
         /* border color for focused elements */
@@ -69,7 +69,7 @@ export function exioComponent(
         /* standard transition duration */
         --exio-standard-transition-duration: 0.2s;
         /* color of switch background when selected */
-        --exio-switch-selected-fill-color: darkgray;
+        --exio-switch-checked-fill-color: darkgray;
         /* switch thumb color */
         --exio-switch-thumb-color: black;
         /* default text color for components */
@@ -92,9 +92,9 @@ export function exioComponent(
         --exio-hover-border-scale: 2;
         --exio-loader-fill-color: white;
         --exio-loader-duration: 1s;
-        --exio-switch-selected-fill-color: white;
+        --exio-switch-checked-fill-color: white;
         --exio-checkbox-checkmark-color: black;
-        --exio-checkbox-selected-fill-color: white;
+        --exio-checkbox-checked-fill-color: white;
         --exio-slider-thumb-color: white;
         --exio-switch-thumb-color: white;
         --exio-radio-indicator-color: white;

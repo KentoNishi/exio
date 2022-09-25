@@ -38,3 +38,6 @@ A framework-independent UI library that extends native HTML elements! Compatible
     <li><code>exioLoadingBarAnimation</code></li>
   </ul>
 </details>
+
+## Contributing
+Please take a look at [README_dev.md](https://github.com/KentoNishi/exio/blob/master/README_dev.md) for instructions on how to contribute to this project.

@@ -43,7 +43,7 @@
           bind:checked={$dark}
           style="
                   border-color: {colorInverted};
-                  --exio-switch-selected-fill-color: var(--accent);
+                  --exio-switch-checked-fill-color: var(--accent);
                 "
         />
         <label for="dark-mode">Dark Mode</label>
@@ -66,7 +66,7 @@
           id="disable-button"
           style="
             border-color: {colorInverted};
-            --exio-switch-selected-fill-color: var(--accent);
+            --exio-switch-checked-fill-color: var(--accent);
           "
           bind:checked={buttonDisabled}
         />
@@ -86,7 +86,7 @@
             id="switch-option-1"
             style="
                   border-color: {colorInverted};
-                  --exio-switch-selected-fill-color: var(--accent);
+                  --exio-switch-checked-fill-color: var(--accent);
                 "
           />
           <label for="switch-option-1">Switch Option 1</label>
@@ -98,7 +98,7 @@
             id="switch-option-2"
             style="
                   border-color: var(--accent);
-                  --exio-switch-selected-fill-color: {colorInverted};
+                  --exio-switch-checked-fill-color: {colorInverted};
                   --exio-switch-thumb-color: var(--accent);
                 "
           />
@@ -115,7 +115,7 @@
             id="checkbox-option-1"
             style="
                   border-color: {colorInverted};
-                  --exio-checkbox-selected-fill-color: {colorInverted};
+                  --exio-checkbox-checked-fill-color: {colorInverted};
                   --exio-checkbox-checkmark-color: {colorDefault};
                 "
           />
@@ -128,7 +128,7 @@
             id="checkbox-option-2"
             style="
                   border-color: var(--accent);
-                  --exio-checkbox-selected-fill-color: var(--accent);
+                  --exio-checkbox-checked-fill-color: var(--accent);
                   --exio-checkbox-checkmark-color: {colorInverted};
                 "
           />
@@ -225,7 +225,7 @@
           id="disable-text"
           style="
             border-color: {colorInverted};
-            --exio-switch-selected-fill-color: var(--accent);
+            --exio-switch-checked-fill-color: var(--accent);
           "
           bind:checked={textDisabled}
         />

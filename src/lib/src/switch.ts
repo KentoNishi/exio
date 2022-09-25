@@ -13,7 +13,7 @@ export const switchVars = {
     val: '',
   },
   checkedFillColor: {
-    prop: '--exio-switch-selected-fill-color',
+    prop: '--exio-switch-checked-fill-color',
     val: '',
   },
   switchThumbColor: {
@@ -66,7 +66,7 @@ export function exioSwitch(
       justify-content: center;
       overflow: visible;
       border-color: black;
-      background-color: var(--exio-switch-selected-fill-color);
+      background-color: var(--exio-switch-checked-fill-color);
     }
     [data-theme=dark] .${s1.id} {
       border-color: white;

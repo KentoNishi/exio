@@ -1,6 +1,6 @@
 import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect, pointerEffectVars } from './effects';
+import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
 import { createExioFont } from './icon';
 
@@ -9,15 +9,42 @@ export const checkboxVars = {
     prop: 'background-color',
     val: '',
   },
-  selectedFillColor: {
-    prop: '--exio-checkbox-selected-fill-color',
+  checkedFillColor: {
+    prop: '--exio-checkbox-checked-fill-color',
     val: '',
   },
   checkmarkColor: {
     prop: '--exio-checkbox-checkmark-color',
     val: '',
   },
-  ...pointerEffectVars,
+  borderWidth: {
+    prop: '--exio-border-width',
+    val: '',
+  },
+  clickingScale: {
+    prop: '--exio-clicking-scale',
+    val: '',
+  },
+  disabledFilter: {
+    prop: '--exio-disabled-filter',
+    val: '',
+  },
+  hoverBackgroundScale: {
+    prop: '--exio-hover-background-scale',
+    val: '',
+  },
+  hoverBodyColor: {
+    prop: '--exio-hover-body-color',
+    val: '',
+  },
+  borderColor: {
+    prop: 'border-color',
+    val: '',
+  },
+  transitionDuration: {
+    prop: '--exio-standard-transition-duration',
+    val: '',
+  },
 };
 
 export type ExioCheckboxArgs = Partial<{
@@ -45,7 +72,7 @@ export const exioCheckbox = (
       align-items: center;
       justify-content: center;
       padding: 0px;
-      background-color: var(--exio-checkbox-selected-fill-color);
+      background-color: var(--exio-checkbox-checked-fill-color);
     }
     .${s1.id}:not(:checked) {
       background-color: transparent;
