@@ -23,7 +23,7 @@ export type ExioDropdownArgs = Partial<{
 
 export function exioDropdown(
   node: HTMLSelectElement,
-  opts: ExioDropdownArgs
+  opts: ExioDropdownArgs = {}
 ): ExioNode<ExioDropdownArgs> {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node);

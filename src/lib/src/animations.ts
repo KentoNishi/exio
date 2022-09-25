@@ -95,7 +95,7 @@ export type ExioZoomInAnimationArgs = Partial<{
 
 export function exioZoomInAnimation(
   node: HTMLElement,
-  opts: ExioZoomInAnimationArgs
+  opts: ExioZoomInAnimationArgs = {}
 ): ExioNode<ExioZoomInAnimationArgs> {
   const component = exioComponent(node);
   const s = styler(node);
@@ -150,7 +150,7 @@ export type ExioLoadingBarArgs = Partial<{
 
 export function exioLoadingBarAnimation(
   node: HTMLDivElement,
-  opts: ExioLoadingBarArgs
+  opts: ExioLoadingBarArgs = {}
 ): ExioNode<ExioLoadingBarArgs> {
   const component = exioComponent(node);
   const s = styler(node);
