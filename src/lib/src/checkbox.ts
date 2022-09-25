@@ -5,8 +5,12 @@ import { exioComponent } from './component';
 import { createExioFont } from './icon';
 
 export const checkboxVars = {
-  transitionDuration: {
-    prop: '--exio-slow-transition-duration',
+  selectedFillColor: {
+    prop: '--exio-checkbox-selected-fill-color',
+    val: '',
+  },
+  checkmarkColor: {
+    prop: '--exio-checkbox-checkmark-color',
     val: '',
   },
   ...pointerEffectVars,
