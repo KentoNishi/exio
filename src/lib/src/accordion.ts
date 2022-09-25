@@ -1,10 +1,27 @@
-import { destroyer, styler, toMillis } from './base';
+import { destroyer, styler, toMillis, updater } from './base';
 import type { ExioNode } from './base';
-import { exioPointerEffect } from './effects';
+import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 import { createExioFont } from './icon';
 
-export function exioAccordion(node: HTMLDetailsElement): ExioNode {
+export const accordionVars = {
+  transitionDuration: {
+    prop: '--exio-slow-transition-duration',
+    val: '',
+  },
+  ...pointerEffectVars,
+};
+
+export type ExioAccordionArgs = Partial<{
+  [Prop in keyof typeof accordionVars]:
+    | typeof accordionVars[Prop]['val']
+    | string;
+}>;
+
+export function exioAccordion(
+  node: HTMLDetailsElement,
+  opts: ExioAccordionArgs = {}
+): ExioNode<ExioAccordionArgs> {
   const component = exioComponent(node);
   createExioFont();
   const summary = node.querySelector('summary');
@@ -94,12 +111,15 @@ export function exioAccordion(node: HTMLDetailsElement): ExioNode {
     }
   };
   summary.addEventListener('click', summaryClickListener);
-  return destroyer(() => {
-    effect.destroy();
-    s1.remove();
-    s2.remove();
-    s3.remove();
-    component.destroy();
-    summary.removeEventListener('click', summaryClickListener);
-  });
+  return {
+    ...updater(opts, node, accordionVars),
+    ...destroyer(() => {
+      effect.destroy();
+      s1.remove();
+      s2.remove();
+      s3.remove();
+      component.destroy();
+      summary.removeEventListener('click', summaryClickListener);
+    }),
+  };
 }
