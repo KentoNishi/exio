@@ -1,8 +1,24 @@
-import { destroyer, styler } from './base';
+import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
-export function exioFlyInAnimation(node: HTMLElement): ExioNode {
+export const animationVars = {
+  animationDuration: {
+    prop: 'animation-duration',
+    val: '',
+  },
+};
+
+export type ExioAnimationArgs = Partial<{
+  [Prop in keyof typeof animationVars]:
+    | typeof animationVars[Prop]['val']
+    | string;
+}>;
+
+export function exioFlyInAnimation(
+  node: HTMLElement,
+  opts: ExioAnimationArgs = {}
+): ExioNode<ExioAnimationArgs> {
   const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
@@ -23,13 +39,19 @@ export function exioFlyInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, animationVars),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 }
 
-export function exioFadeInAnimation(node: HTMLElement): ExioNode {
+export function exioFadeInAnimation(
+  node: HTMLElement,
+  opts: ExioAnimationArgs = {}
+): ExioNode<ExioAnimationArgs> {
   const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
@@ -48,13 +70,33 @@ export function exioFadeInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, animationVars),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 }
 
-export function exioZoomInAnimation(node: HTMLElement): ExioNode {
+export const zoomInAnimationVars = {
+  animationScale: {
+    prop: '--exio-zoom-in-animation-scale',
+    val: '',
+  },
+  ...animationVars,
+};
+
+export type ExioZoomInAnimationArgs = Partial<{
+  [Prop in keyof typeof zoomInAnimationVars]:
+    | typeof zoomInAnimationVars[Prop]['val']
+    | string;
+}>;
+
+export function exioZoomInAnimation(
+  node: HTMLElement,
+  opts: ExioZoomInAnimationArgs
+): ExioNode<ExioZoomInAnimationArgs> {
   const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
@@ -75,13 +117,41 @@ export function exioZoomInAnimation(node: HTMLElement): ExioNode {
       opacity: 0;
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, zoomInAnimationVars),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 }
 
-export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
+export const loadingBarVars = {
+  ...animationVars,
+  animationDuration: {
+    prop: '--exio-loader-duration',
+    val: '',
+  },
+  fillColor: {
+    prop: '--exio-loader-fill-color',
+    val: '',
+  },
+  backgroundColor: {
+    prop: 'background-color',
+    val: '',
+  },
+};
+
+export type ExioLoadingBarArgs = Partial<{
+  [Prop in keyof typeof loadingBarVars]:
+    | typeof loadingBarVars[Prop]['val']
+    | string;
+}>;
+
+export function exioLoadingBarAnimation(
+  node: HTMLDivElement,
+  opts: ExioLoadingBarArgs
+): ExioNode<ExioLoadingBarArgs> {
   const component = exioComponent(node);
   const s = styler(node);
   s.innerHTML = `
@@ -109,8 +179,11 @@ export function exioLoadingBarAnimation(node: HTMLDivElement): ExioNode {
       animation: exio-loading-bar var(--exio-loader-duration) linear infinite;
     }
   `;
-  return destroyer(() => {
-    s.remove();
-    component.destroy();
-  });
+  return {
+    ...updater(opts, node, loadingBarVars),
+    ...destroyer(() => {
+      s.remove();
+      component.destroy();
+    }),
+  };
 }
