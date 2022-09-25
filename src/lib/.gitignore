@@ -1,2 +1,4 @@
 dist
 tsconfig.json
+react/package.json
+react/yarn.lock

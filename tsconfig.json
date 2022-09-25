@@ -16,12 +16,13 @@
     "allowJs": true,
     "checkJs": true,
     // "strict": true,
-    "typeRoots": [
-    ]
+    "typeRoots": [],
+    "jsx": "preserve"
   },
   "include": [
     "src/**/*.d.ts",
     "src/**/*.ts",
-    "src/**/*.svelte"
+    "src/**/*.svelte",
+    "src/lib/react/index.tsx"
   ]
 }
