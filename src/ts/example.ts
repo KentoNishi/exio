@@ -1,17 +1,3 @@
-/* eslint-disable prettier/prettier */
-import { readable } from 'svelte/store';
-import type { Readable } from 'svelte/store';
-
-
-export const getSource = (filename: string): Readable<string> =>
-  readable('...', (set) => {
-    if (filename === 'Demo.svelte') {
-      set(demoSrc);
-      return;
-    }
-    set(`ERR: did not find file '${filename}'`);
-  });
-
 export const getExample = (source: string, name: string): string => {
   if (source === '...' || source.startsWith('ERR')) return source;
   // parsing html with regex will cause zalgo to come
@@ -30,7 +16,5 @@ export const getExample = (source: string, name: string): string => {
   // ^^^^^^^^
   // whitespace to remove
   const amountSpaces = exampleSource.indexOf('<') - 1;
-  return exampleSource
-    .replaceAll(`\n${' '.repeat(amountSpaces)}`, '\n')
-    .trim();
+  return exampleSource.replaceAll(`\n${' '.repeat(amountSpaces)}`, '\n').trim();
 };
