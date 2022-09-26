@@ -2092,6 +2092,11 @@ svelte-i18n@^3.3.12:
     sade "^1.7.4"
     tiny-glob "^0.2.6"
 
+svelte-local-storage-store@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/svelte-local-storage-store/-/svelte-local-storage-store-0.3.1.tgz#0abb0a119d4a37625394bab0ed2c0fe958e81a31"
+  integrity sha512-pG+jjBY8oZWQ1XRnVkLIuPPbPqBWVtj0IINQBjkZSpJ+OqMs285efd+oiGdk4vBDnqomw81SForn+KH1j3HguA==
+
 svelte-preprocess@^4.0.0, svelte-preprocess@^4.7.2:
   version "4.9.8"
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.9.8.tgz#fd40afebfb352f469beab289667485ebf0d811da"
