@@ -70,6 +70,7 @@
     max-width: 100%;
     width: 100%;
     border-radius: 0px !important;
+    box-sizing: border-box;
   }
 
   /* .example::before {
