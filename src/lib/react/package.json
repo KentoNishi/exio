@@ -1,0 +1,10 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "react": "^18.2.0"
+  }
+}
