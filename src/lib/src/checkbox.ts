@@ -79,23 +79,25 @@ export const exioCheckbox = (
     }
   `;
   const s2 = styler(node);
-  s2.innerHTML = `
-    .${s2.id}::after {
-      content: 'check';
-      font-family: 'Exio Icons';
-      position: absolute;
-      width: ${node.clientHeight}px;
-      height: ${node.clientHeight}px;
-      transform: scale(0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--exio-checkbox-checkmark-color);
-    }
-    .${s2.id}:checked::after {
-      transform: scale(1.1);
-    }
-  `;
+  const timeout = setTimeout(() => {
+    s2.innerHTML = `
+      .${s2.id}::after {
+        content: 'check';
+        font-family: 'Exio Icons';
+        position: absolute;
+        width: ${node.clientHeight}px;
+        height: ${node.clientHeight}px;
+        transform: scale(0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--exio-checkbox-checkmark-color);
+      }
+      .${s2.id}:checked::after {
+        transform: scale(1.1);
+      }
+    `;
+  }, 0);
   return {
     ...updater(opts, node, checkboxVars),
     ...destroyer(() => {
@@ -103,6 +105,7 @@ export const exioCheckbox = (
       s1.remove();
       s2.remove();
       component.destroy();
+      clearTimeout(timeout);
     }),
   };
 };

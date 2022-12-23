@@ -52,22 +52,24 @@ export const exioRadio = (
     }
   `;
   const s2 = styler(node);
-  s2.innerHTML = `
-    .${s2.id}::after {
-      content: '';
-      position: absolute;
-      width: ${node.clientHeight}px;
-      height: ${node.clientHeight}px;
-      border-radius: 100%;
-      transform: scale(0);
-      background-color: var(--exio-radio-indicator-color);
-      transition: transform var(--exio-standard-transition-duration);
-      z-index: -1000;
-    }
-    .${s2.id}:checked::after {
-      transform: scale(0.55);
-    }
-  `;
+  const timeout = setTimeout(() => {
+    s2.innerHTML = `
+      .${s2.id}::after {
+        content: '';
+        position: absolute;
+        width: ${node.clientHeight}px;
+        height: ${node.clientHeight}px;
+        border-radius: 100%;
+        transform: scale(0);
+        background-color: var(--exio-radio-indicator-color);
+        transition: transform var(--exio-standard-transition-duration);
+        z-index: -1000;
+      }
+      .${s2.id}:checked::after {
+        transform: scale(0.55);
+      }
+    `;
+  }, 0);
   return {
     ...updater(opts, node, radioArgs),
     ...destroyer(() => {
@@ -75,6 +77,7 @@ export const exioRadio = (
       s1.remove();
       s2.remove();
       component.destroy();
+      clearTimeout(timeout);
     }),
   };
 };
