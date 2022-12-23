@@ -1,4 +1,4 @@
-var $=Object.defineProperty;var p=Object.getOwnPropertySymbols;var H=Object.prototype.hasOwnProperty,v=Object.prototype.propertyIsEnumerable;var x=(e,t,o)=>t in e?$(e,t,{enumerable:!0,configurable:!0,writable:!0,value:o}):e[t]=o,c=(e,t)=>{for(var o in t||(t={}))H.call(t,o)&&x(e,o,t[o]);if(p)for(var o of p(t))v.call(t,o)&&x(e,o,t[o]);return e};import{e as L,c as M,a as k,s as m,u as w,d as E,p as b,t as S}from"./index.1fbfa15c.js";const C=c({transitionDuration:{prop:"--exio-slow-transition-duration",val:""}},b);function z(e,t={}){const o=L(e);M();const r=e.querySelector("summary"),h=k(r,{borderStyle:"reactive"}),n=m(r);n.innerHTML=`
+var $=Object.defineProperty;var p=Object.getOwnPropertySymbols;var H=Object.prototype.hasOwnProperty,v=Object.prototype.propertyIsEnumerable;var x=(e,t,o)=>t in e?$(e,t,{enumerable:!0,configurable:!0,writable:!0,value:o}):e[t]=o,c=(e,t)=>{for(var o in t||(t={}))H.call(t,o)&&x(e,o,t[o]);if(p)for(var o of p(t))v.call(t,o)&&x(e,o,t[o]);return e};import{e as L,c as M,a as b,s as m,u as k,d as w,p as E,t as S}from"./index.16b6be7b.js";const C=c({transitionDuration:{prop:"--exio-slow-transition-duration",val:""}},E);function z(e,t={}){const o=L(e);M();const r=e.querySelector("summary"),h=b(r,{borderStyle:"reactive"}),n=m(r);n.innerHTML=`
     .${n.id} {
       cursor: default;
       user-select: none;
@@ -48,5 +48,5 @@ var $=Object.defineProperty;var p=Object.getOwnPropertySymbols;var H=Object.prot
           .${i.id} {
             max-height: ${u()}px;
           }
-        `,a=setTimeout(()=>{i.innerHTML=""},d())},0))};return r.addEventListener("click",l),c(c({},w(t,e,C)),E(()=>{h.destroy(),n.remove(),f.remove(),i.remove(),o.destroy(),r.removeEventListener("click",l)}))}export{z as e};
-//# sourceMappingURL=accordion.e67edc64.js.map
+        `,a=setTimeout(()=>{i.innerHTML=""},d())},0))};return r.addEventListener("click",l),c(c({},k(t,e,C)),w(()=>{h.destroy(),n.remove(),f.remove(),i.remove(),o.destroy(),r.removeEventListener("click",l)}))}export{z as e};
+//# sourceMappingURL=accordion.f99df86e.js.map
