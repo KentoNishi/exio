@@ -48,6 +48,12 @@ export function exioDropdown(
     return;
   };
   const items: ExioNode[] = [];
+  let containerNode = node as HTMLElement;
+  let isInDialog = false;
+  while (containerNode !== document.body && !isInDialog) {
+    containerNode = containerNode.parentNode as HTMLElement;
+    isInDialog = containerNode.tagName === 'DIALOG';
+  }
   const updateStyle = () => {
     node.style.setProperty('transform', before, 'important');
     const computed = getComputedStyle(node);
@@ -62,6 +68,20 @@ export function exioDropdown(
     const padding = computed.getPropertyValue('padding');
     const topPadding = computed.getPropertyValue('padding-top');
     const bottomPadding = computed.getPropertyValue('padding-bottom');
+    const fallbackContainerObj = {
+      left: 0,
+      top: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+    const {
+      left: containerX,
+      top: containerY,
+      height: containerHeight,
+      width: containerWidth,
+    } = isInDialog
+      ? containerNode.getBoundingClientRect()
+      : fallbackContainerObj;
     ds.innerHTML = `
       .${ds.id} {
         position: fixed;
@@ -111,27 +131,29 @@ export function exioDropdown(
       if (firstItem) firstItem.style.marginTop = topPadding;
       if (lastItem) lastItem.style.marginBottom = bottomPadding;
       const { height, width, left } = dropdown.getBoundingClientRect();
-      const isOverflowingY = height + rect.bottom >= window.innerHeight;
+      const isOverflowingY =
+        height + rect.bottom - (isInDialog ? containerY : 0) >= containerHeight;
       const topVal = isOverflowingY
-        ? Math.max(0, window.innerHeight - height)
-        : rect.bottom;
-      const isOverflowingX = width + rect.left >= window.innerWidth;
+        ? Math.max(0, containerHeight - height)
+        : rect.bottom - containerY;
+      const isOverflowingX =
+        width + rect.left - (isInDialog ? containerX : 0) >= containerWidth;
       const leftVal = isOverflowingX
-        ? Math.max(0, window.innerWidth - width)
-        : left;
+        ? Math.max(0, containerWidth - width)
+        : left - containerX * 2;
       ds.innerHTML += `
         .${ds.id} {
           top: ${topVal}px;
           left: ${leftVal}px;
           overflow: auto;
-          max-width: ${window.innerWidth}px;
-          max-height: ${window.innerHeight}px;
+          max-width: ${containerWidth}px;
+          max-height: ${containerHeight}px;
         }
       `;
     }, 0);
   };
   updateStyle();
-  document.body.appendChild(dropdown);
+  containerNode.appendChild(dropdown);
   node.addEventListener('mousedown', onDown);
   node.addEventListener('touchstart', onDown);
   const forceFocus = () => {
