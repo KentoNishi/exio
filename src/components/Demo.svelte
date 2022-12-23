@@ -144,9 +144,6 @@
             use:exioRadio
             id="radio-option-1"
             name="radio-options"
-            style="
-                  border-color: {colorInverted};
-                "
           />
           <label for="radio-option-1">Radio Option 1</label>
         </div>

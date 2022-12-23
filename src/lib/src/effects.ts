@@ -3,7 +3,7 @@ import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
 export type PointerEffectOptions = {
-  borderStyle: 'reactive' | 'static' | 'hover';
+  borderStyle: 'reactive' | 'static' | 'hover' | 'none';
   disableClicking: boolean;
   focusable: boolean;
 };
@@ -66,14 +66,16 @@ export function exioPointerEffect(
     )`;
     const useStaticBorder = options.borderStyle === 'static';
     const useHoverBorder = options.borderStyle === 'hover';
-    const hoverBorder =
+    const dontTouchBorder = options.borderStyle === 'none';
+    const borderStr =
       useStaticBorder || useHoverBorder
         ? 'border: var(--exio-border-width) solid var(--exio-hover-border-color)'
         : `border-image: radial-gradient(
-            ${borderHoverRadius} ${borderHoverRadius} at var(--exio-mouse-x) var(--exio-mouse-y),
-            var(--exio-hover-border-color) 0%,
-            transparent calc(100% * var(--exio-hover-border-scale))
-          ) 9 / var(--exio-border-width) / 0px stretch`;
+          ${borderHoverRadius} ${borderHoverRadius} at var(--exio-mouse-x) var(--exio-mouse-y),
+          var(--exio-hover-border-color) 0%,
+          transparent calc(100% * var(--exio-hover-border-scale))
+        ) 9 / var(--exio-border-width) / 0px stretch`;
+    const hoverBorder = dontTouchBorder ? '' : borderStr;
     const hoverBackground = !useHoverBorder
       ? `
         background-image: radial-gradient(

@@ -16,6 +16,10 @@ export const radioArgs = {
     prop: '--exio-standard-transition-duration',
     val: '',
   },
+  borderColor: {
+    prop: 'border-color',
+    val: '',
+  },
   ...pointerEffectVars,
 };
 
@@ -29,7 +33,7 @@ export const exioRadio = (
 ): ExioNode<ExioRadioArgs> => {
   const component = exioComponent(node);
   const effect = exioPointerEffect(node, {
-    borderStyle: 'static',
+    borderStyle: 'none',
   });
   const s1 = styler(node);
   s1.innerHTML = `
