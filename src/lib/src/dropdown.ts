@@ -2,6 +2,7 @@ import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
+import { isMobile } from './consts';
 
 export const dropdownVars = {
   backgroundColor: {
@@ -39,6 +40,7 @@ export function exioDropdown(
   let before = '';
   let down = false;
   const onDown = (e?: MouseEvent | TouchEvent) => {
+    if (isMobile) return;
     before = node.style.getPropertyValue('transform');
     node.style.setProperty('transform', 'none', 'important');
     rect = node.getBoundingClientRect();
