@@ -40,7 +40,6 @@ module.exports = {
         ignoreTemplateLiterals: true,
         ignoreStrings: true,
         ignoreUrls: true,
-        ignoreComments: true,
       },
     ],
     'no-param-reassign': ['error', { props: false }],
@@ -52,9 +51,15 @@ module.exports = {
         ignoreComments: true,
       },
     ],
-    indent: ['error', 2],
+    indent: [
+      'error',
+      2,
+      {
+        ignoredNodes: ['TemplateLiteral', 'ConditionalExpression'],
+      },
+    ],
     'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
+    quotes: 'off',
     semi: ['error', 'always'],
     'eol-last': ['error', 'always'],
     'no-unused-vars': 'off',
@@ -67,8 +72,6 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@ota-meshi/svelte/no-at-html-tags': 'off'
   },
   settings: {
     'import/extensions': [
@@ -84,4 +87,12 @@ module.exports = {
     // 'svelte3/typescript': true,
     // 'svelte3/named-blocks': true
   },
+  ignorePatterns: [
+    'package.json',
+    'package-lock.json',
+    'public',
+    'node_modules',
+    'dist',
+    'tsconfig.json',
+  ],
 };
