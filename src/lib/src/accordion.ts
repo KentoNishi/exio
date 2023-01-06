@@ -47,6 +47,7 @@ export function exioAccordion(
       font-size: 1.5em;
       position: absolute;
       right: 0.25em;
+      top: 0px;
       transform: rotate(0deg);
       transition: transform var(--exio-slow-transition-duration);
     }
