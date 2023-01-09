@@ -119,7 +119,6 @@ export function exioDropdown(
         touch-action: auto;
       }
     `;
-    console.log(ds.innerHTML);
     dropdown.innerHTML = '';
     if (isInitial) return;
     setTimeout(() => {
