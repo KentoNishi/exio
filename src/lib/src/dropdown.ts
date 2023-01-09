@@ -56,9 +56,12 @@ export function exioDropdown(
     containerNode = containerNode.parentNode as HTMLElement;
     isInDialog = containerNode.tagName === 'DIALOG';
   }
-  const updateStyle = () => {
+  const updateStyle = (isInitial = false) => {
     node.style.setProperty('transform', before, 'important');
-    const computed = getComputedStyle(node);
+    const initialGetter = {
+      getPropertyValue: (_: string) => 'unset',
+    };
+    const computed = isInitial ? initialGetter : getComputedStyle(node);
     dropdown.dataset.theme = computed.getPropertyValue('--exio-theme').trim();
     const transitionDuration = computed.getPropertyValue(
       '--exio-standard-transition-duration'
@@ -76,12 +79,20 @@ export function exioDropdown(
       width: window.innerWidth,
       height: window.innerHeight,
     };
+    const initialBounds = {
+      left: 0,
+      top: 0,
+      width: 0,
+      height: 0,
+    };
     const {
       left: containerX,
       top: containerY,
       height: containerHeight,
       width: containerWidth,
-    } = isInDialog
+    } = isInitial
+      ? initialBounds
+      : isInDialog
       ? containerNode.getBoundingClientRect()
       : fallbackContainerObj;
     ds.innerHTML = `
@@ -108,7 +119,9 @@ export function exioDropdown(
         touch-action: auto;
       }
     `;
+    console.log(ds.innerHTML);
     dropdown.innerHTML = '';
+    if (isInitial) return;
     setTimeout(() => {
       const options = node.querySelectorAll('option');
       let firstItem: HTMLDivElement | undefined;
@@ -132,7 +145,9 @@ export function exioDropdown(
       });
       if (firstItem) firstItem.style.marginTop = topPadding;
       if (lastItem) lastItem.style.marginBottom = bottomPadding;
-      const { height, width, left } = dropdown.getBoundingClientRect();
+      const { height, width, left } = isInitial
+        ? initialBounds
+        : dropdown.getBoundingClientRect();
       const isOverflowingY =
         height + rect.bottom - (isInDialog ? containerY : 0) >= containerHeight;
       const topVal = isOverflowingY
@@ -154,7 +169,7 @@ export function exioDropdown(
       `;
     }, 0);
   };
-  updateStyle();
+  updateStyle(true);
   containerNode.appendChild(dropdown);
   node.addEventListener('mousedown', onDown);
   node.addEventListener('touchstart', onDown);
