@@ -2,7 +2,7 @@ import { destroyer, styler, toMillis, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
-import { createExioFont } from './icon';
+import { createExioIconsFont } from './icon';
 
 export const accordionVars = {
   transitionDuration: {
@@ -23,7 +23,7 @@ export function exioAccordion(
   opts: ExioAccordionArgs = {}
 ): ExioNode<ExioAccordionArgs> {
   const component = exioComponent(node);
-  createExioFont();
+  createExioIconsFont();
   const summary = node.querySelector('summary');
   const effect = exioPointerEffect(summary, {
     borderStyle: 'reactive',

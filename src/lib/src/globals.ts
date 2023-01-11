@@ -1,6 +1,5 @@
 import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { font } from './consts';
 
 export const globalStylerVars = {};
 
@@ -22,7 +21,7 @@ export function exioGlobalStyler(
     }
 
     * {
-      ${font}
+      font-family: 'Exio UI';
     }
 
     * ::-webkit-scrollbar {

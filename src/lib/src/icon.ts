@@ -2,11 +2,13 @@ import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioComponent } from './component';
 
-export function createExioFont(): void {
-  let font = document.querySelector('#exio-font') as HTMLStyleElement | null;
+export function createExioIconsFont(): void {
+  let font = document.querySelector(
+    '#exio-icons-font'
+  ) as HTMLStyleElement | null;
   if (!font) {
     font = document.createElement('style');
-    font.id = 'exio-font';
+    font.id = 'exio-icons-font';
     font.innerHTML = `
       @font-face {
         font-family: 'Exio Icons';
@@ -32,7 +34,7 @@ export const exioIcon = (
   opts: ExioIconArgs = {}
 ): ExioNode<ExioIconArgs> => {
   const component = exioComponent(node);
-  createExioFont();
+  createExioIconsFont();
   const s = styler(node);
   s.innerHTML = `
     .${s.id} {

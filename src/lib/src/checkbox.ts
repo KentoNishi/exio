@@ -2,7 +2,7 @@ import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect } from './effects';
 import { exioComponent } from './component';
-import { createExioFont } from './icon';
+import { createExioIconsFont } from './icon';
 
 export const checkboxVars = {
   backgroundColor: {
@@ -58,7 +58,7 @@ export const exioCheckbox = (
   opts: ExioCheckboxArgs = {}
 ): ExioNode<ExioCheckboxArgs> => {
   const component = exioComponent(node);
-  createExioFont();
+  createExioIconsFont();
   const effect = exioPointerEffect(node, {
     borderStyle: 'static',
   });
