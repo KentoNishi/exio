@@ -20,6 +20,8 @@ jobs:
         run: |
           yarn
           cd src/lib
+          yarn build
+          cd dist
           yarn link
           cd ../..
           yarn link exio
