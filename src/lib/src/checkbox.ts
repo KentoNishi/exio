@@ -83,7 +83,7 @@ export const exioCheckbox = (
     s2.innerHTML = `
       .${s2.id}::after {
         content: 'check';
-        font-family: 'Exio Icons';
+        font-family: 'Material Icons';
         position: absolute;
         width: ${node.clientHeight}px;
         height: ${node.clientHeight}px;

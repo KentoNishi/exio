@@ -43,7 +43,7 @@ export function exioAccordion(
     }
     .${s1.id}::after {
       content: 'expand_more';
-      font-family: 'Exio Icons';
+      font-family: 'Material Icons';
       font-size: 1.5em;
       position: absolute;
       right: 0.25em;

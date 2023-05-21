@@ -21,7 +21,7 @@ export function exioGlobalStyler(
     }
 
     * {
-      font-family: 'Exio UI';
+      font-family: 'Segoe UI';
     }
 
     * ::-webkit-scrollbar {
