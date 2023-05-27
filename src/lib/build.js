@@ -14,7 +14,7 @@ if (!existsSync('dist')) {
 }
 
 execSync(
-  'tsc --target es6 --declaration --moduleResolution node --outDir ./dist index.ts ./svelte/**',
+  'tsc --target es6 --declaration --moduleResolution node --outDir ./dist ./vanilla/** ./svelte/**',
   { stdio: 'inherit' }
 );
 

@@ -3,7 +3,7 @@ export interface ExioNode<T = any> {
   destroy: () => void;
 }
 
-export function getRandomString(len = 10) {
+export function getRandomString(len = 10): string {
   const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   let result = '';
   while (!result || document.querySelector(`#${result}`) !== null) {
@@ -32,11 +32,12 @@ export function destroyer(...destroyers: ExioNode['destroy'][]): {
 /**
  * Generate update() function for ExioNode.
  *
- * use: actions can have an update method to enable reactive props to the action.
+ * use: actions can have an update method to enable
+ * reactive props to the action.
  *
- * This updater assumes that the options given to the update function are for styling
- * purposes. It will update the style based upon the props given and a map between
- * a prop name the css property it references.
+ * This updater assumes that the options given to the update function
+ * are for styling purposes. It will update the style based upon the
+ * props given and a map between a prop name the css property it references.
  */
 export function updater<T>(
   initialOpts: T,
@@ -57,7 +58,7 @@ export function updater<T>(
   return { update };
 }
 
-export function styler(node: HTMLElement) {
+export function styler(node: HTMLElement): HTMLStyleElement {
   const id = getRandomString();
   const style = document.getElementById(id) || document.createElement('style');
   style.id = id;
@@ -86,6 +87,6 @@ export function getMouseInfo(
   };
 }
 
-export function toMillis(s: string) {
+export function toMillis(s: string): number {
   return parseFloat(s) * (/\ds$/.test(s) ? 1000 : 1);
 }
