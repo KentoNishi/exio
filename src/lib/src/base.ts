@@ -5,12 +5,16 @@ export interface ExioNode<T = any> {
 
 export function getRandomString(len = 10) {
   const charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let randomString = 'exio-';
-  for (let i = 0; i < len; i++) {
-    const pos = Math.floor(Math.random() * charSet.length);
-    randomString += charSet.substring(pos, pos + 1);
+  let result = '';
+  while (!result || document.querySelector(`#${result}`) !== null) {
+    const randomString = ['exio-'];
+    for (let i = 0; i < len; i++) {
+      const pos = Math.floor(Math.random() * charSet.length);
+      randomString.push(charSet.substring(pos, pos + 1));
+    }
+    result = randomString.join('');
   }
-  return randomString;
+  return result;
 }
 
 export function destroyer(...destroyers: ExioNode['destroy'][]): {

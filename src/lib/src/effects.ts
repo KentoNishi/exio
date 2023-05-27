@@ -136,10 +136,10 @@ export function exioPointerEffect(
     node.removeEventListener('mousemove', onHover);
     if (node.matches(':hover')) {
       updateStyle(x, y, width, height);
-      node.addEventListener('mousemove', onHover);
+      node.addEventListener('mousemove', onHover, { passive: true });
     }
   }
-  node.addEventListener('mouseenter', onHover);
+  node.addEventListener('mouseenter', onHover, { passive: true });
   const onMouseDown = () => {
     node.classList.add(`${s.id}-active`);
   };
@@ -147,11 +147,11 @@ export function exioPointerEffect(
     node.classList.remove(`${s.id}-active`);
   };
   if (!options.disableClicking) {
-    node.addEventListener('touchstart', onMouseDown);
-    window.addEventListener('touchend', onMouseUp);
-    node.addEventListener('mousedown', onMouseDown);
-    window.addEventListener('mouseup', onMouseUp);
-    window.addEventListener('dragend', onMouseUp);
+    node.addEventListener('touchstart', onMouseDown, { passive: true });
+    window.addEventListener('touchend', onMouseUp, { passive: true });
+    node.addEventListener('mousedown', onMouseDown, { passive: true });
+    window.addEventListener('mouseup', onMouseUp, { passive: true });
+    window.addEventListener('dragend', onMouseUp, { passive: true });
   }
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);

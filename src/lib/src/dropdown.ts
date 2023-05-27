@@ -136,11 +136,15 @@ export function exioDropdown(
         item.textContent = child.textContent;
         items.push(exioPointerEffect(item));
         dropdown.appendChild(item);
-        item.addEventListener('click', () => {
-          node.selectedIndex = index;
-          node.dispatchEvent(new Event('change'));
-          dropdown.blur();
-        });
+        item.addEventListener(
+          'click',
+          () => {
+            node.selectedIndex = index;
+            node.dispatchEvent(new Event('change'));
+            dropdown.blur();
+          },
+          { passive: true }
+        );
       });
       if (firstItem) firstItem.style.marginTop = topPadding;
       if (lastItem) lastItem.style.marginBottom = bottomPadding;
@@ -179,8 +183,8 @@ export function exioDropdown(
     dropdown.tabIndex = 0;
     dropdown.focus();
   };
-  node.addEventListener('click', forceFocus);
-  node.addEventListener('touchend', forceFocus);
+  node.addEventListener('click', forceFocus, { passive: true });
+  node.addEventListener('touchend', forceFocus), { passive: true };
   const scroll = () => {
     dropdown.blur();
   };
@@ -188,8 +192,8 @@ export function exioDropdown(
     dropdown.tabIndex = -1;
   };
   dropdown.addEventListener('blur', onBlur);
-  window.addEventListener('scroll', scroll);
-  window.addEventListener('resize', scroll);
+  window.addEventListener('scroll', scroll, { passive: true });
+  window.addEventListener('resize', scroll, { passive: true });
   return {
     ...updater(opts, node, dropdownVars),
     ...destroyer(() => {

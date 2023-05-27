@@ -126,7 +126,7 @@ export function exioDialog(
     `;
     node.removeEventListener('animationstart', anistarted);
   };
-  node.addEventListener('animationstart', anistarted);
+  node.addEventListener('animationstart', anistarted, { passive: true });
   const backdrop = document.createElement('div');
   const s3 = styler(backdrop);
   const updateBackDrop = () => {
