@@ -3,6 +3,7 @@ import type { ExioNode } from './base';
 import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 import { createExioIconsFont } from './icon';
+import { isFirefox } from './consts';
 
 export const accordionVars = {
   transitionDuration: {
@@ -47,7 +48,7 @@ export function exioAccordion(
       font-size: 1.5em;
       position: absolute;
       right: 0.25em;
-      top: 0.1em;
+      top: ${isFirefox ? '0px' : '0.1em'};
       transform: rotate(0deg);
       transition: transform var(--exio-slow-transition-duration);
     }
