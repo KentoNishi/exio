@@ -10,7 +10,7 @@
   },
   "about": {
     "title": "What is Exio?",
-    "description": "Exio is a framework-independent UI library that extends native HTML elements. It's compatible with React, Vue, Svelte, vanilla TS/JS, and more. Unlike other libraries which provide framework-specific components, Exio directly styles HTML elements like <button>, <input>, and <dialog>, allowing for easy DOM interactions and custom styles."
+    "description": "Exio is a framework-agnostic UI library that extends native HTML elements. It's compatible with React, Vue, Svelte, vanilla TS/JS, and more. Unlike other libraries which provide framework-specific components, Exio directly styles HTML elements like <button>, <input>, and <dialog>, allowing for easy DOM interactions and custom styles."
   },
   "demo": {
     "title": "Demo"

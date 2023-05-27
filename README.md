@@ -1,6 +1,6 @@
 # exio
 
-A framework-independent UI library that extends native HTML elements! Compatible with React, Vue, Svelte, vanilla TS/JS, etc.
+A framework-agnostic UI library that extends native HTML elements! Compatible with React, Vue, Svelte, vanilla TS/JS, etc.
 
 [Homepage](https://kentonishi.github.io/exio/) / [Docs](https://kentonishi.github.io/exio#/docs)
 
