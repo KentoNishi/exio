@@ -11,7 +11,7 @@
 <div class="navbar" use:exioZoomInAnimation>
   <div class="home">
     <a href="#/">
-      <button use:exioButton class="home-button">
+      <button use:exioButton class="home-button" tabindex="-1">
         <span use:exioIcon>home</span>
       </button>
     </a>
