@@ -140,18 +140,26 @@ export function exioPointerEffect(
     }
   }
   node.addEventListener('mouseenter', onHover, { passive: true });
+  let clicking = false;
   const onMouseDown = () => {
     node.classList.add(`${s.id}-active`);
+    clicking = true;
   };
-  const onMouseUp = () => {
+  const onMouseUp = (e: MouseEvent) => {
+    if (!clicking) return;
     node.classList.remove(`${s.id}-active`);
+    if (!node.matches(':hover')) {
+      e.preventDefault();
+      node.click();
+    }
+    clicking = false;
   };
   if (!options.disableClicking) {
     node.addEventListener('touchstart', onMouseDown, { passive: true });
-    window.addEventListener('touchend', onMouseUp, { passive: true });
+    window.addEventListener('touchend', onMouseUp);
     node.addEventListener('mousedown', onMouseDown, { passive: true });
-    window.addEventListener('mouseup', onMouseUp, { passive: true });
-    window.addEventListener('dragend', onMouseUp, { passive: true });
+    window.addEventListener('mouseup', onMouseUp);
+    window.addEventListener('dragend', onMouseUp);
   }
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);
