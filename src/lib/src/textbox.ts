@@ -44,6 +44,7 @@ export function exioTextbox(
   s.innerHTML = `
     .${s.id} {
       padding: 0.25em 0.25em;
+      outline: none;
     }
   `;
   return {

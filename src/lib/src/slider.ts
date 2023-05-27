@@ -71,7 +71,6 @@ export function exioSlider(
       width: 100%;
       height: var(--exio-slider-track-size);
       border-radius: var(--exio-slider-track-size);
-      outline: none;
     }
     
     .${s.id}::-webkit-slider-thumb {

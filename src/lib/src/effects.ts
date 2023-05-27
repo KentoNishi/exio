@@ -94,7 +94,6 @@ export function exioPointerEffect(
     const focusableActive = focusedBorder ? ':not(:focus)' : '';
     s.innerHTML = `
       .${s.id} {
-        outline: none;
         border: var(--exio-border-width) solid transparent;
         color: inherit;
         font-size: inherit;

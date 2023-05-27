@@ -51,7 +51,12 @@
     <div class="buttons">
       {#each links as link}
         <a href={link.href} target={link.newTab ? '_blank' : ''}>
-          <button class="bg-gray" style="cursor: pointer;" use:exioButton>
+          <button
+            class="bg-gray"
+            style="cursor: pointer;"
+            use:exioButton
+            tabindex="-1"
+          >
             {link.title}
             <span use:exioIcon>{link.icon}</span>
           </button>
