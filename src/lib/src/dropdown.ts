@@ -187,9 +187,7 @@ export function exioDropdown(
       // const windowDim = 2; Math.max(window.outerWidth, window.outerHeight);
       const dbsHeight = Math.max(
         dropdownRect.bottom - Math.min(rect.top, topVal),
-        height,
-        containerX,
-        containerY
+        height
       );
       dbs.innerHTML = `
         .${dbs.id} {
