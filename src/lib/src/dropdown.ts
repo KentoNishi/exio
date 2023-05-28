@@ -17,8 +17,8 @@ export const dropdownVars = {
     prop: '--exio-shadow-color',
     val: '',
   },
-  shadowWidth: {
-    prop: '--exio-shadow-width',
+  shadowSize: {
+    prop: '--exio-shadow-size',
     val: '',
   },
   ...pointerEffectVars,
@@ -77,7 +77,7 @@ export function exioDropdown(
       '--exio-standard-transition-duration'
     );
     const backdropColor = computed.getPropertyValue('--exio-shadow-color');
-    const borderWidth = computed.getPropertyValue('--exio-shadow-width');
+    const borderWidth = computed.getPropertyValue('--exio-shadow-size');
     const color = computed.getPropertyValue('color');
     const backgroundColor = computed.getPropertyValue('background-color');
     const fontFamily = computed.getPropertyValue('font-family');
