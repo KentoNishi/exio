@@ -37,7 +37,6 @@
   const src = getContext(exampleSrcKey) as string;
 
   $: exampleSource = getExample(src, name);
-  $: console.log(exampleSource);
 </script>
 
 <div class="example">
