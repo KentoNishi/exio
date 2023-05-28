@@ -69,6 +69,8 @@ export function exioComponent(
         --exio-standard-transition-duration: 0.2s;
         /* shadow color for dropdowns and other floating elements */
         --exio-shadow-color: rgba(128, 128, 128, 0.2);
+        /* shadow width for dropdowns and other floating elements */
+        --exio-shadow-width: 4px;
         /* color of switch background when selected */
         --exio-switch-checked-fill-color: darkgray;
         /* switch thumb color */
