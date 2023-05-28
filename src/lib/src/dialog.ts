@@ -23,13 +23,15 @@ interface HTMLDialogElement extends globalThis.HTMLDialogElement {
    */
   close(): void;
   /**
-   * Displays the dialog modelessly, i.e. still allowing interaction with content outside of the dialog.
+   * Displays the dialog modelessly, i.e. still allowing interaction with
+   * content outside of the dialog.
    * An optional Element or MouseEvent may be passed as an argument,
    * to specify an anchor point to which the dialog is fixed.
    */
   show(): void;
   /**
-   * Displays the dialog for exclusive interaction, over the top of any other dialogs that might be present.
+   * Displays the dialog for exclusive interaction, over the top of any
+   * other dialogs that might be present.
    * An optional Element or MouseEvent may be passed as an argument,
    * to specify an anchor point to which the dialog is fixed.
    */

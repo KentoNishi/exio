@@ -13,6 +13,10 @@ export const dropdownVars = {
     prop: '--exio-standard-transition-duration',
     val: '',
   },
+  shadowColor: {
+    prop: '--exio-shadow-color',
+    val: '',
+  },
   ...pointerEffectVars,
 };
 
@@ -68,7 +72,8 @@ export function exioDropdown(
     const transitionDuration = computed.getPropertyValue(
       '--exio-standard-transition-duration'
     );
-    const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
+    const backdropColor = computed.getPropertyValue('--exio-shadow-color');
+    const borderWidth = computed.getPropertyValue('--exio-border-width');
     const color = computed.getPropertyValue('color');
     const backgroundColor = computed.getPropertyValue('background-color');
     const fontFamily = computed.getPropertyValue('font-family');
@@ -179,21 +184,36 @@ export function exioDropdown(
         }
       `;
       const dropdownRect = dropdown.getBoundingClientRect();
-      const windowDim = Math.max(window.outerWidth, window.outerHeight);
+      // const windowDim = 2; Math.max(window.outerWidth, window.outerHeight);
+      const dbsHeight = Math.max(
+        dropdownRect.bottom - Math.min(rect.top, topVal),
+        height,
+        containerX,
+        containerY
+      );
+      console.log(
+        Math.min(rect.top, topVal),
+        rect.top,
+        topVal,
+        dbsHeight,
+        rect.width,
+        rect.right - rect.left
+      );
       dbs.innerHTML = `
         .${dbs.id} {
           position: fixed;
-          top: ${Math.min(rect.top, topVal) - windowDim}px;
-          left: ${leftVal - windowDim}px;
-          width: ${width}px;
-          height: ${Math.max(dropdownRect.bottom - rect.top, height)}px;
+          top: calc(${Math.min(rect.top, topVal)}px - ${borderWidth});
+          left: calc(${leftVal}px - ${borderWidth});
+          width: ${rect.width}px;
+          height: ${dbsHeight}px;
           z-index: 69419;
-          border: ${windowDim}px solid ${backdropColor};
+          border: ${borderWidth} solid ${backdropColor};
           transition: opacity ${transitionDuration};
           touch-action: none;
           user-select: none;
           pointer-events: none;
           opacity: 0;
+          box-sizing: content-box;
         }
       `;
       setTimeout(() => {
