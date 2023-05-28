@@ -191,14 +191,6 @@ export function exioDropdown(
         containerX,
         containerY
       );
-      console.log(
-        Math.min(rect.top, topVal),
-        rect.top,
-        topVal,
-        dbsHeight,
-        rect.width,
-        rect.right - rect.left
-      );
       dbs.innerHTML = `
         .${dbs.id} {
           position: fixed;

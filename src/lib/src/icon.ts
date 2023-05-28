@@ -9,7 +9,8 @@ export function createExioIconsFont(): void {
   if (!font) {
     font = document.createElement('link');
     font.id = 'exio-icons-font';
-    font.href = '//fonts.googleapis.com/icon?family=Material+Icons';
+    const protocol = window.location.protocol === 'http:' ? 'http:' : 'https:';
+    font.href = `${protocol}//fonts.googleapis.com/icon?family=Material+Icons`;
     font.rel = 'stylesheet';
     document.body.appendChild(font);
   }
