@@ -35,7 +35,9 @@ export function exioDropdown(
     }
   `;
   const dropdown = document.createElement('div');
+  const dropdownBackdrop = document.createElement('div');
   const ds = styler(dropdown);
+  const dbs = styler(dropdownBackdrop);
   let rect = node.getBoundingClientRect();
   let before = '';
   let down = false;
@@ -66,6 +68,7 @@ export function exioDropdown(
     const transitionDuration = computed.getPropertyValue(
       '--exio-standard-transition-duration'
     );
+    const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
     const color = computed.getPropertyValue('color');
     const backgroundColor = computed.getPropertyValue('background-color');
     const fontFamily = computed.getPropertyValue('font-family');
@@ -119,6 +122,11 @@ export function exioDropdown(
         touch-action: auto;
       }
     `;
+    dbs.innerHTML = `
+      .${dbs.id} {
+        opacity: 0;
+      }
+    `;
     dropdown.innerHTML = '';
     if (isInitial) return;
     setTimeout(() => {
@@ -170,10 +178,39 @@ export function exioDropdown(
           max-height: ${containerHeight}px;
         }
       `;
+      const dropdownRect = dropdown.getBoundingClientRect();
+      const windowDim = Math.max(window.outerWidth, window.outerHeight);
+      dbs.innerHTML = `
+        .${dbs.id} {
+          position: fixed;
+          top: ${Math.min(rect.top, topVal) - windowDim}px;
+          left: ${leftVal - windowDim}px;
+          width: ${width}px;
+          height: ${Math.max(dropdownRect.bottom - rect.top, height)}px;
+          z-index: 69419;
+          border: ${windowDim}px solid ${backdropColor};
+          transition: opacity ${transitionDuration};
+          touch-action: none;
+          user-select: none;
+          pointer-events: none;
+          opacity: 0;
+        }
+      `;
+      setTimeout(() => {
+        dbs.innerHTML += `
+          .${ds.id}:focus ~ .${dbs.id} {
+            opacity: 1;
+            touch-action: unset !important;
+            user-select: unset !important;
+            pointer-events: unset !important;
+          }
+        `;
+      }, 0);
     }, 0);
   };
   updateStyle(true);
   containerNode.appendChild(dropdown);
+  containerNode.appendChild(dropdownBackdrop);
   node.addEventListener('mousedown', onDown);
   node.addEventListener('touchstart', onDown);
   const forceFocus = () => {
@@ -209,6 +246,8 @@ export function exioDropdown(
       s.remove();
       dropdown.remove();
       ds.remove();
+      dropdownBackdrop.remove();
+      dbs.remove();
       component.destroy();
     }),
   };
