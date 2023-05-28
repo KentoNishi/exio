@@ -70,7 +70,7 @@ export function exioComponent(
         /* shadow color for dropdowns and other floating elements */
         --exio-shadow-color: rgba(128, 128, 128, 0.2);
         /* shadow size for dropdowns and other floating elements */
-        --exio-shadow-size: 4px;
+        --exio-shadow-size: 2px;
         /* color of switch background when selected */
         --exio-switch-checked-fill-color: darkgray;
         /* switch thumb color */
