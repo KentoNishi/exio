@@ -146,7 +146,10 @@ export function exioPointerEffect(
   const onMouseUp = (e: MouseEvent) => {
     if (!clicking) return;
     node.classList.remove(`${s.id}-active`);
-    if (e.button === 0 && !node.matches(':hover')) {
+    if (
+      (e.button === 0 || (e as any as TouchEvent).touches) &&
+      !node.matches(':hover')
+    ) {
       e.preventDefault();
       node.click();
     }
