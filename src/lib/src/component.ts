@@ -84,6 +84,7 @@ export function exioComponent(
         --is-exio-component: true;
         --exio-theme: light;
         color: var(--exio-default-text-color);
+        font-family: Segoe UI;
       }
       [data-theme="dark"] .exio-component, .exio-component[data-theme="dark"] {
         --exio-disabled-filter: brightness(0.6) grayscale(0.5);
