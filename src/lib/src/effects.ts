@@ -97,7 +97,6 @@ export function exioPointerEffect(
         border: var(--exio-border-width) solid transparent;
         color: inherit;
         font-size: inherit;
-        font-family: inherit;
         padding: 0.25em 0.75em;
         overflow: hidden;
         border-radius: 0px;
