@@ -143,11 +143,6 @@ export function exioPointerEffect(
     node.classList.add(`${s.id}-active`);
     clicking = true;
   };
-  const onTouchUp = (e: MouseEvent) => {
-    if (!clicking) return;
-    node.classList.remove(`${s.id}-active`);
-    clicking = false;
-  };
   const onMouseUp = (e: MouseEvent) => {
     if (!clicking) return;
     node.classList.remove(`${s.id}-active`);
@@ -159,20 +154,20 @@ export function exioPointerEffect(
   };
   if (!options.disableClicking) {
     node.addEventListener('touchstart', onMouseDown, { passive: true });
-    window.addEventListener('touchend', onTouchUp);
+    window.addEventListener('touchend', onMouseUp);
     node.addEventListener('mousedown', onMouseDown, { passive: true });
     window.addEventListener('mouseup', onMouseUp);
-    window.addEventListener('dragend', onTouchUp);
+    window.addEventListener('dragend', onMouseUp);
   }
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);
     node.removeEventListener('mousemove', onHover);
     if (!options.disableClicking) {
       node.removeEventListener('touchstart', onMouseDown);
-      window.removeEventListener('touchend', onTouchUp);
+      window.removeEventListener('touchend', onMouseUp);
       node.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
-      window.removeEventListener('dragend', onTouchUp);
+      window.removeEventListener('dragend', onMouseUp);
       node.remove();
       s.remove();
     }
