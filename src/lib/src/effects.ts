@@ -143,13 +143,15 @@ export function exioPointerEffect(
     node.classList.add(`${s.id}-active`);
     clicking = true;
   };
+  const onTouchUp = (e: MouseEvent) => {
+    if (!clicking) return;
+    node.classList.remove(`${s.id}-active`);
+    clicking = false;
+  };
   const onMouseUp = (e: MouseEvent) => {
     if (!clicking) return;
     node.classList.remove(`${s.id}-active`);
-    if (
-      (e.button === 0 || (e as any as TouchEvent).touches) &&
-      !node.matches(':hover')
-    ) {
+    if (e.button === 0 && !node.matches(':hover')) {
       e.preventDefault();
       node.click();
     }
@@ -157,20 +159,20 @@ export function exioPointerEffect(
   };
   if (!options.disableClicking) {
     node.addEventListener('touchstart', onMouseDown, { passive: true });
-    window.addEventListener('touchend', onMouseUp);
+    window.addEventListener('touchend', onTouchUp);
     node.addEventListener('mousedown', onMouseDown, { passive: true });
     window.addEventListener('mouseup', onMouseUp);
-    window.addEventListener('dragend', onMouseUp);
+    window.addEventListener('dragend', onTouchUp);
   }
   return destroyer(() => {
     node.removeEventListener('mouseenter', onHover);
     node.removeEventListener('mousemove', onHover);
     if (!options.disableClicking) {
       node.removeEventListener('touchstart', onMouseDown);
-      window.removeEventListener('touchend', onMouseUp);
+      window.removeEventListener('touchend', onTouchUp);
       node.removeEventListener('mousedown', onMouseDown);
       window.removeEventListener('mouseup', onMouseUp);
-      window.removeEventListener('dragend', onMouseUp);
+      window.removeEventListener('dragend', onTouchUp);
       node.remove();
       s.remove();
     }
