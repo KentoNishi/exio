@@ -146,7 +146,7 @@ export function exioComponent(
         font-weight: 700;
       }
     `;
-    document.documentElement.appendChild(style);
+    document.head.appendChild(style);
   }
   return {
     ...updater(opts, node, componentVars),
