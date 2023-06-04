@@ -12,7 +12,7 @@ export function createExioIconsFont(): void {
     const protocol = window.location.protocol === 'http:' ? 'http:' : 'https:';
     font.href = `${protocol}//fonts.googleapis.com/icon?family=Material+Icons`;
     font.rel = 'stylesheet';
-    document.head.appendChild(font);
+    document.documentElement.appendChild(font);
   }
 }
 

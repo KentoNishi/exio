@@ -63,7 +63,7 @@ export function styler(node: HTMLElement): HTMLStyleElement {
   const style = document.getElementById(id) || document.createElement('style');
   style.id = id;
   node.classList.add(id);
-  document.head.appendChild(style);
+  document.documentElement.appendChild(style);
   return style as HTMLStyleElement;
 }
 

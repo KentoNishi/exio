@@ -6,12 +6,12 @@
   import { dark } from '../ts/stores';
 
   const getStyleEl = (): HTMLElement => {
-    const styleEl = document.head.querySelector('.prism-styles') as HTMLElement;
+    const styleEl = document.documentElement.querySelector('.prism-styles') as HTMLElement;
     if (styleEl !== null) return styleEl;
 
     const newStyle = document.createElement('style');
     newStyle.className = 'prism-styles';
-    document.head.appendChild(newStyle);
+    document.documentElement.appendChild(newStyle);
     return newStyle;
   };
   const styleEl = getStyleEl();
