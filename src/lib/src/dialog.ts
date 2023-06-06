@@ -172,11 +172,17 @@ export function exioDialog(
     observe();
   });
   observe();
+  const dialogCancel = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  node.addEventListener('cancel', dialogCancel);
   return {
     ...updater(opts, node, dialogVars),
     ...destroyer(() => {
       s.remove();
       node.removeEventListener('animationstart', anistarted);
+      node.removeEventListener('cancel', dialogCancel);
       if (s2) s2.remove();
       s3.remove();
       observer.disconnect();
