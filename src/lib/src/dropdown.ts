@@ -189,14 +189,18 @@ export function exioDropdown(
       `;
       const dropdownRect = dropdown.getBoundingClientRect();
       // const windowDim = 2; Math.max(window.outerWidth, window.outerHeight);
-      const dbsHeight = Math.max(
-        dropdownRect.bottom - Math.min(rect.top, topVal),
-        height
+      const calcTop = Math.min(rect.top - containerY, topVal);
+      let dbsHeight = Math.min(
+        dropdownRect.bottom - calcTop,
+        height + rect.height
       );
+      if (isInDialog) {
+        dbsHeight = Math.min(dbsHeight, containerHeight - calcTop);
+      }
       dbs.innerHTML = `
         .${dbs.id} {
           position: fixed;
-          top: calc(${Math.min(rect.top, topVal)}px - ${borderWidth});
+          top: calc(${calcTop}px - ${borderWidth});
           left: calc(${leftVal}px - ${borderWidth});
           width: ${rect.width}px;
           height: ${dbsHeight}px;

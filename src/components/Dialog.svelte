@@ -9,6 +9,11 @@
   class="dialog"
   style="width: min(300px, 100%);"
 >
+  <!-- <select use:exioDropdown class="gray">
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+  </select> -->
   <h2>Hello World!</h2>
   <p>Exio uses the HTML dialog element.</p>
   <button
@@ -19,11 +24,6 @@
   >
     Close
   </button>
-  <!-- <select use:exioDropdown class="gray">
-    <option>Option 1</option>
-    <option>Option 2</option>
-    <option>Option 3</option>
-  </select> -->
 </dialog>
 
 <style>
