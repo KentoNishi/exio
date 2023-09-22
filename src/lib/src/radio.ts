@@ -65,6 +65,7 @@ export const exioRadio = (
         height: ${node.clientHeight}px;
         border-radius: 100%;
         transform: scale(0);
+        transform-origin: ${node.clientHeight / 2}px ${node.clientHeight / 2}px;
         background-color: var(--exio-radio-indicator-color);
         transition: transform var(--exio-standard-transition-duration);
         z-index: -1000;
