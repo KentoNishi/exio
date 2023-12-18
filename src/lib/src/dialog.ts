@@ -64,6 +64,9 @@ export function exioDialog(
   const component = exioComponent(node);
   let isOpen = Boolean(node.open);
   const s = styler(node);
+  const computed = getComputedStyle(node);
+  const topPadding = computed.getPropertyValue('padding-top');
+  const bottomPadding = computed.getPropertyValue('padding-bottom');
   s.innerHTML = `
     @keyframes exio-dialog-fade-in {
       0% {
@@ -96,9 +99,8 @@ export function exioDialog(
     .${s.id}:not([open]) {
       display: block;
       position: fixed;
-      top: 50%;
+      top: calc(25% - ${topPadding} - ${bottomPadding});
       transform-origin: top center;
-      transform: translateY(-50%);
     }
     .${s.id}[open] {
       transform-origin: center center;
