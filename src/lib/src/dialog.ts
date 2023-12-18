@@ -81,17 +81,18 @@ export function exioDialog(
     @keyframes exio-dialog-fade-out {
       0% {
         opacity: 1;
-        transform: scale(1) translateY(-50%);
+        transform: scale(1);
       }
       100% {
         opacity: 0;
-        transform: scale(0) translateY(-50%);
+        transform: scale(0);
       }
     }
     .${s.id} {
       border-radius: 0px;
       border: 0px solid transparent;
       z-index: 69420;
+      top: calc(0%);
     }
     .${s.id}::backdrop {
       background-color: transparent;
@@ -99,14 +100,12 @@ export function exioDialog(
     .${s.id}:not([open]) {
       display: block;
       position: fixed;
-      top: calc(25% - ${topPadding} - ${bottomPadding});
-      transform-origin: top center;
+      transform-origin: center center;
     }
     .${s.id}[open] {
       transform-origin: center center;
       animation-name: exio-dialog-fade-in;
       animation-duration: var(--exio-slow-transition-duration);
-      animation-fill-mode: forwards;
     }
   `;
   dialogPolyfill.registerDialog(node);
