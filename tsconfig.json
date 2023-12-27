@@ -17,7 +17,9 @@
     "checkJs": true,
     // "strict": true,
     "typeRoots": [
-    ]
+    ],
+    "ignoreDeprecations": "5.0",
+    "verbatimModuleSyntax": true,
   },
   "include": [
     "src/**/*.d.ts",
