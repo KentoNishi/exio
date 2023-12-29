@@ -18,8 +18,7 @@
     // "strict": true,
     "typeRoots": [
     ],
-    "ignoreDeprecations": "5.0",
-    "verbatimModuleSyntax": true,
+    "ignoreDeprecations": "5.0"
   },
   "include": [
     "src/**/*.d.ts",
