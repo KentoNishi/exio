@@ -18,7 +18,8 @@
     // "strict": true,
     "typeRoots": [
     ],
-    "ignoreDeprecations": "5.0"
+    "ignoreDeprecations": "5.0",
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.d.ts",
