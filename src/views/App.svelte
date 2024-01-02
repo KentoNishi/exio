@@ -9,10 +9,10 @@
     [key: string]: any;
   } = {
     '/': wrap({
-      asyncComponent: () => import('../components/Home.svelte'),
+      asyncComponent: () => import('../components/Home.svelte') as any,
     }),
     '/docs': wrap({
-      asyncComponent: () => import('../docs/Docs.svelte'),
+      asyncComponent: () => import('../docs/Docs.svelte') as any,
     }),
   };
   $: document.body.parentElement.style.setProperty('color-scheme', $dataTheme);
