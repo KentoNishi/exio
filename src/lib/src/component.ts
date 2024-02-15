@@ -69,7 +69,7 @@ export function exioComponent(
         /* standard transition duration */
         --exio-standard-transition-duration: 0.2s;
         /* shadow color for dropdowns and other floating elements */
-        --exio-shadow-color: rgba(128, 128, 128, 0.2);
+        --exio-shadow-color: rgba(220, 230, 230, 1);
         /* shadow size for dropdowns and other floating elements */
         --exio-shadow-size: 2px;
         /* color of switch background when selected */
@@ -99,6 +99,7 @@ export function exioComponent(
         --exio-switch-checked-fill-color: white;
         --exio-checkbox-checkmark-color: black;
         --exio-checkbox-checked-fill-color: white;
+        --exio-shadow-color: rgba(25, 25, 25, 1);
         --exio-slider-thumb-color: white;
         --exio-switch-thumb-color: white;
         --exio-radio-indicator-color: white;

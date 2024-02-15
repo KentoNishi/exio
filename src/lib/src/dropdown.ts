@@ -96,6 +96,7 @@ export function exioDropdown(
       top: 0,
       width: 0,
       height: 0,
+      right: 0,
     };
     const {
       left: containerX,
@@ -165,9 +166,10 @@ export function exioDropdown(
       });
       if (firstItem) firstItem.style.marginTop = topPadding;
       if (lastItem) lastItem.style.marginBottom = bottomPadding;
-      const { height, width, left } = isInitial
+      const { height, left, right } = isInitial
         ? initialBounds
         : dropdown.getBoundingClientRect();
+      const width = right - left;
       const isOverflowingY =
         height + rect.bottom - (isInDialog ? containerY : 0) >= containerHeight;
       const topVal = isOverflowingY
@@ -204,7 +206,7 @@ export function exioDropdown(
           left: calc(${leftVal}px - ${borderWidth});
           width: ${rect.width}px;
           height: ${dbsHeight}px;
-          z-index: 69419;
+          z-index: 69421;
           border: ${borderWidth} solid ${backdropColor};
           transition: opacity ${transitionDuration};
           touch-action: none;
@@ -218,9 +220,6 @@ export function exioDropdown(
         dbs.innerHTML += `
           .${ds.id}:focus ~ .${dbs.id} {
             opacity: 1;
-            touch-action: unset !important;
-            user-select: unset !important;
-            pointer-events: unset !important;
           }
         `;
       }, 0);
