@@ -202,10 +202,10 @@ export function exioDropdown(
       dbs.innerHTML = `
         .${dbs.id} {
           position: fixed;
-          top: calc(${calcTop}px - ${borderWidth});
-          left: calc(${leftVal}px - ${borderWidth});
-          width: ${rect.width}px;
-          height: ${dbsHeight}px;
+          top: calc(${calcTop}px - ${borderWidth} / 2);
+          left: calc(${leftVal}px - ${borderWidth} / 2);
+          width: calc(${rect.width}px - ${borderWidth} / 2);
+          height: calc(${dbsHeight}px - ${borderWidth} / 2);
           z-index: 69421;
           border: ${borderWidth} solid ${backdropColor};
           transition: opacity ${transitionDuration};
