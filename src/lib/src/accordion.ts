@@ -3,7 +3,7 @@ import type { ExioNode } from './base';
 import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
 import { createExioIconsFont } from './icon';
-import { isFirefox} from './consts';
+import { isFirefox } from './consts';
 
 export const accordionVars = {
   transitionDuration: {

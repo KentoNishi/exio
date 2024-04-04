@@ -1,6 +1,6 @@
 import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { isSafari} from './consts';
+import { isSafari } from './consts';
 import { exioComponent } from './component';
 
 export const sliderArgs = {

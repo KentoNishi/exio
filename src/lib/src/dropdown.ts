@@ -2,7 +2,7 @@ import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import { exioPointerEffect, pointerEffectVars } from './effects';
 import { exioComponent } from './component';
-import { isMobile} from './consts';
+import { isMobile } from './consts';
 
 export const dropdownVars = {
   backgroundColor: {
