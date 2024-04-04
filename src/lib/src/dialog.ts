@@ -2,7 +2,7 @@ import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
 import dialogPolyfill from 'dialog-polyfill';
 import { exioComponent } from './component';
-import { isFirefox } from './consts';
+import { isFirefox} from './consts';
 
 /**
  * HTMLDialogELement
@@ -82,11 +82,11 @@ export function exioDialog(
     @keyframes exio-dialog-fade-out {
       0% {
         opacity: 1;
-        transform: ${isFirefox ? 'translateY(-50%)' : ''} scale(1);
+        transform: ${isFirefox() ? 'translateY(-50%)' : ''} scale(1);
       }
       100% {
         opacity: 0;
-        transform: ${isFirefox ? 'translateY(-50%)' : ''} scale(0);
+        transform: ${isFirefox() ? 'translateY(-50%)' : ''} scale(0);
       }
     }
     .${s.id} {
@@ -101,7 +101,7 @@ export function exioDialog(
     .${s.id}:not([open]) {
       display: block;
       position: fixed;
-      ${isFirefox ? 'top: calc(50%);' : ''}
+      ${isFirefox() ? 'top: calc(50%);' : ''}
       transform-origin: center center;
     }
     .${s.id}[open] {

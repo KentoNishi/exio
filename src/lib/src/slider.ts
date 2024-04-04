@@ -1,6 +1,6 @@
 import { destroyer, styler, updater } from './base';
 import type { ExioNode } from './base';
-import { isSafari } from './consts';
+import { isSafari} from './consts';
 import { exioComponent } from './component';
 
 export const sliderArgs = {
@@ -45,7 +45,7 @@ export function exioSlider(
     height: var(--exio-slider-thumb-size);
     background-color: var(--exio-slider-thumb-color);
     transition:
-      ${isSafari ? 'box-shadow' : 'outline'}
+      ${isSafari() ? 'box-shadow' : 'outline'}
       var(--exio-standard-transition-duration);
     border: 0px solid transparent;
     box-sizing: border-box;
@@ -55,10 +55,10 @@ export function exioSlider(
     cursor: grab;
     transform: translateZ(0);
   `;
-  const outline1 = isSafari
+  const outline1 = isSafari()
     ? 'box-shadow: 0px 0px 0px var(--exio-slider-thumb-hover-outline-size) var(--exio-hover-body-color);'
     : 'outline: var(--exio-slider-thumb-hover-outline-size) solid var(--exio-hover-body-color);';
-  const box2 = isSafari
+  const box2 = isSafari()
     ? 'box-shadow: 0px 0px 0px var(--exio-slider-thumb-grab-outline-size) var(--exio-hover-body-color);'
     : 'outline: var(--exio-slider-thumb-grab-outline-size) solid var(--exio-hover-body-color);';
   const outline2 = `
