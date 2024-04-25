@@ -182,12 +182,16 @@ export function exioDropdown(
         : left - containerX * 2;
       ds.innerHTML += `
         .${ds.id} {
-          top: ${topVal}px;
-          left: ${leftVal}px;
           overflow: auto;
           max-width: ${containerWidth}px;
           max-height: ${containerHeight}px;
         }
+        ${isInDialog ? '' : `
+          .${ds.id} {
+            top: ${topVal}px;
+            left: ${leftVal}px;
+          }
+        `}
       `;
       const dropdownRect = dropdown.getBoundingClientRect();
       // const windowDim = 2; Math.max(window.outerWidth, window.outerHeight);
