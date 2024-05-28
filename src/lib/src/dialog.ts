@@ -138,7 +138,10 @@ export function exioDialog(
     if (event.animationName !== 'exio-dialog-fade-out') return;
     s3.innerHTML = `
       .${s3.id} {
-        opacity: 0;
+        opacity: 0 !important;
+        animation-play-state: paused;
+        pointer-events: none;
+        touch-action: none;
       }
     `;
   };
