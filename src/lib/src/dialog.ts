@@ -129,22 +129,31 @@ export function exioDialog(
         animation-name: exio-dialog-fade-out;
         animation-duration: var(--exio-slow-transition-duration);
         animation-fill-mode: forwards;
-        opacity: 0;
       }
     `;
     node.removeEventListener('animationstart', anistarted);
   };
+  const s3 = styler(node);
+  const aniended = (event: AnimationEvent) => {
+    if (event.animationName !== 'exio-dialog-fade-out') return;
+    s3.innerHTML = `
+      .${s3.id} {
+        opacity: 0;
+      }
+    `;
+  };
   node.addEventListener('animationstart', anistarted, { passive: true });
+  node.addEventListener('animationend', aniended, { passive: true });
   const backdrop = document.createElement('div');
-  const s3 = styler(backdrop);
+  const s4 = styler(backdrop);
   const updateBackDrop = () => {
     const computed = getComputedStyle(node);
     const transitionDuration = computed.getPropertyValue(
       '--exio-slow-transition-duration'
     );
     const backdropColor = computed.getPropertyValue('--exio-backdrop-color');
-    s3.innerHTML = `
-      .${s3.id} {
+    s4.innerHTML = `
+      .${s4.id} {
         position: fixed;
         top: 0px;
         left: 0px;
@@ -173,6 +182,7 @@ export function exioDialog(
     node.close();
     updateBackDrop();
     if (isOpen) {
+      s3.innerHTML = '';
       node.showModal();
     }
     observe();
@@ -188,9 +198,11 @@ export function exioDialog(
     ...destroyer(() => {
       s.remove();
       node.removeEventListener('animationstart', anistarted);
+      node.removeEventListener('animationend', aniended);
       node.removeEventListener('cancel', dialogCancel);
       if (s2) s2.remove();
       s3.remove();
+      s4.remove();
       observer.disconnect();
       component.destroy();
     }),
