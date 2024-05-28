@@ -129,6 +129,7 @@ export function exioDialog(
         animation-name: exio-dialog-fade-out;
         animation-duration: var(--exio-slow-transition-duration);
         animation-fill-mode: forwards;
+        opacity: 0;
       }
     `;
     node.removeEventListener('animationstart', anistarted);
