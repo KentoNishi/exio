@@ -1,8 +1,19 @@
 # exio
 
-A framework-agnostic UI library that extends native HTML elements! Compatible with React, Vue, Svelte, vanilla TS/JS, etc.
+A framework-agnostic UI library which extends native HTML elements.
 
-[Homepage](https://kentonishi.github.io/exio/) / [Docs](https://kentonishi.github.io/exio#/docs)
+[Homepage](https://kentonishi.github.io/exio/) / [Examples](https://kentonishi.github.io/exio#/docs)
+
+[![NPM Version](https://img.shields.io/npm/v/exio.svg?style=flat)]()
+[![NPM Downloads](https://img.shields.io/npm/dt/exio.svg?style=flat)]()
+
+[![NPM](https://nodei.co/npm/exio.png?downloads=true)](https://www.npmjs.com/package/exio)
+
+## About
+
+Exio directly styles HTML elements like `<button>`, `<input>`, and `<dialog>`, allowing for easy DOM interactions and custom styles. Svelte directive bindings are also provided for convenience.
+
+Exio is primarily intended for use in my own side projects, and it's not well-documented (any help is appreciated). The code is also not formally nor consistently maintained. The purpose of open-sourcing this repo is to provide contributors of projects using exio (i.e. [YtcFilter](https://github.com/LiveTL/ytcfilter)) with a reference for how to use the library.
 
 ## What's Included
 

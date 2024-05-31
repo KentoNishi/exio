@@ -68,6 +68,7 @@
     <div class="content">
       <div class="title">{$_('about.title')}</div>
       <div class="desc">{$_('about.description')}</div>
+      <div class="desc">{$_('about.warning')}</div>
     </div>
   </div>
   <div class="section">

@@ -25,6 +25,7 @@ jobs:
           yarn build
       - name: Publish
         run: |
+          cp ../../README.md dist
           npm publish dist --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

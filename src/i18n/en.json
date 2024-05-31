@@ -5,12 +5,13 @@
     "buttons": {
       "npm": "npm",
       "github": "GitHub",
-      "docs": "Documentation"
+      "docs": "Examples"
     }
   },
   "about": {
     "title": "What is Exio?",
-    "description": "Exio is a framework-agnostic UI library that extends native HTML elements. It's compatible with React, Vue, Svelte, vanilla TS/JS, and more. Unlike other libraries which provide framework-specific components, Exio directly styles HTML elements like <button>, <input>, and <dialog>, allowing for easy DOM interactions and custom styles."
+    "description": "Exio is a framework-agnostic UI library which extends native HTML elements. Exio directly styles HTML elements like <button>, <input>, and <dialog>, allowing for easy DOM interactions and custom styles. Svelte directive bindings are also provided for convenience.",
+    "warning": "Exio is primarily intended for use in my own side projects, and it's not well-documented (any help is appreciated). The code is also not formally nor consistently maintained. The purpose of open-sourcing this repo is to provide contributors of projects using exio (i.e. YtcFilter) with a reference for how to use the library."
   },
   "demo": {
     "title": "Demo"
