@@ -1,6 +1,6 @@
 {
   "name": "exio",
-  "version": "0.6.51",
+  "version": "0.6.54",
   "description": "A framework-agnostic UI library which extends native HTML elements.",
   "repository": "https://github.com/KentoNishi/exio",
   "license": "MIT",
